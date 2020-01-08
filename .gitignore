@@ -7,3 +7,7 @@ bin
 .jar
 !gradle-wrapper.jar
 .swp
+
+# MB: pour Android
+local.properties
+gradle.properties
