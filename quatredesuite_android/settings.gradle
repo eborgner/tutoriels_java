@@ -1,2 +1,6 @@
-include ':app'
 rootProject.name='QuatreDeSuite'
+
+include ':app'
+
+include ':commun'
+project(':commun').projectDir = file('../commun')
