@@ -1,13 +1,19 @@
+# Gradle
 .gradle
 build
 bin
+*.jar
+!gradle-wrapper.jar
+
+# vim
+*.swp
+
+# Eclipse
 .settings
 .classpath
 .project
-.jar
-!gradle-wrapper.jar
-.swp
 
-# MB: pour Android
+# AndroidStudio
 local.properties
 gradle.properties
+*.iml
