@@ -1,0 +1,9 @@
+.gradle
+build
+bin
+.settings
+.classpath
+.project
+.jar
+!gradle-wrapper.jar
+.swp
