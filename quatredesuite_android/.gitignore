@@ -1,6 +1,5 @@
 # MB: mon gitignore
 .idea
-gradle-wrapper.properties
 local.properties
 gradle.properties
 
