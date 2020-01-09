@@ -9,6 +9,9 @@
 .espaceVertical {
   -fx-padding: 2em;
 }
+.espaceHorizontal {
+  -fx-padding: 2em;
+}
 .bouton {
   -fx-padding: 2em;
   -fx-border-style: solid;

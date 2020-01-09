@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
+
+        <HBox alignment="center" styleClass="conteneurHorizontal">
+
+        	<VBox alignment="center">
+
+        		<HBox alignment="center" styleClass="conteneurHorizontal">
+        			<Text styleClass="texte" text="%hauteur"/>
+        			<HBox styleClass="espaceHorizontal"/>
+        			<TextField styleClass="champTexte"/>
+				</HBox>
+
+				<VBox styleClass="espaceVertical"/>
+
+        		<HBox alignment="center" styleClass="conteneurHorizontal">
+        			<Text styleClass="texte" text="%largeur"/>
+        			<HBox styleClass="espaceHorizontal"/>
+        			<TextField styleClass="champTexte"/>
+				</HBox>
+
+				<VBox styleClass="espaceVertical"/>
+
+        		<HBox alignment="center_right" styleClass="conteneurHorizontal">
+        			<Button styleClass="bouton" text="%ok"/>
+				</HBox>
+
+        	</VBox>
+
+
+
+		</HBox>
+
+
+</VBox>

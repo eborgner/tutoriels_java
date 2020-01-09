@@ -1,0 +1,11 @@
+.texte {
+  -fx-padding: 2em;
+  -fx-margin-right: 2em;
+  -fx-font: 2em Times;
+  -fx-font-color: #305ae1;
+}
+.champTexte {
+  -fx-font: 2em Times;
+  -fx-font-color: #305ae1;
+  -fx-pref-width: 4em;
+}
