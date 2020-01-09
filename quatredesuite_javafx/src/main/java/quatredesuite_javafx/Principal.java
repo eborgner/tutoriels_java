@@ -1,7 +1,8 @@
 package quatredesuite_javafx;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
-import commun_javafx.ChargeurDeVueFX;
+import commun_javafx.ChargeurDeVue;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -24,11 +25,12 @@ public class Principal extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		ChargeurDeVueFX chargeur = new ChargeurDeVueFX("/fxml/principal.xml", 
-				400, 
-				700);
+		ChargeurDeVue chargeur = new ChargeurDeVue("/fxml/principal.xml");
 		
 		Scene scene = chargeur.getScene();
+		
+		DoitEtre.nonNul(scene);
+
 		fenetrePrincipale.setScene(scene);
 		fenetrePrincipale.show();
 

@@ -1,5 +1,6 @@
 package commun_javafx;
 
+import java.io.IOException;
 import java.net.URL;
 
 import commun.debogage.DoitEtre;
@@ -9,28 +10,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class ChargeurDeVueFX {
+public class ChargeurDeVue {
 	
 	private String cheminFxml;
-	private int largeur, hauteur;
+	private int largeur = Constantes.LARGEUR_PAR_DEFAUT;
+	private int hauteur = Constantes.HAUTEUR_PAR_DEFAUT;
 	private FXMLLoader loader;
 	private Parent parent;
 	private Scene scene;
-
 	
-	public ChargeurDeVueFX(String cheminFxml, 
-			int largeur,
-			int hauteur) {
-
+	public ChargeurDeVue(String cheminFxml) {
 		J.appel(this);
 		
+		DoitEtre.nonNul(cheminFxml);
+		
 		this.cheminFxml = cheminFxml;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
 		
 		creerLoader();
 		chargerParent();
-		chargerScene();
+		creerScene();
 	}
 	
 	public Scene getScene() {
@@ -45,10 +43,8 @@ public class ChargeurDeVueFX {
 		
 		URL fichierFxml = getFichierFxml();
 		
-		DoitEtre.nonNul(fichierFxml);
-		
 		loader = new FXMLLoader(fichierFxml, null);
-
+		
 		DoitEtre.nonNul(loader);
 
 	}
@@ -56,7 +52,7 @@ public class ChargeurDeVueFX {
 	private URL getFichierFxml() {
 		J.appel(this);
 
-		URL fichierFxml = ChargeurDeVueFX.class.getResource(cheminFxml);
+		URL fichierFxml = ChargeurDeVue.class.getResource(cheminFxml);
 
 		DoitEtre.nonNul(fichierFxml, "cheminFxml non-trouvé '" + cheminFxml + "'");
 
@@ -70,14 +66,16 @@ public class ChargeurDeVueFX {
 
 			parent = loader.load();
 
-		} catch (Exception e) {
+		} catch (IOException e) {
 			
-			Erreur.fatale("impossible de charger la scène", e);
+			Erreur.fatale("impossible de charger le parent", e);
 
 		}
+
+		DoitEtre.nonNul(parent);
 	}
 
-	private void chargerScene() {
+	private void creerScene() {
 		J.appel(this);
 		
 		scene = new Scene(parent, largeur, hauteur);
@@ -85,6 +83,7 @@ public class ChargeurDeVueFX {
 	
 	public Parent getParent() {
 		J.appel(this);
+
 		DoitEtre.nonNul(parent);
 
 		return parent;
