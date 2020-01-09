@@ -1,6 +1,6 @@
 package commun_javafx;
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -12,17 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class ChargeurDeVueFX {
+public class ChargeurDeVue {
 	
 	private String cheminFxml;
 	private String cheminChaines;
-	private int largeur, hauteur;
 	private String[] cheminsCss;
 	private FXMLLoader loader;
 	private Parent parent;
-	private Scene scene;
 
-	public ChargeurDeVueFX(String cheminFxml, String cheminChaines, String... cheminsCss) {
+	public ChargeurDeVue(String cheminFxml, String cheminChaines, String... cheminsCss) {
 
 		J.appel(this);
 		
@@ -35,30 +33,12 @@ public class ChargeurDeVueFX {
 		ajouterCss();
 	}
 	
-	public ChargeurDeVueFX(String cheminFxml, 
-			String cheminChaines,
-			int largeur,
-			int hauteur,
-			String... cheminsCss) {
-
+	public Scene nouvelleScene(int largeur, int hauteur) {
 		J.appel(this);
 		
-		this.cheminFxml = cheminFxml;
-		this.cheminChaines = cheminChaines;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
-		this.cheminsCss = cheminsCss;
-		
-		creerLoader();
-		chargerParent();
-		ajouterCss();
-		chargerScene();
-	}
-	
-	public Scene getScene() {
-		J.appel(this);
+		DoitEtre.nonNul(parent);
 
-		return scene;
+		return new Scene(parent, largeur, hauteur);
 	}
 
 
@@ -99,7 +79,7 @@ public class ChargeurDeVueFX {
 	private URL getFichierFxml() {
 		J.appel(this);
 
-		URL fichierFxml = ChargeurDeVueFX.class.getResource(cheminFxml);
+		URL fichierFxml = ChargeurDeVue.class.getResource(cheminFxml);
 
 		DoitEtre.nonNul(fichierFxml, "cheminFxml non-trouvé '" + cheminFxml + "'");
 
@@ -113,26 +93,22 @@ public class ChargeurDeVueFX {
 
 			parent = loader.load();
 
-		} catch (Exception e) {
+		} catch (IOException e) {
 			
-			Erreur.fatale("impossible de charger la scène", e);
+			Erreur.fatale("impossible de charger le parent", e);
 
 		}
+
+		DoitEtre.nonNul(parent);
 	}
 
-	private void chargerScene() {
-		J.appel(this);
-		
-		scene = new Scene(parent, largeur, hauteur);
-	}
-	
 	private void ajouterCss() {
 		J.appel(this);
 		DoitEtre.nonNul(cheminsCss);
 
 		for(String cheminCss : cheminsCss) {
 
-			URL fichierCss = ChargeurDeVueFX.class.getResource(cheminCss);
+			URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
 			parent.getStylesheets().add(fichierCss.toExternalForm());
 
 		}
@@ -140,6 +116,7 @@ public class ChargeurDeVueFX {
 
 	public Parent getParent() {
 		J.appel(this);
+
 		DoitEtre.nonNul(parent);
 
 		return parent;

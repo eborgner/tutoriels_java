@@ -24,7 +24,7 @@ save_dir
 
 cd $root_dir
 
-./gradlew quatredesuite -Pjoueur=joueur01
+./gradlew joueur01 -Pjoueur=joueur01
 
 restore_dir
 
