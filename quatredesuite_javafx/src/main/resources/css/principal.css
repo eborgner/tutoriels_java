@@ -1,7 +1,25 @@
-.fenetrePrincipale {
-  -fx-background-color: #f5f5f5;
+.conteneurVertical {
+  -fx-border-style: solid;
+  -fx-border-width: 5px;
+  -fx-border-color: #161620;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
+  -fx-background-color: #305ae1;
+}
+.conteneurHorizontal {
+  -fx-padding: 10px;
+  -fx-margin: 10px;
+  -fx-hgap: 10px;
+  -fx-border-style: solid;
+  -fx-border-width: 5px;
+  -fx-border-color: #95c5db;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-background-color: #bcced6;
 }
 .texteBonjour {
-  -fx-background-color: #305ae1;
-  -fx-color: #161620;
+  -fx-font: 30px Courrier;
+  -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #161620 0%, #305ae1 50%);
+  -fx-stroke: black;
+  -fx-stroke-width: 1;
 }

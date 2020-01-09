@@ -1,10 +1,28 @@
 @import "definitions";
 
-.fenetrePrincipale{
-    -fx-background-color:@fondPale;
+.conteneurVertical{
+	-fx-border-style: solid;
+	-fx-border-width: 5px;
+	-fx-border-color:@fonce1;
+	-fx-border-radius:@grosCoin;
+	-fx-background-radius:@grosCoin;
+	-fx-background-color:@fonce2;
+}
+
+.conteneurHorizontal{
+	-fx-padding:@petitEspace;
+	-fx-border-style: solid;
+	-fx-border-width: 5px;
+	-fx-border-color:@pale1;
+	-fx-border-radius:@petitCoin;
+	-fx-background-radius:@petitCoin;
+	-fx-background-color:@pale2;
 }
 
 .texteBonjour{
-    -fx-background-color:@fondFonce;
-    -fx-color:@texteFonce;
+	-fx-font: 30px Courrier;
+	-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, @fonce1 0%, @fonce2 50%);
+	-fx-stroke: black;
+	-fx-stroke-width: 1;
 }
+

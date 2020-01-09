@@ -4,8 +4,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="fenetrePrincipale">
-        <HBox alignment="center">
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
+        <HBox alignment="center" styleClass="conteneurHorizontal">
         	<Text text="%bonjour" styleClass="texteBonjour"/>
 		</HBox>
 </VBox>

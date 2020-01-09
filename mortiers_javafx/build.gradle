@@ -23,13 +23,13 @@ dependencies {
     compile project(':commun_javafx')
 }
 
-task(mortiersFx, dependsOn: 'classes', type: JavaExec) {
+task(mortiers, dependsOn: 'classes', type: JavaExec) {
    main = 'mortiers_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=fr')
 }
 
-task(mortiersFxEn, dependsOn: 'classes', type: JavaExec) {
+task(mortiersEn, dependsOn: 'classes', type: JavaExec) {
    main = 'mortiers_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=en')
