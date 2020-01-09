@@ -25,10 +25,8 @@ public class Principal extends Application {
 		J.appel(this);
 		
 		ChargeurDeVueFX chargeur = new ChargeurDeVueFX("/fxml/principal.xml", 
-				"chaines.Principal", 
 				400, 
-				700, 
-				"/css/principal.css");
+				700);
 		
 		Scene scene = chargeur.getScene();
 		fenetrePrincipale.setScene(scene);

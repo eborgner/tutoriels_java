@@ -1,9 +1,6 @@
 package commun_javafx;
 
-
 import java.net.URL;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.Erreur;
@@ -15,43 +12,24 @@ import javafx.scene.Scene;
 public class ChargeurDeVueFX {
 	
 	private String cheminFxml;
-	private String cheminChaines;
 	private int largeur, hauteur;
-	private String[] cheminsCss;
 	private FXMLLoader loader;
 	private Parent parent;
 	private Scene scene;
 
-	public ChargeurDeVueFX(String cheminFxml, String cheminChaines, String... cheminsCss) {
-
-		J.appel(this);
-		
-		this.cheminFxml = cheminFxml;
-		this.cheminChaines = cheminChaines;
-		this.cheminsCss = cheminsCss;
-		
-		creerLoader();
-		chargerParent();
-		ajouterCss();
-	}
 	
 	public ChargeurDeVueFX(String cheminFxml, 
-			String cheminChaines,
 			int largeur,
-			int hauteur,
-			String... cheminsCss) {
+			int hauteur) {
 
 		J.appel(this);
 		
 		this.cheminFxml = cheminFxml;
-		this.cheminChaines = cheminChaines;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		this.cheminsCss = cheminsCss;
 		
 		creerLoader();
 		chargerParent();
-		ajouterCss();
 		chargerScene();
 	}
 	
@@ -67,33 +45,12 @@ public class ChargeurDeVueFX {
 		
 		URL fichierFxml = getFichierFxml();
 		
-		ResourceBundle chaines = getResourceBundle();
-
 		DoitEtre.nonNul(fichierFxml);
-		DoitEtre.nonNul(chaines);
 		
-		loader = new FXMLLoader(fichierFxml, chaines);
-		
+		loader = new FXMLLoader(fichierFxml, null);
+
 		DoitEtre.nonNul(loader);
 
-	}
-
-	private ResourceBundle getResourceBundle() {
-		J.appel(this);
-
-		ResourceBundle chaines = null;
-
-		try {
-
-			chaines = ResourceBundle.getBundle(cheminChaines);
-
-		}catch(MissingResourceException e) {
-			
-			Erreur.fatale("cheminChaines non-trouvé '" + cheminChaines + "'", e);
-			
-		}
-
-		return chaines;
 	}
 
 	private URL getFichierFxml() {
@@ -126,18 +83,6 @@ public class ChargeurDeVueFX {
 		scene = new Scene(parent, largeur, hauteur);
 	}
 	
-	private void ajouterCss() {
-		J.appel(this);
-		DoitEtre.nonNul(cheminsCss);
-
-		for(String cheminCss : cheminsCss) {
-
-			URL fichierCss = ChargeurDeVueFX.class.getResource(cheminCss);
-			parent.getStylesheets().add(fichierCss.toExternalForm());
-
-		}
-	}
-
 	public Parent getParent() {
 		J.appel(this);
 		DoitEtre.nonNul(parent);
