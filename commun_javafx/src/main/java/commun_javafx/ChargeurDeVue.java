@@ -73,11 +73,4 @@ public class ChargeurDeVue {
 		DoitEtre.nonNul(parent);
 	}
 
-	public Parent getParent() {
-		J.appel(this);
-
-		DoitEtre.nonNul(parent);
-
-		return parent;
-	}
 }
