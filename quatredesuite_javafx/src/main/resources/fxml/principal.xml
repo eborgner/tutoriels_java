@@ -3,9 +3,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
+
         <HBox alignment="center" styleClass="conteneurHorizontal">
-        	<Text text="%bonjour" styleClass="texteBonjour"/>
+        	<Button styleClass="bouton" text="%parametres"/>
 		</HBox>
+
+		<VBox styleClass="espaceVertical"/>
+
+        <HBox alignment="center" styleClass="conteneurHorizontal">
+        	<Button styleClass="bouton" text="%nouvellePartie"/>
+		</HBox>
+
 </VBox>

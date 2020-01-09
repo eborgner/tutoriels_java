@@ -6,7 +6,10 @@
   -fx-background-radius: 4em;
   -fx-background-color: #305ae1;
 }
-.conteneurHorizontal {
+.espaceVertical {
+  -fx-padding: 2em;
+}
+.bouton {
   -fx-padding: 2em;
   -fx-border-style: solid;
   -fx-border-width: 5px;
@@ -14,10 +17,11 @@
   -fx-border-radius: 2em;
   -fx-background-radius: 2em;
   -fx-background-color: #bcced6;
-}
-.texteBonjour {
   -fx-font: 4em Courrier;
-  -fx-fill: linear-gradient(from 0% 100% to 100% 100%, repeat, #161620 0%, #305ae1 100%);
-  -fx-stroke: black;
-  -fx-stroke-width: 1;
+  -fx-background-color: linear-gradient(from 100% 0% to 100% 100%, repeat, #95c5db 50%, #bcced6 100%);
+  -fx-effect: dropshadow(three-pass-box, #161620, 4em, 0, 0, 0);
+}
+.bouton:pressed {
+  -fx-border-color: #161620;
+  -fx-background-color: #305ae1;
 }
