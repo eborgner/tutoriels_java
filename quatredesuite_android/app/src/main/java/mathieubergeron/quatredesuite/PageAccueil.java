@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import commun.debogage.J;
+import commun.systeme.Systeme;
+import commun_android.Initialisateur;
 
 public class PageAccueil extends AppCompatActivity {
 
     static{
 
-        J.initialiser(J.Contexte.ANDROID);
+        Initialisateur.initialiser();
 
     }
 
@@ -21,5 +23,7 @@ public class PageAccueil extends AppCompatActivity {
         J.appel(this);
 
         setContentView(R.layout.page_accueil);
+
+        Systeme.quitter();
     }
 }

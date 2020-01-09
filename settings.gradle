@@ -2,9 +2,11 @@ rootProject.name = 'mathieubergeron'
 
 include 'commun'
 include 'commun_javafx'
+include 'commun_serveur'
+include 'commun_android'
+
 include 'quatredesuite_javafx'
 include 'mortiers_javafx'
 
-include 'serveur_commun'
 
 
