@@ -13,11 +13,8 @@ import javafx.scene.Scene;
 public class ChargeurDeVue {
 	
 	private String cheminFxml;
-	private int largeur = Constantes.LARGEUR_PAR_DEFAUT;
-	private int hauteur = Constantes.HAUTEUR_PAR_DEFAUT;
 	private FXMLLoader loader;
 	private Parent parent;
-	private Scene scene;
 	
 	public ChargeurDeVue(String cheminFxml) {
 		J.appel(this);
@@ -28,13 +25,14 @@ public class ChargeurDeVue {
 		
 		creerLoader();
 		chargerParent();
-		creerScene();
 	}
 	
-	public Scene getScene() {
+	public Scene nouvelleScene(int largeur, int hauteur) {
 		J.appel(this);
-
-		return scene;
+		
+		DoitEtre.nonNul(parent);
+		
+		return new Scene(parent, largeur, hauteur);
 	}
 
 
@@ -75,12 +73,6 @@ public class ChargeurDeVue {
 		DoitEtre.nonNul(parent);
 	}
 
-	private void creerScene() {
-		J.appel(this);
-		
-		scene = new Scene(parent, largeur, hauteur);
-	}
-	
 	public Parent getParent() {
 		J.appel(this);
 

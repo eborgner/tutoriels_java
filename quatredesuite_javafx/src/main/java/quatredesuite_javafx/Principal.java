@@ -3,6 +3,7 @@ package quatredesuite_javafx;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_javafx.ChargeurDeVue;
+import commun_javafx.Constantes;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,7 +28,7 @@ public class Principal extends Application {
 		
 		ChargeurDeVue chargeur = new ChargeurDeVue("/fxml/principal.xml");
 		
-		Scene scene = chargeur.getScene();
+		Scene scene = chargeur.nouvelleScene(Constantes.LARGEUR_PAR_DEFAUT, Constantes.HAUTEUR_PAR_DEFAUT);
 		
 		DoitEtre.nonNul(scene);
 
