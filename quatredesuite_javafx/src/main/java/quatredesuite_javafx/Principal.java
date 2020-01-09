@@ -3,7 +3,8 @@ package quatredesuite_javafx;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_javafx.ChargeurDeVue;
-import commun_javafx.Constantes;
+import static commun_javafx.Constantes.*;
+import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -26,18 +27,25 @@ public class Principal extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		ChargeurDeVue chargeur = new ChargeurDeVue("/fxml/principal.xml",
-				"chaines.Principal",
-				"/css/principal.css");
-
-		Scene scene = chargeur.nouvelleScene(Constantes.LARGEUR_PAR_DEFAUT, Constantes.HAUTEUR_PAR_DEFAUT);
-
-		DoitEtre.nonNul(scene);
+		Scene scene = creerScenePrincipale();
 
 		fenetrePrincipale.setScene(scene);
 
 		fenetrePrincipale.show();
 
+	}
+
+	private Scene creerScenePrincipale() {
+		J.appel(this);
+
+		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PRINCIPAL_FXML,
+				CHEMIN_PRINCIPAL_CHAINES,
+				CHEMIN_PRINCIPAL_CSS);
+
+		Scene scene = chargeur.nouvelleScene(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
+
+		DoitEtre.nonNul(scene);
+		return scene;
 	}
 	
 	@Override
