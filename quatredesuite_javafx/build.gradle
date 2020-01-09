@@ -24,13 +24,13 @@ dependencies {
 
 }
 
-task(quatredesuite, dependsOn: 'classes', type: JavaExec) {
+task(joueur01, dependsOn: 'classes', type: JavaExec) {
    main = 'quatredesuite_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=fr')
 }
 
-task(quatredesuiteEn, dependsOn: 'classes', type: JavaExec) {
+task(joueur01En, dependsOn: 'classes', type: JavaExec) {
    main = 'quatredesuite_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=en')
