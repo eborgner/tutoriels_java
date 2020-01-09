@@ -19,9 +19,9 @@ repositories {
 
 dependencies {
 
-    // Atelier01
     compile project(':commun')
     compile project(':commun_javafx')
+    compile project(':quatredesuite_commun')
 
 }
 

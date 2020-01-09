@@ -5,3 +5,6 @@ project(':commun').projectDir = file('../commun')
 
 include ':commun_javafx'
 project(':commun_javafx').projectDir = file('../commun_javafx')
+
+include ':quatredesuite_commun'
+project(':quatredesuite_commun').projectDir = file('../quatredesuite_commun')
