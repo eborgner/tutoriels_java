@@ -17,7 +17,7 @@
 }
 .texteBonjour {
   -fx-font: 4em Courrier;
-  -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, #161620 0%, #305ae1 50%);
+  -fx-fill: linear-gradient(from 0% 100% to 100% 100%, repeat, #161620 0%, #305ae1 100%);
   -fx-stroke: black;
   -fx-stroke-width: 1;
 }
