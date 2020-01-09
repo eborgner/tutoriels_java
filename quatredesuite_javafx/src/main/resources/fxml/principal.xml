@@ -9,7 +9,7 @@
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
 
         <HBox alignment="center" styleClass="conteneurHorizontal">
-        	<BoutonAnime width="200" height="75" />
+        	<BoutonAnime width="200" height="75" texte="%parametres"/>
 		</HBox>
 
 		<VBox styleClass="espaceVertical"/>

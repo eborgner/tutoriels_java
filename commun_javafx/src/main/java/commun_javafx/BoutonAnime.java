@@ -1,5 +1,6 @@
 package commun_javafx;
 
+
 import commun.debogage.J;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -11,15 +12,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.animation.AnimationTimer;
 
+import javafx.beans.NamedArg;
+
+
 public class BoutonAnime extends Canvas {
 	
 	private GraphicsContext gc;
-	
-	public BoutonAnime(){
+	private String texte;
+
+	public BoutonAnime(@NamedArg("texte") String texte){
 		super();
 		J.appel(this);
 		
 		this.gc = getGraphicsContext2D();
+		this.texte = texte;
 		
 		Platform.runLater(new Runnable() {
 
@@ -66,10 +72,11 @@ public class BoutonAnime extends Canvas {
 		
 	}
 	
+	
 	private void animerDessinInitial(double largeur, double hauteur) {
 		J.appel(this);
 		
-		AnimationInitiale animationInitiale = new AnimationInitiale(gc, largeur, hauteur);
+		AnimationInitiale animationInitiale = new AnimationInitiale(gc, largeur, hauteur, texte);
 		
 		animationInitiale.start();
 
@@ -79,17 +86,20 @@ public class BoutonAnime extends Canvas {
 		
 		private GraphicsContext gc;
 		private double largeur, hauteur;
+		private String texte;
 		
 		private long debutNanoSecondes = -1;
 		private long dureeNanoSecondes = 300000000;
 
-		AnimationInitiale(GraphicsContext gc, double largeur, double hauteur){
+
+		AnimationInitiale(GraphicsContext gc, double largeur, double hauteur, String texte){
 			super();
 			J.appel(this);
 			
 			this.gc = gc;
 			this.largeur = largeur;
 			this.hauteur = hauteur;
+			this.texte = texte;
 			
 			gc.setFill(Color.BLACK);
 			
@@ -115,13 +125,16 @@ public class BoutonAnime extends Canvas {
 			
 				double largeurCourante = proportionCourante * largeur;
 				double hauteurCourante = proportionCourante * hauteur;
-			
+
+				gc.setFill(Color.BLACK);
 				gc.fillRect(0, 0, largeurCourante, hauteurCourante);
-			
+
+				gc.setFill(Color.WHITE);
+				gc.fillText(texte, 0, 10);
 				
 			}
 		}
 	}
-	
+
 
 }
