@@ -6,7 +6,7 @@ public class Constantes {
 		PRINCIPALE, PARAMETRES;
 	}
 
-	public static final Vue VUE_COURANTE = Vue.PARAMETRES; 
+	public static final Vue VUE_COURANTE = Vue.PRINCIPALE; 
 
 	public static final String CHEMIN_PRINCIPAL_FXML = "/fxml/principal.xml";
 	public static final String CHEMIN_PRINCIPAL_CSS = "/css/principal.css";

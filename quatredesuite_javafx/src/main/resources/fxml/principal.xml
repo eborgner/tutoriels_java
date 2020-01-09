@@ -4,11 +4,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
+<?import commun_javafx.BoutonAnime?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
 
         <HBox alignment="center" styleClass="conteneurHorizontal">
-        	<Button styleClass="bouton" text="%parametres"/>
+        	<BoutonAnime width="200" height="75" />
 		</HBox>
 
 		<VBox styleClass="espaceVertical"/>
