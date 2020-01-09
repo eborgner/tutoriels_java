@@ -9,6 +9,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.animation.AnimationTimer;
 
@@ -64,7 +65,6 @@ public class BoutonAnime extends Canvas {
 			public void handle(Event event) {
 				J.appel(this);
 				
-				gc.clearRect(0, 0, getWidth(), getHeight());
 				animerDessinInitial(getWidth(), getHeight());
 
 			}
@@ -77,7 +77,6 @@ public class BoutonAnime extends Canvas {
 		J.appel(this);
 		
 		AnimationInitiale animationInitiale = new AnimationInitiale(gc, largeur, hauteur, texte);
-		
 		animationInitiale.start();
 
 	}
@@ -101,8 +100,6 @@ public class BoutonAnime extends Canvas {
 			this.hauteur = hauteur;
 			this.texte = texte;
 			
-			gc.setFill(Color.BLACK);
-			
 		}
 		
 		
@@ -125,12 +122,18 @@ public class BoutonAnime extends Canvas {
 			
 				double largeurCourante = proportionCourante * largeur;
 				double hauteurCourante = proportionCourante * hauteur;
+				
+				double hauteurPolice = proportionCourante * hauteur * 0.5;
+
+				gc.clearRect(0, 0, largeur, hauteur);
 
 				gc.setFill(Color.BLACK);
 				gc.fillRect(0, 0, largeurCourante, hauteurCourante);
+				
+				gc.setFont(new Font(hauteurPolice));
 
 				gc.setFill(Color.WHITE);
-				gc.fillText(texte, 0, 10);
+				gc.fillText(texte, 0, hauteurPolice);
 				
 			}
 		}
