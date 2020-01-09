@@ -28,6 +28,9 @@ public class ChargeurDeVue {
 		this.cheminChaines = cheminChaines;
 		this.cheminsCss = cheminsCss;
 		
+		DoitEtre.nonNul(cheminFxml);
+		DoitEtre.nonNul(cheminChaines);
+		
 		creerLoader();
 		chargerParent();
 		ajouterCss();
@@ -104,21 +107,17 @@ public class ChargeurDeVue {
 
 	private void ajouterCss() {
 		J.appel(this);
-		DoitEtre.nonNul(cheminsCss);
 
 		for(String cheminCss : cheminsCss) {
+			
+			DoitEtre.nonNul(cheminCss);
 
 			URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
+			
+			DoitEtre.nonNul(fichierCss);
+			
 			parent.getStylesheets().add(fichierCss.toExternalForm());
 
 		}
-	}
-
-	public Parent getParent() {
-		J.appel(this);
-
-		DoitEtre.nonNul(parent);
-
-		return parent;
 	}
 }
