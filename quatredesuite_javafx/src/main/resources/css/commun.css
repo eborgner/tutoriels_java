@@ -62,14 +62,3 @@
 .bouton:hover {
   -fx-background-color: #95c5db;
 }
-.texte {
-  -fx-padding: 2em;
-  -fx-margin-right: 2em;
-  -fx-font-family: Times;
-  -fx-font-color: #305ae1;
-}
-.champTexte {
-  -fx-font-family: Times;
-  -fx-font-color: #305ae1;
-  -fx-pref-width: 4em;
-}

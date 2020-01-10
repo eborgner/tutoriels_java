@@ -12,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
+
 public class ChargeurDeVue {
 	
 	private String cheminFxml;
@@ -35,6 +38,44 @@ public class ChargeurDeVue {
 		chargerParent();
 		ajouterCss();
 	}
+
+	public Scene nouvelleScene(float largeurScenePourcentage, 
+			float hauteurScenePourcentage, 
+			float hauteurPolicePourcentage) {
+
+		J.appel(this);
+
+		Rectangle2D tailleEcran = getTailleEcran();
+
+		int largeur = (int) (tailleEcran.getWidth() * largeurScenePourcentage / 100.0);
+		int hauteur = (int) (tailleEcran.getHeight() * hauteurScenePourcentage / 100.0);
+		int taillePolice = (int) (tailleEcran.getHeight() * hauteurPolicePourcentage / 100.0);
+
+		Scene scene = creerScene(largeur, hauteur, taillePolice);
+		
+		return scene;
+		
+	}
+
+	private Scene creerScene(int largeur, int hauteur, int taillePolice) {
+		J.appel(this);
+
+		DoitEtre.nonNul(parent);
+
+		Scene scene = new Scene(parent, largeur, hauteur);
+		scene.getRoot().setStyle(String.format("-fx-font-size: %dpx;", taillePolice));
+
+		return scene;
+	}
+
+	private Rectangle2D getTailleEcran() {
+		J.appel(this);
+
+		Rectangle2D tailleEcran = Screen.getPrimary().getVisualBounds();
+
+		return tailleEcran;
+	}
+
 	
 	public Scene nouvelleScene(int largeur, int hauteur) {
 		J.appel(this);

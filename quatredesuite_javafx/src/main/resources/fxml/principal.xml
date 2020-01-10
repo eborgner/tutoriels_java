@@ -3,19 +3,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.Button?>
-<?import commun_javafx.BoutonAnime?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurVertical">
-
-        <HBox alignment="center" styleClass="conteneurHorizontal">
-        	<BoutonAnime width="200" height="75" texte="%parametres"/>
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center">
+        <HBox alignment="center">
+        	<Text text="Bonjour!"/>
 		</HBox>
-
-		<VBox styleClass="espaceVertical"/>
-
-        <HBox alignment="center" styleClass="conteneurHorizontal">
-        	<Button styleClass="bouton" text="%nouvellePartie"/>
-		</HBox>
-
 </VBox>
