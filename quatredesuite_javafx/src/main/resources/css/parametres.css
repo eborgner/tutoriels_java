@@ -42,17 +42,16 @@
   -fx-background-color: #95c5db;
 }
 .bouton {
-  -fx-min-height: 4.2em;
-  -fx-max-height: 12em;
   -fx-padding: 1em;
   -fx-border-style: solid;
   -fx-border-width: 0.5em;
+  -fx-border-insets: 0.5em;
+  -fx-background-insets: 0.5em;
   -fx-border-color: #95c5db;
   -fx-border-radius: 2em;
   -fx-background-radius: 2em;
-  -fx-background-color: #bcced6;
   -fx-background-color: linear-gradient(from 100% 0% to 100% 100%, repeat, #95c5db 50%, #bcced6 100%);
-  -fx-effect: dropshadow(three-pass-box, #161620, 10em, 0, 0, 0);
+  -fx-effect: dropshadow(three-pass-box, #161620, 1em, 0, 0, 0);
   -fx-font-family: Fixed;
 }
 .bouton:pressed {
