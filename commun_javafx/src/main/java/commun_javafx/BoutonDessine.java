@@ -3,8 +3,12 @@ package commun_javafx;
 
 import commun.debogage.J;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventDispatchChain;
+import javafx.event.EventDispatcher;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.control.Button;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Paint;
@@ -36,7 +40,15 @@ public class BoutonDessine extends StackPane {
 			boutonTemporaire.getStyleClass().add(classe);
 		}
 		
-		boutonTemporaire.setVisible(false);
+		boutonTemporaire.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				J.appel(this);
+				J.valeurs("POUET");
+			}
+		});
+		
+		//boutonTemporaire.setVisible(false);
 		this.getChildren().add(boutonTemporaire);
 		
 		this.texte = texte;
@@ -59,7 +71,9 @@ public class BoutonDessine extends StackPane {
 				couleurFond = boutonTemporaire.getBackground().getFills().get(0).getFill();
 				couleurBordure = boutonTemporaire.getBorder().getStrokes().get(0).getBottomStroke();
 				
-				getChildren().clear();
+				boutonTemporaire.setTextFill(Paint.valueOf("rgba(0,0,0,0)"));
+				
+				//getChildren().clear();
 				getChildren().add(canvas);
 				
 				animerDessinInitial(largeur, hauteur);
@@ -86,15 +100,30 @@ public class BoutonDessine extends StackPane {
 			}
 		}); */
 		
-		
-		setOnMouseClicked(new EventHandler<Event>() {
+		setOnMousePressed(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
-				
-				animerDessinInitial(getWidth(), getHeight());
 
+				//boutonTemporaire.fireEvent(event);
+				animerDessinInitial(getWidth(), getHeight());
+			}
+		});
+		
+		setOnMouseReleased(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				J.appel(this);
+				//boutonTemporaire.fireEvent(event);
+			}
+		});
+		
+		setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				J.appel(this);
+				//boutonTemporaire.fireEvent(event);
 			}
 		});
 		
