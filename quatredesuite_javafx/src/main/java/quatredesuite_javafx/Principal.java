@@ -30,6 +30,9 @@ public class Principal extends Application {
 		Scene scene = creerScenePrincipale();
 
 		fenetrePrincipale.setScene(scene);
+		
+		fenetrePrincipale.setMinWidth(400);
+		fenetrePrincipale.setMinHeight(600);
 
 		fenetrePrincipale.show();
 
