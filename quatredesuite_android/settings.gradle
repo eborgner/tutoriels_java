@@ -1,9 +1,0 @@
-rootProject.name='QuatreDeSuite'
-
-include ':app'
-
-include ':commun'
-project(':commun').projectDir = file('../commun')
-
-include ':commun_android'
-project(':commun_android').projectDir = file('../commun_android')

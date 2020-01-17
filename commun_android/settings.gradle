@@ -1,4 +1,0 @@
-rootProject.name = 'commun_android'
-
-include ':commun'
-project(':commun').projectDir = file('../commun')
