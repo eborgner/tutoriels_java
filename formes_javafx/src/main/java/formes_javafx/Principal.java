@@ -49,7 +49,7 @@ public class Principal extends Application {
 			
 			case "Cercle":
 				int r = scan.nextInt();
-				gc.fillArc(x-r/2, y-r/2, r, r, 0, 360, ArcType.ROUND);
+				gc.fillArc(x, y, r, r, 0, 360, ArcType.ROUND);
 				break;
 
 			case "Carre":
