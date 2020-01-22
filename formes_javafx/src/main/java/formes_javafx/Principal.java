@@ -1,50 +1,71 @@
 package formes_javafx;
 
 import java.io.InputStream;
+import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 
 public class Principal extends Application {
-	
-	GraphicsContext gc;
-	
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
 	@Override
-	public void start(Stage stage) throws Exception {
+	public void start(Stage st) throws Exception {
 		
-		Canvas canvas = new Canvas();
-		gc = canvas.getGraphicsContext2D();
+		Canvas cv = new Canvas(600, 400);
+		GraphicsContext gc = cv.getGraphicsContext2D();
 		
-		Pane pane = new Pane();
-		pane.getChildren().add(canvas);
+		gc.setFill(Color.BLACK);
+		
+		Pane p = new Pane();
+		p.getChildren().add(cv);
 
-		Scene scene = new Scene(pane, 600, 400);
+		Scene sc = new Scene(p, 600, 400);
 		
-		InputStream formes = Principal.class.getResourceAsStream("/txt/test01.txt");
+		InputStream in = Principal.class.getResourceAsStream("/txt/test01.txt");
 		
-		Scanner scanner = new Scanner(formes);
+		Scanner scan = new Scanner(in);
 		
-		
+		while(scan.hasNext()) {
 
-		
-		
-		
-		
-		
+			String n = scan.next();
+			
+			int x = scan.nextInt();
+			int y = scan.nextInt();
+			
+			switch(n) {
+			
+			case "Cercle":
+				int r = scan.nextInt();
+				gc.fillArc(x-r/2, y-r/2, r, r, 0, 360, ArcType.ROUND);
+				break;
 
-		stage.setScene(scene);
-		stage.show();
+			case "Carre":
+				int t = scan.nextInt();
+				gc.fillRect(x, y, t, t);
+				break;
+
+			case "Rectangle":
+				int l = scan.nextInt();
+				int ll = scan.nextInt();
+				gc.fillRect(x, y, l, ll);
+				break;
+			}
+		}
+
+		scan.close();
+
+		st.setScene(sc);
+		st.show();
 	}
 }
 
