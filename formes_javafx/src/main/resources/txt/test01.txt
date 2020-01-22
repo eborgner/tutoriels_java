@@ -1,3 +1,0 @@
-Cercle     100 100 50
-Carre      0  0 10
-Rectangle  20 20 30 50

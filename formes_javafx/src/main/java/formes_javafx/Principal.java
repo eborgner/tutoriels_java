@@ -24,24 +24,27 @@ public class Principal extends Application {
 		Canvas cv = new Canvas(600, 400);
 		GraphicsContext gc = cv.getGraphicsContext2D();
 		
-		gc.setFill(Color.BLACK);
 		
 		Pane p = new Pane();
 		p.getChildren().add(cv);
 
 		Scene sc = new Scene(p, 600, 400);
 		
-		InputStream in = Principal.class.getResourceAsStream("/txt/test01.txt");
+		InputStream in = Principal.class.getResourceAsStream("/entrees/01.txt");
 		
 		Scanner scan = new Scanner(in);
 		
 		while(scan.hasNext()) {
 
 			String n = scan.next();
+
+			Color c = Color.valueOf(scan.next());
+			gc.setFill(c);
 			
 			int x = scan.nextInt();
 			int y = scan.nextInt();
 			
+
 			switch(n) {
 			
 			case "Cercle":
