@@ -1,0 +1,22 @@
+plugins {
+
+    id 'java-library'
+
+}
+
+repositories {
+
+    jcenter()
+
+}
+
+dependencies {
+
+
+}
+
+task(formes, dependsOn: 'classes', type: JavaExec) {
+   main = 'formes_javafx.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
