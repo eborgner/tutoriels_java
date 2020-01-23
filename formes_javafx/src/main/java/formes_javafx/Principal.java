@@ -30,7 +30,7 @@ public class Principal extends Application {
 
 		Scene sc = new Scene(p, 600, 400);
 		
-		InputStream in = Principal.class.getResourceAsStream("/entrees/01.txt");
+		InputStream in = Principal.class.getResourceAsStream("/entrees/02.txt");
 		
 		Scanner scan = new Scanner(in);
 		

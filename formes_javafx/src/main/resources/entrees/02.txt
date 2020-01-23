@@ -1,0 +1,3 @@
+Cercle     black  300 100 250
+Cercle     blue   100 300 100
+Cercle     red    0   0   50
