@@ -102,7 +102,9 @@ public class Principal extends Application {
         }
     }
 
-    private void lireEtAfficherUnRectangle(Scanner scan, int centreX, int centreY) {
+    private void lireEtAfficherUnRectangle(Scanner scan,
+                                           int centreX,
+                                           int centreY) {
 
         int largeur = scan.nextInt();
         int hauteur = scan.nextInt();
@@ -113,7 +115,9 @@ public class Principal extends Application {
                         hauteur);
     }
 
-    private void lireEtAfficherUnCarre(Scanner scan, int centreX, int centreY) {
+    private void lireEtAfficherUnCarre(Scanner scan,
+                                       int centreX,
+                                       int centreY) {
 
         int taille = scan.nextInt();
 
@@ -123,7 +127,9 @@ public class Principal extends Application {
                         taille);
     }
 
-    private void lireEtAfficherUnCercle(Scanner scan, int centreX, int centreY) {
+    private void lireEtAfficherUnCercle(Scanner scan, 
+                                        int centreX, 
+                                        int centreY) {
 
         int rayon = scan.nextInt();
 
