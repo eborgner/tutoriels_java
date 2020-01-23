@@ -24,7 +24,6 @@ public class Principal extends Application {
 		Canvas cv = new Canvas(600, 400);
 		GraphicsContext gc = cv.getGraphicsContext2D();
 		
-		
 		Pane p = new Pane();
 		p.getChildren().add(cv);
 
@@ -49,18 +48,18 @@ public class Principal extends Application {
 			
 			case "Cercle":
 				int r = scan.nextInt();
-				gc.fillArc(x, y, r, r, 0, 360, ArcType.ROUND);
+				gc.fillArc(x-r, y-r, r, r, 0, 360, ArcType.ROUND);
 				break;
 
 			case "Carre":
 				int t = scan.nextInt();
-				gc.fillRect(x, y, t, t);
+				gc.fillRect(x-t/2, y-t/2, t, t);
 				break;
 
 			case "Rectangle":
 				int l = scan.nextInt();
 				int ll = scan.nextInt();
-				gc.fillRect(x, y, l, ll);
+				gc.fillRect(x-l/2, y-ll/2, l, ll);
 				break;
 			}
 		}
