@@ -14,60 +14,113 @@ import javafx.stage.Stage;
 
 public class Principal extends Application {
 	
+	private static final String CHEMIN_FICHIER_ENTREE = "/entrees/01.txt";
+
+	private static final int HAUTEUR = 400;
+	private static final int LARGEUR = 600;
+
+	private GraphicsContext dessin;
+
 	public static void main(String[] args) {
+
 		launch(args);
 	}
 	
 	@Override
-	public void start(Stage st) throws Exception {
+	public void start(Stage stage) throws Exception {
 		
-		Canvas cv = new Canvas(600, 400);
-		GraphicsContext gc = cv.getGraphicsContext2D();
+		Scene scene = creerScene();
 		
-		Pane p = new Pane();
-		p.getChildren().add(cv);
+		lireFichierEtAfficherFormes();
 
-		Scene sc = new Scene(p, 600, 400);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	private void lireFichierEtAfficherFormes() {
+
+		InputStream streamEntree = Principal.class.getResourceAsStream(CHEMIN_FICHIER_ENTREE);
+
+		lireFichierEtAfficherFormes(streamEntree);
+	}
+
+	private Scene creerScene() {
+
+		Canvas canvas = new Canvas(LARGEUR, HAUTEUR);
+		dessin = canvas.getGraphicsContext2D();
 		
-		InputStream in = Principal.class.getResourceAsStream("/entrees/02.txt");
-		
-		Scanner scan = new Scanner(in);
+		Pane pane = new Pane();
+		pane.getChildren().add(canvas);
+
+		Scene scene = new Scene(pane, LARGEUR, HAUTEUR);
+
+		return scene;
+	}
+
+	private void lireFichierEtAfficherFormes(InputStream streamEntree) {
+
+		Scanner scan = new Scanner(streamEntree);
 		
 		while(scan.hasNext()) {
-
-			String n = scan.next();
-
-			Color c = Color.valueOf(scan.next());
-			gc.setFill(c);
-			
-			int x = scan.nextInt();
-			int y = scan.nextInt();
-			
-
-			switch(n) {
-			
-			case "Cercle":
-				int r = scan.nextInt();
-				gc.fillArc(x-r, y-r, r, r, 0, 360, ArcType.ROUND);
-				break;
-
-			case "Carre":
-				int t = scan.nextInt();
-				gc.fillRect(x-t/2, y-t/2, t, t);
-				break;
-
-			case "Rectangle":
-				int l = scan.nextInt();
-				int ll = scan.nextInt();
-				gc.fillRect(x-l/2, y-ll/2, l, ll);
-				break;
-			}
+			lireEtAfficherUneForme(scan);
 		}
 
 		scan.close();
+	}
 
-		st.setScene(sc);
-		st.show();
+	private void lireEtAfficherUneForme(Scanner scan) {
+
+		String typeForme = scan.next();
+
+		Color couleur = Color.valueOf(scan.next());
+		dessin.setFill(couleur);
+		
+		int centreX = scan.nextInt();
+		int centreY = scan.nextInt();
+
+		lireFichierEtAfficherUneForme(scan, typeForme, centreX, centreY);
+	}
+
+	private void lireFichierEtAfficherUneForme(Scanner scan, 
+			String typeForme, 
+			int centreX,
+			int centreY) {
+
+		switch(typeForme) {
+
+			case "Cercle":
+				lireEtAfficherUnCercle(scan, centreX, centreY);
+				break;
+
+			case "Carre":
+				lireEtAfficherUnCarre(scan, centreX, centreY);
+				break;
+
+			case "Rectangle":
+				lireEtAfficherUnRectangle(scan, centreX, centreY);
+				break;
+		}
+	}
+
+	private void lireEtAfficherUnRectangle(Scanner scan, int centreX, int centreY) {
+
+		int largeur = scan.nextInt();
+		int hauteur = scan.nextInt();
+
+		dessin.fillRect(centreX-largeur/2, centreY-hauteur/2, largeur, hauteur);
+	}
+
+	private void lireEtAfficherUnCarre(Scanner scan, int centreX, int centreY) {
+
+		int taille = scan.nextInt();
+
+		dessin.fillRect(centreX-taille/2, centreY-taille/2, taille, taille);
+	}
+
+	private void lireEtAfficherUnCercle(Scanner scan, int centreX, int centreY) {
+
+		int r = scan.nextInt();
+
+		dessin.fillArc(centreX-r, centreY-r, r, r, 0, 360, ArcType.ROUND);
 	}
 }
-
