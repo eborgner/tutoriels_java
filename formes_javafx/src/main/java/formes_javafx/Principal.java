@@ -82,9 +82,9 @@ public class Principal extends Application {
     }
 
     private void lireFichierEtAfficherUneForme(Scanner scan, 
-            String typeForme, 
-            int centreX,
-            int centreY) {
+                                               String typeForme, 
+                                               int centreX,
+                                               int centreY) {
 
         switch(typeForme) {
 
@@ -107,20 +107,32 @@ public class Principal extends Application {
         int largeur = scan.nextInt();
         int hauteur = scan.nextInt();
 
-        dessin.fillRect(centreX-largeur/2, centreY-hauteur/2, largeur, hauteur);
+        dessin.fillRect(centreX-largeur/2, 
+                        centreY-hauteur/2, 
+                        largeur, 
+                        hauteur);
     }
 
     private void lireEtAfficherUnCarre(Scanner scan, int centreX, int centreY) {
 
         int taille = scan.nextInt();
 
-        dessin.fillRect(centreX-taille/2, centreY-taille/2, taille, taille);
+        dessin.fillRect(centreX-taille/2, 
+                        centreY-taille/2, 
+                        taille, 
+                        taille);
     }
 
     private void lireEtAfficherUnCercle(Scanner scan, int centreX, int centreY) {
 
         int rayon = scan.nextInt();
 
-        dessin.fillArc(centreX-rayon, centreY-rayon, rayon, rayon, 0, 360, ArcType.ROUND);
+        dessin.fillArc(centreX-rayon, 
+                       centreY-rayon, 
+                       rayon, 
+                       rayon, 
+                       0, 
+                       360, 
+                       ArcType.ROUND);
     }
 }
