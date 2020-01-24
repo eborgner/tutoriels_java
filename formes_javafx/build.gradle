@@ -1,27 +1,18 @@
-
-
 plugins {
 
 	id 'java'
     id 'java-library'
-
 }
-
 
 java {
 
 	sourceCompatibility = JavaVersion.VERSION_1_8
 	targetCompatibility = JavaVersion.VERSION_1_8
-
 }
-
-
-
 
 repositories {
 
     jcenter()
-
 }
 
 dependencies {
@@ -30,7 +21,7 @@ dependencies {
 }
 
 task(formes, dependsOn: 'classes', type: JavaExec) {
+
    main = 'formes_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
 }
-
