@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center">
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="quatredesuite_javafx.vues.VuePrincipaleFX" styleClass="fenetrePrincipale">
+    <BorderPane VBox.vgrow="ALWAYS">
+        <top>
+            <MenuBar>
+                <menus>
+                <Menu styleClass="menu" text="%partieLocale">
+                    <items>
+                    <MenuItem fx:id="nouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
+                    <MenuItem fx:id="chargerPartie" styleClass="menu_item" text="%chargerPartie"/>
+                    <MenuItem fx:id="sauvegarderPartie" styleClass="menu_item" text="%sauvegarderPartie"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="parametres" styleClass="menu_item" text="%parametres"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="quitter" styleClass="menu_item" text="%quitter"/>
+                    </items>
+                </Menu>
+                <Menu styleClass="menu" text="%partieReseau">
+                    <items>
+                    <MenuItem fx:id="jouerEnLigne" styleClass="menu_item" text="%jouerEnLigne"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="connexion" styleClass="menu_item" text="%connexion"/>
+                    <MenuItem fx:id="enregistrement" styleClass="menu_item" text="%enregistrement"/>
+                    </items>
+                </Menu>
+            </menus>
+            </MenuBar>
+        </top>
+        <center>
         <HBox alignment="center">
-        	<Text text="Bonjour!"/>
-		</HBox>
+			<VBox fx:id="conteneurPartieLocale" visible="false" alignment="center"/>
+			<VBox fx:id="conteneurPartieReseau" visible="false" alignment="center"/>
+			</HBox>
+        </center>
+        <bottom>
+            <ToolBar styleClass="accentFonce">
+                <Text text="%message"></Text>
+            </ToolBar>
+        </bottom>
+    </BorderPane>
 </VBox>
