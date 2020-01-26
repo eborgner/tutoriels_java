@@ -7,15 +7,12 @@ import commun_client.structure.Controleur;
 import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;
+import quatredesuite_client.vues.VuePartieLocale;
+import quatredesuite_client.vues.VuePrincipale;
 
-public class ControleurPrincipal extends Controleur<ModelePrincipal> {
+public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipale> {
 	
 	//private ControleurPartieLocale controleurPartieLocale;
-
-	public ControleurPrincipal(ModelePrincipal modele) {
-		super(modele);
-		J.appel(this);
-	}
 
 	@Override
 	public void installerCapteursEvenement() {
@@ -36,6 +33,8 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal> {
 	
 	private void transitionPartieLocale() {
 		J.appel(this);
+		
+		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
 		
 		
 		

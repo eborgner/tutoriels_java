@@ -79,14 +79,13 @@ public class Principal extends Application {
 
 	private ControleurPrincipal creerControleurPrincipal(ChargeurDeVue<VuePrincipaleFX> chargeur) {
 
-		ModelePrincipal modelePrincipal = new ModelePrincipal();
-		ControleurPrincipal controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipal.class, modelePrincipal);
 
 		VuePrincipaleFX vuePrincipale = chargeur.getVue();
 
-		vuePrincipale.creerEvenements();
-		vuePrincipale.installerListeners();
-		
+		ModelePrincipal modelePrincipal = new ModelePrincipal();
+
+		ControleurPrincipal controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipal.class, modelePrincipal, vuePrincipale);
+
 		
 		return controleurPrincipal;
 	}

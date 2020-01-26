@@ -10,4 +10,7 @@ public class Constantes {
 	public static final String CHEMIN_PARAMETRES_FXML = "/fxml/parametres.xml";
 	public static final String CHEMIN_PARAMETRES_CSS = "/css/parametres.css";
 
+	public static final String CHEMIN_PARTIE_LOCALE_FXML = "/fxml/partieLocale.xml";
+	public static final String CHEMIN_PARTIE_LOCALE_CSS = "/css/partieLocale.css";
+
 }

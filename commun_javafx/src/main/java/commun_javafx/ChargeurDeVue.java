@@ -168,4 +168,10 @@ public class ChargeurDeVue<V extends Vue>{
 
         }
     }
+
+	public Parent getParent() {
+		J.appel(this);
+		
+		return parent;
+	}
 }
