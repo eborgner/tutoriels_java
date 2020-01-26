@@ -37,13 +37,21 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal> {
 	private void transitionPartieLocale() {
 		J.appel(this);
 		
+		
+		
+		/*
+		PartieLocale partieLocale = modele.nouvellePartieLocale();
+		VuePartieLocale = vuePartieLocale = vue.creerVuePartieLocale();
+		*/
+		
+		
+		
 		/*
 		
 		if(controleurPartieLocale != null) {
 			controleurPartieLocale.detruire();
 		}
 		
-		PartieLocale partieLocale = new PartieLocale();
 		
 		*/
 		
