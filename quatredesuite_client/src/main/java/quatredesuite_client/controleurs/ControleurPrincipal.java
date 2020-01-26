@@ -4,6 +4,8 @@ import commun.debogage.J;
 import commun_client.evenements.CapteurEvenement;
 import commun_client.evenements.FabriqueEvenement;
 import commun_client.mvc.Controleur;
+import commun_client.mvc.FabriqueControleur;
+import quatredesuite.modeles.ModelePartieLocale;
 import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;
@@ -12,7 +14,7 @@ import quatredesuite_client.vues.VuePrincipale;
 
 public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipale> {
 	
-	//private ControleurPartieLocale controleurPartieLocale;
+	private ControleurPartieLocale controleurPartieLocale;
 
 	@Override
 	public void installerCapteursEvenement() {
@@ -23,7 +25,7 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipa
 			public void capterEvenement(NouvellePartieLocaleCapte evenement) {
 				J.appel(this);
 				
-				transitionPartieLocale();
+				nouvellePartieLocale();
 
 				evenement.finCaptation();
 			}
@@ -31,34 +33,22 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipa
 		
 	}
 	
-	private void transitionPartieLocale() {
+	private void nouvellePartieLocale() {
 		J.appel(this);
+
+		if(controleurPartieLocale != null) {
+			controleurPartieLocale.detruire();
+			vue.detruireVuePartieLocale();
+		}
 		
 		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
 		
-		
-		
-		/*
-		PartieLocale partieLocale = modele.nouvellePartieLocale();
-		VuePartieLocale = vuePartieLocale = vue.creerVuePartieLocale();
-		*/
-		
-		
-		
-		/*
-		
-		if(controleurPartieLocale != null) {
-			controleurPartieLocale.detruire();
-		}
-		
-		
-		*/
-		
-		
-		// FIXME: et la VuePartieLocale ... elle est chargée où? Elle est installé où dans l'Afficheur?
-		
-		
-		
+		// FIXME: devrait être un creerAffichage appelé en créant l'afficheur!
+		vuePartieLocale.creerGrille(4,6);
+
+		ModelePartieLocale partieLocale = modele.nouvellePartieLocale();
+
+		controleurPartieLocale = FabriqueControleur.creerControleur(ControleurPartieLocale.class, partieLocale, vuePartieLocale);
 	}
 
 	@Override

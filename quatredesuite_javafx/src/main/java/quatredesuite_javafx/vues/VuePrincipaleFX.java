@@ -57,7 +57,15 @@ public class VuePrincipaleFX implements VuePrincipale {
 		Parent racinePartieLocale = chargeur.getParent();
 		
 		conteneurPartieLocale.getChildren().add(racinePartieLocale);
+		conteneurPartieLocale.setVisible(true);
 		
 		return chargeur.getVue();
+	}
+
+	@Override
+	public void detruireVuePartieLocale() {
+		J.appel(this);
+
+		conteneurPartieLocale.getChildren().clear();
 	}
 }
