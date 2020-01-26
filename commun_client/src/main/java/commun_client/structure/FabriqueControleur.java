@@ -9,7 +9,7 @@ import commun.structure.Modele;
 @SuppressWarnings("rawtypes")
 public class FabriqueControleur {
 
-	public static <C extends Controleur> C creerControleur(Class<C> classeControleur, Modele modele, Vue vue) {
+	public static <C extends Controleur> C creerControleur(Class<C> classeControleur, Modele modele) {
 
 		C controleur = null;
 		
@@ -28,8 +28,6 @@ public class FabriqueControleur {
 
 		controleur.installerCapteursEvenement();
 
-		vue.creerEvenements();
-		vue.installerListeners();
 
 
 		return controleur;

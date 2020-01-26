@@ -9,6 +9,8 @@ import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLoca
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;
 
 public class ControleurPrincipal extends Controleur<ModelePrincipal> {
+	
+	//private ControleurPartieLocale controleurPartieLocale;
 
 	public ControleurPrincipal(ModelePrincipal modele) {
 		super(modele);
@@ -24,12 +26,31 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal> {
 			public void capterEvenement(NouvellePartieLocaleCapte evenement) {
 				J.appel(this);
 				
-				// Créer un contrôleur pour partie locale
-				// Le FinalisateurEvenement va modifier la VuePrincipale en conséquence
+				transitionPartieLocale();
 
 				evenement.finCaptation();
 			}
 		});
+		
+	}
+	
+	private void transitionPartieLocale() {
+		J.appel(this);
+		
+		/*
+		
+		if(controleurPartieLocale != null) {
+			controleurPartieLocale.detruire();
+		}
+		
+		PartieLocale partieLocale = new PartieLocale();
+		
+		*/
+		
+		
+		// FIXME: et la VuePartieLocale ... elle est chargée où? Elle est installé où dans l'Afficheur?
+		
+		
 		
 	}
 
