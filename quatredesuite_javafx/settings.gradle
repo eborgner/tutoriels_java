@@ -8,3 +8,10 @@ project(':commun_client').projectDir = file('../commun_client')
 
 include ':commun_javafx'
 project(':commun_javafx').projectDir = file('../commun_javafx')
+
+include ':quatredesuite'
+project(':quatredesuite').projectDir = file('../quatredesuite')
+
+include ':quatredesuite_client'
+project(':quatredesuite_client').projectDir = file('../quatredesuite_client')
+

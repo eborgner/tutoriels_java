@@ -29,6 +29,8 @@ dependencies {
     compile project(':commun')
     compile project(':commun_client')
     compile project(':commun_javafx')
+    compile project(':quatredesuite')
+    compile project(':quatredesuite_client')
 
 }
 
