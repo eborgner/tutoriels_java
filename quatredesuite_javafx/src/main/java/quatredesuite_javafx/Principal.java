@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.controleurs.ControleurPrincipal;
+import quatredesuite_client.evenements.jouer_ici.JouerIci;
+import quatredesuite_client.evenements.jouer_ici.JouerIciLance;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleLance;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
@@ -28,6 +30,7 @@ public class Principal extends Application {
 
 		// FIXME: ça va où??
 		FabriqueEvenement.initialiserEvenementLance(NouvellePartieLocaleLance.class, NouvellePartieLocale.class);
+		FabriqueEvenement.initialiserEvenementLance(JouerIciLance.class, JouerIci.class);
 	}
 	
 	public static void main(String[] args) {
