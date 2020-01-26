@@ -1,8 +1,15 @@
 package commun_client.evenements;
 
-public interface CapteurEvenement<EC extends EvenementCapte> {
+import commun.debogage.J;
 
-	void capterEvenement(EC commande);
-	boolean siCaptable(EC commande);
+public abstract class CapteurEvenement<EC extends EvenementCapte> {
+
+	public abstract void capterEvenement(EC evenement);
+
+	public boolean siCaptable(EC evenement) {
+		J.appel(this);
+		
+		return true;
+	}
 
 }

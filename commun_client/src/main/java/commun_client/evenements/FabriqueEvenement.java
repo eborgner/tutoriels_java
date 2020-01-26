@@ -63,7 +63,7 @@ public class FabriqueEvenement {
 			finalisateur = new FinalisateurEvenement() {};
 		}
 		
-		DoitEtre.nonNul(capteur, String.format("Le capteur de la commande %s n'a pas été installé", classeEvenement.getSimpleName()));
+		DoitEtre.nonNul(capteur, String.format("Le capteur de l'événement %s n'a pas été installé", classeEvenement.getSimpleName()));
 		
 		Evenement evenement = null;
 		
@@ -74,9 +74,9 @@ public class FabriqueEvenement {
 			evenement = constructeur.newInstance(capteur, finalisateur);
 
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException e) {
+				| NoSuchMethodException | SecurityException | ClassCastException e) {
 			
-			J.valeurs("[FATAL] impossible de créer la Commande: " + classeEvenement.getSimpleName());
+			J.valeurs("[FATAL] impossible de créer l'événement: " + classeEvenement.getSimpleName());
 			e.printStackTrace();
 		}
 		

@@ -1,0 +1,19 @@
+plugins {
+
+    id 'java-library'
+
+}
+
+repositories {
+
+    jcenter()
+
+}
+
+dependencies {
+
+    compile project(':commun')
+    compile project(':commun_client')
+    compile project(':quatredesuite')
+
+}

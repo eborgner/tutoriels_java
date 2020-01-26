@@ -18,6 +18,7 @@ repositories {
 }
 
 dependencies {
-    // Atelier01
+
     compile project(':commun')
+    compile project(':commun_client')
 }
