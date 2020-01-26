@@ -69,9 +69,9 @@ public class FabriqueEvenement {
 		
 		try {
 			
-			Constructor<? extends Evenement> constructeur = classeEvenement.getConstructor(CapteurEvenement.class, FinalisateurEvenement.class);
+			Constructor<? extends Evenement> constructeur = classeEvenement.getConstructor();
 
-			evenement = constructeur.newInstance(capteur, finalisateur);
+			evenement = constructeur.newInstance();
 
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException | ClassCastException e) {
@@ -80,6 +80,8 @@ public class FabriqueEvenement {
 			e.printStackTrace();
 		}
 		
+		evenement.setCapteur(capteur);
+		evenement.setFinalisateur(finalisateur);
 		
 		EL evenementLance = null;
 

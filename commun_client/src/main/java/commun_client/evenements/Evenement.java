@@ -10,10 +10,15 @@ public abstract class Evenement<EC extends EvenementCapte>
 	protected CapteurEvenement<EC> capteur;
 	protected FinalisateurEvenement finalisateur;
 	
-	public Evenement(CapteurEvenement<EC> capteur, FinalisateurEvenement finalisateur) {
+	void setCapteur(CapteurEvenement<EC> capteur) {
 		J.appel(this);
 
 		this.capteur = capteur;
+	}
+	
+	void setFinalisateur(FinalisateurEvenement finalisateur) {
+		J.appel(this);
+		
 		this.finalisateur = finalisateur;
 	}
 	
