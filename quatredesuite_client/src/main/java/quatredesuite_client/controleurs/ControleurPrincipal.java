@@ -3,12 +3,15 @@ package quatredesuite_client.controleurs;
 import commun.debogage.J;
 import commun_client.evenements.CapteurEvenement;
 import commun_client.evenements.FabriqueEvenement;
+import commun_client.evenements.FinalisateurEvenement;
 import commun_client.mvc.Controleur;
 import commun_client.mvc.FabriqueControleur;
 import quatredesuite.modeles.ModelePartieLocale;
 import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;
+import quatredesuite_client.viderGrille.ViderGrille;
+import quatredesuite_client.viderGrille.ViderGrilleLance;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_client.vues.VuePrincipale;
 
@@ -25,9 +28,25 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipa
 			public void capterEvenement(NouvellePartieLocaleCapte evenement) {
 				J.appel(this);
 				
-				nouvellePartieLocale();
+				if(controleurPartieLocale != null) {
+					FabriqueEvenement.installerFinalisateur(ViderGrille.class, new FinalisateurEvenement() {
+						@Override
+						public void reagirFinCaptation() {
+							J.appel(this);
 
-				evenement.finCaptation();
+							nouvellePartieLocale();
+							evenement.finCaptation();
+						}
+					});
+					
+					ViderGrilleLance viderGrille = FabriqueEvenement.creerEvenement(ViderGrilleLance.class);
+					viderGrille.lancer();
+					
+				}else {
+					
+					nouvellePartieLocale();
+					evenement.finCaptation();
+				}
 			}
 		});
 		

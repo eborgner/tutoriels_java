@@ -4,7 +4,6 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.evenements.FabriqueEvenement;
 import commun_client.mvc.FabriqueControleur;
-import commun_client.mvc.Vue;
 import commun_javafx.ChargeurDeVue;
 import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
@@ -17,6 +16,8 @@ import quatredesuite_client.evenements.jouer_ici.JouerIci;
 import quatredesuite_client.evenements.jouer_ici.JouerIciLance;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleLance;
+import quatredesuite_client.viderGrille.ViderGrille;
+import quatredesuite_client.viderGrille.ViderGrilleLance;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 
 
@@ -31,6 +32,7 @@ public class Principal extends Application {
 		// FIXME: ça va où??
 		FabriqueEvenement.initialiserEvenementLance(NouvellePartieLocaleLance.class, NouvellePartieLocale.class);
 		FabriqueEvenement.initialiserEvenementLance(JouerIciLance.class, JouerIci.class);
+		FabriqueEvenement.initialiserEvenementLance(ViderGrilleLance.class, ViderGrille.class);
 	}
 	
 	public static void main(String[] args) {
