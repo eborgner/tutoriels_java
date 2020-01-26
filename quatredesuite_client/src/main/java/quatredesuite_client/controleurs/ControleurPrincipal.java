@@ -3,7 +3,7 @@ package quatredesuite_client.controleurs;
 import commun.debogage.J;
 import commun_client.evenements.CapteurEvenement;
 import commun_client.evenements.FabriqueEvenement;
-import commun_client.structure.Controleur;
+import commun_client.mvc.Controleur;
 import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;

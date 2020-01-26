@@ -1,4 +1,4 @@
-package commun_client.structure;
+package commun_client.mvc;
 
 public interface Vue{
 

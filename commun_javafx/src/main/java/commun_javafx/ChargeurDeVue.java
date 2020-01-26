@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import commun.debogage.DoitEtre;
 import commun.debogage.Erreur;
 import commun.debogage.J;
-import commun_client.structure.Vue;
+import commun_client.mvc.Vue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

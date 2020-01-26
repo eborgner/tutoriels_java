@@ -1,7 +1,7 @@
-package commun_client.structure;
+package commun_client.mvc;
 
 import commun.debogage.J;
-import commun.structure.LectureModele;
+import commun.mvc.LectureModele;
 import commun_client.evenements.FinalisateurEvenement;
 
 public abstract class Afficheur<LM extends LectureModele, V extends Vue> extends FinalisateurEvenement {

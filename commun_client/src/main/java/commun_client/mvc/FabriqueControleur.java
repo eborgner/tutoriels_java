@@ -1,10 +1,10 @@
-package commun_client.structure;
+package commun_client.mvc;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import commun.debogage.J;
-import commun.structure.Modele;
+import commun.mvc.Modele;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class FabriqueControleur {

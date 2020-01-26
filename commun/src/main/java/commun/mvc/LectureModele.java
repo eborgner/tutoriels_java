@@ -1,4 +1,4 @@
-package commun.structure;
+package commun.mvc;
 
 public interface LectureModele {
 

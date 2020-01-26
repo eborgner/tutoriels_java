@@ -1,7 +1,7 @@
-package commun_client.structure;
+package commun_client.mvc;
 
 import commun.debogage.J;
-import commun.structure.Modele;
+import commun.mvc.Modele;
 
 public abstract class Controleur<M extends Modele, V extends Vue> {
 	

@@ -1,6 +1,6 @@
 package quatredesuite.modeles;
 
-import commun.structure.Modele;
+import commun.mvc.Modele;
 
 public class ModelePrincipal extends Modele {
 
