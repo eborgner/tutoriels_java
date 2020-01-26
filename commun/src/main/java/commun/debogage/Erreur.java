@@ -6,6 +6,11 @@ public class Erreur {
 	
 	private static final String FATAL = "FATAL";
 	private static final String ERREUR = "ERREUR";
+	private static final String AVERTISSEMENT = "AVERTISSEMENT";
+
+	public static void avertissement(String message) {
+		J.messageErreur(0, AVERTISSEMENT, message);
+	}
 
 	public static void nonFatale(String message, Exception... exceptions) {
 		J.messageErreur(0, ERREUR, message);

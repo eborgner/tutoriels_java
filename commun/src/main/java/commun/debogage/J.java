@@ -42,7 +42,7 @@ public class J {
         afficherMethode(nomClasseAppelee);
 
     }
-    
+
     static void messageErreur(int incrementPile, String typeErreur, String message) {
     	
     	int indiceAppel = INDICE_APPEL_A_AFFICHER + incrementPile;

@@ -1,3 +1,3 @@
-package commun.modeles;
+package commun.structure;
 
 public abstract class Modele { }

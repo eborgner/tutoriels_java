@@ -1,7 +1,7 @@
 package quatredesuite_javafx.vues;
 
 
-import commun_client.Vue;
+import commun_client.structure.Vue;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
