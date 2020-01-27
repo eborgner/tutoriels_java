@@ -22,12 +22,17 @@
 
 .conteneurNomJoueur{
     -fx-min-width:@largeurGrille / 2;
+    -fx-max-width:@largeurGrille / 2;
+    -fx-min-height:@hauteurNomJoueur;
+    -fx-max-height:@hauteurNomJoueur;
     -fx-alignment:center;
 }
 
 .conteneurTableJeu{
     -fx-min-width:@largeurGrille;
     -fx-max-width:@largeurGrille;
+    -fx-min-height:@hauteurTableJeu;
+    -fx-max-height:@hauteurTableJeu;
 }
 
 .conteneurBoutons{
@@ -42,6 +47,8 @@
     -fx-alignment:center;
     -fx-min-width:@largeurColonne;
     -fx-max-width:@largeurColonne;
+    -fx-min-height:@hauteurEntete;
+    -fx-max-height:@hauteurEntete;
 }
 
 .boutonCoup{
@@ -68,6 +75,8 @@
 .conteneurGrille{
     -fx-min-width:@largeurGrille;
     -fx-max-width:@largeurGrille;
+    -fx-min-width:@hauteurGrille;
+    -fx-max-width:@hauteurGrille;
     -fx-background-color:@fonce2;
     -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
     -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
@@ -85,5 +94,7 @@
     -fx-alignment:center;
     -fx-min-width:@largeurColonne;
     -fx-max-width:@largeurColonne;
+    -fx-min-height:@hauteurCase;
+    -fx-max-height:@hauteurCase;
 }
 
