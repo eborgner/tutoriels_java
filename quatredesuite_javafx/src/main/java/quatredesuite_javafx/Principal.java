@@ -47,16 +47,12 @@ public class Principal extends Application {
 		J.appel(this);
 
 		fenetrePrincipale.setHeight(HAUTEUR_FENETRE);
-		fenetrePrincipale.setMinHeight(HAUTEUR_FENETRE);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_FENETRE);
 	}
 
 	private void setLargeurFenetre(Stage fenetrePrincipale) {
 		J.appel(this);
 
 		fenetrePrincipale.setWidth(LARGEUR_FENETRE);
-		fenetrePrincipale.setMinWidth(LARGEUR_FENETRE);
-		fenetrePrincipale.setMaxWidth(LARGEUR_FENETRE);
 	}
 
 	private Scene creerScenePrincipale() {
@@ -65,7 +61,6 @@ public class Principal extends Application {
         ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARTIE_LOCALE_FXML,
         								           CHEMIN_CHAINES,
         								           CHEMIN_PARTIE_LOCALE_CSS);
-
 
 		Scene scene = chargeur.nouvelleScene(LARGEUR_SCENE, HAUTEUR_SCENE);
 

@@ -1,46 +1,39 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-min-width: 220px;
   -fx-max-width: 220px;
-  -fx-min-height: 380px;
-  -fx-max-height: 380px;
+  -fx-max-height: 620px;
   -fx-border-style: solid;
   -fx-border-width: 5px;
   -fx-border-color: #161620;
   -fx-background-color: #95c5db;
+  -fx-padding: 20px;
 }
 .conteneurNomsJoueurs {
-  -fx-min-width: 180px;
-  -fx-max-width: 180px;
-  -fx-min-height: 60px;
-  -fx-max-height: 60px;
   -fx-alignment: center;
+  -fx-max-width: 360px;
+  -fx-max-height: 120px;
 }
 .conteneurNomJoueur {
-  -fx-min-width: 90px;
-  -fx-max-width: 90px;
-  -fx-min-height: 60px;
-  -fx-max-height: 60px;
   -fx-alignment: center;
+  -fx-max-width: 180px;
+  -fx-max-height: 120px;
 }
 .conteneurTableJeu {
-  -fx-min-width: 180px;
-  -fx-max-width: 180px;
-  -fx-min-height: 280px;
-  -fx-max-height: 280px;
+  -fx-max-width: 360px;
+  -fx-max-height: 460px;
 }
 .conteneurBoutons {
-  -fx-alignment: center;
-  -fx-min-width: 180px;
-  -fx-max-width: 180px;
-  -fx-min-height: 100px;
+  -fx-padding-bottom: 10px;
+  -fx-max-width: 360px;
+  -fx-min-height: 60px;
   -fx-max-height: 100px;
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
+  -fx-border-color: black;
 }
 .conteneurBouton {
   -fx-alignment: center;
-  -fx-min-width: 60px;
-  -fx-max-width: 60px;
-  -fx-min-height: 100px;
+  -fx-max-width: 120px;
   -fx-max-height: 100px;
 }
 .boutonCoup {
@@ -49,8 +42,9 @@
   -fx-background-color: #bcced6;
   -fx-text-color: #305ae1;
   -fx-min-width: 40px;
-  -fx-max-width: 40px;
-  -fx-min-height: 80px;
+  -fx-max-width: 100px;
+  -fx-min-height: 40px;
+  -fx-pref-height: 40px;
   -fx-max-height: 80px;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
@@ -62,25 +56,19 @@
   -fx-background-color: #305ae1;
 }
 .conteneurGrille {
-  -fx-min-width: 180px;
-  -fx-max-width: 180px;
-  -fx-min-height: 180px;
-  -fx-max-height: 180px;
+  -fx-max-width: 360px;
+  -fx-max-height: 360px;
   -fx-background-color: #305ae1;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
 }
 .conteneurLigne {
   -fx-alignment: center;
-  -fx-min-width: 180px;
-  -fx-max-width: 180px;
-  -fx-min-height: 60px;
-  -fx-max-height: 60px;
+  -fx-max-width: 360px;
+  -fx-max-height: 120px;
 }
 .conteneurCase {
   -fx-alignment: center;
-  -fx-min-width: 60px;
-  -fx-max-width: 60px;
-  -fx-min-height: 60px;
-  -fx-max-height: 60px;
+  -fx-max-width: 120px;
+  -fx-max-height: 120px;
 }

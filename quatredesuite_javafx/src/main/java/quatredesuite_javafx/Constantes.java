@@ -7,10 +7,16 @@ public class Constantes {
     public static final String CHEMIN_PARTIE_LOCALE_FXML = "/fxml/partieLocale.xml";
     public static final String CHEMIN_PARTIE_LOCALE_CSS = "/css/partieLocale.css";
     
-    public static final int LARGEUR_SCENE = 220;
-    public static final int HAUTEUR_SCENE = 380;
+    public static final int LARGEUR_SCENE_MIN = 230;
+    public static final int HAUTEUR_SCENE_MIN = 340;
+
+    public static final int LARGEUR_SCENE = 260;
+    public static final int HAUTEUR_SCENE = 420;
 
     public static final int HAUTEUR_DECORATION_FENETRE = 20;
+
+    public static final int LARGEUR_FENETRE_MIN = LARGEUR_SCENE_MIN;
+    public static final int HAUTEUR_FENETRE_MIN = HAUTEUR_SCENE_MIN + HAUTEUR_DECORATION_FENETRE;
 
     public static final int LARGEUR_FENETRE = LARGEUR_SCENE;
     public static final int HAUTEUR_FENETRE = HAUTEUR_SCENE + HAUTEUR_DECORATION_FENETRE;
