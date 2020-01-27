@@ -31,73 +31,19 @@
         </HBox>
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </ImageAjustable>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
-                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
             </HBox>
         </VBox>
     </VBox>
