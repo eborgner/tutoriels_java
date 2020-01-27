@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+    <HBox styleClass="conteneurNomsJoueurs">
+			<Text styleClass="nomJoueur" text="%joueurUn"></Text>
+			<Text styleClass="nomJoueur" text="%joueurDeux"></Text>
+    </HBox>
+    <VBox>
+        <VBox styleClass="conteneurEntetes">
+            <HBox>
+                <Button styleClass="boutonCoup" text="↡↡"/>
+                <Button styleClass="boutonCoup" text="↡↡"/>
+                <Button styleClass="boutonCoup" text="↡↡"/>
+            </HBox>
+        </VBox>
+        <VBox styleClass="conteneurGrille">
+            <HBox styleClass="conteneurLigne">
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+            <HBox styleClass="conteneurLigne">
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+            <HBox styleClass="conteneurLigne">
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+                <ImageView styleClass="imageCase">
+                   <image>
+                       <Image url="/images/VIDE.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+        </VBox>
+    </VBox>
+</VBox>

@@ -31,16 +31,42 @@ public class Principal extends Application {
 		
 		Scene scene = creerScenePrincipale();
 
+		afficherFenetre(fenetrePrincipale, scene);
+	}
+
+	private void afficherFenetre(Stage fenetrePrincipale, Scene scene) {
+		J.appel(this);
+
+		setLargeurFenetre(fenetrePrincipale);
+		setHauteurFenetre(fenetrePrincipale);
+
 		fenetrePrincipale.setScene(scene);
-
 		fenetrePrincipale.show();
+	}
 
+	private void setHauteurFenetre(Stage fenetrePrincipale) {
+		J.appel(this);
+
+		fenetrePrincipale.setHeight(HAUTEUR_PAR_DEFAUT);
+		fenetrePrincipale.setMinHeight(HAUTEUR_PAR_DEFAUT);
+		fenetrePrincipale.setMaxHeight(HAUTEUR_PAR_DEFAUT);
+	}
+
+	private void setLargeurFenetre(Stage fenetrePrincipale) {
+		J.appel(this);
+
+		fenetrePrincipale.setWidth(LARGEUR_PAR_DEFAUT);
+		fenetrePrincipale.setMinWidth(LARGEUR_PAR_DEFAUT);
+		fenetrePrincipale.setMaxWidth(LARGEUR_PAR_DEFAUT);
 	}
 
 	private Scene creerScenePrincipale() {
 		J.appel(this);
 
-		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PRINCIPAL_FXML);
+        ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARTIE_LOCALE_FXML,
+        								           CHEMIN_CHAINES,
+        								           CHEMIN_PARTIE_LOCALE_CSS);
+
 
 		Scene scene = chargeur.nouvelleScene(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
 
