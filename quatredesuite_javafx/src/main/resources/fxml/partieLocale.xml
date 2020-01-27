@@ -6,70 +6,96 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml">
+<VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
     <HBox styleClass="conteneurNomsJoueurs">
-			<Text styleClass="nomJoueur" text="%joueurUn"></Text>
-			<Text styleClass="nomJoueur" text="%joueurDeux"></Text>
-    </HBox>
-    <VBox>
-        <VBox styleClass="conteneurEntetes">
-            <HBox>
-                <Button styleClass="boutonCoup" text="↡↡"/>
-                <Button styleClass="boutonCoup" text="↡↡"/>
-                <Button styleClass="boutonCoup" text="↡↡"/>
+            <HBox styleClass="conteneurNomJoueur">
+                <Text styleClass="nomJoueur" text="%joueurUn"></Text>
             </HBox>
-        </VBox>
+            <HBox styleClass="conteneurNomJoueur">
+                <Text styleClass="nomJoueur" text="%joueurDeux"></Text>
+            </HBox>
+    </HBox>
+    <VBox styleClass="conteneurTableJeu">
+        <HBox styleClass="conteneurBoutons">
+            <HBox styleClass="conteneurBouton">
+                <Button styleClass="boutonCoup" text="↡"/>
+            </HBox>
+            <HBox styleClass="conteneurBouton">
+                <Button styleClass="boutonCoup" text="↡"/>
+            </HBox>
+            <HBox styleClass="conteneurBouton">
+                <Button styleClass="boutonCoup" text="↡"/>
+            </HBox>
+        </HBox>
         <VBox styleClass="conteneurGrille">
             <HBox styleClass="conteneurLigne">
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
             </HBox>
             <HBox styleClass="conteneurLigne">
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
             </HBox>
             <HBox styleClass="conteneurLigne">
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
-                <ImageView styleClass="imageCase">
-                   <image>
-                       <Image url="/images/VIDE.png" />
-                    </image>
-                </ImageView>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase">
+                    <ImageView styleClass="imageCase">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
             </HBox>
         </VBox>
     </VBox>

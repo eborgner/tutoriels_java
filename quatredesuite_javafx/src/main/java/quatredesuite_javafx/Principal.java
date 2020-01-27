@@ -3,7 +3,6 @@ package quatredesuite_javafx;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_javafx.ChargeurDeVue;
-import static commun_javafx.Constantes.*;
 import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
@@ -47,17 +46,17 @@ public class Principal extends Application {
 	private void setHauteurFenetre(Stage fenetrePrincipale) {
 		J.appel(this);
 
-		fenetrePrincipale.setHeight(HAUTEUR_PAR_DEFAUT);
-		fenetrePrincipale.setMinHeight(HAUTEUR_PAR_DEFAUT);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_PAR_DEFAUT);
+		fenetrePrincipale.setHeight(HAUTEUR);
+		fenetrePrincipale.setMinHeight(HAUTEUR);
+		fenetrePrincipale.setMaxHeight(HAUTEUR);
 	}
 
 	private void setLargeurFenetre(Stage fenetrePrincipale) {
 		J.appel(this);
 
-		fenetrePrincipale.setWidth(LARGEUR_PAR_DEFAUT);
-		fenetrePrincipale.setMinWidth(LARGEUR_PAR_DEFAUT);
-		fenetrePrincipale.setMaxWidth(LARGEUR_PAR_DEFAUT);
+		fenetrePrincipale.setWidth(LARGEUR);
+		fenetrePrincipale.setMinWidth(LARGEUR);
+		fenetrePrincipale.setMaxWidth(LARGEUR);
 	}
 
 	private Scene creerScenePrincipale() {
@@ -68,7 +67,7 @@ public class Principal extends Application {
         								           CHEMIN_PARTIE_LOCALE_CSS);
 
 
-		Scene scene = chargeur.nouvelleScene(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
+		Scene scene = chargeur.nouvelleScene(LARGEUR, HAUTEUR);
 
 		DoitEtre.nonNul(scene);
 

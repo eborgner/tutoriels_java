@@ -1,97 +1,75 @@
 .conteneurPrincipal {
-  -fx-padding: 1em;
-  -fx-border-style: solid;
-  -fx-border-width: 1em;
-  -fx-border-color: #161620;
-  -fx-background-color: #305ae1;
-}
-.conteneurVertical {
-  -fx-background-color: none;
-}
-.conteneurHorizontal {
-  -fx-background-color: none;
-}
-.espaceHorizontal {
-  -fx-background-color: none;
-}
-.petiteLargeur {
-  -fx-min-width: 1em;
-  -fx-max-width: 3em;
-}
-.largeurInifie {
-  -fx-min-width: 2em;
-  -fx-max-width: Infinite;
-}
-.espaceVertical {
-  -fx-background-color: none;
-}
-.petiteHauteur {
-  -fx-min-height: 2em;
-  -fx-max-height: 4em;
-}
-.groupeDeControles {
   -fx-alignment: center;
-  -fx-padding: 1em;
+  -fx-min-width: 220px;
+  -fx-max-width: 220px;
+  -fx-min-height: 380px;
+  -fx-max-height: 380px;
   -fx-border-style: solid;
-  -fx-border-width: 0.2em;
+  -fx-border-width: 5px;
   -fx-border-color: #161620;
-  -fx-border-radius: 2em;
-  -fx-background-radius: 2em;
-  -fx-min-width: 6em;
-  -fx-max-width: 24em;
-  -fx-max-height: 16em;
   -fx-background-color: #95c5db;
 }
-.bouton {
-  -fx-padding: 1em;
-  -fx-border-style: solid;
-  -fx-border-width: 0.5em;
-  -fx-border-insets: 0.5em;
-  -fx-background-insets: 0.5em;
-  -fx-border-color: #95c5db;
-  -fx-border-radius: 2em;
-  -fx-background-radius: 2em;
-  -fx-background-color: linear-gradient(from 100% 0% to 100% 100%, repeat, #95c5db 50%, #bcced6 100%);
-  -fx-effect: dropshadow(three-pass-box, #161620, 1em, 0, 0, 0);
-  -fx-font-family: Fixed;
+.conteneurNomsJoueurs {
+  -fx-min-width: 180px;
+  -fx-max-width: 180px;
+  -fx-min-height: 60px;
+  -fx-max-height: 60px;
+  -fx-alignment: center;
 }
-.bouton:pressed {
-  -fx-border-color: #161620;
-  -fx-background-color: #305ae1;
+.conteneurNomJoueur {
+  -fx-min-width: 90px;
+  -fx-alignment: center;
 }
-.bouton:hover {
-  -fx-background-color: #95c5db;
+.conteneurTableJeu {
+  -fx-min-width: 180px;
+  -fx-max-width: 180px;
 }
-.fondPartie {
-  -fx-background-color: #305ae1;
-  -fx-background-radius: 2em 2em 2em 2em;
-  -fx-border-radius: 2em 2em 2em 2em;
+.conteneurBoutons {
+  -fx-alignment: center;
+  -fx-min-width: 180px;
+  -fx-max-width: 180px;
+  -fx-min-height: 100px;
+  -fx-max-height: 100px;
 }
-Entete {
+.conteneurBouton {
+  -fx-alignment: center;
+  -fx-min-width: 60px;
+  -fx-max-width: 60px;
+}
+.boutonCoup {
   -fx-border-style: solid;
   -fx-border-width: 2px;
   -fx-background-color: #bcced6;
   -fx-text-color: #305ae1;
-  -fx-margin-bottom: 10em;
-  -fx-min-height: 2em;
-  -fx-max-width: 2em;
-  -fx-min-width: 4em;
-  -fx-margin: 10em;
-  -fx-background-radius: 2em 2em 2em 2em;
-  -fx-border-radius: 2em 2em 2em 2em;
+  -fx-min-width: 40px;
+  -fx-max-width: 40px;
+  -fx-min-height: 80px;
+  -fx-max-height: 80px;
+  -fx-background-radius: 20px 20px 20px 20px;
+  -fx-border-radius: 20px 20px 20px 20px;
 }
-Entete.ROUGE:hover {
+.boutonCoup:hover {
   -fx-border-color: #fd5435;
 }
-Entete.JAUNE:hover {
-  -fx-border-color: #fccd0e;
-}
-Entete:pressed {
+.boutonCoup:pressed {
   -fx-background-color: #305ae1;
 }
-Case {
+.conteneurGrille {
+  -fx-min-width: 180px;
+  -fx-max-width: 180px;
+  -fx-background-color: #305ae1;
+  -fx-background-radius: 20px 20px 20px 20px;
+  -fx-border-radius: 20px 20px 20px 20px;
+}
+.conteneurLigne {
   -fx-alignment: center;
-  -fx-min-width: 4em;
-  -fx-margin: 2em;
-  -fx-padding: 2em;
+  -fx-min-width: 180px;
+  -fx-max-width: 180px;
+  -fx-min-height: 60px;
+  -fx-max-height: 60px;
+}
+.conteneurCase {
+  -fx-alignment: center;
+  -fx-min-width: 60px;
+  -fx-max-width: 60px;
 }

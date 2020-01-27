@@ -1,51 +1,89 @@
-@import "commun";
+@import "constantes";
 
-.fondPartie{
+.conteneurPrincipal{
+    -fx-alignment:center;
+    -fx-min-width:@largeurTotale;
+    -fx-max-width:@largeurTotale;
+    -fx-min-height:@hauteurTotale;
+    -fx-max-height:@hauteurTotale;
+    -fx-border-style: solid;
+    -fx-border-width: 5px;
+    -fx-border-color:@fonce1;
+    -fx-background-color:@pale1;
+}
+
+.conteneurNomsJoueurs{
+    -fx-min-width:@largeurGrille;
+    -fx-max-width:@largeurGrille;
+    -fx-min-height:@hauteurNomJoueur;
+    -fx-max-height:@hauteurNomJoueur;
+    -fx-alignment:center;
+}
+
+.conteneurNomJoueur{
+    -fx-min-width:@largeurGrille / 2;
+    -fx-alignment:center;
+}
+
+.conteneurTableJeu{
+    -fx-min-width:@largeurGrille;
+    -fx-max-width:@largeurGrille;
+}
+
+.conteneurBoutons{
+    -fx-alignment:center;
+    -fx-min-width:@largeurGrille;
+    -fx-max-width:@largeurGrille;
+    -fx-min-height:@hauteurEntete;
+    -fx-max-height:@hauteurEntete;
+}
+
+.conteneurBouton{
+    -fx-alignment:center;
+    -fx-min-width:@largeurColonne;
+    -fx-max-width:@largeurColonne;
+}
+
+.boutonCoup{
+    -fx-border-style:solid;
+    -fx-border-width:2px;
+    -fx-background-color:@pale2;
+    -fx-text-color:@fonce2;
+    -fx-min-width: @largeurBouton;
+    -fx-max-width:@largeurBouton;
+    -fx-min-height:@hauteurBouton;
+    -fx-max-height:@hauteurBouton;
+    -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+}
+
+.boutonCoup:hover {
+    -fx-border-color:@jetonRouge;
+}
+
+.boutonCoup:pressed {
+    -fx-background-color:@fonce2;
+}
+
+.conteneurGrille{
+    -fx-min-width:@largeurGrille;
+    -fx-max-width:@largeurGrille;
     -fx-background-color:@fonce2;
     -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
     -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
 }
 
-Entete{
-    -fx-border-style:solid;
-    -fx-border-width:2px;
-    -fx-background-color:@pale2;
-    -fx-text-color:@fonce2;
-    -fx-margin-bottom:@grosEspace;
-    -fx-min-height:@hauteurEntete;
-    -fx-max-width:@largeurEntete;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @grosEspace;
-	-fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-
+.conteneurLigne{
+    -fx-alignment:center;
+    -fx-min-width:@largeurGrille;
+    -fx-max-width:@largeurGrille;
+    -fx-min-height:@hauteurCase;
+    -fx-max-height:@hauteurCase;
 }
 
-
-Entete.ROUGE:hover {
-    -fx-border-color:@jetonRouge;
+.conteneurCase{
+    -fx-alignment:center;
+    -fx-min-width:@largeurColonne;
+    -fx-max-width:@largeurColonne;
 }
 
-
-Entete.JAUNE:hover {
-    -fx-border-color:@jetonJaune;
-}
-
-Entete:pressed {
-    -fx-background-color:@fonce2;
-}
-
-
-
-Case{
-    -fx-alignment: center;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @petitEspace;
-    -fx-padding: @petitEspace;
-}
-
-Case.ROUGE{
-}
-
-Case.JAUNE{
-}

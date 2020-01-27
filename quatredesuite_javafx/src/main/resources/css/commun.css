@@ -35,8 +35,8 @@
   -fx-border-style: solid;
   -fx-border-width: 0.2em;
   -fx-border-color: #161620;
-  -fx-border-radius: 2em;
-  -fx-background-radius: 2em;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
   -fx-min-width: 6em;
   -fx-max-width: 24em;
   -fx-max-height: 16em;
@@ -49,8 +49,8 @@
   -fx-border-insets: 0.5em;
   -fx-background-insets: 0.5em;
   -fx-border-color: #95c5db;
-  -fx-border-radius: 2em;
-  -fx-background-radius: 2em;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
   -fx-background-color: linear-gradient(from 100% 0% to 100% 100%, repeat, #95c5db 50%, #bcced6 100%);
   -fx-effect: dropshadow(three-pass-box, #161620, 1em, 0, 0, 0);
   -fx-font-family: Fixed;
