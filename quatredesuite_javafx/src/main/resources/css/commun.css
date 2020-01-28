@@ -4,15 +4,15 @@
   -fx-border-width: 5px;
   -fx-border-color: #161620;
   -fx-background-color: #95c5db;
-  -fx-padding: 40px;
+  -fx-padding: 4em;
 }
 .petitEspaceVertical {
-  -fx-min-height: 10px;
-  -fx-pref-height: 20px;
-  -fx-max-height: 40px;
+  -fx-min-height: 1em;
+  -fx-pref-height: 2em;
+  -fx-max-height: 4em;
 }
 .grosEspaceVertical {
-  -fx-min-height: 20px;
-  -fx-pref-height: 40px;
-  -fx-max-height: 80px;
+  -fx-min-height: 2em;
+  -fx-pref-height: 4em;
+  -fx-max-height: 8em;
 }
