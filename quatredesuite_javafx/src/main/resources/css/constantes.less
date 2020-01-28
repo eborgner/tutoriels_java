@@ -1,58 +1,34 @@
 @debug: false;
 
-@largeurImage : 3em;
-@largeurImageMin : 1em;
-@largeurImageMax : 15em;
-@hauteurImage : 3em;
-@hauteurImageMin : 1em;
-@hauteurImageMax : 15em;
-@petitEspace: 1em;
+@largeurImageMin  : 20px;
+@largeurImagePref : 40px;
+@largeurImageMax  : 200px;
 
-@largeurColonne : @largeurImage + 2*@petitEspace;
-@largeurColonneMax : @largeurImageMax + 2*@petitEspace;
+@hauteurImageMin  : 20px;
+@hauteurImagePref : 40px;
+@hauteurImageMax  : 200px;
 
-@largeurGrille : 3 * @largeurColonne;
-@largeurGrilleMax : 3*@largeurColonneMax;
+@petitEspaceMin  : 10px;
+@petitEspacePref : 20px;
+@petitEspaceMax  : 40px;
 
-@grosEspace: @petitEspace * 2;
+@grosEspaceMin   : @petitEspaceMin  * 2;
+@grosEspacePref  : @petitEspacePref * 2;
+@grosEspaceMax   : @petitEspaceMax  * 2;
 
-@largeurTotale : @largeurGrille + 2*@grosEspace;
+@largeurBoutonMin  : @largeurImageMin;
+@largeurBoutonPref : @largeurImagePref;
+@largeurBoutonMax  : @largeurImageMax;
 
-@hauteurCase : @hauteurImage + 2*@petitEspace;
+@hauteurBoutonMin  : 2 * @hauteurImageMin;
+@hauteurBoutonPref : 2 * @hauteurImagePref;
+@hauteurBoutonMax  : 2 * @hauteurImageMax;
 
-@hauteurCaseMax : @hauteurImageMax + 2*@petitEspace;
+@largeurGrilleMin  : 3 * @largeurImageMin;
+@largeurGrillePref : 3 * @largeurImagePref;
+@largeurGrilleMax  : 3 * @largeurImageMax;
 
-@hauteurGrille : 3 * @hauteurCase;
-@hauteurGrilleMax : 3 * @hauteurCaseMax;
-
-@hauteurNomJoueur : @hauteurCase;
-@hauteurNomJoueurMax : 2 * @hauteurCase;
-
-@largeurBouton : @largeurImage;
-@largeurBoutonMax : @largeurImageMax;
-
-@hauteurBouton : 1.5 * @hauteurImage;
-@hauteurBoutonMin : @hauteurImage;
-@hauteurBoutonMax : 2 * @hauteurImage;
-
-@hauteurEntete : @hauteurBouton + 2 * @petitEspace;
-@hauteurEnteteMin : @hauteurBoutonMin + 2 * @petitEspace;
-@hauteurEnteteMax : @hauteurBoutonMax + 2 * @petitEspace;
-
-@hauteurTableJeu : @hauteurEntete + @hauteurGrille;
-@hauteurTableJeuMax : @hauteurEnteteMax + @hauteurGrilleMax;
-
-@hauteurTotale : @hauteurNomJoueur + @hauteurTableJeu + 2*@grosEspace;
-@hauteurTotaleMax : @hauteurNomJoueurMax + @hauteurTableJeuMax + 2*@grosEspace;
-
-
-
-
-@largeurTotaleMax : @largeurGrille + 2*@grosEspace;
-
-
-
-@petitCoin: 2em;
+@petitCoin: 20px;
 @grosCoin: @petitCoin * 2;
 
 
