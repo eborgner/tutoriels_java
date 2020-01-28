@@ -16,6 +16,7 @@
                 <Text styleClass="nomJoueur" text="%joueurDeux"></Text>
             </HBox>
     </HBox>
+    <VBox styleClass="grosEspaceVertical" />
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <HBox styleClass="conteneurBoutons" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
@@ -28,6 +29,7 @@
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
         </HBox>
+        <VBox styleClass="petitEspaceVertical" />
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
