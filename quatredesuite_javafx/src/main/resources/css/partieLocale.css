@@ -1,7 +1,14 @@
-#bouton1 {
-  -fx-min-width: 30px;
+.espaceHorizontal {
+  -fx-min-width: 3px;
 }
-.conteneurGrille {
+#bouton {
+  -fx-min-width: 30px;
+  -fx-min-height: 100px;
+}
+#zoneTexte {
+  -fx-max-width: 30px;
+}
+.conteneurA {
   -fx-padding: 4px;
   -fx-border-style: dashed;
   -fx-border-width: 2px;
