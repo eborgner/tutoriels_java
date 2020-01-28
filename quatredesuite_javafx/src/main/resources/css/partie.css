@@ -1,6 +1,9 @@
 .espaceHorizontal {
   -fx-min-width: 3px;
 }
+.espaceVertical {
+  -fx-min-height: 3px;
+}
 #bouton {
   -fx-min-width: 30px;
   -fx-min-height: 100px;
