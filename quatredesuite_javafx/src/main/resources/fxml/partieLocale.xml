@@ -8,9 +8,11 @@
 <?import javafx.scene.image.Image?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
-    <VBox  styleClass="conteneurGrille">
+    <HBox  styleClass="conteneurGrille">
         <Button id="bouton1" text="Bouton 1"/>
-        <Button id="bouton1" text="Bouton 2"/>
-        <Button id="bouton1" text="Bouton 3"/>
-    </VBox>
+        <HBox styleClass="conteneurInterne">
+            <Button id="bouton1" text="Bouton 2"/>
+            <Button id="bouton1" text="Bouton 3"/>
+        </HBox>
+    </HBox>
 </VBox>

@@ -3,3 +3,8 @@
   -fx-border-width: 2px;
   -fx-border-color: black;
 }
+.conteneurInterne {
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
+  -fx-border-color: blue;
+}
