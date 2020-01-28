@@ -1,64 +1,18 @@
 .conteneurPrincipal {
-  -fx-padding: 1em;
+  -fx-alignment: center;
   -fx-border-style: solid;
-  -fx-border-width: 1em;
+  -fx-border-width: 5px;
   -fx-border-color: #161620;
-  -fx-background-color: #305ae1;
+  -fx-background-color: #95c5db;
+  -fx-padding: 4em;
 }
-.conteneurVertical {
-  -fx-background-color: none;
-}
-.conteneurHorizontal {
-  -fx-background-color: none;
-}
-.espaceHorizontal {
-  -fx-background-color: none;
-}
-.petiteLargeur {
-  -fx-min-width: 1em;
-  -fx-max-width: 3em;
-}
-.largeurInifie {
-  -fx-min-width: 2em;
-  -fx-max-width: Infinite;
-}
-.espaceVertical {
-  -fx-background-color: none;
-}
-.petiteHauteur {
-  -fx-min-height: 2em;
+.petitEspaceVertical {
+  -fx-min-height: 1em;
+  -fx-pref-height: 2em;
   -fx-max-height: 4em;
 }
-.groupeDeControles {
-  -fx-alignment: center;
-  -fx-padding: 1em;
-  -fx-border-style: solid;
-  -fx-border-width: 0.2em;
-  -fx-border-color: #161620;
-  -fx-border-radius: 20px;
-  -fx-background-radius: 20px;
-  -fx-min-width: 6em;
-  -fx-max-width: 24em;
-  -fx-max-height: 16em;
-  -fx-background-color: #95c5db;
-}
-.bouton {
-  -fx-padding: 1em;
-  -fx-border-style: solid;
-  -fx-border-width: 0.5em;
-  -fx-border-insets: 0.5em;
-  -fx-background-insets: 0.5em;
-  -fx-border-color: #95c5db;
-  -fx-border-radius: 20px;
-  -fx-background-radius: 20px;
-  -fx-background-color: linear-gradient(from 100% 0% to 100% 100%, repeat, #95c5db 50%, #bcced6 100%);
-  -fx-effect: dropshadow(three-pass-box, #161620, 1em, 0, 0, 0);
-  -fx-font-family: Fixed;
-}
-.bouton:pressed {
-  -fx-border-color: #161620;
-  -fx-background-color: #305ae1;
-}
-.bouton:hover {
-  -fx-background-color: #95c5db;
+.grosEspaceVertical {
+  -fx-min-height: 2em;
+  -fx-pref-height: 4em;
+  -fx-max-height: 8em;
 }

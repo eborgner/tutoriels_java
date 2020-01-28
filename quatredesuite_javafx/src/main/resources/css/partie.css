@@ -1,50 +1,59 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-max-width: 220px;
-  -fx-max-height: 920px;
   -fx-border-style: solid;
   -fx-border-width: 5px;
   -fx-border-color: #161620;
   -fx-background-color: #95c5db;
-  -fx-padding: 20px;
+  -fx-padding: 4em;
+}
+.petitEspaceVertical {
+  -fx-min-height: 1em;
+  -fx-pref-height: 2em;
+  -fx-max-height: 4em;
+}
+.grosEspaceVertical {
+  -fx-min-height: 2em;
+  -fx-pref-height: 4em;
+  -fx-max-height: 8em;
 }
 .conteneurNomsJoueurs {
   -fx-alignment: center;
-  -fx-max-width: 660px;
-  -fx-min-height: 60px;
-  -fx-max-height: 120px;
+  -fx-min-width: 6em;
+  -fx-pref-width: 12em;
+  -fx-max-width: 60em;
 }
 .conteneurNomJoueur {
   -fx-alignment: center;
-  -fx-max-width: 330px;
-  -fx-max-height: 120px;
 }
 .conteneurTableJeu {
-  -fx-max-width: 660px;
-  -fx-max-height: 760px;
+  -fx-alignment: center;
 }
 .conteneurBoutons {
   -fx-alignment: center;
-  -fx-padding-bottom: 10px;
-  -fx-max-width: 660px;
-  -fx-min-height: 60px;
-  -fx-max-height: 100px;
+  -fx-min-width: 6em;
+  -fx-pref-width: 12em;
+  -fx-max-width: 60em;
+  -fx-min-height: 4em;
+  -fx-pref-height: 8em;
+  -fx-max-height: 40em;
 }
 .conteneurBouton {
   -fx-alignment: center;
-  -fx-max-width: 220px;
-  -fx-max-height: 100px;
+  -fx-min-height: 4em;
+  -fx-pref-height: 8em;
+  -fx-max-height: 40em;
 }
 .boutonCoup {
+  -fx-min-width: 1.33333333em;
+  -fx-pref-width: 2.66666667em;
+  -fx-max-width: 13.33333333em;
+  -fx-min-height: 4em;
+  -fx-pref-height: 8em;
+  -fx-max-height: 40em;
   -fx-border-style: solid;
   -fx-border-width: 2px;
   -fx-background-color: #bcced6;
   -fx-text-color: #305ae1;
-  -fx-min-width: 40px;
-  -fx-max-width: 200px;
-  -fx-min-height: 40px;
-  -fx-pref-height: 40px;
-  -fx-max-height: 80px;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
 }
@@ -55,19 +64,25 @@
   -fx-background-color: #305ae1;
 }
 .conteneurGrille {
-  -fx-max-width: 660px;
-  -fx-max-height: 660px;
+  -fx-alignment: center;
+  -fx-min-width: 6em;
+  -fx-pref-width: 12em;
+  -fx-max-width: 60em;
   -fx-background-color: #305ae1;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
 }
 .conteneurLigne {
   -fx-alignment: center;
-  -fx-max-width: 660px;
-  -fx-max-height: 220px;
 }
 .conteneurCase {
   -fx-alignment: center;
-  -fx-max-width: 220px;
-  -fx-max-height: 220px;
+  -fx-min-width: 2em;
+  -fx-pref-width: 4em;
+  -fx-max-width: 20em;
+}
+.petitEspaceVertical {
+  -fx-min-height: 1em;
+  -fx-pref-height: 2em;
+  -fx-max-height: 4em;
 }
