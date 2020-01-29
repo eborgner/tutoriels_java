@@ -15,9 +15,10 @@ import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_client.vues.VuePrincipale;
 
-public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
+public abstract class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 	
-	private ControleurPartieLocale controleurPartieLocale;
+	// FIXME: va uniquement dans FX  (Android, c'est l'Activité qui est propriétaire du controleur)
+	protected ControleurPartieLocale controleurPartieLocale;
 
 	@Override
 	public void installerReceptionCommandes() {
@@ -25,7 +26,7 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 		
 		FabriqueCommande.installerRecepteur(NouvellePartieLocale.class, new RecepteurCommande<NouvellePartieLocaleRecue>() {
 			@Override
-			public void executerCommande(NouvellePartieLocaleRecue evenement) {
+			public void executerCommande(NouvellePartieLocaleRecue commande) {
 				J.appel(this);
 				
 				// FIXME
@@ -36,7 +37,7 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 							J.appel(this);
 
 							nouvellePartieLocale();
-							evenement.notifierCommandeTraitee();
+							commande.notifierCommandeTraitee();
 						}
 					});
 					
@@ -46,38 +47,20 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 				}else {
 					
 					nouvellePartieLocale();
-					evenement.notifierCommandeTraitee();
+					commande.notifierCommandeTraitee();
 				}
 			}
 		});
 		
 	}
 	
-	private void nouvellePartieLocale() {
-		J.appel(this);
-
-		if(controleurPartieLocale != null) {
-			controleurPartieLocale.detruire();
-			vue.detruireVuePartieLocale();
-		}
-		
-		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
-		
-		// FIXME: devrait faire appel à un EntrepotDeModeles (qui est dans quatredesuite_javafx)
-		Partie partieLocale = new Partie();
-		
-		AfficheurPartie afficheurPartie = new AfficheurPartie();
-
-		controleurPartieLocale = FabriqueControleur.creerControleur(ControleurPartieLocale.class, 
-				partieLocale, 
-				vuePartieLocale,
-				afficheurPartie);
-	}
+	protected abstract void nouvellePartieLocale();
 
 	@Override
 	public void detruire() {
 		J.appel(this);
-		
+
+		// FIXME: c'est uniquement dans FX (Android c'est sur ActivitePartieLocale.onDestroy)
 		controleurPartieLocale.detruire();
 	}
 
