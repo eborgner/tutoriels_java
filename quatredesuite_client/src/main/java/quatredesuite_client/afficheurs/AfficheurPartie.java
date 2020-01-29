@@ -1,11 +1,13 @@
-package quatredesuite_client.afficheurs.partie;
+package quatredesuite_client.afficheurs;
 
 import java.util.List;
 
 import commun.debogage.J;
 import commun_client.mvc.Afficheur;
+import quatredesuite.enumerations.Couleur;
 import quatredesuite.modeles.partie.ColonneLectureSeule;
 import quatredesuite.modeles.partie.GrilleLectureSeule;
+import quatredesuite.modeles.partie.JetonLectureSeule;
 import quatredesuite.modeles.partie.PartieLectureSeule;
 import quatredesuite_client.vues.VuePartie;
 
@@ -36,9 +38,27 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartie>{
 		List<ColonneLectureSeule> colonnes = grille.getColonnes();
 		
 		for(int indiceColonne = 0; indiceColonne < colonnes.size(); indiceColonne++) {
+		
+			ColonneLectureSeule colonne = colonnes.get(indiceColonne);
+			List<JetonLectureSeule> jetons = colonne.getJetons();
 			
-			// TODO
+			rafraichirColonne(indiceColonne, jetons, vue);
 
+		}
+	}
+
+	private void rafraichirColonne(int indiceColonne, 
+								   List<JetonLectureSeule> jetons, 
+								   VuePartie vue) {
+		J.appel(this);
+		
+		
+		for(int indiceRangee = 0; indiceRangee < jetons.size(); indiceRangee++) {
+			
+			JetonLectureSeule jeton = jetons.get(indiceRangee);
+			Couleur couleur = jeton.getCouleur();
+			
+			vue.afficherJeton(indiceColonne, indiceRangee, couleur);
 		}
 	}
 

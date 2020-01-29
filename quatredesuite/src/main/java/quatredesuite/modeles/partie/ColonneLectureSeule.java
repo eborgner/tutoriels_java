@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface ColonneLectureSeule {
 	
-	List<JetonLectureSeule> getJeton();
+	List<JetonLectureSeule> getJetons();
 
 }

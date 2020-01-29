@@ -22,7 +22,7 @@ public class Colonne implements ColonneLectureSeule {
 	}
 
 	@Override
-	public List<JetonLectureSeule> getJeton() {
+	public List<JetonLectureSeule> getJetons() {
 		J.appel(this);
 		
 		List<JetonLectureSeule> jetonsLectureSeule = new ArrayList<>();

@@ -3,7 +3,7 @@ package quatredesuite.modeles.partie;
 import commun.debogage.J;
 import quatredesuite.enumerations.Couleur;
 
-public class Jeton {
+public class Jeton implements JetonLectureSeule {
 	
 	private Couleur couleur;
 
@@ -13,5 +13,10 @@ public class Jeton {
 		this.couleur = couleur;
 	}
 
+	@Override
+	public Couleur getCouleur() {
+		J.appel(this);
 
+		return couleur;
+	}
 }
