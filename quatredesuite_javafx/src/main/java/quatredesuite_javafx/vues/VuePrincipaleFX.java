@@ -29,7 +29,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 	public void creerEvenements() {
 		J.appel(this);
 		
-		nouvellePartieLocale = FabriqueCommande.creerEvenement(NouvellePartieLocalePourEnvoi.class);
+		nouvellePartieLocale = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocalePourEnvoi.class);
 	}
 
 	@Override

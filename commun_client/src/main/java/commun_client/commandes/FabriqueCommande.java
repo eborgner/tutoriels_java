@@ -48,7 +48,7 @@ public class FabriqueCommande {
 
 
 	@SuppressWarnings("unchecked")
-	public static <EL extends CommandePourEnvoi> EL creerEvenement(Class<EL> classeEvenementLance) {
+	public static <EL extends CommandePourEnvoi> EL obtenirCommandePourEnvoi(Class<EL> classeEvenementLance) {
 		J.appel(FabriqueCommande.class);
 		
 		Class<? extends Commande> classeEvenement = commandesPourEnvoi.get(classeEvenementLance);
