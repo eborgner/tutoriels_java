@@ -30,9 +30,9 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 				
 				// FIXME
 				if(controleurPartieLocale != null) {
-					FabriqueCommande.installerFinalisateur(ViderGrille.class, new ReactionApresCommande() {
+					FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
 						@Override
-						public void reagirMessageTraite() {
+						public void reagirApresCommande() {
 							J.appel(this);
 
 							nouvellePartieLocale();
@@ -40,7 +40,7 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 						}
 					});
 					
-					ViderGrillePourEnvoi viderGrille = FabriqueCommande.creerEvenement(ViderGrillePourEnvoi.class);
+					ViderGrillePourEnvoi viderGrille = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrillePourEnvoi.class);
 					viderGrille.envoyerCommande();
 					
 				}else {
@@ -63,9 +63,6 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 		
 		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
 		
-		// FIXME: devrait être un creerAffichage appelé en créant l'afficheur!
-		vuePartieLocale.creerGrille(4,6);
-
 		// FIXME: devrait faire appel à un EntrepotDeModeles (qui est dans quatredesuite_javafx)
 		Partie partieLocale = new Partie();
 		
@@ -81,6 +78,7 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 	public void detruire() {
 		J.appel(this);
 		
+		controleurPartieLocale.detruire();
 	}
 
 	@Override
@@ -89,7 +87,7 @@ public class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 		
 		// rien; à moins qu'on démarrer un AnimationTimer pour lancer
 		//       des commandes ReagirAuTempsQuiPasse
-		
+
 	} 
 	
 }

@@ -37,7 +37,7 @@ public class FabriqueCommande {
 	}
 
 	public static <C extends Commande> 
-				  void installerFinalisateur(Class<C> classeCommande, 
+				  void installerReactionApresCommande(Class<C> classeCommande, 
 										     ReactionApresCommande reactionApresCommande) {
 
 		J.appel(FabriqueCommande.class);

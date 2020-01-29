@@ -42,7 +42,7 @@ public abstract class Commande<EC extends CommandeRecue>
 	public void notifierCommandeTraitee() {
 		J.appel(this);
 
-		finalisateur.reagirMessageTraite();
+		finalisateur.reagirApresCommande();
 
 	}
 }

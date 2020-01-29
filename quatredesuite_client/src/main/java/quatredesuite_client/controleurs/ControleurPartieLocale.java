@@ -17,6 +17,9 @@ public class ControleurPartieLocale extends ControleurModeleVue<Partie, VueParti
 	public void installerReceptionCommandes() {
 		J.appel(this);
 		
+		// FIXME: devrait être appelé automatiquement
+		afficheur.initialiserAffichage((PartieLectureSeule) modele, vue);
+		
 		FabriqueCommande.installerRecepteur(JouerIci.class, new RecepteurCommande<JouerIciRecue>() {
 
 			@Override

@@ -4,7 +4,7 @@ import commun.debogage.J;
 
 public abstract class ReactionApresCommande{
 
-	public void reagirMessageTraite() {
+	public void reagirApresCommande() {
 		J.appel(this);
 		
 		// par défaut: rien

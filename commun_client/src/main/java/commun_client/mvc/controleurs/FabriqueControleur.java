@@ -18,7 +18,7 @@ public class FabriqueControleur {
 		controleur.setVue(vue);
 
 		initialiser(vue, controleur);
-
+		
 		return controleur;
 	}
 
@@ -41,6 +41,8 @@ public class FabriqueControleur {
 
 		installerReceptionCommandes(controleur);
 		installerEnvoiDesCommandes(vue);
+		
+		controleur.demarrer();
 	}
 
 	private static <C extends ControleurVue> void installerReceptionCommandes(C controleur) {

@@ -28,4 +28,9 @@ public abstract class ControleurModeleVue<M extends Modele, V extends Vue, A ext
 		this.afficheur = afficheur;
 	}
 	
+	public void initialiserAffichage() {
+		J.appel(this);
+
+	}
+	
 }
