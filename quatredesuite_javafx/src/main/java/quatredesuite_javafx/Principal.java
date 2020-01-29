@@ -3,14 +3,13 @@ package quatredesuite_javafx;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
-import commun_client.mvc.FabriqueControleur;
+import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import quatredesuite.modeles.ModelePrincipal;
 import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciPourEnvoi;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
@@ -87,10 +86,7 @@ public class Principal extends Application {
 
 		VuePrincipaleFX vuePrincipale = chargeur.getVue();
 
-		ModelePrincipal modelePrincipal = new ModelePrincipal();
-
-		ControleurPrincipal controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipal.class, modelePrincipal, vuePrincipale);
-
+		ControleurPrincipal controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipal.class, vuePrincipale);
 		
 		return controleurPrincipal;
 	}

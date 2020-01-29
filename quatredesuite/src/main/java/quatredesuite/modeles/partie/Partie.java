@@ -1,9 +1,10 @@
 package quatredesuite.modeles.partie;
 
 import commun.debogage.J;
+import commun.mvc.Modele;
 import quatredesuite.enumerations.Couleur;
 
-public class Partie implements PartieLectureSeule {
+public class Partie extends Modele implements PartieLectureSeule {
 
 	private int largeur =  4;
 	private int hauteur = 6;
@@ -19,6 +20,34 @@ public class Partie implements PartieLectureSeule {
 		grille.initialiser(largeur);
 		
 	}
+	
+	
+    public void jouerIci(int idColonne){
+        J.appel(this);
+
+        effectuerCoup(idColonne);
+    }
+
+    public void effectuerCoup(int idColonne) {
+        J.appel(this);
+
+        grille.ajouterJeton(idColonne, couleurCourante);
+        prochaineCouleur();
+    }
+
+    private void prochaineCouleur() {
+        J.appel(this);
+
+        switch(couleurCourante) {
+
+        case ROUGE:
+        	couleurCourante = Couleur.JAUNE;
+            break;
+        case JAUNE:
+        	couleurCourante = Couleur.ROUGE;
+            break;
+        }
+    }
 
 	public int getLargeur() {
 		J.appel(this);
