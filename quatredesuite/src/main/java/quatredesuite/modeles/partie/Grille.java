@@ -29,16 +29,18 @@ public class Grille implements GrilleLectureSeule {
 	}
 
 	@Override
-	public Stream<ColonneLectureSeule> getColonnes() {
+	public List<ColonneLectureSeule> getColonnes() {
 		J.appel(this);
-
-		Stream<ColonneLectureSeule> streamColonnesLectureSeule;
 		
-		Stream<Colonne> streamColonnes = colonnes.stream();
+		List<ColonneLectureSeule> colonnesLectureSeule = new ArrayList<>();
 		
-		streamColonnesLectureSeule = streamColonnes.map(c -> (ColonneLectureSeule) c);
+		for(Colonne colonne : colonnes) {
+			
+			colonnesLectureSeule.add((ColonneLectureSeule) colonne);
+			
+		}
 		
-		return streamColonnesLectureSeule;
+		return colonnesLectureSeule;
 		
 	}
 

@@ -3,7 +3,6 @@ package quatredesuite.modeles.partie;
 import java.util.ArrayList;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import commun.debogage.J;
 import quatredesuite.enumerations.Couleur;
@@ -23,15 +22,16 @@ public class Colonne implements ColonneLectureSeule {
 	}
 
 	@Override
-	public Stream<JetonLectureSeule> getJeton() {
+	public List<JetonLectureSeule> getJeton() {
 		J.appel(this);
 		
-		Stream<Jeton> streamJetons = jetons.stream();
+		List<JetonLectureSeule> jetonsLectureSeule = new ArrayList<>();
 		
-		Stream<JetonLectureSeule> jetonsLectureSeule = streamJetons.map(j -> (JetonLectureSeule) j);
+		for(Jeton jeton : jetons) {
+
+			jetonsLectureSeule.add((JetonLectureSeule) jeton);
+		}
 		
 		return jetonsLectureSeule;
-		
-
 	}
 }

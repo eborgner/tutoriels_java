@@ -1,9 +1,9 @@
 package quatredesuite.modeles.partie;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public interface ColonneLectureSeule {
 	
-	Stream<JetonLectureSeule> getJeton();
+	List<JetonLectureSeule> getJeton();
 
 }
