@@ -32,7 +32,7 @@ public class Entete extends Button {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 
-				jouerIci.lancer();
+				jouerIci.envoyerCommande();
 
 			}
 		});
@@ -49,7 +49,7 @@ public class Entete extends Button {
 	public void rafraichirCommande() {
 		J.appel(this);
 		
-		this.setDisabled(!jouerIci.siLancable());
+		this.setDisabled(!jouerIci.siCommandePossible());
 	}
 
 	public void colorerEntete(Couleur couleur) {

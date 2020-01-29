@@ -16,7 +16,7 @@ public class FabriqueCommande {
 	protected static Map<Class<? extends CommandePourEnvoi>, Class<? extends Commande>> commandesPourEnvoi = new HashMap<>();
 	
 	protected static Map<Class<? extends Commande>, RecepteurCommande> recepteurs = new HashMap<>();
-	protected static Map<Class<? extends Commande>, ActionCommandeTraitee> actionsCommandeTraitee = new HashMap<>();
+	protected static Map<Class<? extends Commande>, ReactionApresCommande> reactionsApresCommande = new HashMap<>();
 
 	public static <C extends Commande, CPE extends CommandePourEnvoi> 
 				  void initialiserCommandePourEnvoi(Class<CPE> classeCommandePourEnvoi, 
@@ -36,13 +36,13 @@ public class FabriqueCommande {
 		recepteurs.put(classeCommande, recepteur);
 	}
 
-	public static <E extends Commande> 
-				  void installerFinalisateur(Class<E> classeEvenement, 
-										     ActionCommandeTraitee actionCommandeTraitee) {
+	public static <C extends Commande> 
+				  void installerFinalisateur(Class<C> classeCommande, 
+										     ReactionApresCommande reactionApresCommande) {
 
 		J.appel(FabriqueCommande.class);
 		
-		actionsCommandeTraitee.put(classeEvenement, actionCommandeTraitee);
+		reactionsApresCommande.put(classeCommande, reactionApresCommande);
 
 	}
 
@@ -56,11 +56,11 @@ public class FabriqueCommande {
 		DoitEtre.nonNul(classeEvenement, String.format("Classe Evenement non-installée pour EvenementLance: %s", classeEvenementLance.getSimpleName()));
 		
 		RecepteurCommande capteur = recepteurs.get(classeEvenement);
-		ActionCommandeTraitee finalisateur = actionsCommandeTraitee.get(classeEvenement);
+		ReactionApresCommande finalisateur = reactionsApresCommande.get(classeEvenement);
 		
 		if(finalisateur == null) {
-			Erreur.avertissement(String.format("FinalisateurEvenement par défaut pour: %s", classeEvenement.getSimpleName()));
-			finalisateur = new ActionCommandeTraitee() {};
+			Erreur.avertissement(String.format("Aucune ReactionApresCommande pour: %s", classeEvenement.getSimpleName()));
+			finalisateur = new ReactionApresCommande() {};
 		}
 		
 		DoitEtre.nonNul(capteur, String.format("Le capteur de l'événement %s n'a pas été installé", classeEvenement.getSimpleName()));
@@ -91,7 +91,7 @@ public class FabriqueCommande {
 
 		}catch(ClassCastException e) {
 			
-			Erreur.fatale(String.format("L'événement %s n'a pas son interface EvenementLance", evenement), e);
+			Erreur.fatale(String.format("La Commande %s n'a pas son interface CommandePourEnvoi", evenement), e);
 			
 		}
 		

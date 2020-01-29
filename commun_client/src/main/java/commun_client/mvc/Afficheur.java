@@ -1,31 +1,10 @@
 package commun_client.mvc;
 
-import commun.debogage.J;
-import commun.mvc.ModelePourAffichage;
-import commun_client.commandes.ActionCommandeTraitee;
+import commun.mvc.ModeleLectureSeule;
 
-public abstract class Afficheur<LM extends ModelePourAffichage, V extends Vue> extends ActionCommandeTraitee {
+public abstract class Afficheur<MLS extends ModeleLectureSeule, V extends Vue> {
 	
-	private LM modele;
-	private V vue;
-	
-	public Afficheur(LM modele, V vue) {
-		J.appel(this);
-		
-		this.modele = modele;
-		this.vue = vue;
-		
-		initialiserAffichage();
-	}
-	
-	@Override
-	public void reagirMessageTraite() {
-		J.appel(this);
-
-		rafraichirAffichage();
-	}
-	
-	protected abstract void initialiserAffichage();
-	protected abstract void rafraichirAffichage();
+	public abstract void initialiserAffichage(MLS modeleLectureSeule, V vue);
+	public abstract void rafraichirAffichage(MLS modeleLectureSeule, V vue);
 
 }

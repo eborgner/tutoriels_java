@@ -106,7 +106,7 @@ public class GrilleCases extends Grille {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				evenement.finCaptation();
+				evenement.notifierCommandeTraitee();
 
 			}
 		});
@@ -131,7 +131,7 @@ public class GrilleCases extends Grille {
         FabriqueCommande.installerRecepteur(ViderGrille.class, new RecepteurCommande<ViderGrilleRecue>() {
 
 			@Override
-			public void capterEvenement(ViderGrilleRecue evenement) {
+			public void executerCommande(ViderGrilleRecue evenement) {
 				J.appel(this);
 				
 				animerVidagePartie(evenement);

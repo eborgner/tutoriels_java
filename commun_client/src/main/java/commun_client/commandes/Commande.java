@@ -8,7 +8,7 @@ public abstract class Commande<EC extends CommandeRecue>
 											   CommandeRecue {
 	
 	protected RecepteurCommande<EC> capteur;
-	protected ActionCommandeTraitee finalisateur;
+	protected ReactionApresCommande finalisateur;
 	
 	void setCapteur(RecepteurCommande<EC> capteur) {
 		J.appel(this);
@@ -16,30 +16,30 @@ public abstract class Commande<EC extends CommandeRecue>
 		this.capteur = capteur;
 	}
 	
-	void setFinalisateur(ActionCommandeTraitee finalisateur) {
+	void setFinalisateur(ReactionApresCommande finalisateur) {
 		J.appel(this);
 		
 		this.finalisateur = finalisateur;
 	}
 	
 	@Override
-	public void lancer() {
+	public void envoyerCommande() {
     	J.appel(this);
 
-    	if(siLancable()) {
-    		capteur.capterEvenement((EC) this);
+    	if(siCommandePossible()) {
+    		capteur.executerCommande((EC) this);
     	}
     }
 
 	@Override
-    public boolean siLancable(){
+    public boolean siCommandePossible(){
         J.appel(this);
 
-        return capteur.siCaptable((EC) this);
+        return capteur.siCommandePossible((EC) this);
     }
 
 	@Override
-	public void finCaptation() {
+	public void notifierCommandeTraitee() {
 		J.appel(this);
 
 		finalisateur.reagirMessageTraite();

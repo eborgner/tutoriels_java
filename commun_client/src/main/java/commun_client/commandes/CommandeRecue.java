@@ -2,6 +2,6 @@ package commun_client.commandes;
 
 public interface CommandeRecue {
 	
-	public void finCaptation();
+	public void notifierCommandeTraitee();
 
 }

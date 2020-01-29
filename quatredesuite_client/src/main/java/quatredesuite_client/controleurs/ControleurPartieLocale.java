@@ -4,12 +4,12 @@ import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Controleur;
-import quatredesuite.modeles.ModelePartieLocale;
+import quatredesuite.modeles.partie.Partie;
 import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 
-public class ControleurPartieLocale extends Controleur<ModelePartieLocale, VuePartieLocale> {
+public class ControleurPartieLocale extends Controleur<Partie, VuePartieLocale> {
 	
 
 	@Override
@@ -19,7 +19,7 @@ public class ControleurPartieLocale extends Controleur<ModelePartieLocale, VuePa
 		FabriqueCommande.installerRecepteur(JouerIci.class, new RecepteurCommande<JouerIciRecue>() {
 
 			@Override
-			public void capterEvenement(JouerIciRecue evenement) {
+			public void executerCommande(JouerIciRecue evenement) {
 				J.appel(this);
 				
 

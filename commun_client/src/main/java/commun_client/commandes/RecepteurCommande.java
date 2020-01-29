@@ -2,13 +2,14 @@ package commun_client.commandes;
 
 import commun.debogage.J;
 
-public abstract class RecepteurCommande<EC extends CommandeRecue> {
+public abstract class RecepteurCommande<CR extends CommandeRecue> {
 
-	public abstract void capterEvenement(EC evenement);
+	public abstract void executerCommande(CR commande);
 
-	public boolean siCaptable(EC evenement) {
+	public boolean siCommandePossible(CR commande) {
 		J.appel(this);
-		
+
+		// par défaut:
 		return true;
 	}
 

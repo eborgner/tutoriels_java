@@ -2,7 +2,7 @@ package commun_client.commandes;
 
 public interface CommandePourEnvoi {
 
-	void lancer();
-    boolean siLancable();
+	void envoyerCommande();
+    boolean siCommandePossible();
 
 }

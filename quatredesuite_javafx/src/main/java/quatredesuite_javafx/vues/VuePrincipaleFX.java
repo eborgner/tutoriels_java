@@ -41,7 +41,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 
-				nouvellePartieLocale.lancer();
+				nouvellePartieLocale.envoyerCommande();
 			}
 		});
 	}
