@@ -1,17 +1,17 @@
 package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
-import commun_client.evenements.CapteurEvenement;
-import commun_client.evenements.FabriqueEvenement;
-import commun_client.evenements.FinalisateurEvenement;
+import commun_client.commandes.ActionCommandeTraitee;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Controleur;
 import commun_client.mvc.FabriqueControleur;
 import quatredesuite.modeles.ModelePartieLocale;
 import quatredesuite.modeles.ModelePrincipal;
-import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
-import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleCapte;
-import quatredesuite_client.viderGrille.ViderGrille;
-import quatredesuite_client.viderGrille.ViderGrilleLance;
+import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
+import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocaleRecue;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_client.vues.VuePrincipale;
 
@@ -23,15 +23,15 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipa
 	public void installerCapteursEvenement() {
 		J.appel(this);
 		
-		FabriqueEvenement.installerCapteur(NouvellePartieLocale.class, new CapteurEvenement<NouvellePartieLocaleCapte>() {
+		FabriqueCommande.installerRecepteur(NouvellePartieLocale.class, new RecepteurCommande<NouvellePartieLocaleRecue>() {
 			@Override
-			public void capterEvenement(NouvellePartieLocaleCapte evenement) {
+			public void capterEvenement(NouvellePartieLocaleRecue evenement) {
 				J.appel(this);
 				
 				if(controleurPartieLocale != null) {
-					FabriqueEvenement.installerFinalisateur(ViderGrille.class, new FinalisateurEvenement() {
+					FabriqueCommande.installerFinalisateur(ViderGrille.class, new ActionCommandeTraitee() {
 						@Override
-						public void reagirFinCaptation() {
+						public void reagirMessageTraite() {
 							J.appel(this);
 
 							nouvellePartieLocale();
@@ -39,7 +39,7 @@ public class ControleurPrincipal extends Controleur<ModelePrincipal, VuePrincipa
 						}
 					});
 					
-					ViderGrilleLance viderGrille = FabriqueEvenement.creerEvenement(ViderGrilleLance.class);
+					ViderGrillePourEnvoi viderGrille = FabriqueCommande.creerEvenement(ViderGrillePourEnvoi.class);
 					viderGrille.lancer();
 					
 				}else {

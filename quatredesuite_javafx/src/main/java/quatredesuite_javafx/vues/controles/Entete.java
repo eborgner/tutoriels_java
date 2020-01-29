@@ -1,18 +1,18 @@
 package quatredesuite_javafx.vues.controles;
 
 import commun.debogage.J;
-import commun_client.evenements.FabriqueEvenement;
+import commun_client.commandes.FabriqueCommande;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import quatredesuite.enumerations.Couleur;
-import quatredesuite_client.evenements.jouer_ici.JouerIci;
-import quatredesuite_client.evenements.jouer_ici.JouerIciLance;
+import quatredesuite_client.commandes.jouer_ici.JouerIci;
+import quatredesuite_client.commandes.jouer_ici.JouerIciPourEnvoi;
 
 public class Entete extends Button {
 	
 	private int idColonne;
-	private JouerIciLance jouerIci;
+	private JouerIciPourEnvoi jouerIci;
 
 	public Entete(int idColonne) {
 		J.appel(this);
@@ -42,7 +42,7 @@ public class Entete extends Button {
 	public void creerEvenements() {
 		J.appel(this);
 		
-		jouerIci = FabriqueEvenement.creerEvenement(JouerIciLance.class);
+		jouerIci = FabriqueCommande.creerEvenement(JouerIciPourEnvoi.class);
 		jouerIci.setIdColonne(idColonne);
 	}
 

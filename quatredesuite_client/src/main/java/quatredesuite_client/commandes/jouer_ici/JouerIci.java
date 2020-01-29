@@ -1,10 +1,10 @@
-package quatredesuite_client.evenements.jouer_ici;
+package quatredesuite_client.commandes.jouer_ici;
 
 import commun.debogage.J;
-import commun_client.evenements.Evenement;
+import commun_client.commandes.Commande;
 
 @SuppressWarnings("rawtypes")
-public class JouerIci extends Evenement implements JouerIciLance, JouerIciCapte {
+public class JouerIci extends Commande implements JouerIciPourEnvoi, JouerIciRecue {
 	
 	private int idColonne;
 

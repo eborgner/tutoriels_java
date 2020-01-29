@@ -1,17 +1,17 @@
 package quatredesuite_javafx.vues;
 
 import commun.debogage.J;
-import commun_client.evenements.CapteurEvenement;
-import commun_client.evenements.Evenement;
-import commun_client.evenements.FabriqueEvenement;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.Commande;
+import commun_client.commandes.RecepteurCommande;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.geometry.HPos;
 import javafx.scene.layout.Priority;
 import quatredesuite.enumerations.Couleur;
-import quatredesuite_client.viderGrille.ViderGrille;
-import quatredesuite_client.viderGrille.ViderGrilleCapte;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 import quatredesuite_client.vues.VuePartie;
 import quatredesuite_javafx.vues.controles.GrilleCases;
 import quatredesuite_javafx.vues.controles.GrilleEntetes;

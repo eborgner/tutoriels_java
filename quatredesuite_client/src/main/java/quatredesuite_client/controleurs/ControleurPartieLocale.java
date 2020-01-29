@@ -1,12 +1,12 @@
 package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
-import commun_client.evenements.CapteurEvenement;
-import commun_client.evenements.FabriqueEvenement;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Controleur;
 import quatredesuite.modeles.ModelePartieLocale;
-import quatredesuite_client.evenements.jouer_ici.JouerIci;
-import quatredesuite_client.evenements.jouer_ici.JouerIciCapte;
+import quatredesuite_client.commandes.jouer_ici.JouerIci;
+import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 
 public class ControleurPartieLocale extends Controleur<ModelePartieLocale, VuePartieLocale> {
@@ -16,10 +16,10 @@ public class ControleurPartieLocale extends Controleur<ModelePartieLocale, VuePa
 	public void installerCapteursEvenement() {
 		J.appel(this);
 		
-		FabriqueEvenement.installerCapteur(JouerIci.class, new CapteurEvenement<JouerIciCapte>() {
+		FabriqueCommande.installerRecepteur(JouerIci.class, new RecepteurCommande<JouerIciRecue>() {
 
 			@Override
-			public void capterEvenement(JouerIciCapte evenement) {
+			public void capterEvenement(JouerIciRecue evenement) {
 				J.appel(this);
 				
 

@@ -1,10 +1,10 @@
 package commun_client.mvc;
 
 import commun.debogage.J;
-import commun.mvc.LectureModele;
-import commun_client.evenements.FinalisateurEvenement;
+import commun.mvc.ModelePourAffichage;
+import commun_client.commandes.ActionCommandeTraitee;
 
-public abstract class Afficheur<LM extends LectureModele, V extends Vue> extends FinalisateurEvenement {
+public abstract class Afficheur<LM extends ModelePourAffichage, V extends Vue> extends ActionCommandeTraitee {
 	
 	private LM modele;
 	private V vue;
@@ -19,7 +19,7 @@ public abstract class Afficheur<LM extends LectureModele, V extends Vue> extends
 	}
 	
 	@Override
-	public void reagirFinCaptation() {
+	public void reagirMessageTraite() {
 		J.appel(this);
 
 		rafraichirAffichage();

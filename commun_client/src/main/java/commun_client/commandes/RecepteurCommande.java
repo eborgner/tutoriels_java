@@ -1,8 +1,8 @@
-package commun_client.evenements;
+package commun_client.commandes;
 
 import commun.debogage.J;
 
-public abstract class CapteurEvenement<EC extends EvenementCapte> {
+public abstract class RecepteurCommande<EC extends CommandeRecue> {
 
 	public abstract void capterEvenement(EC evenement);
 

@@ -2,7 +2,7 @@ package quatredesuite_javafx;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
-import commun_client.evenements.FabriqueEvenement;
+import commun_client.commandes.FabriqueCommande;
 import commun_client.mvc.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import static quatredesuite_javafx.Constantes.*;
@@ -11,13 +11,13 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import quatredesuite.modeles.ModelePrincipal;
+import quatredesuite_client.commandes.jouer_ici.JouerIci;
+import quatredesuite_client.commandes.jouer_ici.JouerIciPourEnvoi;
+import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
+import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocalePourEnvoi;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.controleurs.ControleurPrincipal;
-import quatredesuite_client.evenements.jouer_ici.JouerIci;
-import quatredesuite_client.evenements.jouer_ici.JouerIciLance;
-import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocale;
-import quatredesuite_client.evenements.nouvelle_partie_locale.NouvellePartieLocaleLance;
-import quatredesuite_client.viderGrille.ViderGrille;
-import quatredesuite_client.viderGrille.ViderGrilleLance;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 
 
@@ -30,9 +30,9 @@ public class Principal extends Application {
 		J.appel(Principal.class);
 
 		// FIXME: ça va où??
-		FabriqueEvenement.initialiserEvenementLance(NouvellePartieLocaleLance.class, NouvellePartieLocale.class);
-		FabriqueEvenement.initialiserEvenementLance(JouerIciLance.class, JouerIci.class);
-		FabriqueEvenement.initialiserEvenementLance(ViderGrilleLance.class, ViderGrille.class);
+		FabriqueCommande.initialiserCommandePourEnvoi(NouvellePartieLocalePourEnvoi.class, NouvellePartieLocale.class);
+		FabriqueCommande.initialiserCommandePourEnvoi(JouerIciPourEnvoi.class, JouerIci.class);
+		FabriqueCommande.initialiserCommandePourEnvoi(ViderGrillePourEnvoi.class, ViderGrille.class);
 	}
 	
 	public static void main(String[] args) {

@@ -2,9 +2,9 @@ package quatredesuite_javafx.vues.controles;
 
 
 import commun.debogage.J;
-import commun_client.evenements.CapteurEvenement;
-import commun_client.evenements.Evenement;
-import commun_client.evenements.FabriqueEvenement;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.Commande;
+import commun_client.commandes.RecepteurCommande;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -13,8 +13,8 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.util.Duration;
 import quatredesuite.enumerations.Couleur;
-import quatredesuite_client.viderGrille.ViderGrille;
-import quatredesuite_client.viderGrille.ViderGrilleCapte;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 
 public class GrilleCases extends Grille {
 
@@ -71,7 +71,7 @@ public class GrilleCases extends Grille {
         }
 	}
 
-	public void animerVidagePartie(ViderGrilleCapte evenement) {
+	public void animerVidagePartie(ViderGrilleRecue evenement) {
 		J.appel(this);
 		
 		Timeline timeline = new Timeline();
@@ -128,10 +128,10 @@ public class GrilleCases extends Grille {
 
 
 	public void installerCapteurs() {
-        FabriqueEvenement.installerCapteur(ViderGrille.class, new CapteurEvenement<ViderGrilleCapte>() {
+        FabriqueCommande.installerRecepteur(ViderGrille.class, new RecepteurCommande<ViderGrilleRecue>() {
 
 			@Override
-			public void capterEvenement(ViderGrilleCapte evenement) {
+			public void capterEvenement(ViderGrilleRecue evenement) {
 				J.appel(this);
 				
 				animerVidagePartie(evenement);

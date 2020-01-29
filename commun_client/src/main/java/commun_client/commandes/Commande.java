@@ -1,22 +1,22 @@
-package commun_client.evenements;
+package commun_client.commandes;
 
 import commun.debogage.J;
 
 @SuppressWarnings({"unchecked"})
-public abstract class Evenement<EC extends EvenementCapte> 
-									implements EvenementLance, 
-											   EvenementCapte {
+public abstract class Commande<EC extends CommandeRecue> 
+									implements CommandePourEnvoi, 
+											   CommandeRecue {
 	
-	protected CapteurEvenement<EC> capteur;
-	protected FinalisateurEvenement finalisateur;
+	protected RecepteurCommande<EC> capteur;
+	protected ActionCommandeTraitee finalisateur;
 	
-	void setCapteur(CapteurEvenement<EC> capteur) {
+	void setCapteur(RecepteurCommande<EC> capteur) {
 		J.appel(this);
 
 		this.capteur = capteur;
 	}
 	
-	void setFinalisateur(FinalisateurEvenement finalisateur) {
+	void setFinalisateur(ActionCommandeTraitee finalisateur) {
 		J.appel(this);
 		
 		this.finalisateur = finalisateur;
@@ -42,7 +42,7 @@ public abstract class Evenement<EC extends EvenementCapte>
 	public void finCaptation() {
 		J.appel(this);
 
-		finalisateur.reagirFinCaptation();
+		finalisateur.reagirMessageTraite();
 
 	}
 }
