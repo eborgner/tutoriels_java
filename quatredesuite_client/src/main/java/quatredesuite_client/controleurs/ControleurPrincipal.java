@@ -24,15 +24,4 @@ public abstract class ControleurPrincipal extends ControleurVue<VuePrincipale> {
 	}
 	
 	protected abstract void nouvellePartieLocale(NouvellePartieLocaleRecue commande);
-
-
-	@Override
-	public void demarrer() {
-		J.appel(this);
-		
-		// rien; à moins qu'on démarrer un AnimationTimer pour lancer
-		//       des commandes ReagirAuTempsQuiPasse
-
-	} 
-	
 }

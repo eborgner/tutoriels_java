@@ -1,22 +1,22 @@
 package quatredesuite_javafx.vues;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import commun.debogage.J;
-import commun_client.commandes.FabriqueCommande;
-import commun_client.commandes.Commande;
-import commun_client.commandes.RecepteurCommande;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.geometry.HPos;
 import javafx.scene.layout.Priority;
 import quatredesuite.enumerations.Couleur;
-import quatredesuite_client.commandes.vider_grille.ViderGrille;
-import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 import quatredesuite_client.vues.VuePartie;
 import quatredesuite_javafx.vues.controles.GrilleCases;
 import quatredesuite_javafx.vues.controles.GrilleEntetes;
 
-public class VuePartieFX implements VuePartie {
+import javafx.fxml.Initializable;
+
+public class VuePartieFX implements VuePartie, Initializable {
 
     @FXML
     Text textJoueurUn, textJoueurDeux;
@@ -26,16 +26,20 @@ public class VuePartieFX implements VuePartie {
 
     @FXML
     GrilleCases grilleCases;
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		J.appel(this);
+
+        grilleCases.installerRecepteursCommande();
+	} 
     
 	@Override
 	public void creerEvenements() {
 		J.appel(this);
 
         grilleEntetes.creerEvenements();
-        
-        // FIXME: ça va pas ici!
-        grilleCases.installerCapteurs();
-
 	}
 
 	@Override
@@ -62,7 +66,6 @@ public class VuePartieFX implements VuePartie {
         
         grilleEntetes.creerEntetes(largeur, contraintesColonne);
         grilleCases.creerCases(largeur, hauteur, contraintesColonne);
-
     }
 
     @Override
@@ -77,8 +80,5 @@ public class VuePartieFX implements VuePartie {
 		J.appel(this);
 
 		grilleEntetes.colorerEntete(indiceColonne, couleur);
-	} 
-	
-
-
+	}
 }

@@ -29,7 +29,7 @@ public class Principal extends Application {
 		
 		J.appel(Principal.class);
 
-		// FIXME: ça va où??
+		// FIXME: ça devrait être automatique selon le nom de la classe
 		FabriqueCommande.initialiserCommandePourEnvoi(NouvellePartieLocalePourEnvoi.class, NouvellePartieLocale.class);
 		FabriqueCommande.initialiserCommandePourEnvoi(JouerIciPourEnvoi.class, JouerIci.class);
 		FabriqueCommande.initialiserCommandePourEnvoi(ViderGrillePourEnvoi.class, ViderGrille.class);
@@ -97,7 +97,6 @@ public class Principal extends Application {
 		J.appel(this);
 		
 		controleurPrincipal.detruire();
-		
 	}
 }
 

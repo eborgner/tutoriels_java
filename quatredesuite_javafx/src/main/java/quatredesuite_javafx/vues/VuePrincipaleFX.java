@@ -18,12 +18,12 @@ import static quatredesuite_javafx.Constantes.*;
 public class VuePrincipaleFX implements VuePrincipale {
 	
 	@FXML
-	private MenuItem nouvellePartie;
-	
+	private MenuItem nouvellePartie, parametres, quitter;
+
 	@FXML
 	private VBox conteneurPartieLocale;
 	
-	NouvellePartieLocalePourEnvoi nouvellePartieLocale;
+	private NouvellePartieLocalePourEnvoi nouvellePartieLocale;
 
 	@Override
 	public void creerEvenements() {
@@ -34,6 +34,38 @@ public class VuePrincipaleFX implements VuePrincipale {
 
 	@Override
 	public void installerListeners() {
+		J.appel(this);
+		
+		installerListenerNouvellePartie();
+		installerListenerParametres();
+		installerListenerQuitter();
+	}
+
+	private void installerListenerQuitter() {
+		J.appel(this);
+		
+		quitter.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+
+			}
+		});
+	}
+
+	private void installerListenerParametres() {
+		J.appel(this);
+		
+		parametres.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+
+			}
+		});
+	}
+
+	private void installerListenerNouvellePartie() {
 		J.appel(this);
 		
 		nouvellePartie.setOnAction(new EventHandler<ActionEvent>() {

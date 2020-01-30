@@ -14,6 +14,7 @@
                 <Menu styleClass="menu" text="%partieLocale">
                     <items>
                     <MenuItem fx:id="nouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
+                    <MenuItem fx:id="parametres" styleClass="menu_item" text="%parametres"/>
                     <SeparatorMenuItem/>
                     <MenuItem fx:id="quitter" styleClass="menu_item" text="%quitter"/>
                     </items>

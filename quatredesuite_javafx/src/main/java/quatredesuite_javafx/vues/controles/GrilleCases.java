@@ -127,7 +127,7 @@ public class GrilleCases extends Grille {
 
 
 
-	public void installerCapteurs() {
+	public void installerRecepteursCommande() {
         FabriqueCommande.installerRecepteur(ViderGrille.class, new RecepteurCommande<ViderGrilleRecue>() {
 
 			@Override

@@ -75,6 +75,8 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 	}
 
 	private void detruireAnciennePartieLocale() {
+		J.appel(this);
+
 		if(controleurPartieLocale != null) {
 			controleurPartieLocale.detruire();
 			vue.detruireVuePartieLocale();
@@ -85,8 +87,14 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 	public void detruire() {
 		J.appel(this);
 
-		// FIXME: c'est uniquement dans FX (Android c'est sur ActivitePartieLocale.onDestroy)
 		controleurPartieLocale.detruire();
+	}
+
+	@Override
+	public void demarrer() {
+		J.appel(this);
+		
+		// rien
 	}
 
 }
