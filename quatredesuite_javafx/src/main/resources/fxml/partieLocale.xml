@@ -16,7 +16,7 @@
                 <Text styleClass="nomJoueur" text="%joueurDeux"></Text>
             </HBox>
     </HBox>
-    <VBox styleClass="grosEspaceVertical" />
+    <VBox styleClass="grosEspaceVertical" VBox.vgrow="ALWAYS" />
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <HBox styleClass="conteneurBoutons" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
@@ -29,9 +29,9 @@
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
         </HBox>
-        <VBox styleClass="petitEspaceVertical" />
+        <VBox styleClass="petitEspaceVertical" VBox.vgrow="ALWAYS" />
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
-            <VBox styleClass="petitEspaceVertical" />
+            <VBox styleClass="petitEspaceVertical" VBox.vgrow="ALWAYS" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -55,7 +55,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
-            <VBox styleClass="petitEspaceVertical" />
+            <VBox styleClass="petitEspaceVertical"  VBox.vgrow="ALWAYS"/>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -79,7 +79,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
-            <VBox styleClass="petitEspaceVertical" />
+            <VBox styleClass="petitEspaceVertical" VBox.vgrow="ALWAYS" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -103,7 +103,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
-            <VBox styleClass="petitEspaceVertical" />
+            <VBox styleClass="petitEspaceVertical"  VBox.vgrow="ALWAYS"/>
         </VBox>
     </VBox>
 </VBox>
