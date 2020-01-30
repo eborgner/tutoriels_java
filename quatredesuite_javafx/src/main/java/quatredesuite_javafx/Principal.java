@@ -48,7 +48,6 @@ public class Principal extends Application {
 
 		fenetrePrincipale.setHeight(HAUTEUR_FENETRE);
 		fenetrePrincipale.setMinHeight(HAUTEUR_FENETRE);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_FENETRE);
 	}
 
 	private void setLargeurFenetre(Stage fenetrePrincipale) {
@@ -56,7 +55,6 @@ public class Principal extends Application {
 
 		fenetrePrincipale.setWidth(LARGEUR_FENETRE);
 		fenetrePrincipale.setMinWidth(LARGEUR_FENETRE);
-		fenetrePrincipale.setMaxWidth(LARGEUR_FENETRE);
 	}
 
 	private Scene creerScenePrincipale() {
