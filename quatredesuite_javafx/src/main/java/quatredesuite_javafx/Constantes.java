@@ -11,7 +11,7 @@ public class Constantes {
     public static final int HAUTEUR_SCENE_MIN = 240;
 
     public static final int LARGEUR_SCENE = 260;
-    public static final int HAUTEUR_SCENE = 420;
+    public static final int HAUTEUR_SCENE = 500;
 
     public static final int HAUTEUR_DECORATION_FENETRE = 20;
 
