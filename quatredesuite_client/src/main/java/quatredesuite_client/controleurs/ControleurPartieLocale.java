@@ -1,9 +1,11 @@
 package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
+import commun_client.commandes.CommandeRecue;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.ControleurModeleVue;
+import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import quatredesuite.modeles.partie.Partie;
 import quatredesuite.modeles.partie.PartieLectureSeule;
 import quatredesuite_client.afficheurs.AfficheurPartie;
@@ -17,25 +19,15 @@ public class ControleurPartieLocale extends ControleurModeleVue<Partie, VueParti
 	public void installerReceptionCommandes() {
 		J.appel(this);
 		
-		// FIXME: devrait être appelé automatiquement
-		afficheur.initialiserAffichage((PartieLectureSeule) modele, vue);
-		
-		FabriqueCommande.installerRecepteur(JouerIci.class, new RecepteurCommande<JouerIciRecue>() {
-
+		installerRecepteurCommande(JouerIci.class, new RecepteurCommandeMVC<JouerIciRecue>() {
 			@Override
-			public void executerCommande(JouerIciRecue commande) {
+			public void executerCommandeMVC(JouerIciRecue commande) {
 				J.appel(this);
-				
+
 				int idColonne = commande.getIdColonne();
 				modele.jouerIci(idColonne);
-				
-				commande.notifierCommandeTraitee();
-				
-				// FIXME: il faut plutôt mettre une ReactionApresCommande
-				afficheur.rafraichirAffichage((PartieLectureSeule) modele, vue);
 			}
 		});
-		
 	}
 
 	@Override

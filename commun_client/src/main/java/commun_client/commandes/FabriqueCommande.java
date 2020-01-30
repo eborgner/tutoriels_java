@@ -56,11 +56,11 @@ public class FabriqueCommande {
 		DoitEtre.nonNul(classeEvenement, String.format("Classe Evenement non-installée pour EvenementLance: %s", classeEvenementLance.getSimpleName()));
 		
 		RecepteurCommande capteur = recepteurs.get(classeEvenement);
-		ReactionApresCommande finalisateur = reactionsApresCommande.get(classeEvenement);
+		ReactionApresCommande reaction = reactionsApresCommande.get(classeEvenement);
 		
-		if(finalisateur == null) {
-			Erreur.avertissement(String.format("Aucune ReactionApresCommande pour: %s", classeEvenement.getSimpleName()));
-			finalisateur = new ReactionApresCommande() {};
+		if(reaction == null) {
+			Erreur.avertissement(String.format("ReactionVideParDefaut pour: %s", classeEvenement.getSimpleName()));
+			reaction = new ReactionVideParDefaut();
 		}
 		
 		DoitEtre.nonNul(capteur, String.format("Le capteur de l'événement %s n'a pas été installé", classeEvenement.getSimpleName()));
@@ -81,7 +81,7 @@ public class FabriqueCommande {
 		}
 		
 		evenement.setCapteur(capteur);
-		evenement.setFinalisateur(finalisateur);
+		evenement.setFinalisateur(reaction);
 		
 		EL evenementLance = null;
 

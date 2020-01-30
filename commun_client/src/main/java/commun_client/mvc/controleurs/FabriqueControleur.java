@@ -30,6 +30,8 @@ public class FabriqueControleur {
 		controleur.setModele(modele);
 		controleur.setVue(vue);
 		controleur.setAfficheur(afficheur);
+		
+		controleur.initialiserAffichage();
 
 		initialiser(vue, controleur);
 

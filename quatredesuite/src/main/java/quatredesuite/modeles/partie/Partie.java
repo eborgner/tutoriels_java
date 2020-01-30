@@ -4,7 +4,7 @@ import commun.debogage.J;
 import commun.mvc.Modele;
 import quatredesuite.enumerations.Couleur;
 
-public class Partie extends Modele implements PartieLectureSeule {
+public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
 
 	private int largeur =  4;
 	private int hauteur = 6;
@@ -87,6 +87,14 @@ public class Partie extends Modele implements PartieLectureSeule {
 	public void setGrille(Grille grille) {
 		J.appel(this);
 		this.grille = grille;
+	}
+
+
+	@Override
+	protected Class<PartieLectureSeule> getInterfaceLectureSeule() {
+		J.appel(this);
+
+		return PartieLectureSeule.class;
 	}
 
 }

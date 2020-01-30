@@ -2,10 +2,14 @@ package commun_client.mvc.controleurs;
 
 import commun.debogage.J;
 import commun.mvc.Modele;
+import commun_client.commandes.Commande;
+import commun_client.commandes.CommandeRecue;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes", "unchecked"})
 public abstract class ControleurModeleVue<M extends Modele, V extends Vue, A extends Afficheur> extends ControleurVue<V> {
 	
 	protected M modele;
@@ -30,7 +34,21 @@ public abstract class ControleurModeleVue<M extends Modele, V extends Vue, A ext
 	
 	public void initialiserAffichage() {
 		J.appel(this);
-
+		
+		afficheur.initialiserAffichage(modele.getModeleLectureSeule(), vue);
 	}
 	
+	@Override
+	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+		J.appel(this);
+		
+		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
+				
+				afficheur.rafraichirAffichage(modele.getModeleLectureSeule(), vue);
+			}
+		});
+	}
 }
