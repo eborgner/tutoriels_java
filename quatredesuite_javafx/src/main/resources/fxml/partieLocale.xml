@@ -8,90 +8,92 @@
 <?import javafx.scene.image.Image?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
-    <HBox styleClass="conteneurNomsJoueurs">
-            <HBox styleClass="conteneurNomJoueur">
+    <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="ALWAYS">
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
                 <Text styleClass="nomJoueur" text="%joueurUn"></Text>
             </HBox>
-            <HBox styleClass="conteneurNomJoueur">
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
                 <Text styleClass="nomJoueur" text="%joueurDeux"></Text>
             </HBox>
     </HBox>
-    <VBox styleClass="conteneurTableJeu">
-        <HBox styleClass="conteneurBoutons">
-            <HBox styleClass="conteneurBouton">
+    <VBox styleClass="grosEspaceVertical" />
+    <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
+        <HBox styleClass="conteneurBoutons" VBox.vgrow="SOMETIMES">
+            <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
-            <HBox styleClass="conteneurBouton">
+            <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
-            <HBox styleClass="conteneurBouton">
+            <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
         </HBox>
-        <VBox styleClass="conteneurGrille">
-            <HBox styleClass="conteneurLigne">
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+        <VBox styleClass="petitEspaceVertical" />
+        <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
+            <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
                     </ImageView>
                 </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
                     </ImageView>
                 </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-            </HBox>
-            <HBox styleClass="conteneurLigne">
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
-                       <image>
-                           <Image url="/images/VIDE.png" />
-                        </image>
-                    </ImageView>
-                </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
                     </ImageView>
                 </HBox>
             </HBox>
-            <HBox styleClass="conteneurLigne">
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+            <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
                     </ImageView>
                 </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
                     </ImageView>
                 </HBox>
-                <HBox styleClass="conteneurCase">
-                    <ImageView styleClass="imageCase">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+            </HBox>
+            <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
+                       <image>
+                           <Image url="/images/VIDE.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
+                    <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
                        <image>
                            <Image url="/images/VIDE.png" />
                         </image>
