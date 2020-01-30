@@ -31,6 +31,7 @@
         </HBox>
         <VBox styleClass="petitEspaceVertical" />
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
+            <VBox styleClass="petitEspaceVertical" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -54,6 +55,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
+            <VBox styleClass="petitEspaceVertical" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -77,6 +79,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
+            <VBox styleClass="petitEspaceVertical" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <HBox styleClass="conteneurCase" HBox.hgrow="ALWAYS">
                     <ImageView styleClass="imageCase" HBox.hgrow="ALWAYS">
@@ -100,6 +103,7 @@
                     </ImageView>
                 </HBox>
             </HBox>
+            <VBox styleClass="petitEspaceVertical" />
         </VBox>
     </VBox>
 </VBox>
