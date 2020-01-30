@@ -6,6 +6,7 @@
   -fx-border-color: #161620;
   -fx-background-color: #95c5db;
 }
+
 .conteneurNomsJoueurs {
   -fx-alignment: center;
 
@@ -15,6 +16,7 @@
   -fx-min-height: 60px;
   -fx-max-height: 60px;
 }
+
 .conteneurNomJoueur {
   -fx-alignment: center;
 
@@ -24,64 +26,84 @@
   -fx-min-height: 60px;
   -fx-max-height: 60px;
 }
+
 .conteneurTableJeu {
   -fx-min-width: 180px;
   -fx-max-width: 180px;
+
   -fx-min-height: 280px;
   -fx-max-height: 280px;
 }
+
 .conteneurBoutons {
   -fx-alignment: center;
+
   -fx-min-width: 180px;
   -fx-max-width: 180px;
+
   -fx-min-height: 100px;
   -fx-max-height: 100px;
 }
+
 .conteneurBouton {
   -fx-alignment: center;
+
   -fx-min-width: 60px;
   -fx-max-width: 60px;
+
   -fx-min-height: 100px;
   -fx-max-height: 100px;
 }
+
 .boutonCoup {
+  -fx-min-width: 40px;
+  -fx-max-width: 40px;
+
+  -fx-min-height: 80px;
+  -fx-max-height: 80px;
+
   -fx-border-style: solid;
   -fx-border-width: 2px;
   -fx-background-color: #bcced6;
   -fx-text-color: #305ae1;
-  -fx-min-width: 40px;
-  -fx-max-width: 40px;
-  -fx-min-height: 80px;
-  -fx-max-height: 80px;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
 }
+
 .boutonCoup:hover {
   -fx-border-color: #fd5435;
 }
+
 .boutonCoup:pressed {
   -fx-background-color: #305ae1;
 }
+
 .conteneurGrille {
   -fx-min-width: 180px;
   -fx-max-width: 180px;
+
   -fx-min-height: 180px;
   -fx-max-height: 180px;
+
   -fx-background-color: #305ae1;
   -fx-background-radius: 20px 20px 20px 20px;
   -fx-border-radius: 20px 20px 20px 20px;
 }
 .conteneurLigne {
   -fx-alignment: center;
+
   -fx-min-width: 180px;
   -fx-max-width: 180px;
+
   -fx-min-height: 60px;
   -fx-max-height: 60px;
 }
 .conteneurCase {
   -fx-alignment: center;
+
   -fx-min-width: 60px;
   -fx-max-width: 60px;
+
   -fx-min-height: 60px;
   -fx-max-height: 60px;
 }
