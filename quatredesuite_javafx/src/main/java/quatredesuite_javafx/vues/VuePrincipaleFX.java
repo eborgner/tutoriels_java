@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.MenuItem;
+import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocalePourEnvoi;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_client.vues.VuePrincipale;
@@ -29,7 +30,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 	public void creerEvenements() {
 		J.appel(this);
 		
-		nouvellePartieLocale = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocalePourEnvoi.class);
+		nouvellePartieLocale = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
 	}
 
 	@Override

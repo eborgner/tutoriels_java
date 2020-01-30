@@ -1,10 +1,9 @@
 package commun_client.commandes;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
+import commun.Fabrique;
 import commun.debogage.DoitEtre;
 import commun.debogage.Erreur;
 import commun.debogage.J;
@@ -13,20 +12,9 @@ import commun.debogage.J;
 public class FabriqueCommande {
 	
 	
-	protected static Map<Class<? extends CommandePourEnvoi>, Class<? extends Commande>> commandesPourEnvoi = new HashMap<>();
-	
 	protected static Map<Class<? extends Commande>, RecepteurCommande> recepteurs = new HashMap<>();
 	protected static Map<Class<? extends Commande>, ReactionApresCommande> reactionsApresCommande = new HashMap<>();
 
-	public static <C extends Commande, CPE extends CommandePourEnvoi> 
-				  void initialiserCommandePourEnvoi(Class<CPE> classeCommandePourEnvoi, 
-												 Class<C> classeCommande) {
-
-		J.appel(FabriqueCommande.class);
-
-		commandesPourEnvoi.put(classeCommandePourEnvoi, classeCommande);
-	}
-	
 	public static <C extends Commande> 
 				  void installerRecepteur(Class<C> classeCommande, 
 										RecepteurCommande recepteur) {
@@ -48,55 +36,42 @@ public class FabriqueCommande {
 
 
 	@SuppressWarnings("unchecked")
-	public static <EL extends CommandePourEnvoi> EL obtenirCommandePourEnvoi(Class<EL> classeEvenementLance) {
+	public static <CPE extends CommandePourEnvoi,
+				   CR extends CommandeRecue,
+				   C extends Commande<CPE,CR>>
+	
+	       CPE obtenirCommandePourEnvoi(Class<C> classeCommande){
+
 		J.appel(FabriqueCommande.class);
-		
-		Class<? extends Commande> classeEvenement = commandesPourEnvoi.get(classeEvenementLance);
-		
-		DoitEtre.nonNul(classeEvenement, String.format("Classe Evenement non-installée pour EvenementLance: %s", classeEvenementLance.getSimpleName()));
-		
-		RecepteurCommande capteur = recepteurs.get(classeEvenement);
-		ReactionApresCommande reaction = reactionsApresCommande.get(classeEvenement);
+
+		RecepteurCommande recepteur = recepteurs.get(classeCommande);
+		DoitEtre.nonNul(recepteur, String.format("Aucun recepteur installé pour la Commande %s", classeCommande.getSimpleName()));
+
+		ReactionApresCommande reaction = reactionsApresCommande.get(classeCommande);
 		
 		if(reaction == null) {
-			Erreur.avertissement(String.format("ReactionVideParDefaut pour: %s", classeEvenement.getSimpleName()));
+			Erreur.avertissement(String.format("ReactionVideParDefaut pour la Commande %s", classeCommande.getSimpleName()));
 			reaction = new ReactionVideParDefaut();
 		}
 		
-		DoitEtre.nonNul(capteur, String.format("Le capteur de l'événement %s n'a pas été installé", classeEvenement.getSimpleName()));
-		
-		Commande evenement = null;
-		
-		try {
-			
-			Constructor<? extends Commande> constructeur = classeEvenement.getConstructor();
+		Commande commande = Fabrique.nouvelleInstance(classeCommande);
 
-			evenement = constructeur.newInstance();
-
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException | ClassCastException e) {
-			
-			J.valeurs("[FATAL] impossible de créer l'événement: " + classeEvenement.getSimpleName());
-			e.printStackTrace();
-		}
+		commande.setRecepteur(recepteur);
+		commande.setReaction(reaction);
 		
-		evenement.setCapteur(capteur);
-		evenement.setFinalisateur(reaction);
-		
-		EL evenementLance = null;
+		CPE commandePourEnvoi = null;
 
 		try {
 			
-			evenementLance = (EL) evenement;
+			commandePourEnvoi = (CPE) commande;
 
 		}catch(ClassCastException e) {
 			
-			Erreur.fatale(String.format("La Commande %s n'a pas son interface CommandePourEnvoi", evenement), e);
-			
+			Erreur.fatale(String.format("Impossible de créer la CommandePourEnvoi. Est-ce que la Commande %s est bien paramétrée?", 
+								        classeCommande.getSimpleName()), e);
 		}
-		
-		return evenementLance;
-		
+
+		return commandePourEnvoi;
 	}
 	
 }

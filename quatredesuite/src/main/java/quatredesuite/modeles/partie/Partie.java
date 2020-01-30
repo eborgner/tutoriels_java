@@ -18,9 +18,7 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 		
 		grille = new Grille();
 		grille.initialiser(largeur);
-		
 	}
-	
 	
     public void jouerIci(int idColonne){
         J.appel(this);
@@ -90,11 +88,5 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 	}
 
 
-	@Override
-	protected Class<PartieLectureSeule> getInterfaceLectureSeule() {
-		J.appel(this);
-
-		return PartieLectureSeule.class;
-	}
 
 }

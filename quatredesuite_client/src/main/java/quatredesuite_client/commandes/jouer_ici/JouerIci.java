@@ -3,8 +3,11 @@ package quatredesuite_client.commandes.jouer_ici;
 import commun.debogage.J;
 import commun_client.commandes.Commande;
 
-@SuppressWarnings("rawtypes")
-public class JouerIci extends Commande implements JouerIciPourEnvoi, JouerIciRecue {
+public class JouerIci extends Commande<JouerIciPourEnvoi, 
+                                       JouerIciRecue> 
+
+                      implements JouerIciPourEnvoi, 
+                                 JouerIciRecue {
 	
 	private int idColonne;
 
@@ -21,5 +24,4 @@ public class JouerIci extends Commande implements JouerIciPourEnvoi, JouerIciRec
 
 		return idColonne;
 	}
-	
 }

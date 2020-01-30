@@ -1,9 +1,6 @@
 package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
-import commun_client.commandes.CommandeRecue;
-import commun_client.commandes.FabriqueCommande;
-import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import quatredesuite.modeles.partie.Partie;
@@ -13,7 +10,10 @@ import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 
-public class ControleurPartieLocale extends ControleurModeleVue<Partie, VuePartieLocale, AfficheurPartie> {
+public class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeule, 
+															    Partie, 
+															    VuePartieLocale, 
+															    AfficheurPartie> {
 	
 	@Override
 	public void installerReceptionCommandes() {

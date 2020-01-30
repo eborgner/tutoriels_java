@@ -42,7 +42,7 @@ public class Entete extends Button {
 	public void creerEvenements() {
 		J.appel(this);
 		
-		jouerIci = FabriqueCommande.obtenirCommandePourEnvoi(JouerIciPourEnvoi.class);
+		jouerIci = FabriqueCommande.obtenirCommandePourEnvoi(JouerIci.class);
 		jouerIci.setIdColonne(idColonne);
 	}
 

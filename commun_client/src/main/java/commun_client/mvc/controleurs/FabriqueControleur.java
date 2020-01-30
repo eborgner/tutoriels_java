@@ -4,6 +4,7 @@ package commun_client.mvc.controleurs;
 import commun.Fabrique;
 import commun.debogage.J;
 import commun.mvc.Modele;
+import commun.mvc.ModeleLectureSeule;
 import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 
@@ -22,7 +23,14 @@ public class FabriqueControleur {
 		return controleur;
 	}
 
-	public static <C extends ControleurModeleVue> C creerControleur(Class<C> classeControleur, Modele modele, Vue vue, Afficheur afficheur) {
+	public static <C extends ControleurModeleVue,
+				   MLS extends ModeleLectureSeule,
+				   M extends Modele<MLS>,
+				   V extends Vue,
+				   A extends Afficheur> 
+	
+			C creerControleur(Class<C> classeControleur, M modele, V vue, A afficheur) {
+
 		J.appel(FabriqueControleur.class);
 
 		C controleur = Fabrique.nouvelleInstance(classeControleur);

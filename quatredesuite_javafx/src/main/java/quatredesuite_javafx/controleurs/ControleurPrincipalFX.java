@@ -52,7 +52,7 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 			}
 		});
 		
-		ViderGrillePourEnvoi viderGrille = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrillePourEnvoi.class);
+		ViderGrillePourEnvoi viderGrille = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
 		viderGrille.envoyerCommande();
 		
 	}
@@ -96,5 +96,4 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 		
 		// rien
 	}
-
 }

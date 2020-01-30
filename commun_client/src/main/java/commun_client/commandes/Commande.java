@@ -3,23 +3,25 @@ package commun_client.commandes;
 import commun.debogage.J;
 
 @SuppressWarnings({"unchecked"})
-public abstract class Commande<EC extends CommandeRecue> 
-									implements CommandePourEnvoi, 
-											   CommandeRecue {
+public abstract class Commande<CPE extends CommandePourEnvoi, 
+							   CR extends CommandeRecue> 
+
+				implements CommandePourEnvoi, 
+			        	   CommandeRecue {
 	
-	protected RecepteurCommande<EC> capteur;
-	protected ReactionApresCommande finalisateur;
+	protected RecepteurCommande<CR> recepteur;
+	protected ReactionApresCommande reaction;
 	
-	void setCapteur(RecepteurCommande<EC> capteur) {
+	void setRecepteur(RecepteurCommande<CR> recepteur) {
 		J.appel(this);
 
-		this.capteur = capteur;
+		this.recepteur = recepteur;
 	}
 	
-	void setFinalisateur(ReactionApresCommande finalisateur) {
+	void setReaction(ReactionApresCommande reaction) {
 		J.appel(this);
 		
-		this.finalisateur = finalisateur;
+		this.reaction = reaction;
 	}
 	
 	@Override
@@ -27,7 +29,7 @@ public abstract class Commande<EC extends CommandeRecue>
     	J.appel(this);
 
     	if(siCommandePossible()) {
-    		capteur.executerCommande((EC) this);
+    		recepteur.executerCommande((CR) this);
     	}
     }
 
@@ -35,14 +37,13 @@ public abstract class Commande<EC extends CommandeRecue>
     public boolean siCommandePossible(){
         J.appel(this);
 
-        return capteur.siCommandePossible((EC) this);
+        return recepteur.siCommandePossible((CR) this);
     }
 
 	@Override
 	public void notifierCommandeTraitee() {
 		J.appel(this);
 
-		finalisateur.reagirApresCommande();
-
+		reaction.reagirApresCommande();
 	}
 }
