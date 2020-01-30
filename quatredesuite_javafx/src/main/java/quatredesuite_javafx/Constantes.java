@@ -8,10 +8,10 @@ public class Constantes {
     public static final String CHEMIN_PARTIE_LOCALE_CSS = "/css/partieLocale.css";
     
     public static final int LARGEUR_SCENE_MIN = 300;
-    public static final int HAUTEUR_SCENE_MIN = 290;
+    public static final int HAUTEUR_SCENE_MIN = 400;
 
-    public static final int LARGEUR_SCENE = 320;
-    public static final int HAUTEUR_SCENE = 500;
+    public static final int LARGEUR_SCENE = 600;
+    public static final int HAUTEUR_SCENE = 600;
 
     public static final int HAUTEUR_DECORATION_FENETRE = 20;
 
