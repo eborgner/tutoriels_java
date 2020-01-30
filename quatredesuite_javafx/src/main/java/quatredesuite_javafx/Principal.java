@@ -17,6 +17,7 @@ import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocal
 import quatredesuite_client.commandes.vider_grille.ViderGrille;
 import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.controleurs.ControleurPrincipal;
+import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 
 
@@ -86,7 +87,7 @@ public class Principal extends Application {
 
 		VuePrincipaleFX vuePrincipale = chargeur.getVue();
 
-		ControleurPrincipal controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipal.class, vuePrincipale);
+		ControleurPrincipalFX controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipalFX.class, vuePrincipale);
 		
 		return controleurPrincipal;
 	}
