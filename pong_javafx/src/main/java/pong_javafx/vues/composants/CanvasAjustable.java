@@ -2,7 +2,6 @@ package pong_javafx.vues.composants;
 
 
 import commun.debogage.J;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
@@ -43,17 +42,13 @@ public abstract class CanvasAjustable extends HBox {
 				double ancienneLargeur = (double) oldValue;
 				double nouvelleLargeur = (double) newValue;
 				
-				J.valeurs(ancienneLargeur, nouvelleLargeur);
+				J.valeurs(ancienneLargeur, nouvelleLargeur, getWidth());
 				
-				Platform.runLater(new Runnable() {
-					@Override
-					public void run() {
-						J.appel(this);
+				canvas.setWidth(nouvelleLargeur - 10);
+				
+				pinceau.fillRect(0, 0, nouvelleLargeur, 100);
 
-						canvas.setWidth(nouvelleLargeur/2);
-						reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
-					}
-				});
+				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
 			}
 		});
 	}
@@ -61,7 +56,7 @@ public abstract class CanvasAjustable extends HBox {
 	private void installerObservateurHauteur() {
 		J.appel(this);
 
-		widthProperty().addListener(new ChangeListener<Number>() {
+		heightProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 				J.appel(this);
@@ -69,16 +64,13 @@ public abstract class CanvasAjustable extends HBox {
 				double ancienneHauteur = (double) oldValue;
 				double nouvelleHauteur = (double) newValue;
 				
-				J.valeurs(ancienneHauteur, nouvelleHauteur);
+				J.valeurs(ancienneHauteur, nouvelleHauteur, getHeight());
+
+				pinceau.fillRect(0, 0, 100, nouvelleHauteur);
 				
-				Platform.runLater(new Runnable() {
-					@Override
-					public void run() {
-						J.appel(this);
-						canvas.setHeight(nouvelleHauteur/2);
-						reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
-					}
-				});
+				canvas.setHeight(nouvelleHauteur - 10);
+
+				reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
 			}
 		});
 	}

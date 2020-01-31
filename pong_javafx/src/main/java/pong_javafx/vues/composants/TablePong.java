@@ -49,8 +49,8 @@ public class TablePong extends CanvasAjustable {
 	public void dessinerPalette(double hauteur) {
 		J.appel(this);
 		
-		pinceau.setFill(Color.BLUE);
-		pinceau.fillRect(0, 0, 10, hauteur);
+		//pinceau.setFill(Color.BLUE);
+		//pinceau.fillRect(0, 0, 10, hauteur);
 	}
 
 }
