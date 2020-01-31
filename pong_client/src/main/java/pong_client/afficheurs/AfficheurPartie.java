@@ -17,6 +17,8 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	@Override
 	public void rafraichirAffichage(PartieLectureSeule modeleLectureSeule, VuePartieLocale vue) {
 		J.appel(this);
+
+		vue.dessinerPalette(100);
 	}
 
 }

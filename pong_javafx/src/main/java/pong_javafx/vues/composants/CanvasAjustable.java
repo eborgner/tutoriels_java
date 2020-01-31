@@ -25,7 +25,7 @@ public abstract class CanvasAjustable extends HBox {
 	private void installerCanvas() {
 		J.appel(this);
 		
-		canvas = new Canvas(100,100);
+		canvas = new Canvas();
 		pinceau = canvas.getGraphicsContext2D();
 		
 		this.getChildren().add(canvas);
