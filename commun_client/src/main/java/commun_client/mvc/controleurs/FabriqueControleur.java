@@ -65,7 +65,7 @@ public class FabriqueControleur {
 	private static <C extends ControleurModeleVue> void installerEnvoiDesCommandes(Vue vue) {
 		J.appel(FabriqueControleur.class);
 
-		vue.creerEvenements();
-		vue.installerListeners();
+		vue.obtenirCommandes();
+		vue.installerCapteurs();
 	}
 }

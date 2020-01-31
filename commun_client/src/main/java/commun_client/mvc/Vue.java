@@ -2,8 +2,8 @@ package commun_client.mvc;
 
 public interface Vue{
 
-	void creerEvenements();
-	void installerListeners();
+	void obtenirCommandes();
+	void installerCapteurs();
 	
 }
 

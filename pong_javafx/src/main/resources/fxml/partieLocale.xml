@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import quatredesuite_javafx.vues.controles.GrilleEntetes?>
+<?import quatredesuite_javafx.vues.controles.GrilleCases?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX">
+    <VBox>
+		<GrilleEntetes fx:id="grilleEntetes"/>
+		<GrilleCases fx:id="grilleCases" styleClass="fondCases" />
+    </VBox>
+    <HBox alignment="center" HBox.hgrow="ALWAYS">
+			<HBox HBox.hgrow="ALWAYS"></HBox>
+			<Text fx:id="textJoueurUn"   text="%joueurUn" HBox.hgrow="ALWAYS"></Text>
+			<HBox HBox.hgrow="ALWAYS"></HBox>
+			<Text fx:id="textJoueurDeux" text="%joueurDeux" HBox.hgrow="ALWAYS"></Text>
+			<HBox HBox.hgrow="ALWAYS"></HBox>
+    </HBox>
+</VBox>

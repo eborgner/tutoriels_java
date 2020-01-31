@@ -1,4 +1,4 @@
-package quatredesuite_javafx;
+package pong_javafx;
 
 public class Constantes {
 	
