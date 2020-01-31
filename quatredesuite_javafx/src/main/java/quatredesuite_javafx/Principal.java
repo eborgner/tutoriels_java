@@ -36,27 +36,30 @@ public class Principal extends Application {
 	private void afficherFenetre(Stage fenetrePrincipale, Scene scene) {
 		J.appel(this);
 
-		setLargeurFenetre(fenetrePrincipale);
-		setHauteurFenetre(fenetrePrincipale);
 
 		fenetrePrincipale.setScene(scene);
+		
+		setLargeurFenetre(fenetrePrincipale, scene.getWidth());
+		setHauteurFenetre(fenetrePrincipale, scene.getHeight() + HAUTEUR_DECORATION_FENETRE);
+		
 		fenetrePrincipale.show();
+
 	}
 
-	private void setHauteurFenetre(Stage fenetrePrincipale) {
+	private void setHauteurFenetre(Stage fenetrePrincipale, double hauteur) {
 		J.appel(this);
-
-		fenetrePrincipale.setHeight(HAUTEUR_FENETRE);
-		fenetrePrincipale.setMinHeight(HAUTEUR_FENETRE);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_FENETRE);
+		
+		fenetrePrincipale.setHeight(hauteur);
+		fenetrePrincipale.setMinHeight(hauteur);
+		fenetrePrincipale.setMaxHeight(hauteur);
 	}
 
-	private void setLargeurFenetre(Stage fenetrePrincipale) {
+	private void setLargeurFenetre(Stage fenetrePrincipale, double largeur) {
 		J.appel(this);
-
-		fenetrePrincipale.setWidth(LARGEUR_FENETRE);
-		fenetrePrincipale.setMinWidth(LARGEUR_FENETRE);
-		fenetrePrincipale.setMaxWidth(LARGEUR_FENETRE);
+		
+		fenetrePrincipale.setWidth(largeur);
+		fenetrePrincipale.setMinWidth(largeur);
+		fenetrePrincipale.setMaxWidth(largeur);
 	}
 
 	private Scene creerScenePrincipale() {
@@ -67,7 +70,9 @@ public class Principal extends Application {
         								           CHEMIN_PARTIE_LOCALE_CSS);
 
 
-		Scene scene = chargeur.nouvelleScene(LARGEUR_SCENE, HAUTEUR_SCENE);
+		Scene scene = chargeur.nouvelleScene(LARGEUR_SCENE_POURCENTAGE, 
+											 HAUTEUR_SCENE_POURCENTAGE,
+											 TAILLE_POLICE_POURCENTAGE);
 
 		DoitEtre.nonNul(scene);
 

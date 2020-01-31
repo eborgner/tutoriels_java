@@ -11,85 +11,121 @@ import commun.debogage.J;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
+import javafx.geometry.Rectangle2D;
 
 public class ChargeurDeVue {
-	
+
 	private String cheminFxml;
-    private String cheminChaines;
-    private String cheminCss;
+	private String cheminChaines;
+	private String cheminCss;
 	private FXMLLoader loader;
 	private Parent parent;
-	
+
 	public ChargeurDeVue(String cheminFxml) {
 		J.appel(this);
-		
+
 		DoitEtre.nonNul(cheminFxml);
-		
+
 		this.cheminFxml = cheminFxml;
-		
+
 		creerLoader();
 		chargerParent();
 	}
 
-	public ChargeurDeVue(String cheminFxml,
-						 String cheminChaines,
-						 String cheminCSS) {
+	public ChargeurDeVue(String cheminFxml, String cheminChaines, String cheminCSS) {
 		J.appel(this);
-		
+
 		DoitEtre.nonNul(cheminFxml);
-		
+
 		this.cheminFxml = cheminFxml;
 		this.cheminChaines = cheminChaines;
 		this.cheminCss = cheminCSS;
-		
+
 		creerLoader();
 		chargerParent();
 		ajouterCss();
 	}
-	
+
 	public Scene nouvelleScene(int largeur, int hauteur) {
 		J.appel(this);
-		
+
 		DoitEtre.nonNul(parent);
-		
+
 		return new Scene(parent, largeur, hauteur);
 	}
 
+	public Scene nouvelleScene(float largeurScenePourcentage, 
+							   float hauteurScenePourcentage,
+			                   float hauteurPolicePourcentage) {
+
+		J.appel(this);
+
+		Rectangle2D tailleEcran = getTailleEcran();
+
+		int largeur = (int) (tailleEcran.getWidth() * largeurScenePourcentage / 100.0);
+		int hauteur = (int) (tailleEcran.getHeight() * hauteurScenePourcentage / 100.0);
+		int taillePolice = (int) (tailleEcran.getHeight() * hauteurPolicePourcentage / 100.0);
+
+		Scene scene = creerScene(largeur, hauteur, taillePolice);
+
+		return scene;
+
+	}
+
+	private Scene creerScene(int largeur, int hauteur, int taillePolice) {
+		J.appel(this);
+
+		DoitEtre.nonNul(parent);
+
+		Scene scene = new Scene(parent, largeur, hauteur);
+		scene.getRoot().setStyle(String.format("-fx-font-size: %dpx;", taillePolice));
+
+		return scene;
+	}
+
+	private Rectangle2D getTailleEcran() {
+		J.appel(this);
+
+		Rectangle2D tailleEcran = Screen.getPrimary().getVisualBounds();
+
+		return tailleEcran;
+	}
 
 	private void creerLoader() {
 		J.appel(this);
-		
+
 		URL fichierFxml = getFichierFxml();
 		ResourceBundle chaines = null;
-		
-		if(cheminChaines != null) {
+
+		if (cheminChaines != null) {
 			chaines = getResourceBundle();
 			DoitEtre.nonNul(chaines, "Fichier chaînes non-trouvé: " + cheminChaines);
 		}
-		
+
 		loader = new FXMLLoader(fichierFxml, chaines);
-		
+
 		DoitEtre.nonNul(loader);
 
 	}
 
-    private ResourceBundle getResourceBundle() {
-        J.appel(this);
+	private ResourceBundle getResourceBundle() {
+		J.appel(this);
 
-        ResourceBundle chaines = null;
+		ResourceBundle chaines = null;
 
-        try {
+		try {
 
-            chaines = ResourceBundle.getBundle(cheminChaines);
+			chaines = ResourceBundle.getBundle(cheminChaines);
 
-        }catch(MissingResourceException e) {
+		} catch (MissingResourceException e) {
 
-            Erreur.fatale("cheminChaines non-trouvé '" + cheminChaines + "'", e);
+			Erreur.fatale("cheminChaines non-trouvé '" + cheminChaines + "'", e);
 
-        }
+		}
 
-        return chaines;
-    }
+		return chaines;
+	}
 
 	private URL getFichierFxml() {
 		J.appel(this);
@@ -100,7 +136,7 @@ public class ChargeurDeVue {
 
 		return fichierFxml;
 	}
-	
+
 	private void chargerParent() {
 		J.appel(this);
 
@@ -109,7 +145,7 @@ public class ChargeurDeVue {
 			parent = loader.load();
 
 		} catch (IOException e) {
-			
+
 			Erreur.fatale("impossible de charger le parent", e);
 
 		}
@@ -117,10 +153,10 @@ public class ChargeurDeVue {
 		DoitEtre.nonNul(parent);
 	}
 
-    private void ajouterCss() {
-        J.appel(this);
+	private void ajouterCss() {
+		J.appel(this);
 
-        DoitEtre.nonNul(parent);
+		DoitEtre.nonNul(parent);
 		DoitEtre.nonNul(cheminCss);
 
 		URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
@@ -128,6 +164,6 @@ public class ChargeurDeVue {
 		DoitEtre.nonNul(fichierCss);
 
 		parent.getStylesheets().add(fichierCss.toExternalForm());
-    }
+	}
 
 }
