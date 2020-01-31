@@ -4,6 +4,7 @@ import commun.debogage.J;
 import pong_client.controleurs.ControleurPrincipal;
 
 public class ControleurPrincipalFX extends ControleurPrincipal {
+	
 
 	@Override
 	public void installerReceptionCommandes() {
