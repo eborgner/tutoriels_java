@@ -5,6 +5,7 @@ import commun.systeme.Systeme;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
+import commun_javafx.ChargeurDeVue;
 import quatredesuite.modeles.partie.Partie;
 import quatredesuite_client.afficheurs.AfficheurPartie;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocaleRecue;
@@ -13,6 +14,7 @@ import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.controleurs.ControleurPartieLocale;
 import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_client.vues.VuePartieLocale;
+import quatredesuite_javafx.vues.VueParametresFX;
 
 public class ControleurPrincipalFX extends ControleurPrincipal {
 
@@ -101,6 +103,19 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 	@Override
 	protected void ouvrirParametres() {
 		J.appel(this);
+
+		ChargeurDeVue<VueParametresFX> chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
+						CHEMIN_PRINCIPAL_CHAINES,
+						CHEMIN_PARAMETRES_CSS);
+		
+        Stage fenetreModale = new Stage();
+        fenetreModale.setScene(scene);
+        fenetreModale.initOwner(fenetrePrincipale);
+        fenetreModale.initModality(Modality.APPLICATION_MODAL);
+        fenetreModale.showAndWait();
+
+
+
 		
 	}
 
