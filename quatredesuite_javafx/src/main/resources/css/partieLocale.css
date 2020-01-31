@@ -1,9 +1,5 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-min-width: 19em;
-  -fx-max-width: 19em;
-  -fx-min-height: 32em;
-  -fx-max-height: 32em;
   -fx-border-style: solid;
   -fx-border-width: 5px;
   -fx-border-color: #161620;

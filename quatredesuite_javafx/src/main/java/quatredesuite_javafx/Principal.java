@@ -40,7 +40,7 @@ public class Principal extends Application {
 		fenetrePrincipale.setScene(scene);
 		
 		setLargeurFenetre(fenetrePrincipale, scene.getWidth());
-		setHauteurFenetre(fenetrePrincipale, scene.getHeight() + HAUTEUR_DECORATION_FENETRE);
+		setHauteurFenetre(fenetrePrincipale, scene.getHeight());
 		
 		fenetrePrincipale.show();
 
