@@ -14,7 +14,7 @@ import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 
-
+@SuppressWarnings("rawtypes")
 public class Principal extends Application {
 	
 

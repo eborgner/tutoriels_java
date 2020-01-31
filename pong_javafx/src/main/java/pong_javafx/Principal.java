@@ -15,6 +15,7 @@ import pong_javafx.controleurs.ControleurPrincipalFX;
 import pong_javafx.vues.VuePrincipaleFX;
 
 
+@SuppressWarnings("rawtypes")
 public class Principal extends Application {
 	
 

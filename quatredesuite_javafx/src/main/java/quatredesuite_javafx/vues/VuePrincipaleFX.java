@@ -26,14 +26,14 @@ public class VuePrincipaleFX implements VuePrincipale {
 	private MenuItem nouvellePartie, parametres, quitter;
 
 	@FXML
-	private VBox conteneurPartieLocale;
+	private VBox conteneurPartie;
 	
 	private NouvellePartieLocalePourEnvoi nouvellePartieLocale;
 	private OuvrirParametresPourEnvoi ouvrirParametres;
 	private QuitterPourEnvoi commandeQuitter;
 
 	@Override
-	public void creerEvenements() {
+	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
 		nouvellePartieLocale = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
@@ -42,7 +42,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 	}
 
 	@Override
-	public void installerListeners() {
+	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
 		installerListenerNouvellePartie();
@@ -99,8 +99,8 @@ public class VuePrincipaleFX implements VuePrincipale {
 		
 		Parent racinePartieLocale = chargeur.getParent();
 		
-		conteneurPartieLocale.getChildren().add(racinePartieLocale);
-		conteneurPartieLocale.setVisible(true);
+		conteneurPartie.getChildren().add(racinePartieLocale);
+		conteneurPartie.setVisible(true);
 		
 		return chargeur.getVue();
 	}
@@ -109,6 +109,6 @@ public class VuePrincipaleFX implements VuePrincipale {
 	public void detruireVuePartieLocale() {
 		J.appel(this);
 
-		conteneurPartieLocale.getChildren().clear();
+		conteneurPartie.getChildren().clear();
 	}
 }

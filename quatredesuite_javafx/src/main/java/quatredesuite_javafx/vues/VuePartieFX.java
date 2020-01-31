@@ -36,14 +36,14 @@ public class VuePartieFX implements VuePartie, Initializable {
 	} 
     
 	@Override
-	public void creerEvenements() {
+	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 
         grilleEntetes.creerEvenements();
 	}
 
 	@Override
-	public void installerListeners() {
+	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 
         grilleEntetes.installerListeners();

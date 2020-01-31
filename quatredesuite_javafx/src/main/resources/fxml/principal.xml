@@ -24,8 +24,7 @@
         </top>
         <center>
         <HBox alignment="center">
-			<VBox fx:id="conteneurPartieLocale" visible="false" alignment="center"/>
-			<VBox fx:id="conteneurPartieReseau" visible="false" alignment="center"/>
+			<VBox fx:id="conteneurPartie" alignment="center"/>
 			</HBox>
         </center>
     </BorderPane>

@@ -10,6 +10,8 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	@Override
 	public void initialiserAffichage(PartieLectureSeule modeleLectureSeule, VuePartieLocale vue) {
 		J.appel(this);
+		
+		vue.dessinerPalette(100);
 	}
 
 	@Override

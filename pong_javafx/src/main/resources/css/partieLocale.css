@@ -62,36 +62,10 @@
 .bouton:hover {
   -fx-background-color: #95c5db;
 }
-.fondPartie {
-  -fx-background-color: #305ae1;
-  -fx-background-radius: 2em 2em 2em 2em;
-  -fx-border-radius: 2em 2em 2em 2em;
-}
-Entete {
-  -fx-border-style: solid;
+#tablePong {
+  -fx-border-style: dashed;
   -fx-border-width: 2px;
-  -fx-background-color: #bcced6;
-  -fx-text-color: #305ae1;
-  -fx-margin-bottom: 10em;
-  -fx-min-height: 2em;
-  -fx-max-width: 2em;
-  -fx-min-width: 4em;
-  -fx-margin: 10em;
-  -fx-background-radius: 2em 2em 2em 2em;
-  -fx-border-radius: 2em 2em 2em 2em;
 }
-Entete.ROUGE:hover {
-  -fx-border-color: #fd5435;
-}
-Entete.JAUNE:hover {
-  -fx-border-color: #fccd0e;
-}
-Entete:pressed {
-  -fx-background-color: #305ae1;
-}
-Case {
+.conteneurScoreJoueur {
   -fx-alignment: center;
-  -fx-min-width: 4em;
-  -fx-margin: 2em;
-  -fx-padding: 2em;
 }

@@ -1,51 +1,11 @@
 @import "commun";
 
-.fondPartie{
-    -fx-background-color:@fonce2;
-    -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+
+#tablePong{
+	-fx-border-style : dashed;
+	-fx-border-width: 2px;
 }
 
-Entete{
-    -fx-border-style:solid;
-    -fx-border-width:2px;
-    -fx-background-color:@pale2;
-    -fx-text-color:@fonce2;
-    -fx-margin-bottom:@grosEspace;
-    -fx-min-height:@hauteurEntete;
-    -fx-max-width:@largeurEntete;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @grosEspace;
-	-fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-
-}
-
-
-Entete.ROUGE:hover {
-    -fx-border-color:@jetonRouge;
-}
-
-
-Entete.JAUNE:hover {
-    -fx-border-color:@jetonJaune;
-}
-
-Entete:pressed {
-    -fx-background-color:@fonce2;
-}
-
-
-
-Case{
-    -fx-alignment: center;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @petitEspace;
-    -fx-padding: @petitEspace;
-}
-
-Case.ROUGE{
-}
-
-Case.JAUNE{
+.conteneurScoreJoueur{
+	-fx-alignment:center;
 }

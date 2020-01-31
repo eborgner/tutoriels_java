@@ -6,13 +6,13 @@ import quatredesuite_client.vues.VueParametres;
 public class VueParametresFX implements VueParametres {
 
 	@Override
-	public void creerEvenements() {
+	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
 	}
 
 	@Override
-	public void installerListeners() {
+	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
 	}

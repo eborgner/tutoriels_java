@@ -23,10 +23,7 @@
             </MenuBar>
         </top>
         <center>
-        <HBox alignment="center">
-			<VBox fx:id="conteneurPartieLocale" visible="false" alignment="center"/>
-			<VBox fx:id="conteneurPartieReseau" visible="false" alignment="center"/>
-			</HBox>
+			<VBox fx:id="conteneurPartie" id="conteneurPartie"/>
         </center>
     </BorderPane>
 </VBox>

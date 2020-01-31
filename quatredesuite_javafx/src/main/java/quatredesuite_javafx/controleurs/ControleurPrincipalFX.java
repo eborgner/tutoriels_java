@@ -17,10 +17,12 @@ import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_javafx.Principal;
 import quatredesuite_javafx.vues.VueParametresFX;
+import quatredesuite_javafx.vues.VuePrincipaleFX;
+
 import static quatredesuite_javafx.Constantes.*;
 
 
-public class ControleurPrincipalFX extends ControleurPrincipal {
+public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
 
 	protected ControleurPartieLocale controleurPartieLocale;
 	

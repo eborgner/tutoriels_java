@@ -10,7 +10,7 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.vues.VuePrincipale;
 
-public abstract class ControleurPrincipal extends ControleurVue<VuePrincipale> {
+public abstract class ControleurPrincipal<V extends VuePrincipale> extends ControleurVue<V> {
 	
 	@Override
 	public void installerReceptionCommandes() {
