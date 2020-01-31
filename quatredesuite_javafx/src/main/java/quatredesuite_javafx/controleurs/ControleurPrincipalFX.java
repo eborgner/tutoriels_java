@@ -6,6 +6,7 @@ import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
+import javafx.stage.Stage;
 import quatredesuite.modeles.partie.Partie;
 import quatredesuite_client.afficheurs.AfficheurPartie;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocaleRecue;
@@ -14,7 +15,10 @@ import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.controleurs.ControleurPartieLocale;
 import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_client.vues.VuePartieLocale;
+import quatredesuite_javafx.Principal;
 import quatredesuite_javafx.vues.VueParametresFX;
+import static quatredesuite_javafx.Constantes.*;
+
 
 public class ControleurPrincipalFX extends ControleurPrincipal {
 
@@ -104,17 +108,13 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 	protected void ouvrirParametres() {
 		J.appel(this);
 
+		// FIXME: devrait charger plus tôt
 		ChargeurDeVue<VueParametresFX> chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_PRINCIPAL_CHAINES,
+						CHEMIN_CHAINES,
 						CHEMIN_PARAMETRES_CSS);
 		
-        Stage fenetreModale = new Stage();
-        fenetreModale.setScene(scene);
-        fenetreModale.initOwner(fenetrePrincipale);
-        fenetreModale.initModality(Modality.APPLICATION_MODAL);
-        fenetreModale.showAndWait();
-
-
+		// FIXME: extraire constantes
+		Principal.ouvrirDialogueModal(chargeur.nouvelleScene(300, 200));
 
 		
 	}

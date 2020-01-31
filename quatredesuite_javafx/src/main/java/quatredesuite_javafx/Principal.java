@@ -8,6 +8,7 @@ import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
@@ -30,10 +31,13 @@ public class Principal extends Application {
 	}
 
 	private ControleurPrincipal controleurPrincipal;
+	private static Stage fenetrePrincipale;
 	
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
+		
+		Principal.fenetrePrincipale = fenetrePrincipale;
 
 		ChargeurDeVue<VuePrincipaleFX> chargeur = creerChargeurVuePrincipale();
 		
@@ -48,6 +52,16 @@ public class Principal extends Application {
 
 		fenetrePrincipale.show();
 
+	}
+	
+	public static void ouvrirDialogueModal(Scene scene) {
+		J.appel(Principal.class);
+
+        Stage fenetreModale = new Stage();
+        fenetreModale.setScene(scene);
+        fenetreModale.initOwner(fenetrePrincipale);
+        fenetreModale.initModality(Modality.APPLICATION_MODAL);
+        fenetreModale.showAndWait();
 	}
 
 	private Scene creerScenePrincipale(ChargeurDeVue<VuePrincipaleFX> chargeur) {
@@ -65,7 +79,7 @@ public class Principal extends Application {
 		J.appel(this);
 
 		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_PRINCIPAL_CHAINES,
+						CHEMIN_CHAINES,
 						CHEMIN_PRINCIPAL_CSS);
 		
 		return chargeur;

@@ -94,7 +94,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 		J.appel(this);
 
 		ChargeurDeVue<VuePartieLocaleFX> chargeur = new ChargeurDeVue<VuePartieLocaleFX>(CHEMIN_PARTIE_LOCALE_FXML,
-						CHEMIN_PRINCIPAL_CHAINES,
+						CHEMIN_CHAINES,
 						CHEMIN_PARTIE_LOCALE_CSS);
 		
 		Parent racinePartieLocale = chargeur.getParent();
