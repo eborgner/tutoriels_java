@@ -16,6 +16,7 @@ import quatredesuite_javafx.vues.VuePrincipaleFX;
 
 public class Principal extends Application {
 	
+
 	static {
 
 		Initialisateur.initialiser();
@@ -42,8 +43,8 @@ public class Principal extends Application {
 
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setMinWidth(400);
-		fenetrePrincipale.setMinHeight(600);
+		fenetrePrincipale.setMinWidth(LARGEUR);
+		fenetrePrincipale.setMinHeight(HAUTEUR);
 
 		fenetrePrincipale.show();
 

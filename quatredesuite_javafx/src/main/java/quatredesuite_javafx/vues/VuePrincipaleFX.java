@@ -12,6 +12,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.MenuItem;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocalePourEnvoi;
+import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
+import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
+import quatredesuite_client.commandes.quitter.Quitter;
+import quatredesuite_client.commandes.quitter.QuitterPourEnvoi;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_client.vues.VuePrincipale;
 import static quatredesuite_javafx.Constantes.*;
@@ -25,12 +29,16 @@ public class VuePrincipaleFX implements VuePrincipale {
 	private VBox conteneurPartieLocale;
 	
 	private NouvellePartieLocalePourEnvoi nouvellePartieLocale;
+	private OuvrirParametresPourEnvoi ouvrirParametres;
+	private QuitterPourEnvoi commandeQuitter;
 
 	@Override
 	public void creerEvenements() {
 		J.appel(this);
 		
 		nouvellePartieLocale = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
+		ouvrirParametres = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
+		commandeQuitter = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 	}
 
 	@Override
@@ -50,6 +58,7 @@ public class VuePrincipaleFX implements VuePrincipale {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 
+				commandeQuitter.envoyerCommande();
 			}
 		});
 	}
@@ -61,7 +70,8 @@ public class VuePrincipaleFX implements VuePrincipale {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
-
+				
+				ouvrirParametres.envoyerCommande();
 			}
 		});
 	}

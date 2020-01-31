@@ -1,6 +1,7 @@
 package quatredesuite_javafx.controleurs;
 
 import commun.debogage.J;
+import commun.systeme.Systeme;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
@@ -95,5 +96,18 @@ public class ControleurPrincipalFX extends ControleurPrincipal {
 		J.appel(this);
 		
 		// rien
+	}
+
+	@Override
+	protected void ouvrirParametres() {
+		J.appel(this);
+		
+	}
+
+	@Override
+	protected void quitter() {
+		J.appel(this);
+
+		Systeme.quitter();
 	}
 }
