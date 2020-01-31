@@ -44,7 +44,7 @@ public abstract class CanvasAjustable extends HBox {
 				
 				J.valeurs(ancienneLargeur, nouvelleLargeur);
 
-				canvas.setWidth(nouvelleLargeur);
+				canvas.setWidth(nouvelleLargeur / 2);
 				
 				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
 			}
@@ -64,7 +64,7 @@ public abstract class CanvasAjustable extends HBox {
 				
 				J.valeurs(ancienneHauteur, nouvelleHauteur);
 
-				canvas.setHeight(nouvelleHauteur);
+				canvas.setHeight(nouvelleHauteur / 2);
 				
 				reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
 			}
