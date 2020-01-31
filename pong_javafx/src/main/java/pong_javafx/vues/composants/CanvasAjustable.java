@@ -2,6 +2,7 @@ package pong_javafx.vues.composants;
 
 
 import commun.debogage.J;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
@@ -43,10 +44,16 @@ public abstract class CanvasAjustable extends HBox {
 				double nouvelleLargeur = (double) newValue;
 				
 				J.valeurs(ancienneLargeur, nouvelleLargeur);
-
-				canvas.setWidth(nouvelleLargeur / 2);
 				
-				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						J.appel(this);
+
+						canvas.setWidth(nouvelleLargeur/2);
+						reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
+					}
+				});
 			}
 		});
 	}
@@ -63,10 +70,15 @@ public abstract class CanvasAjustable extends HBox {
 				double nouvelleHauteur = (double) newValue;
 				
 				J.valeurs(ancienneHauteur, nouvelleHauteur);
-
-				canvas.setHeight(nouvelleHauteur / 2);
 				
-				reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						J.appel(this);
+						canvas.setHeight(nouvelleHauteur/2);
+						reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
+					}
+				});
 			}
 		});
 	}
