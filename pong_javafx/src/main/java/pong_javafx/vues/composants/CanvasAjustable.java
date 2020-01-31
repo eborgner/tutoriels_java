@@ -43,7 +43,7 @@ public abstract class CanvasAjustable extends StackPane {
 				double ancienneLargeur = (double) oldValue;
 				double nouvelleLargeur = (double) newValue;
 				
-				J.valeurs("deltaLargeur:", ancienneLargeur - nouvelleLargeur);
+				J.valeurs("deltaLargeur:", nouvelleLargeur - ancienneLargeur);
 				
 				canvas.setWidth(nouvelleLargeur - 10);
 				
@@ -65,7 +65,7 @@ public abstract class CanvasAjustable extends StackPane {
 				double ancienneHauteur = (double) oldValue;
 				double nouvelleHauteur = (double) newValue;
 				
-				J.valeurs("deltaHauteur:", ancienneHauteur - nouvelleHauteur);
+				J.valeurs("deltaHauteur:", nouvelleHauteur - ancienneHauteur);
 
 				pinceau.fillRect(0, 0, 100, nouvelleHauteur);
 				
