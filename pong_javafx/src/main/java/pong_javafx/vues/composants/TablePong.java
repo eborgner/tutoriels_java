@@ -5,7 +5,7 @@ import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import pong.modeles.partie.PaletteLectureSeule;
+import pong.modeles.partie.table_pong.PaletteLectureSeule;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
 

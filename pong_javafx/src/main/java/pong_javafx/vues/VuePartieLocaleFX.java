@@ -7,7 +7,7 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import pong.modeles.partie.PaletteLectureSeule;
+import pong.modeles.partie.table_pong.PaletteLectureSeule;
 import pong_client.vues.VuePartieLocale;
 import pong_javafx.vues.composants.TablePong;
 
