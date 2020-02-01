@@ -10,14 +10,16 @@ import javafx.scene.layout.Pane;
 
 public abstract class CanvasAjustable extends Pane {
 	
+	/* nécessaire ? 
 	private class ResizableCanvas extends Canvas {
 		@Override
 		public boolean isResizable() {
 			return true;
 		}
 	}
+	*/
 	
-	private ResizableCanvas canvas;
+	private Canvas canvas;
 	protected GraphicsContext pinceau;
 	
 	public CanvasAjustable() {
@@ -32,7 +34,7 @@ public abstract class CanvasAjustable extends Pane {
 	private void installerCanvas() {
 		J.appel(this);
 		
-		canvas = new ResizableCanvas();
+		canvas = new Canvas();
 		pinceau = canvas.getGraphicsContext2D();
 		
 		

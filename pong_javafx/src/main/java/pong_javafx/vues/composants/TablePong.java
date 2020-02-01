@@ -20,18 +20,24 @@ public class TablePong extends CanvasAjustable {
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
 
-		// TMP
-		pinceau.fillRect(0, 0, getWidth(), getHeight());
+		DESSINER_TMP();
 
 		envoyerCommandeAggrandir(ancienneLargeur, nouvelleLargeur, AggrandirTablePong.Direction.LARGEUR);
+	}
+
+	private void DESSINER_TMP() {
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+		pinceau.fillRect(0, 0, getWidth(), 10);
+		pinceau.fillRect(0, 0, 10, getHeight());
+		pinceau.fillRect(getWidth()-10, 0, 10, getHeight());
+		pinceau.fillRect(0, getHeight()-10, getWidth(), 10);
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		// TMP
-		pinceau.fillRect(0, 0, getWidth(), getHeight());
+		DESSINER_TMP();
 
 		envoyerCommandeAggrandir(ancienneHauteur, nouvelleHauteur, AggrandirTablePong.Direction.HAUTEUR);
 	}
