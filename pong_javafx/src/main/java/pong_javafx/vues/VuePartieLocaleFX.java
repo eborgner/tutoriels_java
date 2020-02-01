@@ -7,6 +7,7 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import pong.modeles.partie.PaletteLectureSeule;
 import pong_client.vues.VuePartieLocale;
 import pong_javafx.vues.composants.TablePong;
 
@@ -38,10 +39,10 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	}
 
 	@Override
-	public void dessinerPalette(double hauteur) {
+	public void dessinerPalette(PaletteLectureSeule palette) {
 		J.appel(this);
 		
-		tablePong.dessinerPalette(hauteur);
+		tablePong.dessinerPalette(palette);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import pong.modeles.partie.PaletteLectureSeule;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
 
@@ -60,10 +61,14 @@ public class TablePong extends CanvasAjustable {
 	}
 
 
-	public void dessinerPalette(double hauteur) {
+	public void dessinerPalette(PaletteLectureSeule palette) {
 		J.appel(this);
 
-		pinceau.fillRect(0, 0, 10, hauteur);
+		// FIXME: doit convertir les unité et inverser Y
+		pinceau.fillRect(palette.getCentreXMetres(), 
+						 palette.getCentreYMetres(),
+						 palette.getLargeurMetres(),
+						 palette.getHauteurMetres());
 	}
 
 }
