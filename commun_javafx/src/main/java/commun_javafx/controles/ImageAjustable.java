@@ -30,58 +30,10 @@ public class ImageAjustable extends HBox {
 		
 		this.getChildren().add(imageView);
 		
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				J.appel(this);
-
-				memoriserTailleInitiale();
-				installerListeners();
-			}
-		});
+		imageView.setPreserveRatio(true);
+		
+		imageView.fitWidthProperty().bind(this.widthProperty());
+		imageView.fitHeightProperty().bind(this.heightProperty());
 	}
 	
-	private void memoriserTailleInitiale() {
-		J.appel(this);
-
-		hauteurInitiale = this.getHeight();
-		largeurInitiale = this.getWidth();
-	}
-	
-	private <T> void installerListeners() {
-		J.appel(this);
-		
-		this.widthProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				ajusterImage();
-			}
-		});
-		
-		this.heightProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				ajusterImage();
-			}
-		});
-	}
-
-	private void ajusterImage() {
-		J.appel(this);
-		
-		double ratioX = this.getWidth() / largeurInitiale;
-		double ratioY = this.getHeight() / hauteurInitiale;
-		
-		if(ratioX < ratioY) {
-			imageView.setScaleX(ratioX);
-			imageView.setScaleY(ratioX);
-
-		}else {
-			imageView.setScaleX(ratioY);
-			imageView.setScaleY(ratioY);
-
-		}
-	}
 }
