@@ -7,9 +7,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 
-public abstract class CanvasAjustable extends StackPane {
+public abstract class CanvasAjustable extends HBox {
 	
 	private Canvas canvas;
 	protected GraphicsContext pinceau;
@@ -47,7 +46,7 @@ public abstract class CanvasAjustable extends StackPane {
 				
 				canvas.setWidth(nouvelleLargeur - 10);
 				
-				pinceau.fillRect(0, 0, nouvelleLargeur, 100);
+				pinceau.fillRect(0, 0, nouvelleLargeur, getHeight());
 
 				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
 			}
@@ -67,7 +66,7 @@ public abstract class CanvasAjustable extends StackPane {
 				
 				J.valeurs("deltaHauteur:", nouvelleHauteur - ancienneHauteur);
 
-				pinceau.fillRect(0, 0, 100, nouvelleHauteur);
+				pinceau.fillRect(0, 0, getWidth(), nouvelleHauteur);
 				
 				canvas.setHeight(nouvelleHauteur - 10);
 
