@@ -61,14 +61,14 @@ public class TablePong extends CanvasAjustable {
 	}
 
 
-	public void afficherObjet2D(Objet2DLectureSeule objet2d) {
+	public void afficherObjet2D(Objet2DLectureSeule objet2D) {
 		J.appel(this);
 
 		// FIXME: doit convertir les unité et inverser Y
-		pinceau.fillRect(objet2d.getCentreXMetres(), 
-						 objet2d.getCentreYMetres(),
-						 objet2d.getLargeurMetres(),
-						 objet2d.getHauteurMetres());
+		pinceau.fillRect(objet2D.getCentreXMetres(), 
+						 objet2D.getCentreYMetres(),
+						 objet2D.getLargeurMetres(),
+						 objet2D.getHauteurMetres());
 		
 	}
 

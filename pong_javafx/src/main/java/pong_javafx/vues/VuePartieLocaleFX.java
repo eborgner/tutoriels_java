@@ -47,10 +47,10 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	}
 
 	@Override
-	public void afficherObjet2D(Objet2DLectureSeule objet2d) {
+	public void afficherObjet2D(Objet2DLectureSeule objet2D) {
 		J.appel(this);
 		
-		tablePong.afficherObjet2D(objet2d);
+		tablePong.afficherObjet2D(objet2D);
 	}
 
 }
