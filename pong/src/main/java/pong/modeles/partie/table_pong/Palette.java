@@ -3,16 +3,9 @@ package pong.modeles.partie.table_pong;
 import commun.debogage.J;
 import pong.enumerations.Cadran;
 
-public class Palette implements PaletteLectureSeule {
+public class Palette extends Objet2D implements PaletteLectureSeule {
 	
 	private Cadran monCadran;
-
-	private double centreXMetres = 0;
-	private double centreYMetres = 50;
-	private double largeurMetres = 10;
-	private double hauteurMetres = 100;
-	
-	private double vitesseMetreSecondes = 1;
 	
 	public Palette(Cadran monCadran, double centreXMetres) {
 		J.appel(this);
