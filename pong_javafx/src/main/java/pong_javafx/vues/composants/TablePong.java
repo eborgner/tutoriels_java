@@ -2,6 +2,7 @@ package pong_javafx.vues.composants;
 
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
@@ -20,24 +21,12 @@ public class TablePong extends CanvasAjustable {
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
 
-		DESSINER_TMP();
-
 		envoyerCommandeAggrandir(ancienneLargeur, nouvelleLargeur, AggrandirTablePong.Direction.LARGEUR);
-	}
-
-	private void DESSINER_TMP() {
-		pinceau.clearRect(0, 0, getWidth(), getHeight());
-		pinceau.fillRect(0, 0, getWidth(), 10);
-		pinceau.fillRect(0, 0, 10, getHeight());
-		pinceau.fillRect(getWidth()-10, 0, 10, getHeight());
-		pinceau.fillRect(0, getHeight()-10, getWidth(), 10);
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
-
-		DESSINER_TMP();
 
 		envoyerCommandeAggrandir(ancienneHauteur, nouvelleHauteur, AggrandirTablePong.Direction.HAUTEUR);
 	}
@@ -56,13 +45,24 @@ public class TablePong extends CanvasAjustable {
 		
 		return (nouvelleTaille - ancienneTaille) / ancienneTaille;
 	}
+
+	public void initialiser() {
+		J.appel(this);
+
+		pinceau.setFill(Color.BLUE);
+	}
 	
+	public void viderDessin() {
+		J.appel(this);
+		
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+	}
+
 
 	public void dessinerPalette(double hauteur) {
 		J.appel(this);
-		
-		//pinceau.setFill(Color.BLUE);
-		//pinceau.fillRect(0, 0, 10, hauteur);
+
+		pinceau.fillRect(0, 0, 10, hauteur);
 	}
 
 }
