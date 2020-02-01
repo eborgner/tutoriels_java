@@ -6,11 +6,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
-public abstract class CanvasAjustable extends HBox {
+public abstract class CanvasAjustable extends Pane {
 	
-	private Canvas canvas;
+	private class ResizableCanvas extends Canvas {
+		@Override
+		public boolean isResizable() {
+			return true;
+		}
+	}
+	
+	private ResizableCanvas canvas;
 	protected GraphicsContext pinceau;
 	
 	public CanvasAjustable() {
@@ -25,10 +32,15 @@ public abstract class CanvasAjustable extends HBox {
 	private void installerCanvas() {
 		J.appel(this);
 		
-		canvas = new Canvas();
+		canvas = new ResizableCanvas();
 		pinceau = canvas.getGraphicsContext2D();
 		
+		
 		this.getChildren().add(canvas);
+
+		canvas.widthProperty().bind(this.widthProperty());
+		canvas.heightProperty().bind(this.heightProperty());
+		
 	}
 	
 	private void installerObservateurLargeur() {
@@ -41,12 +53,6 @@ public abstract class CanvasAjustable extends HBox {
 				
 				double ancienneLargeur = (double) oldValue;
 				double nouvelleLargeur = (double) newValue;
-				
-				J.valeurs("deltaLargeur:", nouvelleLargeur - ancienneLargeur);
-				
-				canvas.setWidth(nouvelleLargeur - 10);
-				
-				pinceau.fillRect(0, 0, nouvelleLargeur, getHeight());
 
 				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
 			}
@@ -64,12 +70,6 @@ public abstract class CanvasAjustable extends HBox {
 				double ancienneHauteur = (double) oldValue;
 				double nouvelleHauteur = (double) newValue;
 				
-				J.valeurs("deltaHauteur:", nouvelleHauteur - ancienneHauteur);
-
-				pinceau.fillRect(0, 0, getWidth(), nouvelleHauteur);
-				
-				canvas.setHeight(nouvelleHauteur - 10);
-
 				reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
 			}
 		});
