@@ -1,4 +1,4 @@
-package pong_javafx.vues.composants;
+package commun_javafx.vues.composants;
 
 
 import commun.debogage.J;

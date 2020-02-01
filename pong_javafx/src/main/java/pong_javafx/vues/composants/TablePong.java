@@ -2,6 +2,7 @@ package pong_javafx.vues.composants;
 
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
+import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
