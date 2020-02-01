@@ -3,8 +3,8 @@ package pong.modeles.partie;
 
 import commun.debogage.J;
 import commun.mvc.Modele;
+import pong.modeles.partie.monde2d.Monde2DLectureSeule;
 import pong.modeles.partie.table_pong.TablePong;
-import pong.modeles.partie.table_pong.TablePongLectureSeule;
 
 public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
 	
@@ -18,15 +18,11 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 	}
 
 	@Override
-	public TablePongLectureSeule getTablePong() {
+	public Monde2DLectureSeule getMonde2D() {
 		J.appel(this);
-		
-		return (TablePongLectureSeule) tablePong;
-	} 
-	
-	
 
-	
+		return (Monde2DLectureSeule) tablePong;
+	} 
 	
 	
 }

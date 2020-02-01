@@ -5,7 +5,7 @@ import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import pong.modeles.partie.table_pong.PaletteLectureSeule;
+import pong.modeles.partie.monde2d.Objet2DLectureSeule;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
 
@@ -61,14 +61,15 @@ public class TablePong extends CanvasAjustable {
 	}
 
 
-	public void dessinerPalette(PaletteLectureSeule palette) {
+	public void afficherObjet2D(Objet2DLectureSeule objet2d) {
 		J.appel(this);
 
 		// FIXME: doit convertir les unité et inverser Y
-		pinceau.fillRect(palette.getCentreXMetres(), 
-						 palette.getCentreYMetres(),
-						 palette.getLargeurMetres(),
-						 palette.getHauteurMetres());
+		pinceau.fillRect(objet2d.getCentreXMetres(), 
+						 objet2d.getCentreYMetres(),
+						 objet2d.getLargeurMetres(),
+						 objet2d.getHauteurMetres());
+		
 	}
 
 }

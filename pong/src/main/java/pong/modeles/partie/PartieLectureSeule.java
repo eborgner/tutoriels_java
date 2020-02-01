@@ -4,12 +4,11 @@ import java.util.Map;
 
 import commun.mvc.ModeleLectureSeule;
 import pong.enumerations.Cadran;
-import pong.modeles.partie.table_pong.PaletteLectureSeule;
-import pong.modeles.partie.table_pong.TablePongLectureSeule;
+import pong.modeles.partie.monde2d.Monde2DLectureSeule;
 
 public interface PartieLectureSeule extends ModeleLectureSeule {
 	
-	TablePongLectureSeule getTablePong();
+	Monde2DLectureSeule getMonde2D();
 
 
 }

@@ -1,11 +1,10 @@
 package pong_client.vues;
 
 import commun_client.mvc.Vue;
-import pong.modeles.partie.table_pong.PaletteLectureSeule;
+import pong.modeles.partie.monde2d.VueMonde2D;
 
-public interface VuePartieLocale extends Vue {
+public interface VuePartieLocale extends Vue, VueMonde2D {
 	
-	public void viderDessin();
-	public void dessinerPalette(PaletteLectureSeule palette);
-
+	
+	
 }

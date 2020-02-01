@@ -7,7 +7,7 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import pong.modeles.partie.table_pong.PaletteLectureSeule;
+import pong.modeles.partie.monde2d.Objet2DLectureSeule;
 import pong_client.vues.VuePartieLocale;
 import pong_javafx.vues.composants.TablePong;
 
@@ -38,19 +38,19 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 
 	}
 
-	@Override
-	public void dessinerPalette(PaletteLectureSeule palette) {
-		J.appel(this);
-		
-		tablePong.dessinerPalette(palette);
-	}
 
 	@Override
-	public void viderDessin() {
+	public void viderMonde() {
 		J.appel(this);
 
 		tablePong.viderDessin();
 	}
 
+	@Override
+	public void afficherObjet2D(Objet2DLectureSeule objet2d) {
+		J.appel(this);
+		
+		tablePong.afficherObjet2D(objet2d);
+	}
 
 }

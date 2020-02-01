@@ -2,17 +2,17 @@ package pong.modeles.partie.table_pong;
 
 import commun.debogage.J;
 import pong.enumerations.Cadran;
+import pong.modeles.partie.monde2d.Objet2D;
 
-public class Palette extends Objet2D implements PaletteLectureSeule {
+public class Palette extends Objet2D {
 	
 	private Cadran monCadran;
 	
 	public Palette(Cadran monCadran, double centreXMetres) {
+		super(centreXMetres, 0, 10, 100);
 		J.appel(this);
 		
 		this.monCadran = monCadran;
-
-		this.centreXMetres = centreXMetres;
 	}
 	
 	public void reagirAuTempsQuiPasse(double secondesEcoulees) {
