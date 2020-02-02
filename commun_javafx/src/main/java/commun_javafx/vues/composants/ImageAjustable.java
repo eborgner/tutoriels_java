@@ -106,7 +106,7 @@ public abstract class ImageAjustable extends HBox {
 	private void setScaleXY(double facteurTaille) {
 		J.appel(this);
 		
-		this.setScaleX(facteurTaille);
-		this.setScaleY(facteurTaille);
+		this.imageView.setScaleX(facteurTaille);
+		this.imageView.setScaleY(facteurTaille);
 	}
 }
