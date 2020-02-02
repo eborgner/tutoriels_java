@@ -29,7 +29,7 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		
 		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
 		
-		controleurPartieLocale = FabriqueControleur.creerControleur(ControleurPartieLocale.class, partie, vuePartieLocale, afficheur);
+		controleurPartieLocale = FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
 		
 	}
 
