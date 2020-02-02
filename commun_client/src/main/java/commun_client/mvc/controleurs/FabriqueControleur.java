@@ -3,8 +3,8 @@ package commun_client.mvc.controleurs;
 
 import commun.Fabrique;
 import commun.debogage.J;
-import commun.mvc.Modele;
-import commun.mvc.ModeleLectureSeule;
+import commun.modeles.Modele;
+import commun.modeles.ModeleLectureSeule;
 import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 

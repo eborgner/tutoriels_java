@@ -3,10 +3,10 @@ package pong_client.afficheurs;
 import java.util.Map;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.AfficheurMonde2D;
 import commun_client.mvc.Afficheur;
 import pong.enumerations.Cadran;
 import pong.modeles.partie.PartieLectureSeule;
-import pong.modeles.partie.monde2d.AfficheurMonde2D;
 import pong_client.vues.VuePartieLocale;
 
 public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLocale> {

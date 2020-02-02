@@ -1,4 +1,4 @@
-package pong.modeles.partie.monde2d;
+package commun.modeles.monde2d;
 
 public interface VueMonde2D {
 

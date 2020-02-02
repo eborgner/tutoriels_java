@@ -1,8 +1,8 @@
 package commun_client.mvc.controleurs;
 
 import commun.debogage.J;
-import commun.mvc.Modele;
-import commun.mvc.ModeleLectureSeule;
+import commun.modeles.Modele;
+import commun.modeles.ModeleLectureSeule;
 import commun_client.commandes.Commande;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.ReactionApresCommande;

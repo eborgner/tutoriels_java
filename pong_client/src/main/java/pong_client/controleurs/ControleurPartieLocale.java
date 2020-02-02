@@ -1,7 +1,7 @@
 package pong_client.controleurs;
 
 import commun.debogage.J;
-import commun.mvc.Modele;
+import commun.modeles.Modele;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import pong.modeles.partie.PartieLectureSeule;

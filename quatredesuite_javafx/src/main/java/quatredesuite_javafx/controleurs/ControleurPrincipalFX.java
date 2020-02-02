@@ -95,8 +95,10 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	@Override
 	public void detruire() {
 		J.appel(this);
-
-		controleurPartieLocale.detruire();
+		
+		if(controleurPartieLocale != null) {
+			controleurPartieLocale.detruire();
+		}
 	}
 
 	@Override

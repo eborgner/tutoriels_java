@@ -1,3 +1,3 @@
-package commun.mvc;
+package commun.modeles;
 
 public interface ModeleLectureSeule {}

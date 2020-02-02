@@ -2,9 +2,9 @@ package pong.modeles.partie;
 
 import java.util.Map;
 
-import commun.mvc.ModeleLectureSeule;
+import commun.modeles.ModeleLectureSeule;
+import commun.modeles.monde2d.Monde2DLectureSeule;
 import pong.enumerations.Cadran;
-import pong.modeles.partie.monde2d.Monde2DLectureSeule;
 
 public interface PartieLectureSeule extends ModeleLectureSeule {
 	

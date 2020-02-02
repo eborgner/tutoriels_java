@@ -1,6 +1,6 @@
 package quatredesuite.modeles.partie;
 
-import commun.mvc.ModeleLectureSeule;
+import commun.modeles.ModeleLectureSeule;
 
 public interface PartieLectureSeule extends ModeleLectureSeule { 
 

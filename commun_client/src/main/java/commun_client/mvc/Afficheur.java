@@ -1,6 +1,6 @@
 package commun_client.mvc;
 
-import commun.mvc.ModeleLectureSeule;
+import commun.modeles.ModeleLectureSeule;
 
 public abstract class Afficheur<MLS extends ModeleLectureSeule, V extends Vue> {
 	

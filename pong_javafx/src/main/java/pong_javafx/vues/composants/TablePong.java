@@ -1,11 +1,11 @@
 package pong_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import pong.modeles.partie.monde2d.Objet2DLectureSeule;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
 

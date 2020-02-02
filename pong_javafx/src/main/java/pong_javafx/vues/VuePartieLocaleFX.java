@@ -5,9 +5,9 @@ import java.util.ResourceBundle;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
+import commun.modeles.monde2d.Objet2DLectureSeule;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import pong.modeles.partie.monde2d.Objet2DLectureSeule;
 import pong_client.vues.VuePartieLocale;
 import pong_javafx.vues.composants.TablePong;
 

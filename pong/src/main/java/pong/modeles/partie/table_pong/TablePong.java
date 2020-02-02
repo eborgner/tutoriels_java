@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Monde2D;
 import pong.enumerations.Cadran;
-import pong.modeles.partie.monde2d.Monde2D;
 
 public class TablePong extends Monde2D {
 	

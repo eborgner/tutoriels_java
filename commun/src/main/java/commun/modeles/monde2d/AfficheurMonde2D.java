@@ -1,6 +1,7 @@
-package pong.modeles.partie.monde2d;
+package commun.modeles.monde2d;
 
 import java.util.List;
+
 
 import commun.debogage.J;
 

@@ -1,7 +1,7 @@
 package quatredesuite.modeles.partie;
 
 import commun.debogage.J;
-import commun.mvc.Modele;
+import commun.modeles.Modele;
 import quatredesuite.enumerations.Couleur;
 
 public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {

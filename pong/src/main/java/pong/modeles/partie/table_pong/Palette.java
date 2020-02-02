@@ -1,8 +1,8 @@
 package pong.modeles.partie.table_pong;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Objet2D;
 import pong.enumerations.Cadran;
-import pong.modeles.partie.monde2d.Objet2D;
 
 public class Palette extends Objet2D {
 	

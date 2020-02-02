@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Text?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center">
-	<HBox>
+	<HBox alignment="center">
 		<Text text="À FAIRE POUR LE TP#1"/>
 	</HBox>
 </VBox>

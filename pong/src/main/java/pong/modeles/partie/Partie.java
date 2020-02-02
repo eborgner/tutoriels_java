@@ -2,8 +2,8 @@ package pong.modeles.partie;
 
 
 import commun.debogage.J;
-import commun.mvc.Modele;
-import pong.modeles.partie.monde2d.Monde2DLectureSeule;
+import commun.modeles.Modele;
+import commun.modeles.monde2d.Monde2DLectureSeule;
 import pong.modeles.partie.table_pong.TablePong;
 
 public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
