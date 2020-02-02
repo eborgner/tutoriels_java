@@ -55,6 +55,8 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeu
 
 			@Override
 			public void handle(long maintenant) {
+				J.setActif(false);
+
 				J.appel(this);
 				
 				double tempsEcouleSecondes = (maintenant - avant) / 1E9;
@@ -63,6 +65,8 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeu
 				reagirTempsQuiPassePourEnvoi.envoyerCommande();
 				
 				avant = maintenant;
+
+				J.setActif(true);
 			}
 			
 			

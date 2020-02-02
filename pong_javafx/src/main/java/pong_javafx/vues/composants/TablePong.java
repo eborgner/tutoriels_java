@@ -74,6 +74,8 @@ public class TablePong extends CanvasAjustable {
 	public void afficherMonde2D(Monde2DLectureSeule monde2d) {
 		J.appel(this);
 		
+		viderDessin();
+		
 		double largeurCanvas = getWidth();
 		double hauteurCanvas = getHeight();
 		
