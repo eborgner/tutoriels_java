@@ -7,18 +7,17 @@ import javafx.scene.image.ImageView;
 import java.io.InputStream;
 
 import commun.debogage.J;
-import javafx.beans.NamedArg;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 
-public class ImageAjustable extends HBox {
+public abstract class ImageAjustable extends HBox {
 	
 	private ImageView imageView;
 	private double largeurInitiale;
 	private double hauteurInitiale;
 	
-	public ImageAjustable(@NamedArg("url") String url) {
+	public ImageAjustable(String url) {
 		super();
 		J.appel(this);
 		
