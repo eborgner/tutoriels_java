@@ -1,4 +1,4 @@
-package commun_javafx.composants;
+package commun_javafx.vues.composants;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.image.Image;
