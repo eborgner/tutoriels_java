@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.beans.NamedArg;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Pos;
 
 public class ImageAjustable extends HBox {
 	
@@ -30,7 +31,7 @@ public class ImageAjustable extends HBox {
 		
 		this.getChildren().add(imageView);
 		
-		imageView.setPreserveRatio(true);
+		this.setAlignment(Pos.CENTER);
 		
 		installerListenerLargeur();
 		installerListenerHauteur();
@@ -87,8 +88,8 @@ public class ImageAjustable extends HBox {
 	private void ajusterTailleImage() {
 		J.appel(this);
 		
-		double largeurCourante = getWidth();
-		double hauteurCourante = getHeight();
+		double largeurCourante = this.getWidth();
+		double hauteurCourante = this.getHeight();
 		
 		if(largeurCourante < hauteurCourante) {
 			
@@ -108,5 +109,4 @@ public class ImageAjustable extends HBox {
 		this.setScaleX(facteurTaille);
 		this.setScaleY(facteurTaille);
 	}
-
 }

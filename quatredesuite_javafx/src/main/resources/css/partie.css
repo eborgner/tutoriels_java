@@ -75,6 +75,10 @@
 }
 .conteneurLigne {
   -fx-alignment: center;
+  /*
+    -fx-border-style : dashed;
+    -fx-border-width : 2px;
+    */
 }
 .conteneurCase {
   -fx-alignment: center;
