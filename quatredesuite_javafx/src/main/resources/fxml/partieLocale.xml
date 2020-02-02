@@ -30,23 +30,39 @@
                 <Button styleClass="boutonCoup" text="↡"/>
             </HBox>
         </HBox>
-        <VBox styleClass="petitEspaceVertical"/>
+        <VBox styleClass="petitEspace"/>
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
+            <VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
             </HBox>
+            <VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
             </HBox>
+            <VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS" />
             </HBox>
+            <VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
         </VBox>
     </VBox>
 </VBox>

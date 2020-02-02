@@ -32,8 +32,81 @@ public class ImageAjustable extends HBox {
 		
 		imageView.setPreserveRatio(true);
 		
-		imageView.fitWidthProperty().bind(this.widthProperty());
-		imageView.fitHeightProperty().bind(this.heightProperty());
+		installerListenerLargeur();
+		installerListenerHauteur();
+	}
+
+
+	private void installerListenerLargeur() {
+		this.widthProperty().addListener(new ChangeListener<Number>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				J.appel(this);
+				
+				double ancienneLargeur = (double) oldValue;
+				double nouvelleLargeur = (double) newValue;
+				
+				if(ancienneLargeur == 0) {
+
+					largeurInitiale = nouvelleLargeur;
+
+				}else {
+
+					ajusterTailleImage();
+				}
+			}
+		});
+	}
+
+	private void installerListenerHauteur() {
+		J.appel(this);
+		
+		this.heightProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				J.appel(this);
+				
+				double ancienneHauteur = (double) oldValue;
+				double nouvelleHauteur = (double) newValue;
+				
+				if(ancienneHauteur == 0) {
+					
+					hauteurInitiale = nouvelleHauteur;
+
+				}else {
+					
+					ajusterTailleImage();
+
+				}
+			}
+		});
+		
 	}
 	
+	private void ajusterTailleImage() {
+		J.appel(this);
+		
+		double largeurCourante = getWidth();
+		double hauteurCourante = getHeight();
+		
+		if(largeurCourante < hauteurCourante) {
+			
+			setScaleXY(largeurCourante / largeurInitiale);
+			
+		}else {
+
+			setScaleXY(hauteurCourante / hauteurInitiale);
+			
+		}
+	}
+
+
+	private void setScaleXY(double facteurTaille) {
+		J.appel(this);
+		
+		this.setScaleX(facteurTaille);
+		this.setScaleY(facteurTaille);
+	}
+
 }
