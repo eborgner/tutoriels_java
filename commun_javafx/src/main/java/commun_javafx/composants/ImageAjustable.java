@@ -1,4 +1,4 @@
-package commun_javafx.controles;
+package commun_javafx.composants;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.image.Image;
@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import java.io.InputStream;
 
 import commun.debogage.J;
-import javafx.application.Platform;
 import javafx.beans.NamedArg;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -32,6 +31,8 @@ public class ImageAjustable extends HBox {
 		this.getChildren().add(imageView);
 		
 		this.setAlignment(Pos.CENTER);
+		
+		imageView.setPreserveRatio(true);
 		
 		installerListenerLargeur();
 		installerListenerHauteur();
