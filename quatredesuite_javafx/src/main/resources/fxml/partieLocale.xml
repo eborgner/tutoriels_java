@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import commun_javafx.controles.ImageAjustable?>
+<?import quatredesuite_javafx.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
@@ -33,19 +33,19 @@
         <VBox styleClass="petitEspace"/>
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustable HBox.hgrow="ALWAYS"/>
             </HBox>
         </VBox>
     </VBox>
