@@ -33,7 +33,7 @@
         <VBox styleClass="petitEspace"/>
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <ImageAjustable url="/images/VIDE.png" styleClass="conteneurCase" HBox.hgrow="ALWAYS"/>
+                <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
                 <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
                 <ImageAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
             </HBox>
