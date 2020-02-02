@@ -6,41 +6,107 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
+
 public class CaseAjustable extends CanvasAjustable {
+	
+	private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
+
+	private class Case {
+		public double caseHautGaucheX;
+		public double caseHautGaucheY;
+		public double tailleCase;
+	}
+
+	public CaseAjustable() {
+		super();
+
+		initialiserDessin();
+
+	}
 
 	@Override
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
 		
-		dessinerCase();
+		reinitialiserDessin();
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		dessinerCase();
+		reinitialiserDessin();
 	}
 
-	private void dessinerCase() {
+	private void initialiserDessin() {
+		J.appel(this);
+
+		initialiserPinceau();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+	}
+
+	private void reinitialiserDessin() {
+		J.appel(this);
+
+		viderDessin();
+		initialiserDessin();
+	}
+
+	private void initialiserPinceau() {
+		J.appel(this);
+
+		pinceau.setFill(Color.WHITE);
+		pinceau.setStroke(Color.BLACK);
+		pinceau.setLineWidth(0.01*getWidth());
+	}
+	
+	private void viderDessin() {
+		J.appel(this);
+
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+	}
+
+
+	private void dessinerCase(double taillePourcentage) {
 		J.appel(this);
 		
+		Case laCase = calculerCase(taillePourcentage);
 		
+		pinceau.fillArc(laCase.caseHautGaucheX, 
+						laCase.caseHautGaucheY, 
+						laCase.tailleCase, 
+						laCase.tailleCase, 
+						0, 
+						360, 
+						ArcType.ROUND);
+
+		pinceau.strokeArc(laCase.caseHautGaucheX, 
+						  laCase.caseHautGaucheY, 
+						  laCase.tailleCase, 
+						  laCase.tailleCase, 
+						  0, 
+						  360, 
+						  ArcType.OPEN);
+	}
+
+	private Case calculerCase(double taillePourcentage) {
+		J.appel(this);
+		
+		Case laCase = new Case();
+
 		double largeurDessin = getWidth();
 		double hauteurDessin = getHeight();
 		
-		pinceau.clearRect(0, 0, largeurDessin, hauteurDessin);
-		
-		double tailleCase = largeurDessin * 0.6;
+		laCase.tailleCase = largeurDessin * taillePourcentage;
+
 		if(hauteurDessin < largeurDessin) {
-			tailleCase = hauteurDessin * 0.6;
+			laCase.tailleCase = hauteurDessin * taillePourcentage;
 		}
 		
-		double caseHautGaucheX = (largeurDessin - tailleCase) / 2;
-		double caseHautGaucheY = (hauteurDessin - tailleCase) / 2;
+		laCase.caseHautGaucheX = (largeurDessin - laCase.tailleCase) / 2;
+		laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
 		
-		pinceau.setFill(Color.WHITE);
-		pinceau.fillArc(caseHautGaucheX, caseHautGaucheY, tailleCase, tailleCase, 0, 360, ArcType.ROUND);
-		
+		return laCase;
 	}
+	
 }
