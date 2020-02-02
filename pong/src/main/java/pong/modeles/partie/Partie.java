@@ -14,7 +14,12 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 		J.appel(this);
 		
 		tablePong = new TablePong();
-		
+	}
+	
+	public void reagirTempsQuiPasse(double tempsEcouleSecondes) {
+		J.appel(this);
+
+		tablePong.reagirTempsQuiPasse(tempsEcouleSecondes);
 	}
 
 	@Override

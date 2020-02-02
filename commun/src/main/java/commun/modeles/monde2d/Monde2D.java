@@ -21,5 +21,14 @@ public abstract class Monde2D implements Monde2DLectureSeule {
 
 		return objets2DLectureSeule;
 	}
+	
+	public void reagirTempsQuiPasse(double tempsEcouleSecondes) {
+		J.appel(this);
+		
+		for(Objet2D objet2D : objets2D) {
+			
+			objet2D.reagirTempsQuiPasse(tempsEcouleSecondes);
+		}
+	}
 
 }

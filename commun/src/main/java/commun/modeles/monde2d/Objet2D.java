@@ -24,29 +24,42 @@ public abstract class Objet2D implements Objet2DLectureSeule {
 		this.largeurMetres = largeurMetres;
 		this.hauteurMetres = hauteurMetres;
 		
-		vitesseMetreSecondes = 0;
+		// FIXME: à faire pour vrai!
+		vitesseMetreSecondes = 10;
 		angleDegres = 0;
 	}
 
-	public abstract void reagirAuTempsQuiPasse(double secondesEcoulees);
+	public void reagirTempsQuiPasse(double tempsEcouleSecondes) {
+		J.appel(this);
+		
+		this.centreXMetres += vitesseMetreSecondes * tempsEcouleSecondes;
+	}
 
 	@Override
 	public double getCentreXMetres() {
+		J.appel(this);
+		
 		return centreXMetres;
 	}
 
 	@Override
 	public double getCentreYMetres() {
+		J.appel(this);
+		
 		return centreYMetres;
 	}
 
 	@Override
 	public double getLargeurMetres() {
+		J.appel(this);
+		
 		return largeurMetres;
 	}
 
 	@Override
 	public double getHauteurMetres() {
+		J.appel(this);
+		
 		return hauteurMetres;
 	}
 }
