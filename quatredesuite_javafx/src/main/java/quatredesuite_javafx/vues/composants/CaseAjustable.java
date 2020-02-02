@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
+import javafx.event.Event;
 
 public class CaseAjustable extends CanvasAjustable {
 	
@@ -17,32 +19,75 @@ public class CaseAjustable extends CanvasAjustable {
 		
 		creerAnimation();
 		
-		animation.start();
+		installerListeners();
 	}
 	
+
 	private void creerAnimation() {
 		J.appel(this);
-		
-		long depart = System.nanoTime();
-		
-		double tempsCycleSecondes = 1;
-		
+
 		animation = new AnimationTimer() {
+
+			private long avant = System.nanoTime();
+			private double tempsCycleSecondes = 0.5;
+			private int rougeCourant = 0;
+			private int directionIncrementRouge = 1;
+
 			@Override
 			public void handle(long maintenant) {
+				J.setActif(false);
 				J.appel(this);
 				
-				double secondesEcoulees = (maintenant - depart) / 1E9;
+				double secondesEcoulees = (maintenant - avant) / 1E9;
 				
-				double instantDansCycle = (secondesEcoulees % tempsCycleSecondes) / tempsCycleSecondes;
+				double ratioEcoule = secondesEcoulees / tempsCycleSecondes;
 				
-				int rouge = (int) (255.0 * instantDansCycle);
+				int incrementRouge = (int) (255.0 * ratioEcoule);
+
+				int prochainRouge = rougeCourant + directionIncrementRouge * incrementRouge;
+
+				if(prochainRouge > 255) {
+					prochainRouge = 255;
+					directionIncrementRouge =  -1;
+				}else if(prochainRouge < 0) {
+					prochainRouge = 0;
+					directionIncrementRouge = 1;
+				}
 				
-				pinceau.setFill(Color.rgb(rouge, 255, 255));
+				pinceau.setFill(Color.rgb(prochainRouge, 255, 255));
 				dessinerCase();
-				
+
+				rougeCourant = prochainRouge;
+				avant = maintenant;
+
+				J.setActif(true);
 			}
 		};
+	}
+
+	private void installerListeners() {
+		J.appel(this);
+		
+		this.setOnMouseEntered(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				J.appel(this);
+				
+				pinceau.setFill(Color.WHITE);
+				animation.start();
+			}
+		});
+		
+		this.setOnMouseExited(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				J.appel(this);
+				
+				animation.stop();
+				pinceau.setFill(Color.WHITE);
+				dessinerCase();
+			}
+		});
 	}
 
 	@Override
