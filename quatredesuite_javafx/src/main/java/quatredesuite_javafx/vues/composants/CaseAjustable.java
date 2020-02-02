@@ -15,6 +15,12 @@ public class CaseAjustable extends CanvasAjustable {
 	private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
 	AnimationTimer animation;
 
+	private class Case {
+		public double caseHautGaucheX;
+		public double caseHautGaucheY;
+		public double tailleCase;
+	}
+
 	public CaseAjustable() {
 		super();
 
@@ -182,11 +188,6 @@ public class CaseAjustable extends CanvasAjustable {
 		pinceau.clearRect(0, 0, getWidth(), getHeight());
 	}
 
-	private class Case {
-		public double caseHautGaucheX;
-		public double caseHautGaucheY;
-		public double tailleCase;
-	}
 
 	private void dessinerCase(double taillePourcentage) {
 		J.appel(this);
