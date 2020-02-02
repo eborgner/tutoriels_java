@@ -13,7 +13,7 @@ import javafx.geometry.Pos;
 
 public abstract class ImageAjustable extends HBox {
 	
-	private ImageView imageView;
+	protected ImageView imageView;
 	private double largeurInitiale;
 	private double hauteurInitiale;
 	
