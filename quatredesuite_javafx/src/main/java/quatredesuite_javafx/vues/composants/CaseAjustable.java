@@ -17,9 +17,11 @@ public class CaseAjustable extends CanvasAjustable {
 
 	public CaseAjustable() {
 		super();
+
+		initialiserDessin();
 		
 		creerAnimation();
-		
+
 		installerListeners();
 	}
 	
@@ -79,9 +81,7 @@ public class CaseAjustable extends CanvasAjustable {
 				int incrementCouleur = (int) (facteurCourant * 35);
 				int angleDepartDegre = (int) (facteurCourant * 360);
 				
-				viderDessin();
-				initialiserPinceau();
-				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+				reinitialiserDessin();
 				
 				dessinerPremierArc(prochainRGB, incrementCouleur, angleDepartDegre);
 				dessinerDeuxiemeArc(prochainRGB, incrementCouleur, angleDepartDegre);
@@ -123,8 +123,7 @@ public class CaseAjustable extends CanvasAjustable {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
-				
-				pinceau.setFill(Color.WHITE);
+
 				animation.start();
 			}
 		});
@@ -135,11 +134,9 @@ public class CaseAjustable extends CanvasAjustable {
 				J.appel(this);
 				
 				animation.stop();
-
-				viderDessin();
-				initialiserPinceau();
-				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+				reinitialiserDessin();
 			}
+
 		});
 	}
 
@@ -147,21 +144,33 @@ public class CaseAjustable extends CanvasAjustable {
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
 		
-		viderDessin();
-		initialiserPinceau();
-		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+		reinitialiserDessin();
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		viderDessin();
+		reinitialiserDessin();
+	}
+
+	private void initialiserDessin() {
+		J.appel(this);
+
 		initialiserPinceau();
 		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
 
+	private void reinitialiserDessin() {
+		J.appel(this);
+
+		viderDessin();
+		initialiserDessin();
+	}
+
 	private void initialiserPinceau() {
+		J.appel(this);
+
 		pinceau.setFill(Color.WHITE);
 		pinceau.setStroke(Color.BLACK);
 		pinceau.setLineWidth(0.01*getWidth());
@@ -170,10 +179,7 @@ public class CaseAjustable extends CanvasAjustable {
 	private void viderDessin() {
 		J.appel(this);
 
-		double largeurDessin = getWidth();
-		double hauteurDessin = getHeight();
-		
-		pinceau.clearRect(0, 0, largeurDessin, hauteurDessin);
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
 	}
 
 	private class Case {
