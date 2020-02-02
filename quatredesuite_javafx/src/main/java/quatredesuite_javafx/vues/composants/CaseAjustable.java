@@ -38,7 +38,7 @@ public class CaseAjustable extends CanvasAjustable {
 
 			@Override
 			public void handle(long maintenant) {
-				//J.setActif(false);
+				J.setActif(false);
 				J.appel(this);
 				
 				double secondesEcoulees = (maintenant - avant) / 1E9;
