@@ -12,6 +12,7 @@ import javafx.event.Event;
 
 public class CaseAjustable extends CanvasAjustable {
 	
+	private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
 	AnimationTimer animation;
 
 	public CaseAjustable() {
@@ -54,8 +55,23 @@ public class CaseAjustable extends CanvasAjustable {
 					directionIncrementRouge = 1;
 				}
 				
-				pinceau.setFill(Color.rgb(prochainRouge, 255, 255));
-				dessinerCase();
+				int angleDepartDegre = prochainRouge * 360 / 255;
+				int incrementCouleur = prochainRouge * 35 / 255;
+				
+				viderDessin();
+				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+
+				pinceau.setStroke(Color.rgb(220 + incrementCouleur, 220 + incrementCouleur, prochainRouge));
+				pinceau.setLineWidth(0.02*getWidth());
+				dessinerAnimation(0.8*TAILLE_PAR_DEFAUT_POURCENTAGE, angleDepartDegre);
+
+				pinceau.setStroke(Color.rgb(220 + incrementCouleur, prochainRouge, 220 + incrementCouleur));
+				pinceau.setLineWidth(0.015*getWidth());
+				dessinerAnimation(0.6*TAILLE_PAR_DEFAUT_POURCENTAGE, (angleDepartDegre+90)%360);
+
+				pinceau.setStroke(Color.rgb(prochainRouge, 220 + incrementCouleur, 220 + incrementCouleur));
+				pinceau.setLineWidth(0.010*getWidth());
+				dessinerAnimation(0.4*TAILLE_PAR_DEFAUT_POURCENTAGE, (angleDepartDegre+180)%360);
 
 				rougeCourant = prochainRouge;
 				avant = maintenant;
@@ -85,7 +101,8 @@ public class CaseAjustable extends CanvasAjustable {
 				
 				animation.stop();
 				pinceau.setFill(Color.WHITE);
-				dessinerCase();
+				viderDessin();
+				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 			}
 		});
 	}
@@ -95,7 +112,8 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 		
 		pinceau.setFill(Color.WHITE);
-		dessinerCase();
+		viderDessin();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
 
 	@Override
@@ -103,26 +121,53 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		pinceau.setFill(Color.WHITE);
-		dessinerCase();
+		viderDessin();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
-
-	private void dessinerCase() {
+	
+	private void viderDessin() {
 		J.appel(this);
-		
+
 		double largeurDessin = getWidth();
 		double hauteurDessin = getHeight();
 		
 		pinceau.clearRect(0, 0, largeurDessin, hauteurDessin);
 		
-		double tailleCase = largeurDessin * 0.6;
+	}
+
+	private void dessinerCase(double taille) {
+		J.appel(this);
+
+		double largeurDessin = getWidth();
+		double hauteurDessin = getHeight();
+		
+		double tailleCase = largeurDessin * taille;
 		if(hauteurDessin < largeurDessin) {
-			tailleCase = hauteurDessin * 0.6;
+			tailleCase = hauteurDessin * taille;
 		}
 		
 		double caseHautGaucheX = (largeurDessin - tailleCase) / 2;
 		double caseHautGaucheY = (hauteurDessin - tailleCase) / 2;
 		
 		pinceau.fillArc(caseHautGaucheX, caseHautGaucheY, tailleCase, tailleCase, 0, 360, ArcType.ROUND);
+		
+	}
+
+	private void dessinerAnimation(double taille, int angleDepartDegre) {
+		J.appel(this);
+		
+		double largeurDessin = getWidth();
+		double hauteurDessin = getHeight();
+		
+		double tailleCase = largeurDessin * taille;
+		if(hauteurDessin < largeurDessin) {
+			tailleCase = hauteurDessin * taille;
+		}
+		
+		double caseHautGaucheX = (largeurDessin - tailleCase) / 2;
+		double caseHautGaucheY = (hauteurDessin - tailleCase) / 2;
+		
+		pinceau.strokeArc(caseHautGaucheX, caseHautGaucheY, tailleCase, tailleCase, angleDepartDegre, 90, ArcType.OPEN);
 		
 	}
 }
