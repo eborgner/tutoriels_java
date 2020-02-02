@@ -3,7 +3,6 @@ package pong_client.afficheurs;
 import java.util.Map;
 
 import commun.debogage.J;
-import commun.modeles.monde2d.AfficheurMonde2D;
 import commun_client.mvc.Afficheur;
 import pong.enumerations.Cadran;
 import pong.modeles.partie.PartieLectureSeule;
@@ -28,8 +27,7 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	private void afficherTout(PartieLectureSeule partie, VuePartieLocale vue) {
 		J.appel(this);
 		
-		AfficheurMonde2D.afficherMonde(partie.getMonde2D(), vue);
-		
+		vue.afficherMonde2D(partie.getMonde2D());
 	}
 
 }

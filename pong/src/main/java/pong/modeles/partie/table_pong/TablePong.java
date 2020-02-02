@@ -9,6 +9,9 @@ import pong.enumerations.Cadran;
 
 public class TablePong extends Monde2D {
 	
+	private double hauteurMetres = 800;
+	private double largeurMetres = 600;
+
 	private Map<Cadran, Palette> palettes = new HashMap<>();
 	
 	public TablePong(){
@@ -30,8 +33,20 @@ public class TablePong extends Monde2D {
 	private void creerPalettes() {
 		J.appel(this);
 
-		palettes.put(Cadran.GAUCHE, new Palette(Cadran.GAUCHE, 0));
+		palettes.put(Cadran.GAUCHE, new Palette(Cadran.GAUCHE, 20));
 		palettes.put(Cadran.DROIT, new Palette(Cadran.DROIT, 100));
+	}
+
+	@Override
+	public double getLageurMetres() {
+		J.appel(this);
+		return largeurMetres;
+	}
+
+	@Override
+	public double getHauteurMetres() {
+		J.appel(this);
+		return hauteurMetres;
 	}
 
 }

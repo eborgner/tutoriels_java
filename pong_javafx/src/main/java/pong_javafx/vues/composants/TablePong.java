@@ -1,10 +1,10 @@
 package pong_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Monde2DLectureSeule;
 import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
@@ -61,15 +61,33 @@ public class TablePong extends CanvasAjustable {
 	}
 
 
-	public void afficherObjet2D(Objet2DLectureSeule objet2D) {
+	public void afficherObjet2D(Objet2DCanvas objet2D) {
 		J.appel(this);
 
-		// FIXME: doit convertir les unité et inverser Y
-		pinceau.fillRect(objet2D.getCentreXMetres(), 
-						 objet2D.getCentreYMetres(),
-						 objet2D.getLargeurMetres(),
-						 objet2D.getHauteurMetres());
+		pinceau.fillRect(objet2D.getCoinHautGaucheXPixels(),
+						 objet2D.getCoinHautGaucheYPixels(),
+						 objet2D.getLargeurPixels(),
+						 objet2D.getHauteurPixels());
+	}
+	
+
+	public void afficherMonde2D(Monde2DLectureSeule monde2d) {
+		J.appel(this);
 		
+		double largeurCanvas = getWidth();
+		double hauteurCanvas = getHeight();
+		
+		double conversionMetresPixelsX = largeurCanvas / monde2d.getLageurMetres();
+		double conversionMetresPixelsY = hauteurCanvas / monde2d.getHauteurMetres();
+		
+		for(Objet2DLectureSeule objet2D : monde2d.getObjets2D()) {
+			
+			Objet2DCanvas objet2DCanvas = new Objet2DCanvas(objet2D, 
+															conversionMetresPixelsX,
+															conversionMetresPixelsY,
+															hauteurCanvas);
+			afficherObjet2D(objet2DCanvas);
+		}
 	}
 
 }

@@ -9,7 +9,7 @@ public class Palette extends Objet2D {
 	private Cadran monCadran;
 	
 	public Palette(Cadran monCadran, double centreXMetres) {
-		super(centreXMetres, 0, 10, 100);
+		super(centreXMetres, 300, 10, 100);
 		J.appel(this);
 		
 		this.monCadran = monCadran;
