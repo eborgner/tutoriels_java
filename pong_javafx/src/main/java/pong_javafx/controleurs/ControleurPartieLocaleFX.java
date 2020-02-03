@@ -6,11 +6,30 @@ import pong_client.controleurs.ControleurPartieLocale;
 
 public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 	
+	private AnimationTimer animationTimer;
+	
 	@Override
 	public void demarrer() {
 		J.appel(this);
 		
-		new AnimationTimer() {
+		creerAnimation();
+		
+		animationTimer.start();
+	}
+	
+	@Override
+	public void detruire() {
+		J.appel(this);
+
+		animationTimer.stop();
+
+		super.detruire();
+	}
+
+	private void creerAnimation() {
+		J.appel(this);
+
+		animationTimer = new AnimationTimer() {
 			
 			private long avant = System.nanoTime();
 
@@ -28,8 +47,6 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 
 				J.setActif(true);
 			}
-
-			
-		}.start();
+		};
 	}
 }

@@ -24,7 +24,7 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 			public void executerCommandeMVC(AggrandirTablePongRecue commande) {
 				J.appel(this);
 				
-				// modele.aggrandirMonde()
+				modele.aggrandirTablePong(commande.getDimension(), commande.getFacteurAggrandissement());
 			}
 		});
 	}

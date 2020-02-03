@@ -1,6 +1,7 @@
 package pong_client.commandes.aggrandir_table_pong;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Dimension;
 import commun_client.commandes.Commande;
 
 public class AggrandirTablePong extends Commande<AggrandirTablePongPourEnvoi, 
@@ -9,11 +10,7 @@ public class AggrandirTablePong extends Commande<AggrandirTablePongPourEnvoi,
 								implements AggrandirTablePongPourEnvoi,
 										   AggrandirTablePongRecue {
 	
-	public enum Direction {
-		LARGEUR, HAUTEUR;
-	}
-	
-	private Direction direction;
+	private Dimension dimension;
 	private double facteurAggrandissement;
 
 
@@ -32,16 +29,16 @@ public class AggrandirTablePong extends Commande<AggrandirTablePongPourEnvoi,
 	}
 
 	@Override
-	public Direction getDirection() {
+	public Dimension getDimension() {
 		J.appel(this);
 
-		return direction;
+		return dimension;
 	}
 
 	@Override
-	public void setDirection(Direction direction) {
+	public void setDimension(Dimension dimension) {
 		J.appel(this);
 
-		this.direction = direction;
+		this.dimension = dimension;
 	}
 }

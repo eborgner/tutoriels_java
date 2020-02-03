@@ -11,7 +11,7 @@ import pong_javafx.vues.VuePrincipaleFX;
 
 public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
 	
-	private ControleurPartieLocale controleurPartieLocale;
+	private ControleurPartieLocaleFX controleurPartieLocale;
 
 	@Override
 	public void installerReceptionCommandes() {
@@ -37,6 +37,8 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	public void detruire() {
 		J.appel(this);
 		
+		if(controleurPartieLocale != null) {
+			controleurPartieLocale.detruire();
+		}
 	}
-
 }

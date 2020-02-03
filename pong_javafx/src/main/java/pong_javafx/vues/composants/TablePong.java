@@ -1,6 +1,7 @@
 package pong_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Dimension;
 import commun.modeles.monde2d.Monde2DLectureSeule;
 import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.commandes.FabriqueCommande;
@@ -23,29 +24,38 @@ public class TablePong extends CanvasAjustable {
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
 
-		envoyerCommandeAggrandir(ancienneLargeur, nouvelleLargeur, AggrandirTablePong.Direction.LARGEUR);
+		envoyerCommandeAggrandir(ancienneLargeur, nouvelleLargeur, Dimension.LARGEUR);
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		envoyerCommandeAggrandir(ancienneHauteur, nouvelleHauteur, AggrandirTablePong.Direction.HAUTEUR);
+		envoyerCommandeAggrandir(ancienneHauteur, nouvelleHauteur, Dimension.HAUTEUR);
 	}
 
-	private void envoyerCommandeAggrandir(double ancienneTaille, double nouvelleTaille, AggrandirTablePong.Direction direction) {
+	private void envoyerCommandeAggrandir(double ancienneTaille, double nouvelleTaille, Dimension direction) {
 
 		double facteurAggrandissement = calculerFacteurAggrandissement(ancienneTaille, nouvelleTaille);
 
 		aggrandirTablePong.setFacteurAggrandissement(facteurAggrandissement);
-		aggrandirTablePong.setDirection(direction);
+		aggrandirTablePong.setDimension(direction);
 		aggrandirTablePong.envoyerCommande();
 	}
 
 	private double calculerFacteurAggrandissement(double ancienneTaille, double nouvelleTaille) {
 		J.appel(this);
 		
-		return (nouvelleTaille - ancienneTaille) / ancienneTaille;
+		double facteurAggrandissement = 1;
+		
+
+		if(ancienneTaille != 0) {
+
+			facteurAggrandissement =  nouvelleTaille / ancienneTaille;
+
+		}
+		
+		return facteurAggrandissement;
 	}
 
 	public void initialiser() {

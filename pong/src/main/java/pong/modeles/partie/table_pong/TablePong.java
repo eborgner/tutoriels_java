@@ -4,13 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Dimension;
 import commun.modeles.monde2d.Monde2D;
 import pong.enumerations.Cadran;
 
 public class TablePong extends Monde2D {
 	
-	private double hauteurMetres = 800;
-	private double largeurMetres = 600;
 
 	private Map<Cadran, Palette> palettes = new HashMap<>();
 	
@@ -37,16 +36,6 @@ public class TablePong extends Monde2D {
 		palettes.put(Cadran.DROIT, new Palette(Cadran.DROIT, 100));
 	}
 
-	@Override
-	public double getLageurMetres() {
-		J.appel(this);
-		return largeurMetres;
-	}
 
-	@Override
-	public double getHauteurMetres() {
-		J.appel(this);
-		return hauteurMetres;
-	}
 
 }
