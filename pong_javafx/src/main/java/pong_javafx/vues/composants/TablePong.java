@@ -7,6 +7,7 @@ import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
 
@@ -73,11 +74,26 @@ public class TablePong extends CanvasAjustable {
 
 	public void afficherObjet2D(Objet2DCanvas objet2D) {
 		J.appel(this);
-
-		pinceau.fillRect(objet2D.getCoinHautGaucheXPixels(),
-						 objet2D.getCoinHautGaucheYPixels(),
-						 objet2D.getLargeurPixels(),
-						 objet2D.getHauteurPixels());
+		
+		switch(objet2D.getForme()) {
+		
+			case RECTANGLE:
+				pinceau.fillRect(objet2D.getCoinHautGaucheXPixels(),
+								 objet2D.getCoinHautGaucheYPixels(),
+								 objet2D.getLargeurPixels(),
+								 objet2D.getHauteurPixels());
+				break;
+				
+			case CERCLE:
+				pinceau.fillArc(objet2D.getCoinHautGaucheXPixels(),
+								 objet2D.getCoinHautGaucheYPixels(),
+								 objet2D.getLargeurPixels(),
+								 objet2D.getHauteurPixels(),
+								 0,
+								 360,
+								 ArcType.ROUND);
+				break;
+		}
 	}
 	
 

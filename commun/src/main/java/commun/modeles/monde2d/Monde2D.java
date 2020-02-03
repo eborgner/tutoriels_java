@@ -8,8 +8,8 @@ import commun.enumerations.Dimension;
 
 public abstract class Monde2D implements Monde2DLectureSeule {
 
-	private double hauteurMetres = 800;
-	private double largeurMetres = 600;
+	protected double largeurMetres = 800;
+	protected double hauteurMetres = 300;
 	
 	protected List<Objet2D> objets2D = new ArrayList<>();
 

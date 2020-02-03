@@ -1,6 +1,7 @@
 package pong_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun.enumerations.Forme;
 import commun.modeles.monde2d.Objet2DLectureSeule;
 
 public class Objet2DCanvas {
@@ -9,6 +10,7 @@ public class Objet2DCanvas {
 	private double coinHautGaucheYPixels;
 	private double largeurPixels;
 	private double hauteurPixels;
+	private Forme forme;
 	
 	public Objet2DCanvas(Objet2DLectureSeule objet2D,
 						 double conversionMetresPixelsX,
@@ -25,6 +27,8 @@ public class Objet2DCanvas {
 		
 		this.coinHautGaucheXPixels = centreXPixels - largeurPixels / 2;
 		this.coinHautGaucheYPixels = centreYPixels - hauteurPixels / 2;
+		
+		this.forme = objet2D.getForme();
 	}
 	
 	
@@ -50,5 +54,11 @@ public class Objet2DCanvas {
 		J.appel(this);
 
 		return hauteurPixels;
+	}
+	
+	public Forme getForme() {
+		J.appel(this);
+		
+		return forme;
 	}
 }

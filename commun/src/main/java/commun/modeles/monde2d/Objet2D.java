@@ -1,6 +1,7 @@
 package commun.modeles.monde2d;
 
 import commun.debogage.J;
+import commun.enumerations.Forme;
 
 public abstract class Objet2D implements Objet2DLectureSeule {
 	
@@ -12,10 +13,13 @@ public abstract class Objet2D implements Objet2DLectureSeule {
 	protected double vitesseMetreSecondes;
 	protected double angleDegres;
 	
+	protected Forme forme = Forme.RECTANGLE;
+	
 	public Objet2D(double centreXMetres, 
 				   double centreYMetres, 
 				   double largeurMetres, 
-				   double hauteurMetres) {
+				   double hauteurMetres,
+				   Forme forme) {
 		
 		J.appel(this);
 		
@@ -23,6 +27,7 @@ public abstract class Objet2D implements Objet2DLectureSeule {
 		this.centreYMetres = centreYMetres;
 		this.largeurMetres = largeurMetres;
 		this.hauteurMetres = hauteurMetres;
+		this.forme = forme;
 		
 		vitesseMetreSecondes = 0;
 		angleDegres = 0;
@@ -61,5 +66,13 @@ public abstract class Objet2D implements Objet2DLectureSeule {
 		J.appel(this);
 		
 		return hauteurMetres;
+	}
+	
+	@Override 
+	public Forme getForme() {
+		J.appel(this);
+		
+		return forme;
+		
 	}
 }
