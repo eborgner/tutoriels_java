@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<mathieubergeron.pong_android.activites.vues.VuePartieLocaleAndroid  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
     android:id="@+id/page_partie">
 
     <mathieubergeron.pong_android.activites.vues.composants.TablePong
-        android:id="@+id/canvas"
+        android:id="@+id/table_pong"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -29,8 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/canvas"
-        app:layout_constraintTop_toBottomOf="@+id/canvas"
+        app:layout_constraintStart_toStartOf="@+id/table_pong"
+        app:layout_constraintTop_toBottomOf="@+id/table_pong"
         app:layout_constraintVertical_bias="0.17000002" />
 
     <Button
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/fleche_haut"
         app:layout_constraintBottom_toBottomOf="@+id/bouton_gauche_haut"
-        app:layout_constraintEnd_toEndOf="@+id/canvas"
+        app:layout_constraintEnd_toEndOf="@+id/table_pong"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/bouton_gauche_haut"
         app:layout_constraintTop_toTopOf="@+id/bouton_gauche_haut"
@@ -66,4 +66,4 @@
         app:layout_constraintStart_toStartOf="@+id/bouton_droit_haut"
         app:layout_constraintTop_toBottomOf="@+id/bouton_droit_haut" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</mathieubergeron.pong_android.activites.vues.VuePartieLocaleAndroid>

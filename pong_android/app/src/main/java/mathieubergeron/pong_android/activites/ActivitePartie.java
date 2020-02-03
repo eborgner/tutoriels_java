@@ -3,13 +3,17 @@ package mathieubergeron.pong_android.activites;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-import commun.debogage.J;
 import commun_android.Initialisateur;
-import commun_android.vues.composants.CanvasAjustable;
+import commun_client.mvc.controleurs.FabriqueControleur;
 import mathieubergeron.pong_android.R;
+import mathieubergeron.pong_android.activites.controleurs.ControleurPartieLocaleAndroid;
+import mathieubergeron.pong_android.activites.vues.VuePartieLocaleAndroid;
+import mathieubergeron.pong_android.activites.vues.composants.TablePong;
+import pong.modeles.partie.Partie;
+import pong_client.afficheurs.AfficheurPartie;
+import pong_client.controleurs.ControleurPartieLocale;
+import pong_client.vues.VuePartieLocale;
 
 public class ActivitePartie extends AppCompatActivity {
 
@@ -18,34 +22,25 @@ public class ActivitePartie extends AppCompatActivity {
 		Initialisateur.initialiser();
 	}
 
-	private CanvasAjustable canvasAjustable;
+	private ControleurPartieLocaleAndroid controleurPartieLocale;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.page_partie);
 
-		canvasAjustable = findViewById(R.id.canvas);
+		VuePartieLocale page = findViewById(R.id.page_partie);
 
-		canvasAjustable.invalidate();
+		Partie partie = new Partie();
+
+		AfficheurPartie afficheur = new AfficheurPartie();
+
+		controleurPartieLocale = FabriqueControleur.creerControleur(ControleurPartieLocaleAndroid.class, partie, page, afficheur);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		canvasAjustable.invalidate();
-
-		Button boutonGaucheHaut = findViewById(R.id.bouton_gauche_haut);
-
-		boutonGaucheHaut.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				J.appel(this);
-
-				canvasAjustable.invalidate();
-
-			}
-		});
 	}
 }
