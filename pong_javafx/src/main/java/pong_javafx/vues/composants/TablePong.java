@@ -117,6 +117,12 @@ public class TablePong extends CanvasAjustable {
 			afficherObjet2D(objet2DCanvas);
 		}
 	}
+	
+	public void afficherFPS(double fps) {
+		J.appel(this);
+		
+		pinceau.fillText(String.format("%f FPS", fps), getWidth() - 50, 20);
+	}
 
 }
 	

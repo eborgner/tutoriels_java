@@ -123,7 +123,13 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 		J.appel(this);
 		
 		tablePong.afficherMonde2D(monde2d);
-		
+	}
+
+	@Override
+	public void afficherFPS(double fps) {
+		J.appel(this);
+
+		tablePong.afficherFPS(fps);
 	}
 
 }
