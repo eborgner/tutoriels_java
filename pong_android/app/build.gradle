@@ -27,9 +27,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-    compile project(':commun')
-    compile project(':commun_client')
-    compile project(':commun_android')
-    compile project(':pong')
-    compile project(':pong_client')
+    implementation project(':commun')
+    implementation project(':commun_client')
+    implementation project(':commun_android')
+    implementation project(':pong')
+    implementation project(':pong_client')
 }

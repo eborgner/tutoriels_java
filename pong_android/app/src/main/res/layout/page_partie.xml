@@ -7,8 +7,8 @@
     tools:context=".activites.ActivitePartie"
     android:id="@+id/page_partie">
 
-    <View
-        android:id="@+id/view"
+    <commun_android.vues.composants.CanvasAjustable
+        android:id="@+id/canvas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -29,8 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/canvas"
+        app:layout_constraintTop_toBottomOf="@+id/canvas"
         app:layout_constraintVertical_bias="0.17000002" />
 
     <Button
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/fleche_haut"
         app:layout_constraintBottom_toBottomOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/canvas"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="@+id/button5"

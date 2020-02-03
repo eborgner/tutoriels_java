@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':test_commun_android'
 rootProject.name='PongAndroid'
 
 include ':commun'
