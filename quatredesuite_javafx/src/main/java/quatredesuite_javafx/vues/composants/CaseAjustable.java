@@ -6,8 +6,6 @@ import javafx.beans.NamedArg;
 
 public class CaseAjustable extends ImageAjustable {
 	
-	private Timeline animationSurvol = new Timeline();
-
 	public CaseAjustable(@NamedArg("url") String url) {
 		super(url);
 		J.appel(this);
