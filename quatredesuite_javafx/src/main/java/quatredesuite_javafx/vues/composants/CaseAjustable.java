@@ -43,6 +43,7 @@ public class CaseAjustable extends ImageAjustable {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
+
 				animationSurvol.playFromStart();
 			}
 		});
@@ -51,11 +52,10 @@ public class CaseAjustable extends ImageAjustable {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
+
 				animationSurvol.stop();
 				CaseAjustable.this.setOpacity(1);
 			}
 		});
-		
 	}
-
 }
