@@ -17,6 +17,10 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 															    Partie,
 															    VuePartieLocale,
 															    AfficheurPartie> {
+	
+	private static final double DELAIS_FPS_SECONDES = 1.0;
+	private double secondesDepuisDernierCalculFPS = 0;
+	private long affichagesDepuisDernierCalculFPS = 0;
 
 	@Override
 	public void installerReceptionCommandes() {
@@ -54,9 +58,24 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 
 	protected void reagirTempsQuiPasse(double tempsEcouleSecondes) {
 		J.appel(this);
+		
 
 		modele.reagirTempsQuiPasse(tempsEcouleSecondes);
 		afficheur.rafraichirAffichage((PartieLectureSeule) modele, vue);
+
+		secondesDepuisDernierCalculFPS += tempsEcouleSecondes;
+		affichagesDepuisDernierCalculFPS++;
+
+		J.valeurs(secondesDepuisDernierCalculFPS);
+
+		if(secondesDepuisDernierCalculFPS >= DELAIS_FPS_SECONDES) {
+			
+			double fps = affichagesDepuisDernierCalculFPS / secondesDepuisDernierCalculFPS;
+			System.out.println(fps);
+			
+			secondesDepuisDernierCalculFPS = 0;
+			affichagesDepuisDernierCalculFPS = 0;
+		}
 	}
 
 	@Override
