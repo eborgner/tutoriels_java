@@ -1,7 +1,7 @@
 package pong_javafx.vues.composants;
 
 import commun.debogage.J;
-import commun.modeles.monde2d.Dimension;
+import commun.enumerations.Dimension;
 import commun.modeles.monde2d.Monde2DLectureSeule;
 import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.commandes.FabriqueCommande;

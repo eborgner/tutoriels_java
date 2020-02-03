@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commun.debogage.J;
+import commun.enumerations.Dimension;
 
 public abstract class Monde2D implements Monde2DLectureSeule {
 

@@ -24,15 +24,15 @@ public abstract class Objet2D implements Objet2DLectureSeule {
 		this.largeurMetres = largeurMetres;
 		this.hauteurMetres = hauteurMetres;
 		
-		// FIXME: à faire pour vrai!
-		vitesseMetreSecondes = 10;
+		vitesseMetreSecondes = 0;
 		angleDegres = 0;
 	}
 
 	public void reagirTempsQuiPasse(double tempsEcouleSecondes) {
 		J.appel(this);
 		
-		this.centreXMetres += vitesseMetreSecondes * tempsEcouleSecondes;
+		this.centreXMetres += Math.cos(Math.toRadians(angleDegres)) * vitesseMetreSecondes * tempsEcouleSecondes;
+		this.centreYMetres += Math.sin(Math.toRadians(angleDegres)) * vitesseMetreSecondes * tempsEcouleSecondes;
 	}
 
 	@Override

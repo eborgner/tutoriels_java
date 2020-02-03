@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import commun.debogage.J;
-import commun.modeles.monde2d.Dimension;
+import commun.enumerations.Dimension;
+import commun.enumerations.Direction;
 import commun.modeles.monde2d.Monde2D;
 import pong.enumerations.Cadran;
 
@@ -34,6 +35,20 @@ public class TablePong extends Monde2D {
 
 		palettes.put(Cadran.GAUCHE, new Palette(Cadran.GAUCHE, 20));
 		palettes.put(Cadran.DROIT, new Palette(Cadran.DROIT, 100));
+	}
+
+	public void deplacerPalette(Cadran cadran, Direction direction) {
+		J.appel(this);
+		
+		Palette palette = palettes.get(cadran);
+		palette.deplacer(direction);
+	}
+
+	public void stopperPalette(Cadran cadran) {
+		J.appel(this);
+
+		Palette palette = palettes.get(cadran);
+		palette.stopper();
 	}
 
 
