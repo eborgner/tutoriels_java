@@ -15,7 +15,7 @@ public class Fabrique {
 
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | SecurityException | ClassCastException e) {
 			
-			J.valeurs("[FATAL] impossible de créer la classe: " + classe.getSimpleName());
+			J.valeurs("[FATAL] impossible d'instancier la classe: " + classe.getSimpleName());
 			e.printStackTrace();
 		}
 		
