@@ -17,4 +17,10 @@ public class AfficheurPartieLocale extends Afficheur<PartieLocaleLectureSeule, V
 		vue.creerGrille(largeur, hauteur);
 	}
 
+	@Override
+	public void rafraichirAffichage(PartieLocaleLectureSeule modeleLectureSeule, VuePartieLocale vue) {
+		J.appel(this);
+
+	}
+
 }

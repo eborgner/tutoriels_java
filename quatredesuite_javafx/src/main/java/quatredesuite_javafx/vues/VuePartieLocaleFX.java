@@ -36,4 +36,15 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
         conteneurGrille.creerGrille(largeur, hauteur);
 
     }
+
+	@Override
+	public void obtenirCommandesPourEnvoi() {
+		J.appel(this);
+		
+	}
+
+	@Override
+	public void installerCapteursEvenementsUsager() {
+		J.appel(this);
+	}
 }

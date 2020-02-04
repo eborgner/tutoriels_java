@@ -1,8 +1,15 @@
 package commun_client.mvc.controleurs;
 
 import commun.debogage.J;
+import commun_client.commandes.Commande;
+import commun_client.commandes.CommandePourEnvoi;
+import commun_client.commandes.CommandeRecue;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionVideParDefaut;
+import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Vue;
 
+@SuppressWarnings("rawtypes")
 public abstract class ControleurVue<V extends Vue> {
 	
 	protected V vue;
@@ -17,6 +24,26 @@ public abstract class ControleurVue<V extends Vue> {
 		this.vue = vue;
 	}
 	
+	protected <CPE extends CommandePourEnvoi,
+			   CR extends CommandeRecue,
+			   C extends Commande<CPE,CR>> 
+
+			 void installerRecepteurCommande(Class<C> classeCommande, 
+											  RecepteurCommandeMVC<CR> recepteur) {
+		J.appel(this);
+		
+		FabriqueCommande.installerRecepteur(classeCommande, (RecepteurCommande<CR>) recepteur);
+		
+		installerReactionApresCommande(classeCommande);
+	}
+	
+	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+		J.appel(this);
+		
+		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionVideParDefaut());
+	}
+	
+	public abstract void installerReceptionCommandes();
 	public abstract void demarrer();
 
 }

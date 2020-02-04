@@ -3,6 +3,9 @@ package commun_client.mvc.controleurs;
 import commun.debogage.J;
 import commun.modeles.Modele;
 import commun.modeles.ModeleLectureSeule;
+import commun_client.commandes.Commande;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 
@@ -38,5 +41,19 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 		J.appel(this);
 		
 		afficheur.initialiserAffichage((MLS) modele, vue);
+	}
+	
+	@Override
+	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+		J.appel(this);
+		
+		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
+				
+				afficheur.rafraichirAffichage((MLS) modele, vue);
+			}
+		});
 	}
 }

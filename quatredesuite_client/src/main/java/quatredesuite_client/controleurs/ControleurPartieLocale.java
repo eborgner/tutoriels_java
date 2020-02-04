@@ -15,6 +15,11 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLocaleLect
 	@Override
 	public void demarrer() {
 		J.appel(this);
+	}
+
+	@Override
+	public void installerReceptionCommandes() {
+		J.appel(this);
 	} 
 	
 }
