@@ -5,7 +5,7 @@ import java.util.Random;
 import commun.debogage.J;
 import commun.modeles.Modele;
 
-public class PartieLocale extends Modele<PartieLectureSeule> implements PartieLectureSeule {
+public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements PartieLocaleLectureSeule {
 
 	private int largeur =  3 + (new Random().nextInt(5));
 	private int hauteur = 4 + (new Random().nextInt(8));

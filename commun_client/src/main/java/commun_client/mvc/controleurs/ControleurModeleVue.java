@@ -1,6 +1,8 @@
 package commun_client.mvc.controleurs;
 
 import commun.debogage.J;
+import commun.modeles.Modele;
+import commun.modeles.ModeleLectureSeule;
 import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 
@@ -30,5 +32,11 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 		J.appel(this);
 
 		this.afficheur = afficheur;
+	}
+	
+	public void initialiserAffichage() {
+		J.appel(this);
+		
+		afficheur.initialiserAffichage((MLS) modele, vue);
 	}
 }
