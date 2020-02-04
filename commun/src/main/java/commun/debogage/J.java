@@ -35,17 +35,28 @@ public class J {
         String nomClasseAppelee = classeAppelee.getSimpleName();
 
         afficherMethode(nomClasseAppelee);
-
     }
+
 
     public static void appel(Object objetAppele){
     	if(!siActif) {return;}
 
-        String nomClasseAppelee = objetAppele.getClass().getSimpleName();
+        String nomClasseAppelee = nomClasseAppelee(objetAppele);
 
         afficherMethode(nomClasseAppelee);
 
     }
+
+	private static String nomClasseAppelee(Object objetAppele) {
+
+		String nomClasseAppelee = objetAppele.getClass().getSimpleName();
+		
+        if(nomClasseAppelee.equals("")) {
+        	nomClasseAppelee = objetAppele.getClass().getEnclosingClass().getSimpleName();
+        }
+
+		return nomClasseAppelee;
+	}
     
     static void messageErreur(int incrementPile, String typeErreur, String message) {
     	
