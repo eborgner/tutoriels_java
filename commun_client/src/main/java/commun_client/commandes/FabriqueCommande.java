@@ -15,9 +15,12 @@ public class FabriqueCommande {
 	protected static Map<Class<? extends Commande>, RecepteurCommande> recepteurs = new HashMap<>();
 	protected static Map<Class<? extends Commande>, ReactionApresCommande> reactionsApresCommande = new HashMap<>();
 
-	public static <C extends Commande> 
-				  void installerRecepteur(Class<C> classeCommande, 
-										RecepteurCommande recepteur) {
+	public static <CPE extends CommandePourEnvoi,
+			       CR extends CommandeRecue,
+			       C extends Commande<CPE,CR>> 
+
+		   void installerRecepteur(Class<C> classeCommande, 
+								   RecepteurCommande<CR> recepteur) {
 
 		J.appel(FabriqueCommande.class);
 
