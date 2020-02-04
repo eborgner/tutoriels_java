@@ -8,7 +8,6 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       styleClass="conteneurPrincipal" 
-      fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX"
       VBox.vgrow="ALWAYS">
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
