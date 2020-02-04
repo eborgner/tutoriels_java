@@ -24,8 +24,8 @@
         </top>
         <center>
         <HBox alignment="center">
-			<VBox fx:id="conteneurPartie" alignment="center"/>
-			</HBox>
+			<VBox fx:id="conteneurPartie" alignment="center" HBox.hgrow="ALWAYS"/>
+		</HBox>
         </center>
     </BorderPane>
 </VBox>

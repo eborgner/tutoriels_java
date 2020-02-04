@@ -8,7 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import quatredesuite_javafx.vues.composants.CaseAjustable?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
+<VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal" VBox.vgrow="ALWAYS">
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
                 <Text styleClass="nomJoueur" text="%joueurUn"></Text>

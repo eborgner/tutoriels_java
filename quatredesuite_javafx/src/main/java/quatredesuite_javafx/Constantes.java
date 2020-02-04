@@ -14,6 +14,6 @@ public class Constantes {
 	public static final String CHEMIN_PARTIE_LOCALE_CSS = "/css/partieLocale.css";
 
 	public static final int LARGEUR = 400;
-	public static final int HAUTEUR = 900;
+	public static final int HAUTEUR = 800;
 
 }
