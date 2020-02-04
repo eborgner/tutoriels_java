@@ -21,7 +21,6 @@ public class CaseAjustable extends CanvasAjustable {
 		super();
 
 		initialiserDessin();
-
 	}
 
 	@Override

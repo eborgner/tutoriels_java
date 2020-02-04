@@ -51,8 +51,7 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 			@Override
 			public void reagirApresCommande() {
 				J.appel(this);
-				
-				afficheur.rafraichirAffichage((MLS) modele, vue);
+
 			}
 		});
 	}

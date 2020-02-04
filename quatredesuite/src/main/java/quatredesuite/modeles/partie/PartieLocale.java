@@ -4,7 +4,7 @@ import commun.debogage.J;
 import commun.modeles.Modele;
 import quatredesuite.enumerations.Couleur;
 
-public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
+public class PartieLocale extends Modele<PartieLectureSeule> implements PartieLectureSeule {
 
 	private int largeur =  4;
 	private int hauteur = 6;
@@ -13,7 +13,7 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 
 	private Grille grille;
 	
-	public Partie() {
+	public PartieLocale() {
 		J.appel(this);
 		
 		grille = new Grille();

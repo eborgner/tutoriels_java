@@ -8,15 +8,13 @@ import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import quatredesuite_client.controleurs.ControleurPrincipal;
-import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
-import quatredesuite_javafx.vues.VuePrincipaleFX;
+import quatredesuite.modeles.partie.PartieLocale;
+import quatredesuite_client.afficheurs.AfficheurPartieLocale;
+import quatredesuite_client.controleurs.ControleurPartieLocale;
+import quatredesuite_javafx.vues.VuePartieLocaleFX;
 
-@SuppressWarnings("rawtypes")
 public class Principal extends Application {
-	
 
 	static {
 
@@ -30,20 +28,15 @@ public class Principal extends Application {
 		launch(args);
 	}
 
-	private ControleurPrincipal controleurPrincipal;
-	private static Stage fenetrePrincipale;
-	
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
-		
-		Principal.fenetrePrincipale = fenetrePrincipale;
 
-		ChargeurDeVue<VuePrincipaleFX> chargeur = creerChargeurVuePrincipale();
-		
-		controleurPrincipal = creerControleurPrincipal(chargeur);
-		
-		Scene scene = creerScenePrincipale(chargeur);
+		ChargeurDeVue<VuePartieLocaleFX> chargeur = new ChargeurDeVue<VuePartieLocaleFX>(CHEMIN_PARTIE_LOCALE_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PARTIE_LOCALE_CSS);
+
+		Scene scene = chargeur.nouvelleScene(50, 50, 2);
 
 		fenetrePrincipale.setScene(scene);
 		
@@ -52,55 +45,18 @@ public class Principal extends Application {
 
 		fenetrePrincipale.show();
 
-	}
-	
-	public static void ouvrirDialogueModal(Scene scene) {
-		J.appel(Principal.class);
-
-        Stage fenetreModale = new Stage();
-        fenetreModale.setScene(scene);
-        fenetreModale.initOwner(fenetrePrincipale);
-        fenetreModale.initModality(Modality.APPLICATION_MODAL);
-        fenetreModale.showAndWait();
-	}
-
-	private Scene creerScenePrincipale(ChargeurDeVue<VuePrincipaleFX> chargeur) {
-		J.appel(this);
-
+		VuePartieLocaleFX vue = chargeur.getVue();
 		
-		Scene scene = chargeur.nouvelleScene(50, 50, 2);
+		DoitEtre.nonNul(vue);
 
-		DoitEtre.nonNul(scene);
-
-		return scene;
-	}
-
-	private ChargeurDeVue<VuePrincipaleFX> creerChargeurVuePrincipale() {
-		J.appel(this);
-
-		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PRINCIPAL_CSS);
+		PartieLocale partie = new PartieLocale();
 		
-		return chargeur;
-	}
-
-	private ControleurPrincipal creerControleurPrincipal(ChargeurDeVue<VuePrincipaleFX> chargeur) {
-
-
-		VuePrincipaleFX vuePrincipale = chargeur.getVue();
-
-		ControleurPrincipalFX controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
-																					   vuePrincipale);
-
-		return controleurPrincipal;
-	}
-	
-	@Override
-	public void stop() {
-		J.appel(this);
-
-		controleurPrincipal.detruire();
+		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
+		
+		FabriqueControleur.creerControleur(ControleurPartieLocale.class, 
+							               partie,
+										   vue,
+										   afficheur);
 	}
 }
 
