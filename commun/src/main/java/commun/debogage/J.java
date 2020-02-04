@@ -38,6 +38,10 @@ public class J {
     public static void appel(Object objetAppele){
 
         String nomClasseAppelee = objetAppele.getClass().getSimpleName();
+        
+        if(nomClasseAppelee.equals("")) {
+        	nomClasseAppelee = objetAppele.getClass().getEnclosingClass().getSimpleName();
+        }
 
         afficherMethode(nomClasseAppelee);
 
