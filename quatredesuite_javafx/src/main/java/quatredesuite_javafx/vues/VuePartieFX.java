@@ -11,9 +11,8 @@ import javafx.geometry.HPos;
 import javafx.scene.layout.Priority;
 import quatredesuite.enumerations.Couleur;
 import quatredesuite_client.vues.VuePartie;
-import quatredesuite_javafx.vues.controles.GrilleCases;
-import quatredesuite_javafx.vues.controles.GrilleEntetes;
-
+import quatredesuite_javafx.vues.composants.GrilleCases;
+import quatredesuite_javafx.vues.composants.GrilleEntetes;
 import javafx.fxml.Initializable;
 
 public class VuePartieFX implements VuePartie, Initializable {

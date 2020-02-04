@@ -1,4 +1,4 @@
-package quatredesuite_javafx.vues.controles;
+package quatredesuite_javafx.vues.composants;
 
 import java.net.URL;
 import java.util.HashMap;

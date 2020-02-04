@@ -1,20 +1,41 @@
 @debug: false;
 
-@petitCoin: 2em;
+@largeurImageMin  : 2em;
+@largeurImagePref : 4em;
+@largeurImageMax  : 20em;
+
+@hauteurImageMin  : 2em;
+@hauteurImagePref : 4em;
+@hauteurImageMax  : 20em;
+
+@petitEspaceMin  : 1em;
+@petitEspacePref : 2em;
+@petitEspaceMax  : 4em;
+
+@grosEspaceMin   : @petitEspaceMin  * 2;
+@grosEspacePref  : @petitEspacePref * 2;
+@grosEspaceMax   : @petitEspaceMax  * 2;
+
+@largeurBoutonMin  : @largeurImageMin / 1.5;
+@largeurBoutonPref : @largeurImagePref / 1.5;
+@largeurBoutonMax  : @largeurImageMax / 1.5;
+
+@hauteurBoutonMin  : 2 * @hauteurImageMin;
+@hauteurBoutonPref : 2 * @hauteurImagePref;
+@hauteurBoutonMax  : 2 * @hauteurImageMax;
+
+@largeurGrilleMin  : 3 * @largeurImageMin;
+@largeurGrillePref : 3 * @largeurImagePref;
+@largeurGrilleMax  : 3 * @largeurImageMax;
+
+@petitCoin: 20px;
 @grosCoin: @petitCoin * 2;
 
-@petitEspace: 2em;
-@grosEspace: @petitEspace * 5;
 
 @fonce1: #161620;
 @fonce2: #305ae1;
 @pale1: #95c5db;
 @pale2: #bcced6;
-
-
-@largeurColonne : 4em;
-@hauteurEntete : 2em;
-@largeurEntete : 2em;
 
 @jetonRouge: #fd5435;
 @jetonJaune: #fccd0e;
