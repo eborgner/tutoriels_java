@@ -25,6 +25,10 @@
                           texteBouton="↡"
                           VBox.vgrow="SOMETIMES"/>
         <VBox styleClass="petitEspace"/>
-        <ConteneurGrille fx:id="conteneurGrille" styleClass="conteneurGrille" VBox.vgrow="ALWAYS"/>
+        <ConteneurGrille fx:id="conteneurGrille" 
+        			 	 styleClass="conteneurGrille" 
+        	             couleurRouge="#fd5435"
+        	             couleurJaune="#fccd0e"
+        	             VBox.vgrow="ALWAYS"/>
     </VBox>
 </VBox>

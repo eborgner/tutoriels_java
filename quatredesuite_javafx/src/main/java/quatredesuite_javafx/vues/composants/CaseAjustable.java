@@ -3,6 +3,7 @@ package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
 import commun_javafx.vues.composants.CanvasAjustable;
+import javafx.beans.NamedArg;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import quatredesuite.enumerations.Couleur;
@@ -10,7 +11,10 @@ import quatredesuite.enumerations.Couleur;
 
 public class CaseAjustable extends CanvasAjustable {
 	
-	private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
+	private final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
+	
+	private Color couleurRouge;
+	private Color couleurJaune;
 
 	private class Case {
 		public double caseHautGaucheX;
@@ -18,8 +22,12 @@ public class CaseAjustable extends CanvasAjustable {
 		public double tailleCase;
 	}
 
-	public CaseAjustable() {
+	public CaseAjustable(Color couleurRouge, Color couleurJaune) {
 		super();
+		
+		this.couleurRouge = couleurRouge;
+		this.couleurJaune = couleurJaune;
+		
 
 		initialiserPinceau();
 		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
@@ -104,16 +112,14 @@ public class CaseAjustable extends CanvasAjustable {
 		switch(couleur) {
 		
 			case ROUGE:
-				pinceau.setFill(Color.RED);
+				pinceau.setFill(couleurRouge);
 				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 			break;
 
 			case JAUNE:
-				pinceau.setFill(Color.YELLOW);
+				pinceau.setFill(couleurJaune);
 				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 			break;
-		
 		}
-		
 	}
 }

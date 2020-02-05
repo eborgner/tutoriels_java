@@ -4,11 +4,12 @@ import commun.debogage.J;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import quatredesuite.enumerations.Couleur;
 
 public class ConteneurLigne extends HBox {
 	
-	public ConteneurLigne(int largeur) {
+	public ConteneurLigne(int largeur, Color couleurRouge, Color couleurJaune) {
 		J.appel(this);
 		
 		this.getStyleClass().add("conteneurLigne");
@@ -17,7 +18,7 @@ public class ConteneurLigne extends HBox {
 		
 		for(int i = 0; i < largeur; i++) {
 			
-			CaseAjustable caseAjustable = new CaseAjustable();
+			CaseAjustable caseAjustable = new CaseAjustable(couleurRouge, couleurJaune);
 			
 			caseAjustable.getStyleClass().add("conteneurCase");
 			
