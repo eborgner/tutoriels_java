@@ -10,15 +10,6 @@ import javafx.scene.layout.Pane;
 
 public abstract class CanvasAjustable extends Pane {
 	
-	/* nécessaire ? 
-	private class ResizableCanvas extends Canvas {
-		@Override
-		public boolean isResizable() {
-			return true;
-		}
-	}
-	*/
-	
 	private Canvas canvas;
 	protected GraphicsContext pinceau;
 	
@@ -55,8 +46,15 @@ public abstract class CanvasAjustable extends Pane {
 				
 				double ancienneLargeur = (double) oldValue;
 				double nouvelleLargeur = (double) newValue;
-
-				reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
+				
+				if(ancienneLargeur == 0) {
+					
+					reagirLargeurInitiale(nouvelleLargeur);
+					
+				}else {
+					
+					reagirNouvelleLargeur(ancienneLargeur, nouvelleLargeur);
+				}
 			}
 		});
 	}
@@ -72,12 +70,21 @@ public abstract class CanvasAjustable extends Pane {
 				double ancienneHauteur = (double) oldValue;
 				double nouvelleHauteur = (double) newValue;
 				
-				reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
+				if(ancienneHauteur == 0) {
+					
+					reagirHauteurInitiale(nouvelleHauteur);
+					
+				}else {
+					
+					reagirNouvelleHauteur(ancienneHauteur, nouvelleHauteur);
+				}
 			}
 		});
 	}
 
+	protected abstract void reagirLargeurInitiale(double largeurInitiale);
+	protected abstract void reagirHauteurInitiale(double hauteurInitiale);
+
 	protected abstract void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur);
 	protected abstract void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur);
-
 }
