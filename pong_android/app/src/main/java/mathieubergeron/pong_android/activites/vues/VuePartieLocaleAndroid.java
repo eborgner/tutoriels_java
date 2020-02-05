@@ -131,6 +131,46 @@ public class VuePartieLocaleAndroid extends ConstraintLayout implements VueParti
 			}
 		});
 
+		boutonDroitHaut.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View view, MotionEvent motionEvent) {
+				J.appel(this);
+				switch(motionEvent.getAction()){
+					case MotionEvent.ACTION_DOWN:
+						deplacerPalettePourEnvoi.setCadran(Cadran.DROIT);
+						deplacerPalettePourEnvoi.setDirection(Direction.HAUT);
+						deplacerPalettePourEnvoi.envoyerCommande();
+						break;
+
+					case MotionEvent.ACTION_UP:
+						stopperPalettePourEnvoi.setCadran(Cadran.DROIT);
+						stopperPalettePourEnvoi.envoyerCommande();
+						break;
+				}
+				return false;
+			}
+		});
+
+		boutonDroitBas.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View view, MotionEvent motionEvent) {
+				J.appel(this);
+				switch(motionEvent.getAction()){
+					case MotionEvent.ACTION_DOWN:
+						deplacerPalettePourEnvoi.setCadran(Cadran.DROIT);
+						deplacerPalettePourEnvoi.setDirection(Direction.BAS);
+						deplacerPalettePourEnvoi.envoyerCommande();
+						break;
+
+					case MotionEvent.ACTION_UP:
+						stopperPalettePourEnvoi.setCadran(Cadran.DROIT);
+						stopperPalettePourEnvoi.envoyerCommande();
+						break;
+				}
+				return false;
+			}
+		});
+
 
 	}
 }

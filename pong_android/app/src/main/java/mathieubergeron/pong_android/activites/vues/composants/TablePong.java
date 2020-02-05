@@ -27,6 +27,10 @@ public class TablePong extends CanvasAjustable {
 	private Paint couleurBase;
 	private List<Objet2DCanvas> objets2D = new ArrayList<>();
 
+	public static double tempsEcouleSecondes = 0;
+	private double nombreAffichages = 0;
+	private double fpsAffiche = 0;
+
 	private AggrandirTablePongPourEnvoi aggrandirTablePong;
 
 	public TablePong(Context context) {
@@ -98,12 +102,24 @@ public class TablePong extends CanvasAjustable {
 		couleurBase = new Paint(Paint.ANTI_ALIAS_FLAG);
 		couleurBase.setStyle(Paint.Style.FILL);
 		couleurBase.setColor(Color.BLUE);
+		couleurBase.setTextSize(100f);
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		J.appel(this);
+
+		nombreAffichages++;
+
+		if(tempsEcouleSecondes > 1){
+			fpsAffiche = nombreAffichages / tempsEcouleSecondes;
+			tempsEcouleSecondes = 0;
+			nombreAffichages = 0;
+		}
+
+		canvas.drawText(String.format("%2.0f FPS", fpsAffiche), 5, 100, couleurBase);
+
 
 		for(Objet2DCanvas objet2D : objets2D){
 
@@ -156,4 +172,6 @@ public class TablePong extends CanvasAjustable {
 		objets2D.clear();
 		invalidate();
 	}
+
+
 }

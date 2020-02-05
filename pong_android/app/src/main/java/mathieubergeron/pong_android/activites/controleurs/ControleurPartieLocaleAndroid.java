@@ -3,6 +3,7 @@ package mathieubergeron.pong_android.activites.controleurs;
 import android.animation.TimeAnimator;
 
 import commun.debogage.J;
+import mathieubergeron.pong_android.activites.vues.composants.TablePong;
 import pong_client.controleurs.ControleurPartieLocale;
 
 public class ControleurPartieLocaleAndroid extends ControleurPartieLocale {
@@ -20,6 +21,8 @@ public class ControleurPartieLocaleAndroid extends ControleurPartieLocale {
 				J.appel(this);
 
 				double tempsEcouleSecondes = (double)l1 / 1000.0;
+
+				TablePong.tempsEcouleSecondes += tempsEcouleSecondes;
 
 				modele.reagirTempsQuiPasse(tempsEcouleSecondes);
 
