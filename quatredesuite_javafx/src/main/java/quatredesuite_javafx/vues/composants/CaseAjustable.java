@@ -25,13 +25,12 @@ public class CaseAjustable extends CanvasAjustable {
 		super();
 
 		initialiserPinceau();
-		dessinerCase();
+		dessinerCase(TAILLE_POURCENTAGE);
 		
 		creerAnimation();
 
 		installerListeners();
 	}
-	
 
 	private void creerAnimation() {
 		J.appel(this);
@@ -40,10 +39,9 @@ public class CaseAjustable extends CanvasAjustable {
 
 			private long avant = System.nanoTime();
 			private double tempsCycleSecondes = 0.5;
-			private double facteurCourant = 0;
 			private double facteurMin = 0;
 			private double facteurMax = 1;
-			private double directionIncrement = 1;
+			private double facteurCourant = facteurMax;
 
 			@Override
 			public void handle(long maintenant) {
@@ -65,63 +63,21 @@ public class CaseAjustable extends CanvasAjustable {
 
 				double ratioEcoule = secondesEcoulees / tempsCycleSecondes;
 				
-				double increment = ratioEcoule * (facteurMax - facteurMin);
-
-				facteurCourant += directionIncrement * increment;
+				facteurCourant -= ratioEcoule * facteurMax;
 				
-				if(facteurCourant > facteurMax) {
+				if(facteurCourant < facteurMin) {
 
 					facteurCourant = facteurMax;
-					directionIncrement =  -1;
-
-				}else if(facteurCourant < facteurMin) {
-
-					facteurCourant = facteurMin;
-					directionIncrement = 1;
 				}
 			}
 
 			private void dessinerProchain() {
 				J.appel(this);
 
-				int prochainRGB = (int) (facteurCourant * 255);
-				int incrementCouleur = (int) (facteurCourant * 35);
-				int angleDepartDegre = (int) (facteurCourant * 360);
-				
-				initialiserPinceau();
 				viderDessin();
-				dessinerCase();
-				
-				dessinerPremierArc(prochainRGB, incrementCouleur, angleDepartDegre);
-				dessinerDeuxiemeArc(prochainRGB, incrementCouleur, angleDepartDegre);
-				dessinerTroisiemeArc(prochainRGB, incrementCouleur, angleDepartDegre);
+				dessinerCase(TAILLE_POURCENTAGE);
+				dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
 			}
-
-			private void dessinerPremierArc(int prochainRGB, int incrementCouleur, int angleDepartDegre) {
-				J.appel(this);
-
-				pinceau.setStroke(Color.rgb(220 + incrementCouleur, 220 + incrementCouleur, prochainRGB));
-				pinceau.setLineWidth(0.02*getWidth());
-				dessinerArc(0.8*TAILLE_POURCENTAGE, angleDepartDegre);
-			}
-
-			private void dessinerDeuxiemeArc(int prochainRGB, int incrementCouleur, int angleDepartDegre) {
-				J.appel(this);
-
-				pinceau.setStroke(Color.rgb(220 + incrementCouleur, prochainRGB, 220 + incrementCouleur));
-				pinceau.setLineWidth(0.015*getWidth());
-				dessinerArc(0.6*TAILLE_POURCENTAGE, (angleDepartDegre+90)%360);
-			}
-
-			private void dessinerTroisiemeArc(int prochainRGB, int incrementCouleur, int angleDepartDegre) {
-				J.appel(this);
-
-				pinceau.setStroke(Color.rgb(prochainRGB, 220 + incrementCouleur, 220 + incrementCouleur));
-				pinceau.setLineWidth(0.010*getWidth());
-				dessinerArc(0.4*TAILLE_POURCENTAGE, (angleDepartDegre+180)%360);
-			}
-
-
 		};
 	}
 
@@ -144,11 +100,9 @@ public class CaseAjustable extends CanvasAjustable {
 				
 				animation.stop();
 
-				initialiserPinceau();
 				viderDessin();
-				dessinerCase();
+				dessinerCase(TAILLE_POURCENTAGE);
 			}
-
 		});
 	}
 
@@ -157,7 +111,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase();
+		dessinerCase(TAILLE_POURCENTAGE);
 	}
 
 	@Override
@@ -165,7 +119,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase();
+		dessinerCase(TAILLE_POURCENTAGE);
 	}
 
 	private void initialiserPinceau() {
@@ -183,11 +137,19 @@ public class CaseAjustable extends CanvasAjustable {
 	}
 
 
-	private void dessinerCase() {
+	private void dessinerCase(double taillePourcentage) {
 		J.appel(this);
 		
-		Case laCase = calculerCase(TAILLE_POURCENTAGE);
+		Case laCase = calculerCase(taillePourcentage);
 		
+		dessinerFond(laCase);
+
+		dessinerContour(laCase);
+	}
+
+	private void dessinerFond(Case laCase) {
+		J.appel(this);
+
 		pinceau.fillArc(laCase.caseHautGaucheX, 
 						laCase.caseHautGaucheY, 
 						laCase.tailleCase, 
@@ -195,6 +157,10 @@ public class CaseAjustable extends CanvasAjustable {
 						0, 
 						360, 
 						ArcType.ROUND);
+	}
+
+	private void dessinerContour(Case laCase) {
+		J.appel(this);
 
 		pinceau.strokeArc(laCase.caseHautGaucheX, 
 						  laCase.caseHautGaucheY, 
@@ -205,20 +171,6 @@ public class CaseAjustable extends CanvasAjustable {
 						  ArcType.OPEN);
 	}
 
-
-	private void dessinerArc(double taillePourcentage, int angleDepartDegre) {
-		J.appel(this);
-		
-		Case laCase = calculerCase(taillePourcentage);
-		pinceau.strokeArc(laCase.caseHautGaucheX, 
-						  laCase.caseHautGaucheY, 
-						  laCase.tailleCase, 
-						  laCase.tailleCase, 
-						  angleDepartDegre, 
-						  90, 
-						  ArcType.OPEN);
-	}
-	
 	private Case calculerCase(double taillePourcentage) {
 		J.appel(this);
 		
@@ -239,6 +191,17 @@ public class CaseAjustable extends CanvasAjustable {
 		return laCase;
 	}
 
-	
-	
+	@Override
+	protected void reagirLargeurInitiale(double largeurInitiale) {
+		J.appel(this);
+		
+		dessinerCase(TAILLE_POURCENTAGE);
+	}
+
+	@Override
+	protected void reagirHauteurInitiale(double hauteurInitiale) {
+		J.appel(this);
+
+		dessinerCase(TAILLE_POURCENTAGE);
+	}
 }
