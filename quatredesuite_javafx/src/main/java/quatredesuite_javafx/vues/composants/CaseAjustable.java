@@ -9,8 +9,8 @@ import javafx.scene.shape.ArcType;
 
 public class CaseAjustable extends CanvasAjustable {
 	
-	private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
-
+	private final double TAILLE_POURCENTAGE = 0.6;
+	
 	private class Case {
 		public double caseHautGaucheX;
 		public double caseHautGaucheY;
@@ -21,7 +21,7 @@ public class CaseAjustable extends CanvasAjustable {
 		super();
 
 		initialiserPinceau();
-		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+		dessinerCase();
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+		dessinerCase();
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+		dessinerCase();
 	}
 
 	private void initialiserPinceau() {
@@ -55,10 +55,10 @@ public class CaseAjustable extends CanvasAjustable {
 	}
 
 
-	private void dessinerCase(double taillePourcentage) {
+	private void dessinerCase() {
 		J.appel(this);
 		
-		Case laCase = calculerCase(taillePourcentage);
+		Case laCase = calculerCase();
 		
 		pinceau.fillArc(laCase.caseHautGaucheX, 
 						laCase.caseHautGaucheY, 
@@ -77,7 +77,7 @@ public class CaseAjustable extends CanvasAjustable {
 						  ArcType.OPEN);
 	}
 
-	private Case calculerCase(double taillePourcentage) {
+	private Case calculerCase() {
 		J.appel(this);
 		
 		Case laCase = new Case();
@@ -85,10 +85,10 @@ public class CaseAjustable extends CanvasAjustable {
 		double largeurDessin = getWidth();
 		double hauteurDessin = getHeight();
 		
-		laCase.tailleCase = largeurDessin * taillePourcentage;
+		laCase.tailleCase = largeurDessin * TAILLE_POURCENTAGE;
 
 		if(hauteurDessin < largeurDessin) {
-			laCase.tailleCase = hauteurDessin * taillePourcentage;
+			laCase.tailleCase = hauteurDessin * TAILLE_POURCENTAGE;
 		}
 		
 		laCase.caseHautGaucheX = (largeurDessin - laCase.tailleCase) / 2;
