@@ -42,7 +42,7 @@ public class ConteneurGrille extends VBox {
 		
 		int indiceRangeeBasHaut = this.getChildren().size() - indiceRangee - 1;
 		
-		if(indiceRangeeBasHaut < this.getChildren().size()) {
+		if(indiceRangeeBasHaut >= 0 && indiceRangeeBasHaut < this.getChildren().size()) {
 			
 			ConteneurLigne conteneurLigne = (ConteneurLigne) this.getChildren().get(indiceRangeeBasHaut);
 			conteneurLigne.afficherJeton(indiceColonne, couleur);
