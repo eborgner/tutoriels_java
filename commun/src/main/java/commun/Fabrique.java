@@ -2,7 +2,7 @@ package commun;
 
 import commun.debogage.J;
 
-public class Fabrique {
+public final class Fabrique {
 	
 	private Fabrique() {
 		J.appel(this);

@@ -9,7 +9,7 @@ import commun_client.mvc.Afficheur;
 import commun_client.mvc.Vue;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
-public class FabriqueControleur {
+public final class FabriqueControleur {
 	
 	private FabriqueControleur() {
 		J.appel(this);
