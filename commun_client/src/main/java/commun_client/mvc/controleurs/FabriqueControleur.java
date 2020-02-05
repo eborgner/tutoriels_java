@@ -10,6 +10,10 @@ import commun_client.mvc.Vue;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class FabriqueControleur {
+	
+	private FabriqueControleur() {
+		J.appel(this);
+	}
 
 	public static <C extends ControleurVue> C creerControleur(Class<C> classeControleur, Vue vue) {
 		J.appel(FabriqueControleur.class);

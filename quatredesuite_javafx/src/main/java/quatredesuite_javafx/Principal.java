@@ -31,7 +31,7 @@ public class Principal extends Application {
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
-
+		
 		ChargeurDeVue<VuePartieLocaleFX> chargeur = new ChargeurDeVue<VuePartieLocaleFX>(CHEMIN_PARTIE_LOCALE_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PARTIE_LOCALE_CSS);

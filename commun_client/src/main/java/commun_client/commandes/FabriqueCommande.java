@@ -11,6 +11,10 @@ import commun.debogage.J;
 @SuppressWarnings({"rawtypes"})
 public class FabriqueCommande {
 	
+	private FabriqueCommande() {
+		J.appel(this);
+	}
+	
 	
 	protected static Map<Class<? extends Commande>, RecepteurCommande> recepteurs = new HashMap<>();
 	protected static Map<Class<? extends Commande>, ReactionApresCommande> reactionsApresCommande = new HashMap<>();

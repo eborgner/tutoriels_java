@@ -20,7 +20,7 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 	protected M modele;
 	protected A afficheur;
 	
-	public ControleurModeleVue() {
+	protected ControleurModeleVue() {
 		super();
 		J.appel(this);
 	}

@@ -14,7 +14,7 @@ public abstract class ControleurVue<V extends Vue> {
 	
 	protected V vue;
 	
-	public ControleurVue() {
+	protected ControleurVue() {
 		J.appel(this);
 	}
 	
