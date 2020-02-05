@@ -2,6 +2,7 @@ package mathieubergeron.pong_android.activites.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -54,9 +55,9 @@ public class VuePartieLocaleAndroid extends ConstraintLayout implements VueParti
 
 		tablePong = findViewById(R.id.table_pong);
 		boutonGaucheHaut = findViewById(R.id.bouton_gauche_haut);
-		boutonGaucheBas = findViewById(R.id.bouton_droit_bas);
-		boutonDroitHaut = findViewById(R.id.bouton_droit_haut);
-		boutonDroitBas = findViewById(R.id.bouton_droit_bas);
+		boutonGaucheBas = findViewById(R.id.bouton_gauche_bas);
+		boutonDroitHaut = findViewById(R.id.bouton_droite_haut);
+		boutonDroitBas = findViewById(R.id.bouton_droite_bas);
 	}
 
 	@Override
@@ -90,16 +91,46 @@ public class VuePartieLocaleAndroid extends ConstraintLayout implements VueParti
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 
-		boutonGaucheHaut.setOnClickListener(new OnClickListener() {
+		boutonGaucheHaut.setOnTouchListener(new OnTouchListener() {
 			@Override
-			public void onClick(View view) {
+			public boolean onTouch(View view, MotionEvent motionEvent) {
 				J.appel(this);
+				switch(motionEvent.getAction()){
+					case MotionEvent.ACTION_DOWN:
+						deplacerPalettePourEnvoi.setCadran(Cadran.GAUCHE);
+						deplacerPalettePourEnvoi.setDirection(Direction.HAUT);
+						deplacerPalettePourEnvoi.envoyerCommande();
+						break;
 
-				deplacerPalettePourEnvoi.setCadran(Cadran.GAUCHE);
-				deplacerPalettePourEnvoi.setDirection(Direction.HAUT);
-				deplacerPalettePourEnvoi.envoyerCommande();
+					case MotionEvent.ACTION_UP:
+						stopperPalettePourEnvoi.setCadran(Cadran.GAUCHE);
+						stopperPalettePourEnvoi.envoyerCommande();
+						break;
+				}
+				return false;
 			}
 		});
+
+		boutonGaucheBas.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View view, MotionEvent motionEvent) {
+				J.appel(this);
+				switch(motionEvent.getAction()){
+					case MotionEvent.ACTION_DOWN:
+						deplacerPalettePourEnvoi.setCadran(Cadran.GAUCHE);
+						deplacerPalettePourEnvoi.setDirection(Direction.BAS);
+						deplacerPalettePourEnvoi.envoyerCommande();
+						break;
+
+					case MotionEvent.ACTION_UP:
+						stopperPalettePourEnvoi.setCadran(Cadran.GAUCHE);
+						stopperPalettePourEnvoi.envoyerCommande();
+						break;
+				}
+				return false;
+			}
+		});
+
 
 	}
 }

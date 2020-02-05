@@ -9,7 +9,7 @@ import commun_client.commandes.ReactionVideParDefaut;
 import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Vue;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({"rawtypes","unchecked"})
 public abstract class ControleurVue<V extends Vue> {
 	
 	protected V vue;

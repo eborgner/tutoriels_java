@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/bouton_droit_haut"
+        android:id="@+id/bouton_droite_haut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fleche_haut"
@@ -57,13 +57,13 @@
         app:layout_constraintVertical_bias="0.44" />
 
     <Button
-        android:id="@+id/bouton_droit_bas"
+        android:id="@+id/bouton_droite_bas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fleche_bas"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bouton_droit_haut"
-        app:layout_constraintStart_toStartOf="@+id/bouton_droit_haut"
-        app:layout_constraintTop_toBottomOf="@+id/bouton_droit_haut" />
+        app:layout_constraintEnd_toEndOf="@+id/bouton_droite_haut"
+        app:layout_constraintStart_toStartOf="@+id/bouton_droite_haut"
+        app:layout_constraintTop_toBottomOf="@+id/bouton_droite_haut" />
 
 </mathieubergeron.pong_android.activites.vues.VuePartieLocaleAndroid>

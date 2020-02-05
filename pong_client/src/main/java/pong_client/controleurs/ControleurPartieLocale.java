@@ -11,6 +11,7 @@ import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongRecue;
 import pong_client.commandes.deplacer_palette.DeplacerPalette;
 import pong_client.commandes.deplacer_palette.DeplacerPaletteRecue;
 import pong_client.commandes.stopper_palette.StopperPalette;
+import pong_client.commandes.stopper_palette.StopperPaletteRecue;
 import pong_client.vues.VuePartieLocale;
 
 public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeule,
@@ -45,9 +46,9 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 			}
 		});
 		
-		installerRecepteurCommande(StopperPalette.class, new RecepteurCommandeMVC<StopperPalette>() {
+		installerRecepteurCommande(StopperPalette.class, new RecepteurCommandeMVC<StopperPaletteRecue>() {
 			@Override
-			public void executerCommandeMVC(StopperPalette commande) {
+			public void executerCommandeMVC(StopperPaletteRecue commande) {
 				J.appel(this);
 				
 				modele.stopperPalette(commande.getCadran());
