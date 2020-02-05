@@ -43,6 +43,6 @@ public abstract class ControleurVue<V extends Vue> {
 		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionVideParDefaut());
 	}
 	
-	public abstract void installerReceptionCommandes();
-	public abstract void demarrer();
+	protected abstract void installerReceptionCommandes();
+	protected abstract void demarrer();
 }

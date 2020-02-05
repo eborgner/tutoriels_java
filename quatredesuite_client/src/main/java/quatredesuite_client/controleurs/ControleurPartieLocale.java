@@ -15,12 +15,12 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLocaleLect
 															    VuePartieLocale, 
 															    AfficheurPartieLocale> {
 	@Override
-	public void demarrer() {
+	protected void demarrer() {
 		J.appel(this);
 	}
 
 	@Override
-	public void installerReceptionCommandes() {
+	protected void installerReceptionCommandes() {
 		J.appel(this);
 		
 		installerRecepteurCommande(JouerIci.class, new RecepteurCommandeMVC<JouerIciRecue>() {
