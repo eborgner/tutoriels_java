@@ -6,11 +6,14 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
+import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
+import javafx.event.Event;
 
 public class CaseAjustable extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
-	
+
 	private class Case {
 		public double caseHautGaucheX;
 		public double caseHautGaucheY;
@@ -29,6 +32,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
+
 		dessinerCase();
 	}
 
@@ -37,6 +41,7 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
+
 		dessinerCase();
 	}
 
@@ -53,13 +58,25 @@ public class CaseAjustable extends CanvasAjustable {
 
 		pinceau.clearRect(0, 0, getWidth(), getHeight());
 	}
-
-
+	
 	private void dessinerCase() {
 		J.appel(this);
 		
-		Case laCase = calculerCase(TAILLE_POURCENTAGE);
+		dessinerCase(TAILLE_POURCENTAGE);
+	}
+	
+	private void dessinerCase(double taillePourcentage) {
+		J.appel(this);
 		
+		Case laCase = calculerCase(taillePourcentage);
+		
+		dessinerFond(laCase);
+		dessinerContour(laCase);
+	}
+
+	private void dessinerFond(Case laCase) {
+		J.appel(this);
+
 		pinceau.fillArc(laCase.caseHautGaucheX, 
 						laCase.caseHautGaucheY, 
 						laCase.tailleCase, 
@@ -67,6 +84,10 @@ public class CaseAjustable extends CanvasAjustable {
 						0, 
 						360, 
 						ArcType.ROUND);
+	}
+
+	private void dessinerContour(Case laCase) {
+		J.appel(this);
 
 		pinceau.strokeArc(laCase.caseHautGaucheX, 
 						  laCase.caseHautGaucheY, 
