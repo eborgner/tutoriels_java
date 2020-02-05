@@ -1,12 +1,17 @@
 package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun_client.commandes.FabriqueCommande;
 import javafx.beans.NamedArg;
 import javafx.scene.layout.HBox;
+import quatredesuite_client.commandes.jouer_ici.JouerIci;
+import quatredesuite_client.commandes.jouer_ici.JouerIciPourEnvoi;
 
 public class ConteneurEntetes extends HBox {
 	
 	private String texteBouton;
+	
+	private JouerIciPourEnvoi jouerIciPourEnvoi;
 	
 	public ConteneurEntetes(@NamedArg("texteBouton") String texteBouton) {
 		J.appel(this);
@@ -23,4 +28,20 @@ public class ConteneurEntetes extends HBox {
 		}
 	}
 
+	public void obtenirJouerIciPourEnvoi() {
+		J.appel(this);
+		
+		jouerIciPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(JouerIci.class);
+	}
+	
+	public void installerCapteursJouerIci() {
+		J.appel(this);
+
+		for(int indiceColonne = 0; indiceColonne < this.getChildren().size(); indiceColonne++) {
+			
+			Entete entete = (Entete) this.getChildren().get(indiceColonne);
+			
+			entete.installerCapteurJouerIci(indiceColonne, jouerIciPourEnvoi);
+		}
+	}
 }

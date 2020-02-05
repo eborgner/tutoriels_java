@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
+import quatredesuite.enumerations.Couleur;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_javafx.vues.composants.ConteneurEntetes;
 import quatredesuite_javafx.vues.composants.ConteneurGrille;
@@ -14,14 +15,14 @@ import javafx.fxml.Initializable;
 public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 
     @FXML
-    Text nomJoueurUn, nomJoueurDeux;
+    private Text nomJoueurUn, nomJoueurDeux;
     
     @FXML
-    ConteneurEntetes conteneurEntetes;
+    private ConteneurEntetes conteneurEntetes;
 
     @FXML
-    ConteneurGrille conteneurGrille;
-
+    private ConteneurGrille conteneurGrille;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
@@ -41,10 +42,21 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
+		conteneurEntetes.obtenirJouerIciPourEnvoi();
 	}
 
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
+		
+		conteneurEntetes.installerCapteursJouerIci();
 	}
+
+	@Override
+	public void afficherJeton(int indiceColonne, int indiceRangee, Couleur couleur) {
+		J.appel(this);
+		
+		conteneurGrille.afficherJeton(indiceColonne, indiceRangee, couleur);
+	}
+
 }

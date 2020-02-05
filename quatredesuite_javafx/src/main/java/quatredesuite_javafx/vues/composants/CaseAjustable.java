@@ -5,6 +5,7 @@ import commun.debogage.J;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import quatredesuite.enumerations.Couleur;
 
 
 public class CaseAjustable extends CanvasAjustable {
@@ -106,6 +107,25 @@ public class CaseAjustable extends CanvasAjustable {
 		laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
 		
 		return laCase;
+	}
+
+	public void afficherJeton(Couleur couleur) {
+		J.appel(this);
+		
+		switch(couleur) {
+		
+			case ROUGE:
+				pinceau.setFill(Color.RED);
+				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+			break;
+
+			case JAUNE:
+				pinceau.setFill(Color.YELLOW);
+				dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
+			break;
+		
+		}
+		
 	}
 	
 }
