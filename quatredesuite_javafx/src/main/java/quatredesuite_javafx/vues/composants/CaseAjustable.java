@@ -63,7 +63,7 @@ public class CaseAjustable extends CanvasAjustable {
 
 				double ratioEcoule = secondesEcoulees / tempsCycleSecondes;
 				
-				facteurCourant -= ratioEcoule * facteurMax;
+				facteurCourant = facteurCourant - ratioEcoule * facteurMax;
 				
 				if(facteurCourant < facteurMin) {
 
