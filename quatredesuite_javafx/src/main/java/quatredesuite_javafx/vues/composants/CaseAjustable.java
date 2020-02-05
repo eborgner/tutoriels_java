@@ -25,7 +25,7 @@ public class CaseAjustable extends CanvasAjustable {
 		super();
 
 		initialiserPinceau();
-		dessinerCase(TAILLE_POURCENTAGE);
+		dessinerCase();
 		
 		creerAnimation();
 
@@ -75,8 +75,9 @@ public class CaseAjustable extends CanvasAjustable {
 				J.appel(this);
 
 				viderDessin();
-				dessinerCase(TAILLE_POURCENTAGE);
-				dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
+
+				dessinerCase();
+				dessinerImageCle(facteurCourant);
 			}
 		};
 	}
@@ -101,7 +102,8 @@ public class CaseAjustable extends CanvasAjustable {
 				animation.stop();
 
 				viderDessin();
-				dessinerCase(TAILLE_POURCENTAGE);
+
+				dessinerCase();
 			}
 		});
 	}
@@ -111,7 +113,8 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase(TAILLE_POURCENTAGE);
+
+		dessinerCase();
 	}
 
 	@Override
@@ -119,7 +122,8 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-		dessinerCase(TAILLE_POURCENTAGE);
+
+		dessinerCase();
 	}
 
 	private void initialiserPinceau() {
@@ -135,15 +139,25 @@ public class CaseAjustable extends CanvasAjustable {
 
 		pinceau.clearRect(0, 0, getWidth(), getHeight());
 	}
-
-
+	
+	private void dessinerImageCle(double facteurCourant) {
+		J.appel(this);
+		
+		dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
+	}
+	
+	private void dessinerCase() {
+		J.appel(this);
+		
+		dessinerCase(TAILLE_POURCENTAGE);
+	}
+	
 	private void dessinerCase(double taillePourcentage) {
 		J.appel(this);
 		
 		Case laCase = calculerCase(taillePourcentage);
 		
 		dessinerFond(laCase);
-
 		dessinerContour(laCase);
 	}
 
@@ -195,13 +209,13 @@ public class CaseAjustable extends CanvasAjustable {
 	protected void reagirLargeurInitiale(double largeurInitiale) {
 		J.appel(this);
 		
-		dessinerCase(TAILLE_POURCENTAGE);
+		dessinerCase();
 	}
 
 	@Override
 	protected void reagirHauteurInitiale(double hauteurInitiale) {
 		J.appel(this);
 
-		dessinerCase(TAILLE_POURCENTAGE);
+		dessinerCase();
 	}
 }
