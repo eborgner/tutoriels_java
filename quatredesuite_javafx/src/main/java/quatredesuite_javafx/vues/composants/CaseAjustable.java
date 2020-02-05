@@ -79,6 +79,12 @@ public class CaseAjustable extends CanvasAjustable {
 				dessinerCase();
 				dessinerImageCle(facteurCourant);
 			}
+
+			private void dessinerImageCle(double facteurCourant) {
+				J.appel(this);
+		
+				dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
+			}
 		};
 	}
 
@@ -138,12 +144,6 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		pinceau.clearRect(0, 0, getWidth(), getHeight());
-	}
-	
-	private void dessinerImageCle(double facteurCourant) {
-		J.appel(this);
-		
-		dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
 	}
 	
 	private void dessinerCase() {
