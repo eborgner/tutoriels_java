@@ -18,7 +18,7 @@ public abstract class ControleurVue<V extends Vue> {
 		J.appel(this);
 	}
 	
-	public void setVue(V vue) {
+	void setVue(V vue) {
 		J.appel(this);
 		
 		this.vue = vue;
@@ -37,7 +37,7 @@ public abstract class ControleurVue<V extends Vue> {
 		installerReactionApresCommande(classeCommande);
 	}
 	
-	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+	void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
 		J.appel(this);
 		
 		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionVideParDefaut());
@@ -45,5 +45,4 @@ public abstract class ControleurVue<V extends Vue> {
 	
 	public abstract void installerReceptionCommandes();
 	public abstract void demarrer();
-
 }

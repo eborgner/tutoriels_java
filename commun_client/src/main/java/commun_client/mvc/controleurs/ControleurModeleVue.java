@@ -25,26 +25,26 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 		J.appel(this);
 	}
 	
-	public void setModele(M modele) {
+	void setModele(M modele) {
 		J.appel(this);
 
 		this.modele = modele;
 	}
 
-	public void setAfficheur(A afficheur) {
+	void setAfficheur(A afficheur) {
 		J.appel(this);
 
 		this.afficheur = afficheur;
 	}
 	
-	public void initialiserAffichage() {
+	void initialiserAffichage() {
 		J.appel(this);
 		
-		afficheur.initialiserAffichage((MLS) modele, vue);
+		afficheur.initialiserAffichage(modele, vue);
 	}
 	
 	@Override
-	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+	void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
 		J.appel(this);
 		
 		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionApresCommande() {
