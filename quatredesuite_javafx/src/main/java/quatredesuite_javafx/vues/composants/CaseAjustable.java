@@ -20,36 +20,24 @@ public class CaseAjustable extends CanvasAjustable {
 	public CaseAjustable() {
 		super();
 
-		initialiserDessin();
-
+		initialiserPinceau();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
 
 	@Override
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
-		
-		reinitialiserDessin();
+
+		viderDessin();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
 
 	@Override
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		reinitialiserDessin();
-	}
-
-	private void initialiserDessin() {
-		J.appel(this);
-
-		initialiserPinceau();
-		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
-	}
-
-	private void reinitialiserDessin() {
-		J.appel(this);
-
 		viderDessin();
-		initialiserDessin();
+		dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
 	}
 
 	private void initialiserPinceau() {
@@ -108,5 +96,4 @@ public class CaseAjustable extends CanvasAjustable {
 		
 		return laCase;
 	}
-	
 }
