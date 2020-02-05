@@ -118,7 +118,7 @@ public class TablePong extends CanvasAjustable {
 			nombreAffichages = 0;
 		}
 
-		canvas.drawText(String.format("%2.0f FPS", fpsAffiche), 5, 100, couleurBase);
+		canvas.drawText(String.format("%2.1f FPS", fpsAffiche), 5, 100, couleurBase);
 
 
 		for(Objet2DCanvas objet2D : objets2D){
