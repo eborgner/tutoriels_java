@@ -7,7 +7,9 @@ import commun_client.mvc.controleurs.ControleurVue;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie_locale.NouvellePartieLocaleRecue;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
+import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
+import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.vues.VuePrincipale;
 
 public abstract class ControleurPrincipal<V extends VuePrincipale> extends ControleurVue<V> {
@@ -24,18 +26,18 @@ public abstract class ControleurPrincipal<V extends VuePrincipale> extends Contr
 			}
 		});
 		
-		FabriqueCommande.installerRecepteur(Quitter.class, new RecepteurCommande<Quitter>() {
+		FabriqueCommande.installerRecepteur(Quitter.class, new RecepteurCommande<QuitterRecue>() {
 			@Override
-			public void executerCommande(Quitter commande) {
+			public void executerCommande(QuitterRecue commande) {
 				J.appel(this);
 				
 				quitter();
 			}
 		});
 		
-		FabriqueCommande.installerRecepteur(OuvrirParametres.class, new RecepteurCommande<OuvrirParametres>() {
+		FabriqueCommande.installerRecepteur(OuvrirParametres.class, new RecepteurCommande<OuvrirParametresRecue>() {
 			@Override
-			public void executerCommande(OuvrirParametres commande) {
+			public void executerCommande(OuvrirParametresRecue commande) {
 				J.appel(this);
 				
 				ouvrirParametres();
