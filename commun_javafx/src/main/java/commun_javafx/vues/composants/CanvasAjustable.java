@@ -10,7 +10,6 @@ import javafx.scene.layout.Pane;
 
 public abstract class CanvasAjustable extends Pane {
 	
-	private Canvas canvas;
 	protected GraphicsContext pinceau;
 	
 	public CanvasAjustable() {
@@ -25,15 +24,13 @@ public abstract class CanvasAjustable extends Pane {
 	private void installerCanvas() {
 		J.appel(this);
 		
-		canvas = new Canvas();
+		Canvas canvas = new Canvas();
 		pinceau = canvas.getGraphicsContext2D();
-		
 		
 		this.getChildren().add(canvas);
 
 		canvas.widthProperty().bind(this.widthProperty());
 		canvas.heightProperty().bind(this.heightProperty());
-		
 	}
 	
 	private void installerObservateurLargeur() {
