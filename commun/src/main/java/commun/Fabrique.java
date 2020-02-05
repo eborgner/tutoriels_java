@@ -4,6 +4,10 @@ import commun.debogage.J;
 
 public class Fabrique {
 	
+	private Fabrique() {
+		J.appel(this);
+	}
+	
 	public static <C> C nouvelleInstance(Class<C> classe) {
 		J.appel(Fabrique.class);
 		
