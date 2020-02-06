@@ -142,36 +142,36 @@ public class CaseAjustable extends CanvasAjustable {
 
 		animation = new AnimationTimer() {
 
-			private long avant;
-			private double tempsCycleSecondes = 2.5;
+			private long departNanosecondes;
+			private double dureeCycleSecondes = 2.5;
 			
 			@Override
 			public void start() {
 				J.appel(this);
 				
-				avant = System.nanoTime();
+				departNanosecondes = System.nanoTime();
 
 				super.start();
 			}
 
 			@Override
-			public void handle(long maintenant) {
+			public void handle(long maintenantNanosecondes) {
 				J.setActif(true);
 				J.appel(this);
 				
-				double secondesEcoulees = (maintenant - avant) / 1E9;
+				double secondesEcoulees = (maintenantNanosecondes - departNanosecondes) / 1E9;
 
-				double endroitDuCycle = calculerFacteurCourant(secondesEcoulees);
+				double endroitDuCycle = calculerEndroitDuCycle(secondesEcoulees);
 				
 				dessinerProchain(endroitDuCycle);
 
 				J.setActif(true);
 			}
 
-			private double calculerFacteurCourant(double secondesEcoulees) {
+			private double calculerEndroitDuCycle(double secondesEcoulees) {
 				J.appel(this);
 
-				double tempsNormalise = secondesEcoulees / tempsCycleSecondes * Math.PI * 2;
+				double tempsNormalise = secondesEcoulees / dureeCycleSecondes * Math.PI * 2;
 				
 				return Math.cos(tempsNormalise);
 			}
