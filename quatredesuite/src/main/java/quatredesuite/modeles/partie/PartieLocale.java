@@ -6,8 +6,8 @@ import quatredesuite.enumerations.Couleur;
 
 public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements PartieLocaleLectureSeule {
 
-	private int largeur =  4;
-	private int hauteur = 6;
+	private int largeur =  3 + (new Random().nextInt(5));
+	private int hauteur = 4 + (new Random().nextInt(8));
 	
 	private Couleur couleurCourante = Couleur.ROUGE;
 
