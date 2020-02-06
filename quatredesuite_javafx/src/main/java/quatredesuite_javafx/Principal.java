@@ -4,6 +4,8 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
+import commun_javafx.DialogueModal;
+
 import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
@@ -29,6 +31,8 @@ public class Principal extends Application {
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
+		
+		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 		
 		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
 						CHEMIN_CHAINES,

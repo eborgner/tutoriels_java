@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartie;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
 import quatredesuite_client.commandes.quitter.Quitter;
@@ -23,6 +25,7 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 	
 	QuitterPourEnvoi quitterPourEnvoi;
 	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
+	NouvellePartiePourEnvoi nouvellePartiePourEnvoi;
 
 	@Override
 	public void obtenirCommandesPourEnvoi() {
@@ -30,6 +33,7 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 		
 		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
+		nouvellePartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartie.class);
 	}
 
 	@Override
@@ -51,6 +55,15 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 				J.appel(this);
 				
 				ouvrirParametresPourEnvoi.envoyerCommande();
+			}
+		});
+		
+		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				nouvellePartiePourEnvoi.envoyerCommande();
 			}
 		});
 	}
