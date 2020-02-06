@@ -4,7 +4,7 @@ import commun_client.commandes.CommandeRecue;
 
 public interface JouerIciRecue extends CommandeRecue {
 	
-	int getIdColonne();
+	int getIndiceColonne();
 	
 	
 }

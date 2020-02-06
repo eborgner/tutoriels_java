@@ -1,51 +1,93 @@
 @import "commun";
 
-.fondPartie{
+.conteneurNomsJoueurs{
+    -fx-alignment:center;
+
+    -fx-min-width  : @largeurGrilleMin;
+    -fx-max-width  : @largeurGrilleMax;
+}
+
+.conteneurNomJoueur{
+    -fx-alignment:center;
+}
+
+.conteneurTableJeu{
+    -fx-alignment:center;
+}
+
+.conteneurBoutons{
+    -fx-alignment:center;
+
+    -fx-min-width  : @largeurGrilleMin;
+    -fx-max-width  : @largeurGrilleMax;
+
+    -fx-min-height  : @hauteurBoutonMin;
+    -fx-max-height  : @hauteurBoutonMax;
+}
+
+.conteneurBouton{
+    -fx-alignment:center;
+
+    -fx-min-height  : @hauteurBoutonMin;
+    -fx-max-height  : @hauteurBoutonMax;
+}
+
+.boutonCoup{
+    -fx-min-width  : @largeurBoutonMin;
+    -fx-max-width  : @largeurBoutonMax;
+
+    -fx-min-height  : @hauteurBoutonMin;
+    -fx-max-height  : @hauteurBoutonMax;
+
+    -fx-border-style:solid;
+    -fx-border-width:2px;
+    -fx-background-color:@pale2;
+    -fx-text-color:@fonce2;
+    -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+}
+
+.boutonCoup:hover {
+    -fx-border-color:@jetonRouge;
+}
+
+.boutonCoup:pressed {
+    -fx-background-color:@fonce2;
+}
+
+.conteneurGrille{
+    -fx-alignment: center;
+
+    -fx-min-width  : @largeurGrilleMin;
+    -fx-max-width  : @largeurGrilleMax;
+
     -fx-background-color:@fonce2;
     -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
     -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
 }
 
-Entete{
-    -fx-border-style:solid;
-    -fx-border-width:2px;
-    -fx-background-color:@pale2;
-    -fx-text-color:@fonce2;
-    -fx-margin-bottom:@grosEspace;
-    -fx-min-height:@hauteurEntete;
-    -fx-max-width:@largeurEntete;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @grosEspace;
-	-fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
-    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+.conteneurLigne{
+    -fx-alignment:center;
+
+    /*
+
+    -fx-border-style : dashed;
+    -fx-border-width : 2px;
+
+    */
 
 }
 
+.conteneurCase{
+    -fx-alignment:center;
 
-Entete.ROUGE:hover {
-    -fx-border-color:@jetonRouge;
+    -fx-min-width  : @largeurImageMin;
+    -fx-max-width  : @largeurImageMax;
+}
+
+.petitEspaceVertical{
+    -fx-min-height  : @petitEspaceMin;
+    -fx-max-height  : @petitEspaceMax;
 }
 
 
-Entete.JAUNE:hover {
-    -fx-border-color:@jetonJaune;
-}
-
-Entete:pressed {
-    -fx-background-color:@fonce2;
-}
-
-
-
-Case{
-    -fx-alignment: center;
-    -fx-min-width: @largeurColonne;
-    -fx-margin: @petitEspace;
-    -fx-padding: @petitEspace;
-}
-
-Case.ROUGE{
-}
-
-Case.JAUNE{
-}

@@ -9,7 +9,11 @@ import commun.debogage.Erreur;
 import commun.debogage.J;
 
 @SuppressWarnings({"rawtypes"})
-public class FabriqueCommande {
+public final class FabriqueCommande {
+	
+	private FabriqueCommande() {
+		J.appel(this);
+	}
 	
 	
 	protected static Map<Class<? extends Commande>, RecepteurCommande> recepteurs = new HashMap<>();

@@ -4,19 +4,17 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
+import commun_javafx.DialogueModal;
+
 import static quatredesuite_javafx.Constantes.*;
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 
-@SuppressWarnings("rawtypes")
 public class Principal extends Application {
-	
 
 	static {
 
@@ -30,20 +28,17 @@ public class Principal extends Application {
 		launch(args);
 	}
 
-	private ControleurPrincipal controleurPrincipal;
-	private static Stage fenetrePrincipale;
-	
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		Principal.fenetrePrincipale = fenetrePrincipale;
+		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
+		
+		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PRINCIPAL_CSS);
 
-		ChargeurDeVue<VuePrincipaleFX> chargeur = creerChargeurVuePrincipale();
-		
-		controleurPrincipal = creerControleurPrincipal(chargeur);
-		
-		Scene scene = creerScenePrincipale(chargeur);
+		Scene scene = chargeur.nouvelleScene(50, 50, 2);
 
 		fenetrePrincipale.setScene(scene);
 		
@@ -52,55 +47,12 @@ public class Principal extends Application {
 
 		fenetrePrincipale.show();
 
-	}
-	
-	public static void ouvrirDialogueModal(Scene scene) {
-		J.appel(Principal.class);
-
-        Stage fenetreModale = new Stage();
-        fenetreModale.setScene(scene);
-        fenetreModale.initOwner(fenetrePrincipale);
-        fenetreModale.initModality(Modality.APPLICATION_MODAL);
-        fenetreModale.showAndWait();
-	}
-
-	private Scene creerScenePrincipale(ChargeurDeVue<VuePrincipaleFX> chargeur) {
-		J.appel(this);
-
+		VuePrincipaleFX vue = chargeur.getVue();
 		
-		Scene scene = chargeur.nouvelleScene(50, 50, 2);
+		DoitEtre.nonNul(vue);
 
-		DoitEtre.nonNul(scene);
-
-		return scene;
-	}
-
-	private ChargeurDeVue<VuePrincipaleFX> creerChargeurVuePrincipale() {
-		J.appel(this);
-
-		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PRINCIPAL_CSS);
-		
-		return chargeur;
-	}
-
-	private ControleurPrincipal creerControleurPrincipal(ChargeurDeVue<VuePrincipaleFX> chargeur) {
-
-
-		VuePrincipaleFX vuePrincipale = chargeur.getVue();
-
-		ControleurPrincipalFX controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
-																					   vuePrincipale);
-
-		return controleurPrincipal;
-	}
-	
-	@Override
-	public void stop() {
-		J.appel(this);
-
-		controleurPrincipal.detruire();
+		FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
+										   vue);
 	}
 }
 

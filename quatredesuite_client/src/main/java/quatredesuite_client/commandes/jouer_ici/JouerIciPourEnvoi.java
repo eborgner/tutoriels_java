@@ -4,7 +4,7 @@ import commun_client.commandes.CommandePourEnvoi;
 
 public interface JouerIciPourEnvoi extends CommandePourEnvoi { 
 	
-	void setIdColonne(int idColonne);
+	void setIndiceColonne(int indiceColonne);
 	
 	
 }

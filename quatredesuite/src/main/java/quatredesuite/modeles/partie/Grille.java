@@ -21,11 +21,10 @@ public class Grille implements GrilleLectureSeule {
 		}
 	}
 
-	public void ajouterJeton(int idColonne, Couleur couleur) {
+	public void ajouterJeton(Jeton jeton) {
 		J.appel(this);
 		
-		colonnes.get(idColonne).ajouterJeton(couleur);
-		
+		colonnes.get(jeton.getIndiceColonne()).ajouterJeton(jeton);
 	}
 
 	@Override

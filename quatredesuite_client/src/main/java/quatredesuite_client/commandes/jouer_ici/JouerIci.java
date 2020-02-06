@@ -9,19 +9,19 @@ public class JouerIci extends Commande<JouerIciPourEnvoi,
                       implements JouerIciPourEnvoi, 
                                  JouerIciRecue {
 	
-	private int idColonne;
+	private int indiceColonne;
 
 	@Override
-	public void setIdColonne(int idColonne) {
+	public void setIndiceColonne(int indiceColonne) {
 		J.appel(this);
 		
-		this.idColonne = idColonne;
+		this.indiceColonne = indiceColonne;
 	}
 
 	@Override
-	public int getIdColonne() {
+	public int getIndiceColonne() {
 		J.appel(this);
 
-		return idColonne;
+		return indiceColonne;
 	}
 }

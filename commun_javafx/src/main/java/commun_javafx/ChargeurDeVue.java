@@ -20,17 +20,17 @@ public class ChargeurDeVue<V extends Vue>{
     
     private String cheminFxml;
     private String cheminChaines;
-    private String[] cheminsCss;
+    private String cheminCss;
     private FXMLLoader loader;
     private Parent parent;
 
-    public ChargeurDeVue(String cheminFxml, String cheminChaines, String... cheminsCss) {
+    public ChargeurDeVue(String cheminFxml, String cheminChaines, String cheminCss) {
 
         J.appel(this);
         
         this.cheminFxml = cheminFxml;
         this.cheminChaines = cheminChaines;
-        this.cheminsCss = cheminsCss;
+        this.cheminCss = cheminCss;
         
         DoitEtre.nonNul(cheminFxml);
         DoitEtre.nonNul(cheminChaines);
@@ -79,8 +79,12 @@ public class ChargeurDeVue<V extends Vue>{
     
     public V getVue() {
     	J.appel(this);
+    	
+    	V vue = loader.getController();
+    	
+    	DoitEtre.nonNul(vue);
 
-    	return loader.getController();
+    	return vue;
     }
 
     
@@ -156,17 +160,14 @@ public class ChargeurDeVue<V extends Vue>{
     private void ajouterCss() {
         J.appel(this);
 
-        for(String cheminCss : cheminsCss) {
-            
-            DoitEtre.nonNul(cheminCss);
+		DoitEtre.nonNul(cheminCss);
 
-            URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
+		URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
             
-            DoitEtre.nonNul(fichierCss);
+		DoitEtre.nonNul(fichierCss);
             
-            parent.getStylesheets().add(fichierCss.toExternalForm());
+		parent.getStylesheets().add(fichierCss.toExternalForm());
 
-        }
     }
 
 	public Parent getParent() {

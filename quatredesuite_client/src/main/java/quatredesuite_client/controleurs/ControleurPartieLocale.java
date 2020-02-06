@@ -3,20 +3,29 @@ package quatredesuite_client.controleurs;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
-import quatredesuite.modeles.partie.Partie;
-import quatredesuite.modeles.partie.PartieLectureSeule;
-import quatredesuite_client.afficheurs.AfficheurPartie;
+import quatredesuite.modeles.partie.JetonLectureSeule;
+import quatredesuite.modeles.partie.PartieLocale;
+import quatredesuite.modeles.partie.PartieLocaleLectureSeule;
+import quatredesuite_client.afficheurs.AfficheurPartieLocale;
 import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 
-public class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeule, 
-															    Partie, 
-															    VuePartieLocale, 
-															    AfficheurPartie> {
+public abstract class ControleurPartieLocale<V extends VuePartieLocale,
+					       				     A extends AfficheurPartieLocale<V>> 
+
+					extends ControleurModeleVue<PartieLocaleLectureSeule, 
+											    PartieLocale, 
+											    V, 
+											    A> {
 	
 	@Override
-	public void installerReceptionCommandes() {
+	protected void demarrer() {
+		J.appel(this);
+	}
+
+	@Override
+	protected void installerReceptionCommandes() {
 		J.appel(this);
 		
 		installerRecepteurCommande(JouerIci.class, new RecepteurCommandeMVC<JouerIciRecue>() {
@@ -24,21 +33,15 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeu
 			public void executerCommandeMVC(JouerIciRecue commande) {
 				J.appel(this);
 
-				int idColonne = commande.getIdColonne();
-				modele.jouerIci(idColonne);
+				modele.jouerIci(commande.getIndiceColonne());
+			}
+			
+			@Override
+			public boolean siCommandePossible(JouerIciRecue commande) {
+				J.appel(this);
+				
+				return modele.siPossibleJouerIci(commande.getIndiceColonne());
 			}
 		});
-	}
-
-	@Override
-	public void detruire() {
-		J.appel(this);
-		
-	}
-
-	@Override
-	public void demarrer() {
-		J.appel(this);
 	} 
-	
 }

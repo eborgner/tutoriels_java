@@ -5,6 +5,7 @@ import commun_client.commandes.Commande;
 import commun_client.commandes.CommandePourEnvoi;
 import commun_client.commandes.CommandeRecue;
 import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionApresCommande;
 import commun_client.commandes.ReactionVideParDefaut;
 import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Vue;
@@ -14,11 +15,11 @@ public abstract class ControleurVue<V extends Vue> {
 	
 	protected V vue;
 	
-	public ControleurVue() {
+	protected ControleurVue() {
 		J.appel(this);
 	}
 	
-	public void setVue(V vue) {
+	void setVue(V vue) {
 		J.appel(this);
 		
 		this.vue = vue;
@@ -32,19 +33,24 @@ public abstract class ControleurVue<V extends Vue> {
 											  RecepteurCommandeMVC<CR> recepteur) {
 		J.appel(this);
 		
-		FabriqueCommande.installerRecepteur(classeCommande, (RecepteurCommande) recepteur);
+		FabriqueCommande.installerRecepteur(classeCommande, (RecepteurCommande<CR>) recepteur);
 		
 		installerReactionApresCommande(classeCommande);
 	}
 	
-	protected void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
+	void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
 		J.appel(this);
 		
-		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionVideParDefaut());
-	}
-	
-	public abstract void installerReceptionCommandes();
-	public abstract void demarrer();
-	public abstract void detruire();
+		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
 
+				vue.verifierCommandesPossibles();
+			}
+		});
+	}
+
+	protected abstract void installerReceptionCommandes();
+	protected abstract void demarrer();
 }
