@@ -39,14 +39,19 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 		
 		switch(couleur) {
-		
 			case ROUGE:
-				pinceau.setFill(couleurRouge);
+				if(!pinceau.getFill().equals(couleurRouge)) {
+					pinceau.setFill(couleurRouge);
+					animerEntreeJeton();
+				}
 				dessinerCase();
 			break;
 
 			case JAUNE:
-				pinceau.setFill(couleurJaune);
+				if(!pinceau.getFill().equals(couleurJaune)) {
+					pinceau.setFill(couleurJaune);
+					animerEntreeJeton();
+				}
 				dessinerCase();
 			break;
 		}
@@ -161,6 +166,12 @@ public class CaseAjustable extends CanvasAjustable {
 		laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
 		
 		return laCase;
+	}
+
+	public void animerEntreeJeton() {
+		J.appel(this);
+		
+		animationEntreeJeton.playFromStart();
 	}
 
 	public void animerSortieJeton() {
