@@ -36,4 +36,10 @@ public class Entete extends HBox {
 			}
 		});
 	}
+
+	public void setActif(boolean enteteActive) {
+		J.appel(this);
+		
+		this.bouton.setDisable(!enteteActive);
+	}
 }

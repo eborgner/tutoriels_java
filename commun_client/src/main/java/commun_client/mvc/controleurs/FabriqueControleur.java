@@ -71,5 +71,6 @@ public final class FabriqueControleur {
 
 		vue.obtenirCommandesPourEnvoi();
 		vue.installerCapteursEvenementsUsager();
+		vue.verifierCommandesPossibles();
 	}
 }

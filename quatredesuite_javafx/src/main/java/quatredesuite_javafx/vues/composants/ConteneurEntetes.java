@@ -44,4 +44,16 @@ public class ConteneurEntetes extends HBox {
 			entete.installerCapteurJouerIci(indiceColonne, jouerIciPourEnvoi);
 		}
 	}
+
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+
+		for(int indiceColonne = 0; indiceColonne < this.getChildren().size(); indiceColonne++) {
+			
+			Entete entete = (Entete) this.getChildren().get(indiceColonne);
+			
+			jouerIciPourEnvoi.setIndiceColonne(indiceColonne);
+			entete.setActif(jouerIciPourEnvoi.siCommandePossible());
+		}
+	}
 }
