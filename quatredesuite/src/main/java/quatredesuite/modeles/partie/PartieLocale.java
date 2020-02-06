@@ -1,5 +1,7 @@
 package quatredesuite.modeles.partie;
 
+import java.util.Random;
+
 import commun.debogage.J;
 import commun.modeles.Modele;
 import quatredesuite.enumerations.Couleur;
