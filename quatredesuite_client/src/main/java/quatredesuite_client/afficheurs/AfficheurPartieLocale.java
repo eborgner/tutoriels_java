@@ -11,7 +11,10 @@ import quatredesuite.modeles.partie.JetonLectureSeule;
 import quatredesuite.modeles.partie.PartieLocaleLectureSeule;
 import quatredesuite_client.vues.VuePartieLocale;
 
-public class AfficheurPartieLocale extends Afficheur<PartieLocaleLectureSeule, VuePartieLocale>{
+public abstract class AfficheurPartieLocale<V extends VuePartieLocale> 
+
+							extends Afficheur<PartieLocaleLectureSeule, 
+											  V> {
 
 	@Override
 	public void initialiserAffichage(PartieLocaleLectureSeule partieLectureSeule, VuePartieLocale vue) {

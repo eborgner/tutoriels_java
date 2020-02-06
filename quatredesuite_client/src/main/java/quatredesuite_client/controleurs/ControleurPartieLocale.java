@@ -10,10 +10,14 @@ import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 
-public class ControleurPartieLocale extends ControleurModeleVue<PartieLocaleLectureSeule, 
-															    PartieLocale, 
-															    VuePartieLocale, 
-															    AfficheurPartieLocale> {
+public abstract class ControleurPartieLocale<V extends VuePartieLocale,
+					       				     A extends AfficheurPartieLocale<V>> 
+
+					extends ControleurModeleVue<PartieLocaleLectureSeule, 
+											    PartieLocale, 
+											    V, 
+											    A> {
+	
 	@Override
 	protected void demarrer() {
 		J.appel(this);
@@ -33,5 +37,4 @@ public class ControleurPartieLocale extends ControleurModeleVue<PartieLocaleLect
 			}
 		});
 	} 
-	
 }
