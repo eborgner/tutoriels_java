@@ -173,4 +173,9 @@ public class VuePartieLocaleAndroid extends ConstraintLayout implements VueParti
 
 
 	}
+
+	@Override
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+	}
 }
