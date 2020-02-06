@@ -13,6 +13,7 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.controleurs.ControleurPrincipal;
+import quatredesuite_javafx.vues.VuePartieLocaleFX;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 import static quatredesuite_javafx.Constantes.*;
 
@@ -52,6 +53,8 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	
 	private void nouvellePartieLocale() {
 		J.appel(this);
+		
+		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
 		
 	}
 	
