@@ -6,10 +6,6 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-import javafx.animation.AnimationTimer;
-import javafx.event.EventHandler;
-import javafx.event.Event;
-
 public class CaseAjustable extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
@@ -30,10 +26,21 @@ public class CaseAjustable extends CanvasAjustable {
 	}
 
 	@Override
+	protected void reagirLargeurInitiale(double largeurInitiale) {
+		J.appel(this);
+		
+	}
+
+	@Override
+	protected void reagirHauteurInitiale(double hauteurInitiale) {
+		J.appel(this);
+		
+		dessinerCase();
+	}
+
+	@Override
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
 		J.appel(this);
-
-		viderDessin();
 
 		dessinerCase();
 	}
@@ -42,28 +49,21 @@ public class CaseAjustable extends CanvasAjustable {
 	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
 		J.appel(this);
 
-		viderDessin();
-
-		dessinerCase();
 	}
 
 	private void initialiserPinceau() {
 		J.appel(this);
 
-		pinceau.setFill(Color.WHITE);
-		pinceau.setStroke(Color.BLACK);
-		pinceau.setLineWidth(0.01*getWidth());
 	}
 	
 	private void viderDessin() {
 		J.appel(this);
 
-		pinceau.clearRect(0, 0, getWidth(), getHeight());
 	}
 	
 	private void dessinerCase() {
 		J.appel(this);
-		
+
 		dessinerCase(TAILLE_POURCENTAGE);
 	}
 	
@@ -79,25 +79,12 @@ public class CaseAjustable extends CanvasAjustable {
 	private void dessinerFond(Case laCase) {
 		J.appel(this);
 
-		pinceau.fillArc(laCase.caseHautGaucheX, 
-						laCase.caseHautGaucheY, 
-						laCase.tailleCase, 
-						laCase.tailleCase, 
-						0, 
-						360, 
-						ArcType.ROUND);
 	}
+
 
 	private void dessinerContour(Case laCase) {
 		J.appel(this);
 
-		pinceau.strokeArc(laCase.caseHautGaucheX, 
-						  laCase.caseHautGaucheY, 
-						  laCase.tailleCase, 
-						  laCase.tailleCase, 
-						  0, 
-						  360, 
-						  ArcType.OPEN);
 	}
 
 	private Case calculerCase(double taillePourcentage) {
@@ -120,17 +107,4 @@ public class CaseAjustable extends CanvasAjustable {
 		return laCase;
 	}
 
-	@Override
-	protected void reagirLargeurInitiale(double largeurInitiale) {
-		J.appel(this);
-		
-		dessinerCase();
-	}
-
-	@Override
-	protected void reagirHauteurInitiale(double hauteurInitiale) {
-		J.appel(this);
-
-		dessinerCase();
-	}
 }
