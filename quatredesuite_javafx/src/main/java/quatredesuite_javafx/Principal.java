@@ -9,10 +9,8 @@ import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import quatredesuite.modeles.partie.PartieLocale;
-import quatredesuite_client.afficheurs.AfficheurPartieLocale;
-import quatredesuite_client.controleurs.ControleurPartieLocale;
-import quatredesuite_javafx.vues.VuePartieLocaleFX;
+import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
+import quatredesuite_javafx.vues.VuePrincipaleFX;
 
 public class Principal extends Application {
 
@@ -32,9 +30,9 @@ public class Principal extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		ChargeurDeVue<VuePartieLocaleFX> chargeur = new ChargeurDeVue<VuePartieLocaleFX>(CHEMIN_PARTIE_LOCALE_FXML,
+		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
 						CHEMIN_CHAINES,
-						CHEMIN_PARTIE_LOCALE_CSS);
+						CHEMIN_PRINCIPAL_CSS);
 
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);
 
@@ -45,18 +43,12 @@ public class Principal extends Application {
 
 		fenetrePrincipale.show();
 
-		VuePartieLocaleFX vue = chargeur.getVue();
+		VuePrincipaleFX vue = chargeur.getVue();
 		
 		DoitEtre.nonNul(vue);
 
-		PartieLocale partie = new PartieLocale();
-		
-		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
-		
-		FabriqueControleur.creerControleur(ControleurPartieLocale.class, 
-							               partie,
-										   vue,
-										   afficheur);
+		FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
+										   vue);
 	}
 }
 
