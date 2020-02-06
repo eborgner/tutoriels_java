@@ -34,6 +34,9 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 				
 				modele.jouerIci(commande.getIndiceColonne());
 				
+				// FIXME: vue.animerEntreeJeton va ici!
+				//        mais il faut demander au modèle les indices et la couleur du dernier jeton
+				
 			}
 			
 			@Override
