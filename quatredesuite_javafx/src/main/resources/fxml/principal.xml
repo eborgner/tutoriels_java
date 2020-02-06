@@ -13,10 +13,10 @@
                 <menus>
                 <Menu styleClass="menu" text="%partieLocale">
                     <items>
-                    <MenuItem fx:id="nouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
-                    <MenuItem fx:id="parametres" styleClass="menu_item" text="%parametres"/>
+                    <MenuItem fx:id="menuNouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
+                    <MenuItem fx:id="menuParametres" styleClass="menu_item" text="%parametres"/>
                     <SeparatorMenuItem/>
-                    <MenuItem fx:id="quitter" styleClass="menu_item" text="%quitter"/>
+                    <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="%quitter"/>
                     </items>
                 </Menu>
             </menus>
