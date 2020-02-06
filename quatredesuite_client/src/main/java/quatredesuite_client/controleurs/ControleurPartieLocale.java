@@ -3,6 +3,7 @@ package quatredesuite_client.controleurs;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
+import quatredesuite.modeles.partie.JetonLectureSeule;
 import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite.modeles.partie.PartieLocaleLectureSeule;
 import quatredesuite_client.afficheurs.AfficheurPartieLocale;
@@ -31,12 +32,8 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 			@Override
 			public void executerCommandeMVC(JouerIciRecue commande) {
 				J.appel(this);
-				
+
 				modele.jouerIci(commande.getIndiceColonne());
-				
-				// FIXME: vue.animerEntreeJeton va ici!
-				//        mais il faut demander au modèle les indices et la couleur du dernier jeton
-				
 			}
 			
 			@Override

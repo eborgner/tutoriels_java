@@ -11,12 +11,10 @@ public class Colonne implements ColonneLectureSeule {
 	
 	private List<Jeton> jetons = new ArrayList<>();
 
-	public void ajouterJeton(Couleur couleur) {
+	public void ajouterJeton(Jeton jeton) {
 		J.appel(this);
 		
-		Jeton jeton = new Jeton();
-		
-		jeton.initialiser(couleur);
+		jeton.setIndiceRangee(jetons.size());
 		
 		jetons.add(jeton);
 	}

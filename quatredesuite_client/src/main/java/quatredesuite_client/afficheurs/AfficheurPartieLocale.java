@@ -33,6 +33,12 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 		GrilleLectureSeule grille = partieLectureSeule.getGrille();
 		
 		rafraichirGrille(grille, vue);
+		
+		JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
+		
+		if(dernierJeton != null) {
+			vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), dernierJeton.getIndiceRangee());
+		}
 	}
 
 	private void rafraichirGrille(GrilleLectureSeule grille, VuePartieLocale vue) {

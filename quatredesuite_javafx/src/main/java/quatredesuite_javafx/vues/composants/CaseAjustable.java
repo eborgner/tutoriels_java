@@ -40,21 +40,12 @@ public class CaseAjustable extends CanvasAjustable {
 		
 		switch(couleur) {
 			case ROUGE:
-				// FIXME: c'est un hack
-				//        il faut plutôt que animerEntreeJeton soit 
-				//        appeler de l'extérieur
-				if(!pinceau.getFill().equals(couleurRouge)) {
-					pinceau.setFill(couleurRouge);
-					animerEntreeJeton();
-				}
+				pinceau.setFill(couleurRouge);
 				dessinerCase();
 			break;
 
 			case JAUNE:
-				if(!pinceau.getFill().equals(couleurJaune)) {
-					pinceau.setFill(couleurJaune);
-					animerEntreeJeton();
-				}
+				pinceau.setFill(couleurJaune);
 				dessinerCase();
 			break;
 		}

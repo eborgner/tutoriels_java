@@ -15,6 +15,8 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 
 	private Grille grille;
 	
+	private Jeton dernierJetonAjoute;
+	
 	public PartieLocale() {
 		J.appel(this);
 		
@@ -30,8 +32,13 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 
     public void effectuerCoup(int indiceColonne) {
         J.appel(this);
+        
+        dernierJetonAjoute = new Jeton();
+        dernierJetonAjoute.setIndiceColonne(indiceColonne);
+        dernierJetonAjoute.setCouleur(couleurCourante);
 
-        grille.ajouterJeton(indiceColonne, couleurCourante);
+        grille.ajouterJeton(dernierJetonAjoute);
+
         prochaineCouleur();
     }
 
@@ -100,6 +107,11 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 		}
 		
 		return siPossibleJouerIci;
+	}
+
+	@Override
+	public JetonLectureSeule getDernierJetonAjoute() {
+		return dernierJetonAjoute;
 	}
 
 

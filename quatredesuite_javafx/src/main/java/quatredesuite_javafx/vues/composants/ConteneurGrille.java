@@ -128,4 +128,19 @@ public class ConteneurGrille extends VBox {
 				new KeyFrame(new Duration(i*50l),
 						new KeyValue(this.rotateProperty(), 0)));
 	}
+
+
+	public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
+		J.appel(this);
+
+		int indiceRangeeGraphique = convertirIndiceRangee(indiceRangee);
+		
+		if(siIndiceRangeeGraphiqueValide(indiceRangeeGraphique)) {
+			
+			ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangeeGraphique);
+			ligne.animerEntreeJeton(indiceColonne);
+			
+		}
+		
+	}
 }

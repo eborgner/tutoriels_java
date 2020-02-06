@@ -78,4 +78,11 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 		
 		conteneurEntetes.verifierCommandesPossibles();
 	}
+
+	@Override
+	public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
+		J.appel(this);
+		
+		conteneurGrille.animerEntreeJeton(indiceColonne, indiceRangee);
+	}
 }

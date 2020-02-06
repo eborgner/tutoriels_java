@@ -48,4 +48,14 @@ public class ConteneurLigne extends HBox {
 			caseAjustable.animerSortieJeton();
 		}
 	}
+
+	public void animerEntreeJeton(int indiceColonne) {
+		J.appel(this);
+
+		if(indiceColonne < this.getChildren().size()) {
+
+			CaseAjustable caseAjustable = (CaseAjustable) this.getChildren().get(indiceColonne);
+			caseAjustable.animerEntreeJeton();
+		}
+	}
 }

@@ -7,5 +7,6 @@ public interface VuePartieLocale extends Vue {
 
 	void creerGrille(int largeur, int hauteur);
 	void afficherJeton(int indiceColonne, int indiceRangee, Couleur couleur);
+	void animerEntreeJeton(int indiceColonne, int indiceRangee);
 
 }
