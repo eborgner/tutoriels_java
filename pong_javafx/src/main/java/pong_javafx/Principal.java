@@ -17,91 +17,89 @@ import pong_javafx.vues.VuePrincipaleFX;
 
 @SuppressWarnings("rawtypes")
 public class Principal extends Application {
-	
+    
 
-	static {
+    static {
 
-		Initialisateur.initialiser();
-		
-		J.appel(Principal.class);
-	}
-	
-	public static void main(String[] args) {
-		J.appel(Principal.class);
-		launch(args);
-	}
+        Initialisateur.initialiser();
+        
+        J.appel(Principal.class);
+    }
+    
+    public static void main(String[] args) {
+        J.appel(Principal.class);
+        launch(args);
+    }
 
-	private ControleurPrincipal controleurPrincipal;
-	private static Stage fenetrePrincipale;
-	
-	@Override
-	public void start(Stage fenetrePrincipale) throws Exception {
-		J.appel(this);
-		
-		Principal.fenetrePrincipale = fenetrePrincipale;
+    private ControleurPrincipal controleurPrincipal;
+    private static Stage fenetrePrincipale;
+    
+    @Override
+    public void start(Stage fenetrePrincipale) throws Exception {
+        J.appel(this);
+        
+        Principal.fenetrePrincipale = fenetrePrincipale;
 
-		ChargeurDeVue<VuePrincipaleFX> chargeur = creerChargeurVuePrincipale();
-		
-		controleurPrincipal = creerControleurPrincipal(chargeur);
-		
-		Scene scene = creerScenePrincipale(chargeur);
+        ChargeurDeVue<VuePrincipaleFX> chargeur = creerChargeurVuePrincipale();
+        
+        controleurPrincipal = creerControleurPrincipal(chargeur);
+        
+        Scene scene = creerScenePrincipale(chargeur);
 
-		fenetrePrincipale.setScene(scene);
-		
-		fenetrePrincipale.setMinWidth(LARGEUR);
-		fenetrePrincipale.setMinHeight(HAUTEUR);
+        fenetrePrincipale.setScene(scene);
+        
+        fenetrePrincipale.setMinWidth(LARGEUR);
+        fenetrePrincipale.setMinHeight(HAUTEUR);
 
-		fenetrePrincipale.show();
+        fenetrePrincipale.show();
 
-	}
-	
-	public static void ouvrirDialogueModal(Scene scene) {
-		J.appel(Principal.class);
+    }
+    
+    public static void ouvrirDialogueModal(Scene scene) {
+        J.appel(Principal.class);
 
         Stage fenetreModale = new Stage();
         fenetreModale.setScene(scene);
         fenetreModale.initOwner(fenetrePrincipale);
         fenetreModale.initModality(Modality.APPLICATION_MODAL);
         fenetreModale.showAndWait();
-	}
+    }
 
-	private Scene creerScenePrincipale(ChargeurDeVue<VuePrincipaleFX> chargeur) {
-		J.appel(this);
+    private Scene creerScenePrincipale(ChargeurDeVue<VuePrincipaleFX> chargeur) {
+        J.appel(this);
 
-		
-		Scene scene = chargeur.nouvelleScene(50, 50, 2);
+        
+        Scene scene = chargeur.nouvelleScene(50, 50, 2);
 
-		DoitEtre.nonNul(scene);
+        DoitEtre.nonNul(scene);
 
-		return scene;
-	}
+        return scene;
+    }
 
-	private ChargeurDeVue<VuePrincipaleFX> creerChargeurVuePrincipale() {
-		J.appel(this);
+    private ChargeurDeVue<VuePrincipaleFX> creerChargeurVuePrincipale() {
+        J.appel(this);
 
-		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PRINCIPAL_CSS);
-		
-		return chargeur;
-	}
+        ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
+                        CHEMIN_CHAINES,
+                        CHEMIN_PRINCIPAL_CSS);
+        
+        return chargeur;
+    }
 
-	private ControleurPrincipal creerControleurPrincipal(ChargeurDeVue<VuePrincipaleFX> chargeur) {
+    private ControleurPrincipal creerControleurPrincipal(ChargeurDeVue<VuePrincipaleFX> chargeur) {
 
 
-		VuePrincipaleFX vuePrincipale = chargeur.getVue();
+        VuePrincipaleFX vuePrincipale = chargeur.getVue();
 
-		ControleurPrincipalFX controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
-																					   vuePrincipale);
+        ControleurPrincipalFX controleurPrincipal = FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
+                                                                                       vuePrincipale);
 
-		return controleurPrincipal;
-	}
-	
-	@Override
-	public void stop() {
-		J.appel(this);
-
-		controleurPrincipal.detruire();
-	}
+        return controleurPrincipal;
+    }
+    
+    @Override
+    public void stop() {
+        J.appel(this);
+    }
 }
 

@@ -132,4 +132,9 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 		tablePong.afficherFPS(fps);
 	}
 
+	@Override
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+	}
+
 }

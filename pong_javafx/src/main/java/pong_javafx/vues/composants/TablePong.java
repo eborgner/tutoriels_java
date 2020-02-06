@@ -20,6 +20,16 @@ public class TablePong extends CanvasAjustable {
 
 		aggrandirTablePong = FabriqueCommande.obtenirCommandePourEnvoi(AggrandirTablePong.class);
 	}
+
+	@Override
+	protected void reagirLargeurInitiale(double largeurInitiale) {
+		J.appel(this);
+	}
+
+	@Override
+	protected void reagirHauteurInitiale(double hauteurInitiale) {
+		J.appel(this);
+	}
 	
 	@Override
 	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
@@ -123,6 +133,7 @@ public class TablePong extends CanvasAjustable {
 		
 		pinceau.fillText(String.format("%f FPS", fps), getWidth() - 50, 20);
 	}
+
 
 }
 	

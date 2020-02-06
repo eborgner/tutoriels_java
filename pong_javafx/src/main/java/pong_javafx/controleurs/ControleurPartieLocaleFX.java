@@ -17,15 +17,6 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 		animationTimer.start();
 	}
 	
-	@Override
-	public void detruire() {
-		J.appel(this);
-
-		animationTimer.stop();
-
-		super.detruire();
-	}
-
 	private void creerAnimation() {
 		J.appel(this);
 

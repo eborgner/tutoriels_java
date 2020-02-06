@@ -15,76 +15,69 @@ import pong_client.commandes.stopper_palette.StopperPaletteRecue;
 import pong_client.vues.VuePartieLocale;
 
 public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieLectureSeule,
-															    Partie,
-															    VuePartieLocale,
-															    AfficheurPartie> {
-	
-	private static final double DELAIS_FPS_SECONDES = 1.0;
-	private double secondesDepuisDernierCalculFPS = 0;
-	private long affichagesDepuisDernierCalculFPS = 0;
-	private double fpsCourant = 0;
+                                                                Partie,
+                                                                VuePartieLocale,
+                                                                AfficheurPartie> {
+    
+    private static final double DELAIS_FPS_SECONDES = 1.0;
+    private double secondesDepuisDernierCalculFPS = 0;
+    private long affichagesDepuisDernierCalculFPS = 0;
+    private double fpsCourant = 0;
 
-	@Override
-	public void installerReceptionCommandes() {
-		J.appel(this);
-		
-		installerRecepteurCommande(AggrandirTablePong.class, new RecepteurCommandeMVC<AggrandirTablePongRecue>() {
-			@Override
-			public void executerCommandeMVC(AggrandirTablePongRecue commande) {
-				J.appel(this);
-				
-				modele.aggrandirTablePong(commande.getDimension(), commande.getFacteurAggrandissement());
-			}
-		});
-		
-		installerRecepteurCommande(DeplacerPalette.class, new RecepteurCommandeMVC<DeplacerPaletteRecue>() {
-			@Override
-			public void executerCommandeMVC(DeplacerPaletteRecue commande) {
-				J.appel(this);
-				
-				modele.deplacerPalette(commande.getCadran(), commande.getDirection());
-			}
-		});
-		
-		installerRecepteurCommande(StopperPalette.class, new RecepteurCommandeMVC<StopperPaletteRecue>() {
-			@Override
-			public void executerCommandeMVC(StopperPaletteRecue commande) {
-				J.appel(this);
-				
-				modele.stopperPalette(commande.getCadran());
-				
-			}
-		});
+    @Override
+    public void installerReceptionCommandes() {
+        J.appel(this);
+        
+        installerRecepteurCommande(AggrandirTablePong.class, new RecepteurCommandeMVC<AggrandirTablePongRecue>() {
+            @Override
+            public void executerCommandeMVC(AggrandirTablePongRecue commande) {
+                J.appel(this);
+                
+                modele.aggrandirTablePong(commande.getDimension(), commande.getFacteurAggrandissement());
+            }
+        });
+        
+        installerRecepteurCommande(DeplacerPalette.class, new RecepteurCommandeMVC<DeplacerPaletteRecue>() {
+            @Override
+            public void executerCommandeMVC(DeplacerPaletteRecue commande) {
+                J.appel(this);
+                
+                modele.deplacerPalette(commande.getCadran(), commande.getDirection());
+            }
+        });
+        
+        installerRecepteurCommande(StopperPalette.class, new RecepteurCommandeMVC<StopperPaletteRecue>() {
+            @Override
+            public void executerCommandeMVC(StopperPaletteRecue commande) {
+                J.appel(this);
+                
+                modele.stopperPalette(commande.getCadran());
+                
+            }
+        });
 
-	}
+    }
 
-	protected void reagirTempsQuiPasse(double tempsEcouleSecondes) {
-		J.appel(this);
-		
+    protected void reagirTempsQuiPasse(double tempsEcouleSecondes) {
+        J.appel(this);
+        
 
-		modele.reagirTempsQuiPasse(tempsEcouleSecondes);
-		afficheur.rafraichirAffichage((PartieLectureSeule) modele, vue);
+        modele.reagirTempsQuiPasse(tempsEcouleSecondes);
+        afficheur.rafraichirAffichage((PartieLectureSeule) modele, vue);
 
-		vue.afficherFPS(fpsCourant);
+        vue.afficherFPS(fpsCourant);
 
-		secondesDepuisDernierCalculFPS += tempsEcouleSecondes;
-		affichagesDepuisDernierCalculFPS++;
+        secondesDepuisDernierCalculFPS += tempsEcouleSecondes;
+        affichagesDepuisDernierCalculFPS++;
 
-		J.valeurs(secondesDepuisDernierCalculFPS);
+        J.valeurs(secondesDepuisDernierCalculFPS);
 
-		if(secondesDepuisDernierCalculFPS >= DELAIS_FPS_SECONDES) {
-			
-			fpsCourant = affichagesDepuisDernierCalculFPS / secondesDepuisDernierCalculFPS;
-			
-			secondesDepuisDernierCalculFPS = 0;
-			affichagesDepuisDernierCalculFPS = 0;
-		}
-	}
-
-	@Override
-	public void detruire() {
-		J.appel(this);
-		
-	}
-
+        if(secondesDepuisDernierCalculFPS >= DELAIS_FPS_SECONDES) {
+            
+            fpsCourant = affichagesDepuisDernierCalculFPS / secondesDepuisDernierCalculFPS;
+            
+            secondesDepuisDernierCalculFPS = 0;
+            affichagesDepuisDernierCalculFPS = 0;
+        }
+    }
 }
