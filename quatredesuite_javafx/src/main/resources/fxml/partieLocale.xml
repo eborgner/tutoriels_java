@@ -10,15 +10,6 @@
       styleClass="conteneurPrincipal" 
       fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX"
       VBox.vgrow="ALWAYS">
-    <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
-            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
-                <Text fx:id="nomJoueurUn" styleClass="nomJoueur" text="%joueurUn"/>
-            </HBox>
-            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
-                <Text fx:id="nomJoueurDeux" styleClass="nomJoueur" text="%joueurDeux"/>
-            </HBox>
-    </HBox>
-    <VBox styleClass="petitEspaceVertical"/>
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <ConteneurEntetes fx:id="conteneurEntetes" 
                           styleClass="conteneurBoutons" 
@@ -27,4 +18,13 @@
         <VBox styleClass="petitEspace"/>
         <ConteneurGrille fx:id="conteneurGrille" styleClass="conteneurGrille" VBox.vgrow="ALWAYS"/>
     </VBox>
+    <VBox styleClass="petitEspaceVertical"/>
+    <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
+                <Text fx:id="nomJoueurUn" styleClass="nomJoueur" text="%joueurUn"/>
+            </HBox>
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
+                <Text fx:id="nomJoueurDeux" styleClass="nomJoueur" text="%joueurDeux"/>
+            </HBox>
+    </HBox>
 </VBox>
