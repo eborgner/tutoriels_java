@@ -1,9 +1,11 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-border-style: solid;
-  -fx-border-width: 5px;
-  -fx-border-color: #161620;
-  -fx-background-color: #95c5db;
+  /*
+    -fx-border-style: solid;
+    -fx-border-width: 5px;
+    -fx-border-color:@fonce1;
+    -fx-background-color:@pale1;
+    */
   -fx-padding: 4em;
 }
 .petitEspace {
@@ -69,9 +71,11 @@
   -fx-min-width: 6em;
   -fx-pref-width: 12em;
   -fx-max-width: 60em;
-  -fx-background-color: #305ae1;
-  -fx-background-radius: 20px 20px 20px 20px;
-  -fx-border-radius: 20px 20px 20px 20px;
+  /*
+    -fx-background-color:@fonce2;
+    -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+    -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+    */
 }
 .conteneurLigne {
   -fx-alignment: center;
@@ -82,11 +86,15 @@
 }
 .conteneurCase {
   -fx-alignment: center;
-  -fx-border-style: dashed;
-  -fx-border-width: 2px;
-  -fx-min-width: 2em;
-  -fx-pref-width: 4em;
-  -fx-max-width: 20em;
+  /*
+
+    -fx-border-style : solid;
+    -fx-border-width : 2px;
+
+    */
+  -fx-background-color: lightgray;
+  -fx-min-width: 6em;
+  -fx-max-width: 60em;
 }
 .petitEspaceVertical {
   -fx-min-height: 1em;
