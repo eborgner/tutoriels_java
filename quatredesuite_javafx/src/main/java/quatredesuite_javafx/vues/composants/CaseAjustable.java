@@ -5,26 +5,25 @@ import commun.debogage.J;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
-
+import javafx.scene.text.Font;
 import javafx.animation.AnimationTimer;
-import javafx.event.EventHandler;
-import javafx.event.Event;
 
 public class CaseAjustable extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
 	AnimationTimer animation;
 
-
 	public CaseAjustable() {
 		super();
+		
+		this.getStyleClass().add("conteneurCase");
 
 		initialiserPinceau();
 		dessinerCase();
 		
 		creerAnimation();
 
-		installerListeners();
+		animation.start();
 	}
 
 	@Override
@@ -164,8 +163,6 @@ public class CaseAjustable extends CanvasAjustable {
 
 				double endroitDuCycle = calculerFacteurCourant(secondesEcoulees);
 				
-				J.valeurs(endroitDuCycle);
-				
 				dessinerProchain(endroitDuCycle);
 
 				J.setActif(true);
@@ -183,48 +180,41 @@ public class CaseAjustable extends CanvasAjustable {
 				J.appel(this);
 
 				viderDessin();
+				
+				dessinerEndroitDuCycle(endroitDuCycle);
 
 				dessinerCase();
 				dessinerImageCle(endroitDuCycle);
 			}
+			
+			private void dessinerEndroitDuCycle(double endroitDuCycle) {
+				J.appel(this);
+				
+				pinceau.save();
+				
+				pinceau.setFont(new Font("Times", 30));
+				pinceau.setFill(Color.BLACK);
+				pinceau.fillText("endroitDuCyle:", 10, 40);
+				pinceau.fillText(String.format("%1.3f", endroitDuCycle), 280, 40);
+
+				pinceau.fillText("-1.0", 10, 120);
+				pinceau.fillText("1.0", getWidth() - 60, 120);
+				
+				double largeurPourBalle = getWidth() - 85;
+				double centrePourBalle = 25 + largeurPourBalle / 2;
+				double xPourBalle = centrePourBalle + endroitDuCycle * largeurPourBalle / 2;
+				
+				pinceau.fillArc(xPourBalle, 140, 20,20, 0, 360, ArcType.ROUND);
+				
+				
+				pinceau.restore();
+				
+			}
 
 			private void dessinerImageCle(double endroitDuCycle) {
 				J.appel(this);
-		
-				dessinerCase(TAILLE_POURCENTAGE * Math.abs(endroitDuCycle));
+
 			}
 		};
-	}
-
-	
-	
-	
-	
-	
-	
-	private void installerListeners() {
-		J.appel(this);
-		
-		this.setOnMouseEntered(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-				J.appel(this);
-
-				animation.start();
-			}
-		});
-		
-		this.setOnMouseExited(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-				J.appel(this);
-				
-				animation.stop();
-
-				viderDessin();
-
-				dessinerCase();
-			}
-		});
 	}
 }

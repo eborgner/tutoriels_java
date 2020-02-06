@@ -9,6 +9,7 @@
 <?import quatredesuite_javafx.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
+    <!--
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
                 <Text styleClass="nomJoueur" text="%joueurUn"></Text>
@@ -18,7 +19,9 @@
             </HBox>
     </HBox>
     <VBox styleClass="petitEspaceVertical"/>
+    -->
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
+        <!--
         <HBox styleClass="conteneurBoutons" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurBouton" HBox.hgrow="ALWAYS">
                 <Button styleClass="boutonCoup" text="↡"/>
@@ -31,12 +34,16 @@
             </HBox>
         </HBox>
         <VBox styleClass="petitEspace"/>
+        -->
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <!--
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
+                -->
             </HBox>
+            <!--
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
@@ -47,6 +54,7 @@
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
                 <CaseAjustable HBox.hgrow="ALWAYS"/>
             </HBox>
+            -->
         </VBox>
     </VBox>
 </VBox>

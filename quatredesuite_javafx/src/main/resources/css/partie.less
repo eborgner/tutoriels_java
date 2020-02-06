@@ -68,9 +68,11 @@
     -fx-pref-width : @largeurGrillePref;
     -fx-max-width  : @largeurGrilleMax;
 
+    /*
     -fx-background-color:@fonce2;
     -fx-background-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
     -fx-border-radius: @petitCoin @petitCoin @petitCoin @petitCoin;
+    */
 }
 
 .conteneurLigne{
@@ -85,9 +87,17 @@
 .conteneurCase{
     -fx-alignment:center;
 
-    -fx-min-width  : @largeurImageMin;
-    -fx-pref-width : @largeurImagePref;
-    -fx-max-width  : @largeurImageMax;
+    /*
+
+    -fx-border-style : solid;
+    -fx-border-width : 2px;
+
+    */
+
+    -fx-background-color:lightgray;
+
+    -fx-min-width  : 3*@largeurImageMin;
+    -fx-max-width  : 3*@largeurImageMax;
 
 }
 
