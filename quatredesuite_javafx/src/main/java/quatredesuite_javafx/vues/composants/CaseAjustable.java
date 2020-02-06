@@ -10,12 +10,6 @@ public class CaseAjustable extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
 
-	private class Case {
-		public double caseHautGaucheX;
-		public double caseHautGaucheY;
-		public double tailleCase;
-	}
-
 	public CaseAjustable() {
 		super();
 		
@@ -65,6 +59,12 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		dessinerCase(TAILLE_POURCENTAGE);
+	}
+
+	private class Case {
+		public double caseHautGaucheX;
+		public double caseHautGaucheY;
+		public double tailleCase;
 	}
 	
 	private void dessinerCase(double taillePourcentage) {
