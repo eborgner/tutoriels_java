@@ -22,6 +22,8 @@ public class CaseAjustable extends CanvasAjustable {
 
 	public CaseAjustable() {
 		super();
+		
+		this.getStyleClass().add("conteneurCase");
 
 		initialiserPinceau();
 		dessinerCase();

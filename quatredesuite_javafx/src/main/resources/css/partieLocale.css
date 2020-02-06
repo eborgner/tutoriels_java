@@ -82,6 +82,8 @@
 }
 .conteneurCase {
   -fx-alignment: center;
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
   -fx-min-width: 2em;
   -fx-pref-width: 4em;
   -fx-max-width: 20em;
