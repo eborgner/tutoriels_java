@@ -4,9 +4,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import commun.debogage.J;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.RecepteurCommande;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import quatredesuite.enumerations.Couleur;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_javafx.vues.composants.ConteneurEntetes;
 import quatredesuite_javafx.vues.composants.ConteneurGrille;
@@ -26,6 +30,15 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
+		
+		FabriqueCommande.installerRecepteur(ViderGrille.class, new RecepteurCommande<ViderGrilleRecue>() {
+			@Override
+			public void executerCommande(ViderGrilleRecue commande) {
+				J.appel(this);
+				
+				commande.notifierCommandeTraitee();
+			}
+		});
 	} 
 
     @Override

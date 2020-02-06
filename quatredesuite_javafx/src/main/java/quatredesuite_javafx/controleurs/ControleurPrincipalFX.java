@@ -2,6 +2,8 @@ package quatredesuite_javafx.controleurs;
 
 import commun.debogage.J;
 import commun.systeme.Systeme;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionApresCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
@@ -14,6 +16,8 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
+import quatredesuite_client.commandes.vider_grille.ViderGrillePourEnvoi;
 import quatredesuite_client.controleurs.ControleurPartieLocale;
 import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
@@ -22,6 +26,8 @@ import quatredesuite_javafx.vues.VuePrincipaleFX;
 import static quatredesuite_javafx.Constantes.*;
 
 public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
+	
+	ViderGrillePourEnvoi viderGrillePourEnvoi;
 
 	@Override
 	protected void installerReceptionCommandes() {
@@ -44,15 +50,26 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 				ouvrirParametres();
 			}
 		});
-
+		
 		installerRecepteurCommande(NouvellePartie.class, new RecepteurCommandeMVC<NouvellePartieRecue>() {
 			@Override
 			public void executerCommandeMVC(NouvellePartieRecue commande) {
 				J.appel(this);
 				
-				nouvellePartieLocale();
+				if(viderGrillePourEnvoi == null) {
+
+					nouvellePartieLocale();
+					installerViderGrillePourEnvoi();
+
+				}else {
+					
+					J.valeurs("ICI!!!");
+					
+					viderGrillePourEnvoi.envoyerCommande();
+				}
 			}
 		});
+		
 	}
 	
 	private void nouvellePartieLocale() {
@@ -65,6 +82,22 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
+	}
+	
+	private void installerViderGrillePourEnvoi() {
+		J.appel(this);
+
+		FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
+
+				nouvellePartieLocale();
+			}
+		});
+		
+		viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
+
 		
 	}
 	
