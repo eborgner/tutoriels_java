@@ -86,8 +86,21 @@ public class ConteneurGrille extends VBox {
 			}
 		});	
 		
+		animerSortieJetons();
 		animationViderGrille.playFromStart();
 	}
+
+	private void animerSortieJetons() {
+		J.appel(this);
+		
+		for(int indiceRangee = 0; indiceRangee < this.getChildren().size(); indiceRangee++) {
+			
+			ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangee);
+			
+			ligne.animerSortieJetons();
+		}
+	}
+
 
 	private void creerAnimationViderGrille() {
 		J.appel(this);
