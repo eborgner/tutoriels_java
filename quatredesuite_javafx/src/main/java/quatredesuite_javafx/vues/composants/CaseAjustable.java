@@ -37,53 +37,55 @@ public class CaseAjustable extends CanvasAjustable {
 
 		animation = new AnimationTimer() {
 
-			private long avant = System.nanoTime();
-			private double tempsCycleSecondes = 0.5;
-			private double facteurMin = 0;
-			private double facteurMax = 1;
-			private double facteurCourant = facteurMax;
+			private long avant;
+			private double tempsCycleSecondes = 2.5;
+			
+			@Override
+			public void start() {
+				J.appel(this);
+				
+				avant = System.nanoTime();
+
+				super.start();
+			}
 
 			@Override
 			public void handle(long maintenant) {
-				J.setActif(false);
+				J.setActif(true);
 				J.appel(this);
 				
 				double secondesEcoulees = (maintenant - avant) / 1E9;
-				avant = maintenant;
 
-				calculerFacteurCourant(secondesEcoulees);
+				double endroitDuCycle = calculerFacteurCourant(secondesEcoulees);
 				
-				dessinerProchain();
+				J.valeurs(endroitDuCycle);
+				
+				dessinerProchain(endroitDuCycle);
 
 				J.setActif(true);
 			}
 
-			private void calculerFacteurCourant(double secondesEcoulees) {
+			private double calculerFacteurCourant(double secondesEcoulees) {
 				J.appel(this);
 
-				double ratioEcoule = secondesEcoulees / tempsCycleSecondes;
+				double tempsNormalise = secondesEcoulees / tempsCycleSecondes * Math.PI * 2;
 				
-				facteurCourant = facteurCourant - ratioEcoule * facteurMax;
-				
-				if(facteurCourant < facteurMin) {
-
-					facteurCourant = facteurMax;
-				}
+				return Math.cos(tempsNormalise);
 			}
 
-			private void dessinerProchain() {
+			private void dessinerProchain(double endroitDuCycle) {
 				J.appel(this);
 
 				viderDessin();
 
 				dessinerCase();
-				dessinerImageCle(facteurCourant);
+				dessinerImageCle(endroitDuCycle);
 			}
 
-			private void dessinerImageCle(double facteurCourant) {
+			private void dessinerImageCle(double endroitDuCycle) {
 				J.appel(this);
 		
-				dessinerCase(TAILLE_POURCENTAGE * facteurCourant);
+				dessinerCase(TAILLE_POURCENTAGE * Math.abs(endroitDuCycle));
 			}
 		};
 	}
