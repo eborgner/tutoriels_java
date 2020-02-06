@@ -1,8 +1,5 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-border-style: solid;
-  -fx-border-width: 5px;
-  -fx-border-color: #161620;
   -fx-background-color: #95c5db;
   -fx-padding: 4em;
 }
