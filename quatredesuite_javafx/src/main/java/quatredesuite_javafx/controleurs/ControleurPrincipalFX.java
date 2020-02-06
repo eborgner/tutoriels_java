@@ -4,6 +4,7 @@ import commun.debogage.J;
 import commun.systeme.Systeme;
 import commun_client.commandes.FabriqueCommande;
 import commun_client.commandes.ReactionApresCommande;
+import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
@@ -51,25 +52,24 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 			}
 		});
 		
-		installerRecepteurCommande(NouvellePartie.class, new RecepteurCommandeMVC<NouvellePartieRecue>() {
+		FabriqueCommande.installerRecepteur(NouvellePartie.class, new RecepteurCommande<NouvellePartieRecue>() {
 			@Override
-			public void executerCommandeMVC(NouvellePartieRecue commande) {
+			public void executerCommande(NouvellePartieRecue commande) {
 				J.appel(this);
-				
+
 				if(viderGrillePourEnvoi == null) {
 
 					nouvellePartieLocale();
-					installerViderGrillePourEnvoi();
+					installerViderGrillePourEnvoi(commande);
+					commande.notifierCommandeTraitee();
 
 				}else {
-					
-					J.valeurs("ICI!!!");
-					
+
+					installerViderGrillePourEnvoi(commande);
 					viderGrillePourEnvoi.envoyerCommande();
 				}
 			}
 		});
-		
 	}
 	
 	private void nouvellePartieLocale() {
@@ -84,7 +84,7 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
 	}
 	
-	private void installerViderGrillePourEnvoi() {
+	private void installerViderGrillePourEnvoi(NouvellePartieRecue nouvellePartieRecue) {
 		J.appel(this);
 
 		FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
@@ -93,14 +93,13 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 				J.appel(this);
 
 				nouvellePartieLocale();
+				nouvellePartieRecue.notifierCommandeTraitee();
 			}
 		});
 		
 		viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
-
-		
 	}
-	
+
 	private void ouvrirParametres() {
 		J.appel(this);
 

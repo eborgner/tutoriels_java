@@ -36,7 +36,7 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 			public void executerCommande(ViderGrilleRecue commande) {
 				J.appel(this);
 				
-				commande.notifierCommandeTraitee();
+				conteneurGrille.viderGrille(commande);
 			}
 		});
 	} 

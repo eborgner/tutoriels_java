@@ -1,16 +1,25 @@
 package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.NamedArg;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import quatredesuite.enumerations.Couleur;
+import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 
 public class ConteneurGrille extends VBox {
 	
 	private Color couleurRouge;
 	private Color couleurJaune;
+	
+	private Timeline animationViderGrille;
 	
 	public ConteneurGrille(@NamedArg("couleurRouge") String couleurRouge, @NamedArg("couleurJaune") String couleurJaune) {
 		super();
@@ -22,7 +31,10 @@ public class ConteneurGrille extends VBox {
 		if(couleurJaune != null && !couleurJaune.isEmpty()) {
 			this.couleurJaune = Color.valueOf(couleurJaune);
 		}
+		
+		creerAnimationViderGrille();
 	}
+
 
 	public void creerGrille(int largeur, int hauteur) {
 		J.appel(this);
@@ -59,5 +71,48 @@ public class ConteneurGrille extends VBox {
 		J.appel(this);
 
 		return this.getChildren().size() - indiceRangee - 1;
+	}
+
+
+	public void viderGrille(ViderGrilleRecue commande) {
+		J.appel(this);
+		
+		animationViderGrille.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				commande.notifierCommandeTraitee();
+			}
+		});	
+		
+		animationViderGrille.playFromStart();
+	}
+
+	private void creerAnimationViderGrille() {
+		J.appel(this);
+		
+		animationViderGrille = new Timeline();
+		
+		animationViderGrille.getKeyFrames().add(new KeyFrame(Duration.ZERO,
+						                                     new KeyValue(this.rotateProperty(), 0)));
+		
+		double rotation = 5;
+		
+		int i;
+		
+		for(i = 0 ; i < 7; i++) {
+			
+			rotation = -1*rotation;
+
+			animationViderGrille.getKeyFrames().add(
+					new KeyFrame(new Duration(i*50l),
+							new KeyValue(this.rotateProperty(), rotation)));
+			
+		}
+
+		animationViderGrille.getKeyFrames().add(
+				new KeyFrame(new Duration(i*50l),
+						new KeyValue(this.rotateProperty(), 0)));
 	}
 }
