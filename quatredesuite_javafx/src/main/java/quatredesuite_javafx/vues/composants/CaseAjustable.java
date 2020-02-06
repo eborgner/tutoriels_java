@@ -156,7 +156,7 @@ public class CaseAjustable extends CanvasAjustable {
 
 			@Override
 			public void handle(long maintenantNanosecondes) {
-				J.setActif(true);
+				J.setActif(false);
 				J.appel(this);
 				
 				double secondesEcoulees = (maintenantNanosecondes - departNanosecondes) / 1E9;
