@@ -38,8 +38,8 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
         JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
         
         if(dernierJeton != null) {
-            int indiceRangeeGraphiqueDernierJeton = indiceRangeeEnCoordonneesGraphiques(dernierJeton.getIndiceRangee());
-            vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), indiceRangeeCoordonneesGraphiques);
+            int indiceRangeeGraphiqueDernierJeton = indiceRangeeEnCoordonneesGraphiques(hauteurGrille, dernierJeton.getIndiceRangee());
+            vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), indiceRangeeGraphiqueDernierJeton);
         }
     }
 

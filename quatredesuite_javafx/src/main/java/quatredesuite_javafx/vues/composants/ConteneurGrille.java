@@ -125,11 +125,9 @@ public class ConteneurGrille extends VBox {
 	public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
 		J.appel(this);
 
-		int indiceRangeeGraphique = convertirIndiceRangee(indiceRangee);
-		
-		if(siIndiceRangeeGraphiqueValide(indiceRangeeGraphique)) {
+		if(siIndiceRangeeValide(indiceRangee)) {
 			
-			ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangeeGraphique);
+			ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangee);
 			ligne.animerEntreeJeton(indiceColonne);
 			
 		}
