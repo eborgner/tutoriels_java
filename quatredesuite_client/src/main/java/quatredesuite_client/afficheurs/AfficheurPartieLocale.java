@@ -32,10 +32,12 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 
 		GrilleLectureSeule grille = partieLectureSeule.getGrille();
 		
-		rafraichirGrille(grille, vue);
+		int hauteurGrille = partieLectureSeule.getHauteur();
+		
+		rafraichirGrille(hauteurGrille, grille, vue);
 	}
 
-	private void rafraichirGrille(GrilleLectureSeule grille, VuePartieLocale vue) {
+	private void rafraichirGrille(int hauteurGrille, GrilleLectureSeule grille, VuePartieLocale vue) {
 		J.appel(this);
 
 		List<ColonneLectureSeule> colonnes = grille.getColonnes();
@@ -45,12 +47,13 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 			ColonneLectureSeule colonne = colonnes.get(indiceColonne);
 			List<JetonLectureSeule> jetons = colonne.getJetons();
 			
-			rafraichirColonne(indiceColonne, jetons, vue);
+			rafraichirColonne(hauteurGrille, indiceColonne, jetons, vue);
 
 		}
 	}
 
-	private void rafraichirColonne(int indiceColonne, 
+	private void rafraichirColonne(int hauteurGrille, 
+								   int indiceColonne, 
 								   List<JetonLectureSeule> jetons, 
 								   VuePartieLocale vue) {
 		J.appel(this);
@@ -61,8 +64,25 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 			JetonLectureSeule jeton = jetons.get(indiceRangee);
 			Couleur couleur = jeton.getCouleur();
 			
-			vue.afficherJeton(indiceColonne, indiceRangee, couleur);
+			afficherJeton(hauteurGrille, indiceColonne, indiceRangee, couleur, vue);
 		}
 	}
+	
+	private void afficherJeton(int hauteurGrille, 
+			                   int indiceColonne,  
+			                   int indiceRangee, 
+			                   Couleur couleur,
+			                   VuePartieLocale vue) {
+		J.appel(this);
+		
+		int indiceRangeeCoordonneesGraphiques = indiceRangeeEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
 
+		vue.afficherJeton(indiceColonne, indiceRangeeCoordonneesGraphiques, couleur);
+	}
+	
+	private int indiceRangeeEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {
+		J.appel(this);
+
+		return hauteurGrille - indiceRangee - 1;
+	}
 }
