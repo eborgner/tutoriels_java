@@ -40,24 +40,16 @@ public class ConteneurGrille extends VBox {
 	public void afficherJeton(int indiceColonne, int indiceRangee, Couleur couleur) {
 		J.appel(this);
 		
-		int indiceRangeeGraphique = convertirIndiceRangee(indiceRangee);
-		
-		if(siIndiceRangeeGraphiqueValide(indiceRangeeGraphique)) {
+		if(siIndiceRangeeValide(indiceRangee)) {
 			
-			ConteneurLigne conteneurLigne = (ConteneurLigne) this.getChildren().get(indiceRangeeGraphique);
+			ConteneurLigne conteneurLigne = (ConteneurLigne) this.getChildren().get(indiceRangee);
 			conteneurLigne.afficherJeton(indiceColonne, couleur);
 		}
 	}
 
-	private boolean siIndiceRangeeGraphiqueValide(int indiceRangeeGraphique) {
+	private boolean siIndiceRangeeValide(int indiceRangee) {
 		J.appel(this);
 
-		return indiceRangeeGraphique >= 0 && indiceRangeeGraphique < this.getChildren().size();
-	}
-
-	private int convertirIndiceRangee(int indiceRangee) {
-		J.appel(this);
-
-		return this.getChildren().size() - indiceRangee - 1;
+		return indiceRangee >= 0 && indiceRangee < this.getChildren().size();
 	}
 }
