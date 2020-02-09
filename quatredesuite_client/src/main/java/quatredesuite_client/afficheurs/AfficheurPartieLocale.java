@@ -38,7 +38,7 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
         JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
         
         if(dernierJeton != null) {
-            int indiceRangeeGraphiqueDernierJeton = indiceRangeeEnCoordonneesGraphiques(hauteurGrille, dernierJeton.getIndiceRangee());
+            int indiceRangeeGraphiqueDernierJeton = convertirEnCoordonneesGraphiques(hauteurGrille, dernierJeton.getIndiceRangee());
             vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), indiceRangeeGraphiqueDernierJeton);
         }
     }
@@ -81,12 +81,12 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
                                VuePartieLocale vue) {
         J.appel(this);
         
-        int indiceRangeeCoordonneesGraphiques = indiceRangeeEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
+        int indiceRangeeCoordonneesGraphiques = convertirEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
 
         vue.afficherJeton(indiceColonne, indiceRangeeCoordonneesGraphiques, couleur);
     }
     
-    private int indiceRangeeEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {
+    private int convertirEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {
         J.appel(this);
 
         return hauteurGrille - indiceRangee - 1;
