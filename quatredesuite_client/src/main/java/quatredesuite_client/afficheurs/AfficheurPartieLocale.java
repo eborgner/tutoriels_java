@@ -75,12 +75,12 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 			                   VuePartieLocale vue) {
 		J.appel(this);
 		
-		int indiceRangeeCoordonneesGraphiques = indiceRangeeEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
+		int indiceRangeeCoordonneesGraphiques = convertirEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
 
 		vue.afficherJeton(indiceColonne, indiceRangeeCoordonneesGraphiques, couleur);
 	}
 	
-	private int indiceRangeeEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {
+	private int convertirEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {
 		J.appel(this);
 
 		return hauteurGrille - indiceRangee - 1;
