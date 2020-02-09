@@ -41,8 +41,8 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 		double largeurMetres = monde2d.getLageurMetres();
 		double hauteurMetres = monde2d.getHauteurMetres();
 
-		double conversionMetresPixelsX = largeurMetres / largeurPixels;
-		double conversionMetresPixelsY = hauteurMetres / hauteurPixels;
+		double conversionMetresPixelsX = largeurPixels / largeurMetres;
+		double conversionMetresPixelsY = hauteurPixels / hauteurMetres;
 		
 		for(Objet2DLectureSeule objet2d : monde2d.getObjets2D()) {
 			
