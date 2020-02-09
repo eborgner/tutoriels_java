@@ -114,16 +114,16 @@ public class TablePong extends CanvasAjustable {
 		pinceau.fillText(String.format("%f FPS", fps), getWidth() - 50, 20);
 	}
 
-	public double getLargeurPixels() {
+	public int getLargeurPixels() {
 		J.appel(this);
 		
-		return this.getWidth();
+		return (int) this.getWidth();
 	}
 
-	public double getHauteurPixels() {
+	public int getHauteurPixels() {
 		J.appel(this);
 		
-		return this.getHeight();
+		return (int) this.getHeight();
 	}
 
 

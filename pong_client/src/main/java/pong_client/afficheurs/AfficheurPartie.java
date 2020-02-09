@@ -33,24 +33,24 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	private void afficherTout(PartieLectureSeule partie, VuePartieLocale vue) {
 		J.appel(this);
 
-		double largeurPixels = vue.getLargeurPixels();
-		double hauteurPixels = vue.getHauteurPixels();
+		int largeurCanvasPixels = vue.getLargeurCanvasPixels();
+		int hauteurCanvasPixels = vue.getHauteurCanvasPixels();
 		
 		Monde2DLectureSeule monde2d = partie.getMonde2D();
 		
 		double largeurMetres = monde2d.getLageurMetres();
 		double hauteurMetres = monde2d.getHauteurMetres();
 
-		double conversionMetresPixelsX = largeurPixels / largeurMetres;
-		double conversionMetresPixelsY = hauteurPixels / hauteurMetres;
+		double conversionMetresPixelsX = ((double) largeurCanvasPixels) / largeurMetres;
+		double conversionMetresPixelsY = ((double) hauteurCanvasPixels) / hauteurMetres;
 		
 		for(Objet2DLectureSeule objet2d : monde2d.getObjets2D()) {
 			
 			Objet2DCanvas objet2dCanvas = new Objet2DCanvas(objet2d,
 													        conversionMetresPixelsX,
 													        conversionMetresPixelsY,
-													        largeurPixels,
-													        hauteurPixels);
+													        largeurCanvasPixels,
+													        hauteurCanvasPixels);
 
 			vue.afficherObjet2D(objet2dCanvas);
 		}

@@ -139,14 +139,14 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	}
 
 	@Override
-	public double getLargeurPixels() {
+	public int getLargeurCanvasPixels() {
 		J.appel(this);
 		
 		return tablePong.getLargeurPixels();
 	}
 
 	@Override
-	public double getHauteurPixels() {
+	public int getHauteurCanvasPixels() {
 		J.appel(this);
 		
 		return tablePong.getHauteurPixels();
