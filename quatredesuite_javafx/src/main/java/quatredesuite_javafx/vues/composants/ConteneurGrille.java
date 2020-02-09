@@ -42,14 +42,20 @@ public class ConteneurGrille extends VBox {
 		
 		if(siIndiceRangeeValide(indiceRangee)) {
 			
-			ConteneurLigne conteneurLigne = (ConteneurLigne) this.getChildren().get(indiceRangee);
+			ConteneurLigne conteneurLigne = getConteneurLigne(indiceRangee);
 			conteneurLigne.afficherJeton(indiceColonne, couleur);
 		}
 	}
-
+	
 	private boolean siIndiceRangeeValide(int indiceRangee) {
 		J.appel(this);
 
 		return indiceRangee >= 0 && indiceRangee < this.getChildren().size();
+	}
+	
+	private ConteneurLigne getConteneurLigne(int indiceRangee) {
+		J.appel(this);
+
+		return (ConteneurLigne) this.getChildren().get(indiceRangee);
 	}
 }
