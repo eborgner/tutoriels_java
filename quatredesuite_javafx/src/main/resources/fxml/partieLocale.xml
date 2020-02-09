@@ -11,8 +11,8 @@
       fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX"
       VBox.vgrow="ALWAYS">
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
-        <ConteneurEntetes fx:id="conteneurEntetes" 
-                          styleClass="conteneurBoutons" 
+        <ConteneurEntetes styleClass="conteneurBoutons"
+                          fx:id="conteneurEntetes"
                           texteBouton="↡"
                           VBox.vgrow="SOMETIMES"/>
         <VBox styleClass="petitEspace"/>
