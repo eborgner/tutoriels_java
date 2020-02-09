@@ -16,7 +16,9 @@
                           texteBouton="↡"
                           VBox.vgrow="SOMETIMES"/>
         <VBox styleClass="petitEspace"/>
-        <ConteneurGrille fx:id="conteneurGrille" styleClass="conteneurGrille" VBox.vgrow="ALWAYS"/>
+        <ConteneurGrille styleClass="conteneurGrille"
+                         fx:id="conteneurGrille"
+                         VBox.vgrow="ALWAYS"/>
     </VBox>
     <VBox styleClass="petitEspaceVertical"/>
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
