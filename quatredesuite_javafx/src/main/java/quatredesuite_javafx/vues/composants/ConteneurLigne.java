@@ -31,10 +31,22 @@ public class ConteneurLigne extends HBox {
 	public void afficherJeton(int indiceColonne, Couleur couleur) {
 		J.appel(this);
 		
-		if(indiceColonne < this.getChildren().size()) {
+		if(siIndiceColonneValide(indiceColonne)) {
 
-			CaseAjustable caseAjustable = (CaseAjustable) this.getChildren().get(indiceColonne);
+			CaseAjustable caseAjustable = getCase(indiceColonne);
 			caseAjustable.afficherJeton(couleur);
 		}
+	}
+
+	private CaseAjustable getCase(int indiceColonne) {
+		J.appel(this);
+
+		return (CaseAjustable) this.getChildren().get(indiceColonne);
+	}
+
+	private boolean siIndiceColonneValide(int indiceColonne) {
+		J.appel(this);
+
+		return indiceColonne < this.getChildren().size();
 	}
 }
