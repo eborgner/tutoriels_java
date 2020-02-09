@@ -92,7 +92,7 @@ public class ConteneurGrille extends VBox {
         
         for(int indiceRangee = 0; indiceRangee < this.getChildren().size(); indiceRangee++) {
             
-            ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangee);
+            ConteneurLigne ligne = getConteneurLigne(indiceRangee);
             
             ligne.animerSortieJetons();
         }
@@ -132,9 +132,8 @@ public class ConteneurGrille extends VBox {
 
         if(siIndiceRangeeValide(indiceRangee)) {
             
-            ConteneurLigne ligne = (ConteneurLigne) this.getChildren().get(indiceRangee);
+            ConteneurLigne ligne = getConteneurLigne(indiceRangee);
             ligne.animerEntreeJeton(indiceColonne);
-            
         }
     }
 
