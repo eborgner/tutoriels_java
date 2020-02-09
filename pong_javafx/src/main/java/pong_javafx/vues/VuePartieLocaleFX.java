@@ -17,6 +17,7 @@ import pong_client.commandes.deplacer_palette.DeplacerPalette;
 import pong_client.commandes.deplacer_palette.DeplacerPalettePourEnvoi;
 import pong_client.commandes.stopper_palette.StopperPalette;
 import pong_client.commandes.stopper_palette.StopperPalettePourEnvoi;
+import pong_client.vues.Objet2DCanvas;
 import pong_client.vues.VuePartieLocale;
 import pong_javafx.vues.composants.TablePong;
 
@@ -119,10 +120,10 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 
 
 	@Override
-	public void afficherMonde2D(Monde2DLectureSeule monde2d) {
+	public void afficherObjet2D(Objet2DCanvas objet2d) {
 		J.appel(this);
 		
-		tablePong.afficherMonde2D(monde2d);
+		tablePong.afficherObjet2D(objet2d);
 	}
 
 	@Override
@@ -135,6 +136,20 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void verifierCommandesPossibles() {
 		J.appel(this);
+	}
+
+	@Override
+	public double getLargeurPixels() {
+		J.appel(this);
+		
+		return tablePong.getLargeurPixels();
+	}
+
+	@Override
+	public double getHauteurPixels() {
+		J.appel(this);
+		
+		return tablePong.getHauteurPixels();
 	}
 
 }

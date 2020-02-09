@@ -3,9 +3,12 @@ package pong_client.afficheurs;
 import java.util.Map;
 
 import commun.debogage.J;
+import commun.modeles.monde2d.Monde2DLectureSeule;
+import commun.modeles.monde2d.Objet2DLectureSeule;
 import commun_client.mvc.Afficheur;
 import pong.enumerations.Cadran;
 import pong.modeles.partie.PartieLectureSeule;
+import pong_client.vues.Objet2DCanvas;
 import pong_client.vues.VuePartieLocale;
 
 public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLocale> {
@@ -14,6 +17,7 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	public void initialiserAffichage(PartieLectureSeule partie, VuePartieLocale vue) {
 		J.appel(this);
 		
+		
 		afficherTout(partie, vue);
 	}
 
@@ -21,13 +25,35 @@ public class AfficheurPartie extends Afficheur<PartieLectureSeule, VuePartieLoca
 	public void rafraichirAffichage(PartieLectureSeule partie, VuePartieLocale vue) {
 		J.appel(this);
 
+		vue.viderMonde();
+
 		afficherTout(partie, vue);
 	}
 	
 	private void afficherTout(PartieLectureSeule partie, VuePartieLocale vue) {
 		J.appel(this);
+
+		double largeurPixels = vue.getLargeurPixels();
+		double hauteurPixels = vue.getHauteurPixels();
 		
-		vue.afficherMonde2D(partie.getMonde2D());
+		Monde2DLectureSeule monde2d = partie.getMonde2D();
+		
+		double largeurMetres = monde2d.getLageurMetres();
+		double hauteurMetres = monde2d.getHauteurMetres();
+
+		double conversionMetresPixelsX = largeurMetres / largeurPixels;
+		double conversionMetresPixelsY = hauteurMetres / hauteurPixels;
+		
+		for(Objet2DLectureSeule objet2d : monde2d.getObjets2D()) {
+			
+			Objet2DCanvas objet2dCanvas = new Objet2DCanvas(objet2d,
+													        conversionMetresPixelsX,
+													        conversionMetresPixelsY,
+													        largeurPixels,
+													        hauteurPixels);
+
+			vue.afficherObjet2D(objet2dCanvas);
+		}
 	}
 
 }

@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongPourEnvoi;
+import pong_client.vues.Objet2DCanvas;
 
 public class TablePong extends CanvasAjustable {
 	
@@ -107,31 +108,22 @@ public class TablePong extends CanvasAjustable {
 	}
 	
 
-	public void afficherMonde2D(Monde2DLectureSeule monde2d) {
-		J.appel(this);
-		
-		viderDessin();
-		
-		double largeurCanvas = getWidth();
-		double hauteurCanvas = getHeight();
-		
-		double conversionMetresPixelsX = largeurCanvas / monde2d.getLageurMetres();
-		double conversionMetresPixelsY = hauteurCanvas / monde2d.getHauteurMetres();
-		
-		for(Objet2DLectureSeule objet2D : monde2d.getObjets2D()) {
-			
-			Objet2DCanvas objet2DCanvas = new Objet2DCanvas(objet2D, 
-															conversionMetresPixelsX,
-															conversionMetresPixelsY,
-															hauteurCanvas);
-			afficherObjet2D(objet2DCanvas);
-		}
-	}
-	
 	public void afficherFPS(double fps) {
 		J.appel(this);
 		
 		pinceau.fillText(String.format("%f FPS", fps), getWidth() - 50, 20);
+	}
+
+	public double getLargeurPixels() {
+		J.appel(this);
+		
+		return this.getWidth();
+	}
+
+	public double getHauteurPixels() {
+		J.appel(this);
+		
+		return this.getHeight();
 	}
 
 
