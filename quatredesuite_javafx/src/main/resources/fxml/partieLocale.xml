@@ -11,21 +11,19 @@
       VBox.vgrow="ALWAYS">
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <ConteneurEntetes styleClass="conteneurBoutons" 
-                          fx:id="conteneurEntetes" 
                           texteBouton="↡"
                           VBox.vgrow="SOMETIMES"/>
         <VBox styleClass="petitEspace"/>
         <ConteneurGrille styleClass="conteneurGrille"
-                         fx:id="conteneurGrille"
                          VBox.vgrow="ALWAYS"/>
     </VBox>
     <VBox styleClass="petitEspaceVertical"/>
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
             <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
-                <Text fx:id="nomJoueurUn" styleClass="nomJoueur" text="%joueurUn"/>
+                <Text styleClass="nomJoueur" text="%joueurUn"/>
             </HBox>
             <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
-                <Text fx:id="nomJoueurDeux" styleClass="nomJoueur" text="%joueurDeux"/>
+                <Text styleClass="nomJoueur" text="%joueurDeux"/>
             </HBox>
     </HBox>
 </VBox>
