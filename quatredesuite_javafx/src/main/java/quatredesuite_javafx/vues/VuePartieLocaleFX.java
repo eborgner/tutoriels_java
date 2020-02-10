@@ -46,5 +46,6 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
+
 	}
 }
