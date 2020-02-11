@@ -16,13 +16,14 @@
 # along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 ##### INCLUDE #####
-scripts_dir=$(dirname $(readlink -f $0))
-. $scripts_dir/include.sh
+this_dir=$(readlink -f $0)
+scripts_dir=$(dirname "$this_dir")
+. "$scripts_dir/include.sh"
 ###################
 
 save_dir
 
-cd $root_dir
+cd "$root_dir"
 
 ./gradlew joueur01 -Pjoueur=joueur01
 
