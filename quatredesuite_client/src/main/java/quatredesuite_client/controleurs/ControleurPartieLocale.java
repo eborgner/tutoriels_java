@@ -2,7 +2,6 @@ package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
-import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite.modeles.partie.PartieLocaleLectureSeule;
 import quatredesuite_client.afficheurs.AfficheurPartieLocale;
@@ -17,13 +16,13 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 											    A> {
 	
 	@Override
-	protected void demarrer() {
+	public void demarrer() {
 		J.appel(this);
 
 	}
 
 	@Override
-	protected void installerReceptionCommandes() {
+	public void installerReceptionCommandes() {
 		J.appel(this);
 
 	} 

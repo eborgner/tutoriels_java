@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite_client.controleurs.ControleurPartieLocale;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
+import quatredesuite_javafx.controleurs.ControleurPartieLocaleFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
 
 public class Principal extends Application {
@@ -53,7 +54,7 @@ public class Principal extends Application {
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
-		FabriqueControleur.creerControleur(ControleurPartieLocale.class, 
+		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, 
 							               partie,
 										   vue,
 										   afficheur);
