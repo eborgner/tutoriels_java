@@ -23,12 +23,9 @@ scripts_dir=$(dirname "$this_dir")
 
 save_dir
 
-cd "$java_dir"
-
-
 signature="[[:alnum:]_]\+[[:space:]]*([^;]*)[^)]*{"
 
-for java_file in $(find . -name "*.java" );
+for java_file in $(find "$java_dir" -name "*.java" );
 do
 
 	sed  "/$signature/,/}/{
