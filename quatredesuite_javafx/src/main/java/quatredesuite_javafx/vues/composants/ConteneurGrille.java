@@ -23,6 +23,7 @@ public class ConteneurGrille extends VBox {
 	
 	public ConteneurGrille(@NamedArg("couleurRouge") String couleurRouge, @NamedArg("couleurJaune") String couleurJaune) {
 		super();
+		J.appel(this);
 
 		if(couleurRouge != null && !couleurRouge.isEmpty()) {
 			this.couleurRouge = Color.valueOf(couleurRouge);

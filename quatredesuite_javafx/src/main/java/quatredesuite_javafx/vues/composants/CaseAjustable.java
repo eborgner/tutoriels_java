@@ -23,6 +23,7 @@ public class CaseAjustable extends CanvasAjustable {
 
 	public CaseAjustable(Color couleurRouge, Color couleurJaune) {
 		super();
+		J.appel(this);
 		
 		this.couleurRouge = couleurRouge;
 		this.couleurJaune = couleurJaune;
