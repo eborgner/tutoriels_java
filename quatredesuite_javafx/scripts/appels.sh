@@ -28,7 +28,7 @@ signature="[[:alnum:]_]\+[[:space:]]*([^;]*)[^)]*{"
 echo "Méthodes à vérifier:"
 echo ""
 
-for java_file in $(find "$java_dir" -name "*.java" );
+find "$java_dir" -name "*.java" | while read java_file
 do
 
 	sed  "/$signature/,/}/{
@@ -39,7 +39,7 @@ do
 				/$signature/n
 				/}/n
 				/J.appel/!d
- 			}"  $java_file | 
+ 			}"  "$java_file" | 
 
  	(
 
