@@ -25,6 +25,7 @@ save_dir
 
 signature="[[:alnum:]_]\+[[:space:]]*([^;]*)[^)]*{"
 
+echo ""
 echo "Méthodes à vérifier:"
 echo ""
 
