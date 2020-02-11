@@ -25,6 +25,9 @@ save_dir
 
 signature="[[:alnum:]_]\+[[:space:]]*([^;]*)[^)]*{"
 
+echo "Méthodes à vérifier:"
+echo ""
+
 for java_file in $(find "$java_dir" -name "*.java" );
 do
 
@@ -52,6 +55,8 @@ do
  	)
 
 done
+
+echo ""
 
 
 restore_dir
