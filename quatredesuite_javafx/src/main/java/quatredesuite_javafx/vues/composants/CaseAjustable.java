@@ -20,6 +20,7 @@ public class CaseAjustable extends CanvasAjustable {
 
 	public CaseAjustable() {
 		super();
+		J.appel(this);
 
 		HBox.setHgrow(this, Priority.ALWAYS);
 
