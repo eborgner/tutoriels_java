@@ -14,8 +14,8 @@ import javafx.geometry.Pos;
 public abstract class ImageAjustable extends HBox {
 	
 	protected ImageView imageView;
-	private double largeurInitialeConteneur;
-	private double hauteurInitialeConteneur;
+	protected double largeurInitialeConteneur;
+	protected double hauteurInitialeConteneur;
 	
 	public ImageAjustable(String url) {
 		super();
@@ -85,7 +85,7 @@ public abstract class ImageAjustable extends HBox {
 		
 	}
 	
-	private void ajusterTailleImage() {
+	protected void ajusterTailleImage() {
 		J.appel(this);
 		
 		double largeurCourante = this.getWidth();
@@ -103,7 +103,7 @@ public abstract class ImageAjustable extends HBox {
 	}
 
 
-	private void setScaleXY(double facteurTaille) {
+	protected void setScaleXY(double facteurTaille) {
 		J.appel(this);
 		
 		this.imageView.setScaleX(facteurTaille);
