@@ -18,15 +18,42 @@ public class ImageAjustable extends HBox {
 	protected double largeurInitialeConteneur;
 	protected double hauteurInitialeConteneur;
 	
-	public ImageAjustable(@NamedArg("url") String url) {
+	private double largeurMin = 60;
+	private double hauteurMin = 60;
+	private double taillePourcentage = 1.0;
+
+	public ImageAjustable(String url) {
 		super();
 		J.appel(this);
 		
+		initialiser(url);
+	}
+	
+	public ImageAjustable(String url, double largeurMin, double hauteurMin, double taillePourcentage) {
+		super();
+		J.appel(this);
+		
+		this.largeurMin = largeurMin;
+		this.hauteurMin = hauteurMin;
+		this.taillePourcentage = taillePourcentage / 100;
+		
+		initialiser(url);
+	}
+
+	private void initialiser(String url) {
+		J.appel(this);
+
 		InputStream streamImage = ImageAjustable.class.getResourceAsStream(url);
 		
 		Image image = new Image(streamImage);
 		
 		imageView = new ImageView(image);
+		
+		imageView.setScaleX(taillePourcentage * largeurMin / image.getWidth());
+		imageView.setScaleY(taillePourcentage * hauteurMin / image.getHeight());
+		
+		imageView.setFitWidth(largeurMin);
+		imageView.setFitHeight(hauteurMin);
 		
 		this.getChildren().add(imageView);
 		
@@ -103,11 +130,10 @@ public class ImageAjustable extends HBox {
 		}
 	}
 
-
 	protected void setScaleXY(double facteurTaille) {
 		J.appel(this);
 		
-		this.setScaleX(facteurTaille);
-		this.setScaleY(facteurTaille);
+		this.imageView.setScaleX(taillePourcentage * facteurTaille);
+		this.imageView.setScaleY(taillePourcentage * facteurTaille);
 	}
 }
