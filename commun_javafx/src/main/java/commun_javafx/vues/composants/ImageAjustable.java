@@ -7,12 +7,11 @@ import javafx.scene.image.ImageView;
 import java.io.InputStream;
 
 import commun.debogage.J;
-import javafx.beans.NamedArg;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 
-public class ImageAjustable extends HBox {
+public abstract class ImageAjustable extends HBox {
 	
 	protected ImageView imageView;
 	protected double largeurInitialeConteneur;
@@ -78,7 +77,7 @@ public class ImageAjustable extends HBox {
 				
 				if(ancienneLargeur == 0) {
 
-					largeurInitiale = nouvelleLargeur;
+					largeurInitialeConteneur = nouvelleLargeur;
 
 				}else {
 
@@ -101,7 +100,7 @@ public class ImageAjustable extends HBox {
 				
 				if(ancienneHauteur == 0) {
 					
-					hauteurInitiale = nouvelleHauteur;
+					hauteurInitialeConteneur = nouvelleHauteur;
 
 				}else {
 					
@@ -121,11 +120,11 @@ public class ImageAjustable extends HBox {
 		
 		if(largeurCourante < hauteurCourante) {
 			
-			setScaleXY(largeurCourante / largeurInitiale);
+			setScaleXY(largeurCourante / largeurInitialeConteneur);
 			
 		}else {
 
-			setScaleXY(hauteurCourante / hauteurInitiale);
+			setScaleXY(hauteurCourante / hauteurInitialeConteneur);
 			
 		}
 	}
