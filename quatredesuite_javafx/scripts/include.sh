@@ -15,8 +15,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
-root_dir=$(dirname $scripts_dir)
-css_dir=$root_dir/src/main/resources/css
+root_dir=$(dirname "$scripts_dir")
+css_dir="$root_dir/src/main/resources/css"
+java_dir="$root_dir/src/main/java"
 
 save_dir(){
 
@@ -26,7 +27,7 @@ save_dir(){
 
 restore_dir(){
 
-    cd $current_dir
+    cd "$current_dir"
 
 }
 
