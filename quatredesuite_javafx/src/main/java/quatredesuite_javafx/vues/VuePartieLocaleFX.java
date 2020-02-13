@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
+import quatredesuite.enumerations.Couleur;
 import quatredesuite_client.vues.VuePartieLocale;
 import quatredesuite_javafx.vues.composants.ConteneurEntetes;
 import quatredesuite_javafx.vues.composants.ConteneurGrille;
@@ -48,4 +49,5 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 		J.appel(this);
 
 	}
+
 }
