@@ -3,5 +3,8 @@ rootProject.name = 'pong_serveur'
 include ':commun'
 project(':commun').projectDir = file('../commun')
 
+include ':commun_serveur'
+project(':commun_serveur').projectDir = file('../commun_serveur')
+
 include ':pong'
 project(':pong').projectDir = file('../pong')
