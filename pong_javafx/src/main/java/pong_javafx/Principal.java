@@ -18,6 +18,8 @@ import pong_javafx.vues.VuePrincipaleFX;
 @SuppressWarnings("rawtypes")
 public class Principal extends Application {
     
+	
+	private static String titreFenetre = "pong";
 
     static {
 
@@ -28,6 +30,13 @@ public class Principal extends Application {
     
     public static void main(String[] args) {
         J.appel(Principal.class);
+        
+        try {
+        	
+        	titreFenetre = args[0];
+        	
+        } catch(IndexOutOfBoundsException e) {}
+        
         launch(args);
     }
 
@@ -50,6 +59,8 @@ public class Principal extends Application {
         
         fenetrePrincipale.setMinWidth(LARGEUR);
         fenetrePrincipale.setMinHeight(HAUTEUR);
+        
+        fenetrePrincipale.setTitle(titreFenetre);
 
         fenetrePrincipale.show();
 

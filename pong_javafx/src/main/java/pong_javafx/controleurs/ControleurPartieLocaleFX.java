@@ -3,6 +3,7 @@ package pong_javafx.controleurs;
 import commun.debogage.J;
 import javafx.animation.AnimationTimer;
 import pong_client.controleurs.ControleurPartieLocale;
+import pong_javafx.Constantes;
 
 public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 	
@@ -32,9 +33,11 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 				
 				double tempsEcouleSecondes = (maintenant - avant) / 1E9;
 				
-				reagirTempsQuiPasse(tempsEcouleSecondes);
-				
-				avant = maintenant;
+				if(tempsEcouleSecondes >= Constantes.FREQUENCE_RAFRAICHISSEMENT) {
+
+					reagirTempsQuiPasse(tempsEcouleSecondes);
+					avant = maintenant;
+				}
 
 				J.setActif(true);
 			}

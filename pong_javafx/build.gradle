@@ -38,6 +38,7 @@ task(joueur01, dependsOn: 'classes', type: JavaExec) {
    main = 'pong_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=fr')
+   args('joueur01')
 }
 
 task(joueur01En, dependsOn: 'classes', type: JavaExec) {

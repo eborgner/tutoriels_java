@@ -15,5 +15,7 @@ public class Constantes {
 
 	public static final int LARGEUR = 200;
 	public static final int HAUTEUR = 300;
+	
+	public static final double FREQUENCE_RAFRAICHISSEMENT = 1.0 / 80.0;
 
 }
