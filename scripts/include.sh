@@ -17,7 +17,7 @@
 
 root_dir=$(dirname "$scripts_dir")
 pong_javafx="$root_dir"/pong_javafx
-pong_server="$root_dir"/serveur_pong
+pong_serveur="$root_dir"/pong_serveur
 
 save_dir(){
 

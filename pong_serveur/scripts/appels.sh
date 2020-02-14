@@ -23,18 +23,42 @@ scripts_dir=$(dirname "$this_dir")
 
 save_dir
 
-cd "$pong_serveur"
-sh scripts/serveur.sh
+signature="[[:alnum:]_]\+[[:space:]]*([^;]*)[^)]*{"
+
+echo ""
+echo "Méthodes à vérifier:"
+echo ""
+
+find "$java_dir" -name "*.java" | while read java_file
+do
+
+	sed  "/$signature/,/}/{
+				/if/d
+				/for/d
+				/switch/d
+				/new/d
+				/$signature/n
+				/}/n
+				/J.appel/!d
+ 			}"  "$java_file" | 
+
+ 	(
+
+ 	sed "/{/{N;s/\n//}" ) | 
+ 	#cat -) | 
+
+ 	(
+
+		#cat -
+ 		#grep  "$signature" 
+ 		grep  "$signature" | grep -v "J\.appel" | grep -o "$signature" | while read methode; do grep -Hn "$methode" "$java_file"; done
+
+ 	)
+
+done
+
+echo ""
+
 
 restore_dir
-
-
-save_dir
-
-cd "$pong_javafx"
-sh scripts/deux_joueurs.sh
-
-restore_dir
-
-
 

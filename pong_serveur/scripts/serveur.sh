@@ -23,18 +23,9 @@ scripts_dir=$(dirname "$this_dir")
 
 save_dir
 
-cd "$pong_serveur"
-sh scripts/serveur.sh
+cd "$root_dir"
+
+./gradlew serveur
 
 restore_dir
-
-
-save_dir
-
-cd "$pong_javafx"
-sh scripts/deux_joueurs.sh
-
-restore_dir
-
-
 

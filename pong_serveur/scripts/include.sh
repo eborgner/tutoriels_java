@@ -15,26 +15,22 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
-##### INCLUDE #####
-this_dir=$(readlink -f $0)
-scripts_dir=$(dirname "$this_dir")
-. "$scripts_dir/include.sh"
-###################
+root_dir=$(dirname "$scripts_dir")
+css_dir="$root_dir/src/main/resources/css"
+java_dir="$root_dir/src/main/java"
 
-save_dir
+save_dir(){
 
-cd "$pong_serveur"
-sh scripts/serveur.sh
+    current_dir=$(pwd)
 
-restore_dir
+}
 
+restore_dir(){
 
-save_dir
+    cd "$current_dir"
 
-cd "$pong_javafx"
-sh scripts/deux_joueurs.sh
+}
 
-restore_dir
 
 
 
