@@ -24,7 +24,7 @@ scripts_dir=$(dirname "$this_dir")
 save_dir
 
 cd "$pong_serveur"
-sh scripts/serveur.sh
+sh scripts/demarrer_serveur.sh
 
 restore_dir
 
@@ -36,5 +36,11 @@ sh scripts/deux_joueurs.sh
 
 restore_dir
 
+save_dir
 
+cd "$pong_serveur"
 
+sh scripts/attendre_serveur.sh
+sh scripts/tuer_serveur.sh
+
+restore_dir

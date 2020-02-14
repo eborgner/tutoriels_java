@@ -4,7 +4,14 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
+import commun_javafx.ClientWebSocket;
+
 import static pong_javafx.Constantes.*;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -28,7 +35,7 @@ public class Principal extends Application {
         J.appel(Principal.class);
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
         J.appel(Principal.class);
         
         try {
@@ -37,8 +44,17 @@ public class Principal extends Application {
         	
         } catch(IndexOutOfBoundsException e) {}
         
+        connecterClientWebSocket();
+        
         launch(args);
     }
+
+	private static void connecterClientWebSocket() throws URISyntaxException {
+		J.appel(Principal.class);
+
+		ClientWebSocket clientWebSocket = new ClientWebSocket(new URI("ws://localhost:" + commun.Constantes.PORT));
+        clientWebSocket.connect();
+	}
 
     private ControleurPrincipal controleurPrincipal;
     private static Stage fenetrePrincipale;

@@ -16,8 +16,7 @@
 # along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 root_dir=$(dirname "$scripts_dir")
-css_dir="$root_dir/src/main/resources/css"
-java_dir="$root_dir/src/main/java"
+fichier_pid="$scripts_dir"/serveur.pid
 
 save_dir(){
 
