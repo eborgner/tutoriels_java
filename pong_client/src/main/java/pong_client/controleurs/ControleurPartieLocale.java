@@ -1,10 +1,21 @@
 package pong_client.controleurs;
 
+import java.util.Map;
+
+import org.java_websocket.WebSocket;
+
 import commun.debogage.J;
+import commun.messages.MessageRecu;
+import commun.messages.RecepteurMessage;
+import commun_client.messages.EnvoyeurMessageClient;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
+import pong.enumerations.Cadran;
+import pong.messages.MessageSynchroniser;
 import pong.modeles.partie.Partie;
 import pong.modeles.partie.PartieLectureSeule;
+import pong.modeles.partie.table_pong.Balle;
+import pong.modeles.partie.table_pong.Palette;
 import pong_client.afficheurs.AfficheurPartie;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePong;
 import pong_client.commandes.aggrandir_table_pong.AggrandirTablePongRecue;
@@ -43,6 +54,7 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.deplacerPalette(commande.getCadran(), commande.getDirection());
+                transmettreMonde();
             }
         });
         
@@ -52,10 +64,31 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.stopperPalette(commande.getCadran());
-                
+                transmettreMonde();
             }
         });
+        
+        RecepteurMessage.preparerReception(MessageSynchroniser.class, new MessageRecu<MessageSynchroniser>(){
+			@Override
+			public void reagirMessageRecuSur(WebSocket webSocket, MessageSynchroniser message) {
+				J.appel(this);
+				
+			}
+        });
+    }
 
+    private void transmettreMonde() {
+    	J.appel(this);
+    	
+    	Balle balle = modele.getBalle();
+    	Map<Cadran, Palette> palettes = modele.getPalettes();
+    	
+    	MessageSynchroniser messageSynchroniser = new MessageSynchroniser();
+    	
+    	messageSynchroniser.setBalle(balle);
+    	messageSynchroniser.setPalettes(palettes);
+    	
+    	EnvoyeurMessageClient.envoyer(messageSynchroniser);
     }
 
     protected void reagirTempsQuiPasse(double tempsEcouleSecondes) {

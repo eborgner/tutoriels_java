@@ -1,6 +1,8 @@
 package pong.modeles.partie;
 
 
+import java.util.Map;
+
 import commun.debogage.J;
 import commun.enumerations.Dimension;
 import commun.enumerations.Direction;
@@ -8,6 +10,7 @@ import commun.modeles.Modele;
 import commun.modeles.monde2d.Monde2DLectureSeule;
 import pong.enumerations.Cadran;
 import pong.modeles.partie.table_pong.Balle;
+import pong.modeles.partie.table_pong.Palette;
 import pong.modeles.partie.table_pong.TablePong;
 
 public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
@@ -61,6 +64,12 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 		J.appel(this);
 		
 		tablePong.setBalle(balle);
+	}
+
+	public Map<Cadran, Palette> getPalettes() {
+		J.appel(this);
+		
+		return tablePong.getPalettes();
 	}
 	
 	

@@ -30,4 +30,12 @@ dependencies {
     compile project(':commun')
     compile project(':commun_client')
     compile project(':pong')
+
+    // Json serialization
+    // https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Websocket
+    // https://github.com/TooTallNate/Java-WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:1.4.0'
 }

@@ -18,6 +18,7 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 	private AnimationTimer animationTimer;
 	
 	private long nanoSecondesDebutPartie;
+	private long nanoSecondesDepuisDebutPartie;
 	
 	@Override
 	public void demarrer() {
@@ -37,6 +38,7 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 				
 				// synchroniser le début de partie
 				nanoSecondesDebutPartie = System.nanoTime();
+				nanoSecondesDepuisDebutPartie = 0;
 				
 				modele.setBalle(balle);
 			}
@@ -48,14 +50,14 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 
 		animationTimer = new AnimationTimer() {
 			
-			private long avant;
+			private long nanoSecondesDernierAffichage;
 			
 			@Override
 			public void start() {
 				J.appel(this);
 				
 				nanoSecondesDebutPartie = System.nanoTime();
-				avant = nanoSecondesDebutPartie;
+				nanoSecondesDernierAffichage = nanoSecondesDebutPartie;
 				
 				MessageDebutPartie messageDebutPartie = new MessageDebutPartie();
 				
@@ -72,12 +74,14 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale {
 
 				J.appel(this);
 				
-				double tempsEcouleSecondes = (maintenant - avant) / 1E9;
+				long nanoSecondesDepuisDernierAffichage = maintenant - nanoSecondesDernierAffichage;
 				
-				if(tempsEcouleSecondes >= Constantes.FREQUENCE_RAFRAICHISSEMENT) {
+				double secondesDepuisDernierTick = nanoSecondesDepuisDernierAffichage / 1E9;
+				
+				if(secondesDepuisDernierTick >= Constantes.FREQUENCE_RAFRAICHISSEMENT) {
 
-					reagirTempsQuiPasse(tempsEcouleSecondes);
-					avant = maintenant;
+					reagirTempsQuiPasse(secondesDepuisDernierTick);
+					nanoSecondesDernierAffichage = maintenant;
 				}
 
 				J.setActif(true);

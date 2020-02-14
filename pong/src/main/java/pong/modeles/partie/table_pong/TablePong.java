@@ -96,6 +96,12 @@ public class TablePong extends Monde2D {
 		
 		return balle;
 	}
+	
+	public Map<Cadran, Palette> getPalettes(){
+		J.appel(this);
+
+		return palettes;
+	}
 
 	public void setBalle(Balle balle) {
 		J.appel(this);
