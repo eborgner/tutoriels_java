@@ -29,3 +29,8 @@ repositories {
 dependencies {
     compile project(':commun')
 }
+
+task(serveur, dependsOn: 'classes', type: JavaExec) {
+   main = 'pong_serveur.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+}
