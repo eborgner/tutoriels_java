@@ -45,4 +45,19 @@ task(joueur01En, dependsOn: 'classes', type: JavaExec) {
    main = 'pong_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
    jvmArgs('-Duser.language=en')
+   args('joueur01')
+}
+
+task(joueur02, dependsOn: 'classes', type: JavaExec) {
+   main = 'pong_javafx.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+   jvmArgs('-Duser.language=fr')
+   args('joueur02')
+}
+
+task(joueur02En, dependsOn: 'classes', type: JavaExec) {
+   main = 'pong_javafx.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+   jvmArgs('-Duser.language=en')
+   args('joueur02')
 }
