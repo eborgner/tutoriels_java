@@ -29,10 +29,16 @@ sh scripts/demarrer_serveur.sh
 restore_dir
 
 
+sleep 5;
+
+
 save_dir
 
 cd "$pong_javafx"
 sh gradlew joueur01 &
+
+sleep 5;
+
 sh gradlew joueur02
 
 restore_dir

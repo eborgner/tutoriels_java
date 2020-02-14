@@ -7,6 +7,7 @@ import commun.enumerations.Direction;
 import commun.modeles.Modele;
 import commun.modeles.monde2d.Monde2DLectureSeule;
 import pong.enumerations.Cadran;
+import pong.modeles.partie.table_pong.Balle;
 import pong.modeles.partie.table_pong.TablePong;
 
 public class Partie extends Modele<PartieLectureSeule> implements PartieLectureSeule {
@@ -48,6 +49,18 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 		J.appel(this);
 		
 		tablePong.stopperPalette(cadran);
+	}
+
+	public Balle getBalle() {
+		J.appel(this);
+		
+		return tablePong.getBalle();
+	}
+
+	public void setBalle(Balle balle) {
+		J.appel(this);
+		
+		tablePong.setBalle(balle);
 	}
 	
 	

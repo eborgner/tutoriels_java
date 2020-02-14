@@ -91,6 +91,18 @@ public class TablePong extends Monde2D {
 		balle.reagirSiCollision(palettes);
 	}
 
+	public Balle getBalle() {
+		J.appel(this);
+		
+		return balle;
+	}
 
+	public void setBalle(Balle balle) {
+		J.appel(this);
+		
+		objets2D.remove(this.balle);
 
+		this.balle = balle;
+		objets2D.add(balle);
+	}
 }

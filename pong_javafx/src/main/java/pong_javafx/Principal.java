@@ -2,6 +2,8 @@ package pong_javafx;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
+import commun.messages.EnvoyeurMessage;
+import commun_client.messages.EnvoyeurMessageClient;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.ClientWebSocket;
@@ -54,6 +56,8 @@ public class Principal extends Application {
 
 		ClientWebSocket clientWebSocket = new ClientWebSocket(new URI("ws://localhost:" + commun.Constantes.PORT));
         clientWebSocket.connect();
+        
+        EnvoyeurMessageClient.initialiser(clientWebSocket);
 	}
 
     private ControleurPrincipal controleurPrincipal;
