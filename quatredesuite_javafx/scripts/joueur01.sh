@@ -25,7 +25,7 @@ save_dir
 
 cd "$root_dir"
 
-./gradlew joueur01 -Pjoueur=joueur01
+sh gradlew joueur01 -Pjoueur=joueur01
 
 restore_dir
 
