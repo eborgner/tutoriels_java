@@ -32,7 +32,8 @@ restore_dir
 save_dir
 
 cd "$pong_javafx"
-sh scripts/deux_joueurs.sh
+sh gradlew joueur01 &
+sh gradlew joueur02
 
 restore_dir
 
@@ -40,7 +41,6 @@ save_dir
 
 cd "$pong_serveur"
 
-sh scripts/attendre_serveur.sh
 sh scripts/tuer_serveur.sh
 
 restore_dir
