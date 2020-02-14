@@ -1,6 +1,7 @@
 package commun_javafx.vues.composants;
 
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -16,10 +17,12 @@ public abstract class ImageAjustable extends HBox {
 	protected ImageView imageView;
 	protected double largeurInitialeConteneur;
 	protected double hauteurInitialeConteneur;
+
+	private double largeurInitialeImage = 1.0;
+	private double hauteurInitialeImage = 1.0;
 	
-	private double largeurMin = 60;
-	private double hauteurMin = 60;
-	private double taillePourcentage = 1.0;
+	private double largeurReelleImage;
+	private double hauteurReelleImage;
 
 	public ImageAjustable(String url) {
 		super();
@@ -28,17 +31,6 @@ public abstract class ImageAjustable extends HBox {
 		initialiser(url);
 	}
 	
-	public ImageAjustable(String url, double largeurMin, double hauteurMin, double taillePourcentage) {
-		super();
-		J.appel(this);
-		
-		this.largeurMin = largeurMin;
-		this.hauteurMin = hauteurMin;
-		this.taillePourcentage = taillePourcentage / 100;
-		
-		initialiser(url);
-	}
-
 	private void initialiser(String url) {
 		J.appel(this);
 
@@ -46,19 +38,19 @@ public abstract class ImageAjustable extends HBox {
 		
 		Image image = new Image(streamImage);
 		
+		largeurReelleImage = image.getWidth();
+		hauteurReelleImage = image.getHeight();
+		
 		imageView = new ImageView(image);
 		
-		imageView.setScaleX(taillePourcentage * largeurMin / image.getWidth());
-		imageView.setScaleY(taillePourcentage * hauteurMin / image.getHeight());
+		imageView.setScaleX(largeurInitialeImage / largeurReelleImage);
+		imageView.setScaleY(hauteurInitialeImage / hauteurReelleImage);
 		
-		imageView.setFitWidth(largeurMin);
-		imageView.setFitHeight(hauteurMin);
+		HBox.setHgrow(imageView, Priority.ALWAYS);
 		
 		this.getChildren().add(imageView);
 		
 		this.setAlignment(Pos.CENTER);
-		
-		imageView.setPreserveRatio(true);
 		
 		installerListenerLargeur();
 		installerListenerHauteur();
@@ -78,6 +70,7 @@ public abstract class ImageAjustable extends HBox {
 				if(ancienneLargeur == 0) {
 
 					largeurInitialeConteneur = nouvelleLargeur;
+					ajusterTailleImage();
 
 				}else {
 
@@ -101,6 +94,7 @@ public abstract class ImageAjustable extends HBox {
 				if(ancienneHauteur == 0) {
 					
 					hauteurInitialeConteneur = nouvelleHauteur;
+					ajusterTailleImage();
 
 				}else {
 					
@@ -118,21 +112,26 @@ public abstract class ImageAjustable extends HBox {
 		double largeurCourante = this.getWidth();
 		double hauteurCourante = this.getHeight();
 		
-		if(largeurCourante < hauteurCourante) {
+		double facteurTailleLargeur = largeurCourante / largeurReelleImage;
+		double facteurTailleHauteur = hauteurCourante / hauteurReelleImage;
+		
+		J.valeurs(facteurTailleLargeur, facteurTailleHauteur);
+		
+
+		if(facteurTailleLargeur < facteurTailleHauteur) {
 			
-			setScaleXY(largeurCourante / largeurInitialeConteneur);
-			
+			setScaleXY(facteurTailleLargeur);
+
 		}else {
 
-			setScaleXY(hauteurCourante / hauteurInitialeConteneur);
-			
+			setScaleXY(facteurTailleHauteur);
 		}
 	}
 
 	protected void setScaleXY(double facteurTaille) {
 		J.appel(this);
 		
-		this.imageView.setScaleX(taillePourcentage * facteurTaille);
-		this.imageView.setScaleY(taillePourcentage * facteurTaille);
+		this.imageView.setScaleX(facteurTaille);
+		this.imageView.setScaleY(facteurTaille);
 	}
 }
