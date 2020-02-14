@@ -111,4 +111,20 @@ public class TablePong extends Monde2D {
 		this.balle = balle;
 		objets2D.add(balle);
 	}
+
+	public void setPalettes(Map<Cadran, Palette> palettes) {
+		J.appel(this);
+		
+		for(Palette palette : palettes.values()) {
+			
+			objets2D.remove(palette);
+		}
+		
+		this.palettes = palettes;
+		
+		for(Palette palette : palettes.values()) {
+			
+			objets2D.add(palette);
+		}
+	}
 }

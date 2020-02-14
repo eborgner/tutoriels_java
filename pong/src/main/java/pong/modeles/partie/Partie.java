@@ -71,6 +71,12 @@ public class Partie extends Modele<PartieLectureSeule> implements PartieLectureS
 		
 		return tablePong.getPalettes();
 	}
+
+	public void setPalettes(Map<Cadran, Palette> palettes) {
+		J.appel(this);
+		
+		tablePong.setPalettes(palettes);
+	}
 	
 	
 }

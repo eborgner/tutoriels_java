@@ -54,7 +54,7 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.deplacerPalette(commande.getCadran(), commande.getDirection());
-                transmettreMonde();
+                envoyerMessageSynchroniser();
             }
         });
         
@@ -64,7 +64,7 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.stopperPalette(commande.getCadran());
-                transmettreMonde();
+                envoyerMessageSynchroniser();
             }
         });
         
@@ -72,12 +72,17 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 			@Override
 			public void reagirMessageRecuSur(WebSocket webSocket, MessageSynchroniser message) {
 				J.appel(this);
+
+				Balle balle = message.getBalle();
+				Map<Cadran, Palette> palettes = message.getPalettes();
 				
+				modele.setBalle(balle);
+				modele.setPalettes(palettes);
 			}
         });
     }
 
-    private void transmettreMonde() {
+    private void envoyerMessageSynchroniser() {
     	J.appel(this);
     	
     	Balle balle = modele.getBalle();
