@@ -73,6 +73,8 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 				
 				KeyCode codeCourant = event.getCode();
 				
+				// XXX: pas répéter
+				if(!touchesRelachees.contains(codeCourant)) return;
 				
 				switch(codeCourant) {
 					case UP:
