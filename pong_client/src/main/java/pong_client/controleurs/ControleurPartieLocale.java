@@ -5,12 +5,15 @@ import java.util.Map;
 import org.java_websocket.WebSocket;
 
 import commun.debogage.J;
+import commun.enumerations.Direction;
 import commun.messages.MessageRecu;
 import commun.messages.RecepteurMessage;
 import commun_client.messages.EnvoyeurMessageClient;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import pong.enumerations.Cadran;
+import pong.messages.MessageDeplacerPalette;
+import pong.messages.MessageStopperPalette;
 import pong.messages.MessageSynchroniser;
 import pong.modeles.partie.Partie;
 import pong.modeles.partie.PartieLectureSeule;
@@ -56,7 +59,8 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.deplacerPalette(commande.getCadran(), commande.getDirection());
-                envoyerMessageSynchroniser();
+                envoyerMessageDeplacerPalette(commande.getCadran(), commande.getDirection());
+                //envoyerMessageSynchroniser();
             }
         });
         
@@ -66,7 +70,8 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
                 J.appel(this);
                 
                 modele.stopperPalette(commande.getCadran());
-                envoyerMessageSynchroniser();
+                envoyerMessageStopperPalette(commande.getCadran());
+                //envoyerMessageSynchroniser();
             }
         });
         
@@ -92,6 +97,47 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 				modele.setPalettes(palettes);
 			}
         });
+        
+        RecepteurMessage.preparerReception(MessageDeplacerPalette.class, new MessageRecu<MessageDeplacerPalette>() {
+
+			@Override
+			public void reagirMessageRecuSur(WebSocket webSocket, MessageDeplacerPalette message) {
+				J.appel(this);
+				
+				modele.deplacerPalette(message.getCadran(), message.getDirection());
+			}
+		});
+        
+        RecepteurMessage.preparerReception(MessageStopperPalette.class, new MessageRecu<MessageStopperPalette>() {
+
+			@Override
+			public void reagirMessageRecuSur(WebSocket webSocket, MessageStopperPalette message) {
+				J.appel(this);
+				
+				modele.stopperPalette(message.getCadran());
+			}
+		});
+    }
+
+    private void envoyerMessageDeplacerPalette(Cadran cadran, Direction direction) {
+    	J.appel(this);
+    	
+    	MessageDeplacerPalette messageDeplacerPalette = new MessageDeplacerPalette();
+    	
+    	messageDeplacerPalette.setCadran(cadran);
+    	messageDeplacerPalette.setDirection(direction);
+    	
+    	EnvoyeurMessageClient.envoyer(messageDeplacerPalette);
+    }
+
+    private void envoyerMessageStopperPalette(Cadran cadran) {
+    	J.appel(this);
+    	
+    	MessageStopperPalette messageStopperPalette = new MessageStopperPalette();
+    	
+    	messageStopperPalette.setCadran(cadran);
+    	
+    	EnvoyeurMessageClient.envoyer(messageStopperPalette);
     }
 
     private void envoyerMessageSynchroniser() {
