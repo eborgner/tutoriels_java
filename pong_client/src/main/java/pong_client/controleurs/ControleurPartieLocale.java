@@ -72,6 +72,8 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 			@Override
 			public void reagirMessageRecuSur(WebSocket webSocket, MessageSynchroniser message) {
 				J.appel(this);
+				
+				J.valeurs(System.nanoTime());
 
 				Balle balle = message.getBalle();
 				Map<Cadran, Palette> palettes = message.getPalettes();
