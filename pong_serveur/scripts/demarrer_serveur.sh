@@ -23,30 +23,12 @@ scripts_dir=$(dirname "$this_dir")
 
 save_dir
 
-cd "$pong_serveur"
-sh scripts/demarrer_serveur.sh
+cd "$root_dir"
+
+./gradlew serveur &
+pid_serveur=$!
+
+echo $pid_serveur > "$fichier_pid"
 
 restore_dir
 
-
-sleep 5;
-
-
-save_dir
-
-cd "$pong_javafx"
-sh gradlew joueur01 &
-
-sleep 5;
-
-sh gradlew joueur02 
-
-restore_dir
-
-save_dir
-
-cd "$pong_serveur"
-
-sh scripts/tuer_serveur.sh
-
-restore_dir

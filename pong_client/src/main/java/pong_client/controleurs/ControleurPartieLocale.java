@@ -34,6 +34,8 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
     private double secondesDepuisDernierCalculFPS = 0;
     private long affichagesDepuisDernierCalculFPS = 0;
     private double fpsCourant = 0;
+    
+    private long numMessage = 0;
 
     @Override
     public void installerReceptionCommandes() {
@@ -73,17 +75,18 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 			public void reagirMessageRecuSur(WebSocket webSocket, MessageSynchroniser message) {
 				J.appel(this);
 				
-				J.valeurs(System.nanoTime());
+				J.valeurs(++numMessage, System.nanoTime());
 
 				Balle balle = message.getBalle();
 				Map<Cadran, Palette> palettes = message.getPalettes();
 
 				// XXX: stopper les palettes
 				//      la palette va trop bouger de l'autre côté
+				/*
 				for(Palette palette : palettes.values()) {
 
 					palette.stopper();
-				}
+				}*/
 				
 				modele.setBalle(balle);
 				modele.setPalettes(palettes);
