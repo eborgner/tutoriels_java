@@ -17,3 +17,6 @@ bin
 local.properties
 gradle.properties
 *.iml
+
+# tmp
+pong_serveur/scripts/serveur.pid
