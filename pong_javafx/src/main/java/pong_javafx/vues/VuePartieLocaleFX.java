@@ -1,7 +1,9 @@
 package pong_javafx.vues;
 
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
@@ -11,6 +13,7 @@ import commun_client.commandes.FabriqueCommande;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import pong.enumerations.Cadran;
 import pong_client.commandes.deplacer_palette.DeplacerPalette;
@@ -29,6 +32,8 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	
 	private DeplacerPalettePourEnvoi deplacerPalette;
 	private StopperPalettePourEnvoi stopperPalette;
+	
+	private Set<KeyCode> touchesRelachees = new HashSet<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -55,31 +60,44 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
+		touchesRelachees.add(KeyCode.UP);
+		touchesRelachees.add(KeyCode.DOWN);
+		touchesRelachees.add(KeyCode.W);
+		touchesRelachees.add(KeyCode.S);
+		
 		tablePong.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
 			@Override
 			public void handle(KeyEvent event) {
 				J.appel(this);
 				
-				switch(event.getCode()) {
+				KeyCode codeCourant = event.getCode();
+				
+				
+				switch(codeCourant) {
 					case UP:
+						touchesRelachees.remove(KeyCode.UP);
 						deplacerPalette.setCadran(Cadran.DROIT);
 						deplacerPalette.setDirection(Direction.HAUT);
 						deplacerPalette.envoyerCommande();
 					break;
 
 					case DOWN:
+						touchesRelachees.remove(KeyCode.DOWN);
 						deplacerPalette.setCadran(Cadran.DROIT);
 						deplacerPalette.setDirection(Direction.BAS);
 						deplacerPalette.envoyerCommande();
 					break;
 
 					case W:
+						touchesRelachees.remove(KeyCode.W);
 						deplacerPalette.setCadran(Cadran.GAUCHE);
 						deplacerPalette.setDirection(Direction.HAUT);
 						deplacerPalette.envoyerCommande();
 					break;
 
 					case S:
+						touchesRelachees.remove(KeyCode.S);
 						deplacerPalette.setCadran(Cadran.GAUCHE);
 						deplacerPalette.setDirection(Direction.BAS);
 						deplacerPalette.envoyerCommande();
@@ -95,13 +113,24 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 
 				switch(event.getCode()) {
 					case UP:
+						touchesRelachees.add(KeyCode.UP);
+						stopperPalette.setCadran(Cadran.DROIT);
+						stopperPalette.envoyerCommande();
+					break;
+
 					case DOWN:
+						touchesRelachees.add(KeyCode.DOWN);
 						stopperPalette.setCadran(Cadran.DROIT);
 						stopperPalette.envoyerCommande();
 					break;
 
 					case W:
+						touchesRelachees.add(KeyCode.W);
+						stopperPalette.setCadran(Cadran.GAUCHE);
+						stopperPalette.envoyerCommande();
+					break;
 					case S:
+						touchesRelachees.add(KeyCode.S);
 						stopperPalette.setCadran(Cadran.GAUCHE);
 						stopperPalette.envoyerCommande();
 					break;

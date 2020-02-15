@@ -35,11 +35,11 @@ sleep 5;
 save_dir
 
 cd "$pong_javafx"
-sh gradlew joueur01 &
+sh gradlew joueur01 > /dev/null &
 
 sleep 5;
 
-sh gradlew joueur02 
+sh gradlew joueur02 > /dev/null
 
 restore_dir
 
@@ -47,6 +47,6 @@ save_dir
 
 cd "$pong_serveur"
 
-sh scripts/tuer_serveur.sh
+sh scripts/tuer_serveur.sh 
 
 restore_dir
