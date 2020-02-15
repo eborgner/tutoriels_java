@@ -127,7 +127,7 @@ public class TablePong extends Monde2D {
 			}
 		}
 		
-		aRetirer.removeAll(aRetirer);
+		objets2D.removeAll(aRetirer);
 		
 		this.palettes = palettes;
 		
