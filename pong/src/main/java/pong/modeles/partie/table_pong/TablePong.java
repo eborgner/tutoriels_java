@@ -1,12 +1,15 @@
 package pong.modeles.partie.table_pong;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import commun.debogage.J;
 import commun.enumerations.Dimension;
 import commun.enumerations.Direction;
 import commun.modeles.monde2d.Monde2D;
+import commun.modeles.monde2d.Objet2D;
 import pong.enumerations.Cadran;
 
 public class TablePong extends Monde2D {
@@ -115,10 +118,16 @@ public class TablePong extends Monde2D {
 	public void setPalettes(Map<Cadran, Palette> palettes) {
 		J.appel(this);
 		
-		for(Palette palette : palettes.values()) {
-			
-			objets2D.remove(palette);
+		List<Objet2D> aRetirer = new ArrayList<>();
+		
+		for(Objet2D objet2D : objets2D) {
+			if(objet2D instanceof Palette) {
+				
+				aRetirer.add(objet2D);
+			}
 		}
+		
+		aRetirer.removeAll(aRetirer);
 		
 		this.palettes = palettes;
 		

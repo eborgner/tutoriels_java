@@ -75,6 +75,13 @@ public abstract class ControleurPartieLocale extends ControleurModeleVue<PartieL
 
 				Balle balle = message.getBalle();
 				Map<Cadran, Palette> palettes = message.getPalettes();
+
+				// XXX: stopper les palettes
+				//      la palette va trop bouger de l'autre côté
+				for(Palette palette : palettes.values()) {
+
+					palette.stopper();
+				}
 				
 				modele.setBalle(balle);
 				modele.setPalettes(palettes);
