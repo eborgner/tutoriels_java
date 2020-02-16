@@ -16,12 +16,11 @@ public class ConteneurLigne extends HBox {
 		
 		for(int i = 0; i < largeur; i++) {
 			
-			CaseAjustable caseAjustable = new CaseAjustable();
+			CaseAjustableCanvas _case = new CaseAjustableCanvas();
 			
-			caseAjustable.getStyleClass().add("conteneurCase");
+			_case.getStyleClass().add("conteneurCase");
 			
-			
-			this.getChildren().add(caseAjustable);
+			this.getChildren().add(_case);
 		}
 	}
 }
