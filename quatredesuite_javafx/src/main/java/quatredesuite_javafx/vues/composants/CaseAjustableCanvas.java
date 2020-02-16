@@ -6,11 +6,11 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-public class CaseAjustable extends CanvasAjustable {
+public class CaseAjustableCanvas extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
 
-	public CaseAjustable() {
+	public CaseAjustableCanvas() {
 		super();
 		
 		this.getStyleClass().add("conteneurCase");
