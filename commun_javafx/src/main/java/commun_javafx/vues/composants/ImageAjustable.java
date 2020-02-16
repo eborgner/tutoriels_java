@@ -1,138 +1,106 @@
 package commun_javafx.vues.composants;
 
-import javafx.scene.layout.HBox;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.io.InputStream;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 
-public abstract class ImageAjustable extends HBox {
+public abstract class ImageAjustable extends CanvasAjustable {
 	
-	protected ImageView imageView;
-	protected double largeurInitialeConteneur;
-	protected double hauteurInitialeConteneur;
+	protected double facteurTaille = 1.0;
 	
-	private double largeurMin = 60;
-	private double hauteurMin = 60;
-	private double taillePourcentage = 1.0;
-
+	protected Image image;
+	
 	public ImageAjustable(String url) {
 		super();
 		J.appel(this);
 		
 		initialiser(url);
 	}
-	
-	public ImageAjustable(String url, double largeurMin, double hauteurMin, double taillePourcentage) {
+
+	public ImageAjustable(String url, double facteurTaille) {
 		super();
 		J.appel(this);
 		
-		this.largeurMin = largeurMin;
-		this.hauteurMin = hauteurMin;
-		this.taillePourcentage = taillePourcentage / 100;
-		
+		this.facteurTaille = facteurTaille;
+
 		initialiser(url);
 	}
-
+	
 	private void initialiser(String url) {
 		J.appel(this);
-
+		
 		InputStream streamImage = ImageAjustable.class.getResourceAsStream(url);
 		
-		Image image = new Image(streamImage);
+		DoitEtre.nonNul(streamImage, "Impossible de charger l'image: " + url);
 		
-		imageView = new ImageView(image);
-		
-		imageView.setScaleX(taillePourcentage * largeurMin / image.getWidth());
-		imageView.setScaleY(taillePourcentage * hauteurMin / image.getHeight());
-		
-		imageView.setFitWidth(largeurMin);
-		imageView.setFitHeight(hauteurMin);
-		
-		this.getChildren().add(imageView);
-		
-		this.setAlignment(Pos.CENTER);
-		
-		imageView.setPreserveRatio(true);
-		
-		installerListenerLargeur();
-		installerListenerHauteur();
+		image = new Image(streamImage);
 	}
 
-
-	private void installerListenerLargeur() {
-		this.widthProperty().addListener(new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				
-				double ancienneLargeur = (double) oldValue;
-				double nouvelleLargeur = (double) newValue;
-				
-				if(ancienneLargeur == 0) {
-
-					largeurInitialeConteneur = nouvelleLargeur;
-
-				}else {
-
-					ajusterTailleImage();
-				}
-			}
-		});
-	}
-
-	private void installerListenerHauteur() {
+	@Override
+	protected void reagirLargeurInitiale(double largeurInitiale) {
 		J.appel(this);
-		
-		this.heightProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				
-				double ancienneHauteur = (double) oldValue;
-				double nouvelleHauteur = (double) newValue;
-				
-				if(ancienneHauteur == 0) {
-					
-					hauteurInitialeConteneur = nouvelleHauteur;
 
-				}else {
-					
-					ajusterTailleImage();
+		rafraichirDessin();
+	}
 
-				}
-			}
-		});
-		
+	@Override
+	protected void reagirHauteurInitiale(double hauteurInitiale) {
+		J.appel(this);
+
+		rafraichirDessin();
+	}
+
+	@Override
+	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
+		J.appel(this);
+
+		rafraichirDessin();
+	}
+
+	@Override
+	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
+		J.appel(this);
+
+		rafraichirDessin();
 	}
 	
-	protected void ajusterTailleImage() {
+	protected void rafraichirDessin() {
 		J.appel(this);
 		
-		double largeurCourante = this.getWidth();
-		double hauteurCourante = this.getHeight();
-		
-		if(largeurCourante < hauteurCourante) {
-			
-			setScaleXY(largeurCourante / largeurInitialeConteneur);
-			
-		}else {
-
-			setScaleXY(hauteurCourante / hauteurInitialeConteneur);
-			
-		}
+		viderDessin();
+		dessinerImage();
 	}
 
-	protected void setScaleXY(double facteurTaille) {
+	protected void viderDessin() {
 		J.appel(this);
 		
-		this.imageView.setScaleX(taillePourcentage * facteurTaille);
-		this.imageView.setScaleY(taillePourcentage * facteurTaille);
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+	}
+	
+	protected void dessinerImage() {
+		J.appel(this);
+		
+		double facteurLargeur = facteurTaille * getWidth() / image.getWidth();
+		double facteurHauteur = facteurTaille * getHeight() / image.getHeight();
+		
+		double facteurTaille = facteurLargeur;
+		if(facteurHauteur < facteurTaille) {
+
+			facteurTaille = facteurHauteur;
+		}
+		
+		double largeur = image.getWidth() * facteurTaille;
+		double hauteur = image.getHeight() * facteurTaille;
+		
+		double coinHautGaucheX = 0 + (getWidth() - largeur) / 2;
+		double coinHautGaucheY = 0 + (getHeight() - hauteur) / 2;
+		
+		pinceau.drawImage(image, 
+						  coinHautGaucheX, 
+						  coinHautGaucheY, 
+						  largeur,
+						  hauteur);
 	}
 }

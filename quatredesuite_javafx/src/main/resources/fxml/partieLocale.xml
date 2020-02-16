@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.text.Text?>
-<?import quatredesuite_javafx.vues.composants.CaseAjustable?>
+<?import quatredesuite_javafx.vues.composants.CaseAjustableImage?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
@@ -31,19 +31,19 @@
         <VBox styleClass="petitEspace"/>
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
-                <CaseAjustable url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
+                <CaseAjustableImage url="/images/VIDE.png" HBox.hgrow="ALWAYS"/>
             </HBox>
         </VBox>
     </VBox>
