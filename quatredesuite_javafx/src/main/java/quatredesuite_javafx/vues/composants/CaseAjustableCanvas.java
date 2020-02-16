@@ -3,26 +3,17 @@ package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
 import commun_javafx.vues.composants.CanvasAjustable;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-import javafx.animation.AnimationTimer;
-import javafx.event.EventHandler;
-import javafx.event.Event;
-
-public class CaseAjustable extends CanvasAjustable {
+public class CaseAjustableCanvas extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
-	AnimationTimer animation;
 
-
-	public CaseAjustable() {
+	public CaseAjustableCanvas() {
 		super();
-		J.appel(this);
-
-		HBox.setHgrow(this, Priority.ALWAYS);
+		
+		this.getStyleClass().add("conteneurCase");
 
 		initialiserPinceau();
 		dessinerCase();
@@ -32,6 +23,7 @@ public class CaseAjustable extends CanvasAjustable {
 	protected void reagirLargeurInitiale(double largeurInitiale) {
 		J.appel(this);
 		
+		viderDessin();
 		dessinerCase();
 	}
 
@@ -39,6 +31,7 @@ public class CaseAjustable extends CanvasAjustable {
 	protected void reagirHauteurInitiale(double hauteurInitiale) {
 		J.appel(this);
 
+		viderDessin();
 		dessinerCase();
 	}
 
@@ -47,7 +40,6 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-
 		dessinerCase();
 	}
 
@@ -56,7 +48,6 @@ public class CaseAjustable extends CanvasAjustable {
 		J.appel(this);
 
 		viderDessin();
-
 		dessinerCase();
 	}
 
@@ -137,95 +128,5 @@ public class CaseAjustable extends CanvasAjustable {
 		laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
 		
 		return laCase;
-	}
-	
-	private void creerAnimation() {
-		J.appel(this);
-
-		animation = new AnimationTimer() {
-
-			private long avant;
-			private double tempsCycleSecondes = 2.5;
-			
-			@Override
-			public void start() {
-				J.appel(this);
-				
-				avant = System.nanoTime();
-
-				super.start();
-			}
-
-			@Override
-			public void handle(long maintenant) {
-				J.setActif(false);
-				J.appel(this);
-				
-				double secondesEcoulees = (maintenant - avant) / 1E9;
-
-				double endroitDuCycle = calculerFacteurCourant(secondesEcoulees);
-				
-				J.valeurs(endroitDuCycle);
-				
-				dessinerProchain(endroitDuCycle);
-
-				J.setActif(true);
-			}
-
-			private double calculerFacteurCourant(double secondesEcoulees) {
-				J.appel(this);
-
-				double tempsNormalise = secondesEcoulees / tempsCycleSecondes * Math.PI * 2;
-				
-				return Math.cos(tempsNormalise);
-			}
-
-			private void dessinerProchain(double endroitDuCycle) {
-				J.appel(this);
-
-				viderDessin();
-
-				dessinerCase();
-				dessinerImageCle(endroitDuCycle);
-			}
-
-			private void dessinerImageCle(double endroitDuCycle) {
-				J.appel(this);
-		
-				dessinerCase(TAILLE_POURCENTAGE * Math.abs(endroitDuCycle));
-			}
-		};
-	}
-
-	
-	
-	
-	
-	
-	
-	private void installerListeners() {
-		J.appel(this);
-		
-		this.setOnMouseEntered(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-				J.appel(this);
-
-				animation.start();
-			}
-		});
-		
-		this.setOnMouseExited(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-				J.appel(this);
-				
-				animation.stop();
-
-				viderDessin();
-
-				dessinerCase();
-			}
-		});
 	}
 }
