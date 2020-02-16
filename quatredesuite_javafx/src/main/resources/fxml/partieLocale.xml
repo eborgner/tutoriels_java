@@ -4,9 +4,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import quatredesuite_javafx.vues.composants.CaseAjustable?>
+<?import quatredesuite_javafx.vues.composants.CaseAjustableCanvas?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
     <!--
@@ -37,22 +35,22 @@
         -->
         <VBox styleClass="conteneurGrille" VBox.vgrow="ALWAYS">
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
                 <!--
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
                 -->
             </HBox>
             <!--
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
             </HBox>
             <HBox styleClass="conteneurLigne" VBox.vgrow="ALWAYS">
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
-                <CaseAjustable HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
+                <CaseAjustableCanvas HBox.hgrow="ALWAYS"/>
             </HBox>
             -->
         </VBox>

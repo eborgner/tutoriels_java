@@ -8,12 +8,12 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.text.Font;
 import javafx.animation.AnimationTimer;
 
-public class CaseAjustable extends CanvasAjustable {
+public class CaseAjustableCanvas extends CanvasAjustable {
 	
 	private final double TAILLE_POURCENTAGE = 0.6;
 	AnimationTimer animation;
 
-	public CaseAjustable() {
+	public CaseAjustableCanvas() {
 		super();
 		
 		this.getStyleClass().add("conteneurCase");
