@@ -52,7 +52,6 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				quitterPourEnvoi.envoyerCommande();
 			}
 		});
 		
@@ -61,7 +60,6 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				ouvrirParametresPourEnvoi.envoyerCommande();
 			}
 		});
 		
@@ -70,7 +68,6 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				nouvellePartiePourEnvoi.envoyerCommande();
 			}
 		});
 	}
@@ -88,12 +85,9 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 						CHEMIN_CHAINES,
 						CHEMIN_PARTIE_LOCALE_CSS);
 		
-		VuePartieLocaleFX vuePartieLocale = chargeur.getVue();
+		VuePartieLocaleFX vuePartieLocale = null;
 		
-		Parent parent = chargeur.getParent();
 		
-		conteneurPartie.getChildren().clear();
-		conteneurPartie.getChildren().add(parent);
 		
 		return vuePartieLocale;
 	}
