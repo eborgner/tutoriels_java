@@ -14,13 +14,13 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
-import quatredesuite_client.controleurs.ControleurPartieLocale;
 import quatredesuite_client.controleurs.ControleurPrincipal;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
 import quatredesuite_javafx.vues.VuePrincipaleFX;
 import static quatredesuite_javafx.Constantes.*;
 
+@SuppressWarnings("rawtypes")
 public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
 
 	@Override
@@ -71,7 +71,6 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	private void ouvrirParametres() {
 		J.appel(this);
 
-		@SuppressWarnings("rawtypes")
 		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARAMETRES_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PARAMETRES_CSS);
