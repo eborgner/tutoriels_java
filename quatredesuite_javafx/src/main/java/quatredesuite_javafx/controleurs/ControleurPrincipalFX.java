@@ -57,11 +57,17 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 			public void executerCommande(NouvellePartieRecue nouvellePartieRecue) {
 				J.appel(this);
 
-				// FIXME: on peut améliorer FabriqueCommande pour mettre à jour les commandes
-				viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
+				reobtenirViderGrillePourEnvoiApresNouveauRecepteur();
 				viderGrillePourEnvoi.envoyerCommande();
 			}
+
 		});
+	}
+
+	private void reobtenirViderGrillePourEnvoiApresNouveauRecepteur() {
+		J.appel(this);
+		
+		viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
 	}
 	
 	private void nouvellePartieLocale() {
