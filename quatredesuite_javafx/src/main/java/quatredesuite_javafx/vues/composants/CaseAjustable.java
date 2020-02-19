@@ -6,50 +6,49 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-
 public class CaseAjustable extends CanvasAjustable {
     
-    private static final double TAILLE_PAR_DEFAUT_POURCENTAGE = 0.6;
-
-    private class Case {
-        public double caseHautGaucheX;
-        public double caseHautGaucheY;
-        public double tailleCase;
-    }
-
+    private final double TAILLE_POURCENTAGE = 0.6;
+    
     public CaseAjustable() {
         super();
         J.appel(this);
+        
 
-        initialiserDessin();
+        initialiserPinceau();
+        dessinerCase();
+    }
+
+    @Override
+    protected void reagirLargeurInitiale(double largeurInitiale) {
+        J.appel(this);
+        
+        dessinerCase();
+    }
+
+    @Override
+    protected void reagirHauteurInitiale(double hauteurInitiale) {
+        J.appel(this);
+
+        dessinerCase();
     }
 
     @Override
     protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
         J.appel(this);
-        
-        reinitialiserDessin();
+
+        viderDessin();
+
+        dessinerCase();
     }
 
     @Override
     protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
         J.appel(this);
 
-        reinitialiserDessin();
-    }
-
-    private void initialiserDessin() {
-        J.appel(this);
-
-        initialiserPinceau();
-        dessinerCase(TAILLE_PAR_DEFAUT_POURCENTAGE);
-    }
-
-    private void reinitialiserDessin() {
-        J.appel(this);
-
         viderDessin();
-        initialiserDessin();
+
+        dessinerCase();
     }
 
     private void initialiserPinceau() {
@@ -65,13 +64,31 @@ public class CaseAjustable extends CanvasAjustable {
 
         pinceau.clearRect(0, 0, getWidth(), getHeight());
     }
+    
+    private void dessinerCase() {
+        J.appel(this);
+        
+        dessinerCase(TAILLE_POURCENTAGE);
+    }
 
-
+    private class Case {
+        public double caseHautGaucheX;
+        public double caseHautGaucheY;
+        public double tailleCase;
+    }
+    
     private void dessinerCase(double taillePourcentage) {
         J.appel(this);
         
         Case laCase = calculerCase(taillePourcentage);
         
+        dessinerFond(laCase);
+        dessinerContour(laCase);
+    }
+
+    private void dessinerFond(Case laCase) {
+        J.appel(this);
+
         pinceau.fillArc(laCase.caseHautGaucheX, 
                         laCase.caseHautGaucheY, 
                         laCase.tailleCase, 
@@ -79,6 +96,10 @@ public class CaseAjustable extends CanvasAjustable {
                         0, 
                         360, 
                         ArcType.ROUND);
+    }
+
+    private void dessinerContour(Case laCase) {
+        J.appel(this);
 
         pinceau.strokeArc(laCase.caseHautGaucheX, 
                           laCase.caseHautGaucheY, 
@@ -108,5 +129,4 @@ public class CaseAjustable extends CanvasAjustable {
         
         return laCase;
     }
-    
 }
