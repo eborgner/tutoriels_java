@@ -57,22 +57,8 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 			public void executerCommande(NouvellePartieRecue nouvellePartieRecue) {
 				J.appel(this);
 
-				if(viderGrillePourEnvoi == null) {
-
-					nouvellePartieLocale();
-
-					installerViderGrillePourEnvoi();
-
-					// nouvellePartieRecue.notifierCommandeTraitee();
-
-				}else {
-
-					installerReactionApresVider(/*nouvellePartieRecue*/);
-
-					installerViderGrillePourEnvoi();
-
-					viderGrillePourEnvoi.envoyerCommande();
-				}
+				viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
+				viderGrillePourEnvoi.envoyerCommande();
 			}
 		});
 	}
@@ -89,23 +75,6 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
 	}
 	
-	private void installerViderGrillePourEnvoi() {
-		J.appel(this);
-
-		viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
-	}
-
-	private void installerReactionApresVider(/*NouvellePartieRecue nouvellePartieRecue*/) {
-		FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
-			@Override
-			public void reagirApresCommande() {
-				J.appel(this);
-
-				nouvellePartieLocale();
-				//nouvellePartieRecue.notifierCommandeTraitee();
-			}
-		});
-	}
 
 	private void ouvrirParametres() {
 		J.appel(this);
@@ -123,7 +92,16 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	@Override
 	protected void demarrer() {
 		J.appel(this);
-		
-	}
 
+		nouvellePartieLocale();
+
+		FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
+
+				nouvellePartieLocale();
+			}
+		});
+	}
 }
