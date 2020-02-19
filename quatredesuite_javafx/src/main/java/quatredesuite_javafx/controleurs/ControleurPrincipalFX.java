@@ -28,7 +28,6 @@ import static quatredesuite_javafx.Constantes.*;
 
 public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
 	
-
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
@@ -51,18 +50,21 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 			}
 		});
 		
+		FabriqueCommande.installerRecepteur(NouvellePartie.class, new RecepteurCommande<NouvellePartieRecue>() {
+			@Override
+			public void executerCommande(NouvellePartieRecue nouvellePartieRecue) {
+				J.appel(this);
+
+			}
+
+		});
+	}
+
+	private void reobtenirViderGrillePourEnvoiApresNouveauRecepteur() {
+		J.appel(this);
 		
 	}
-
-	private void installerReactionApresVider(NouvellePartieRecue nouvellePartieRecue) {
-
-	}
-
-	private void installerViderGrillePourEnvoi() {
-		J.appel(this);
-
-	}
-
+	
 	private void nouvellePartieLocale() {
 		J.appel(this);
 		
@@ -74,7 +76,7 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
 	}
-
+	
 
 	private void ouvrirParametres() {
 		J.appel(this);
@@ -92,7 +94,6 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 	@Override
 	protected void demarrer() {
 		J.appel(this);
-		
-	}
 
+	}
 }
