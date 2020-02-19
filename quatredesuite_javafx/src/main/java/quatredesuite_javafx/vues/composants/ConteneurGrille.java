@@ -74,18 +74,7 @@ public class ConteneurGrille extends VBox {
 
     public void viderGrille(ViderGrilleRecue commande) {
         J.appel(this);
-        
-        animationViderGrille.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                J.appel(this);
-                
-                commande.notifierCommandeTraitee();
-            }
-        }); 
-        
-        animerSortieJetons();
-        animationViderGrille.playFromStart();
+
     }
 
     private void animerSortieJetons() {
