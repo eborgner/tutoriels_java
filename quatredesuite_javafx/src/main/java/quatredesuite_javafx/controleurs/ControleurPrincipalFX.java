@@ -63,11 +63,11 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 
 					installerViderGrillePourEnvoi();
 
-					nouvellePartieRecue.notifierCommandeTraitee();
+					// nouvellePartieRecue.notifierCommandeTraitee();
 
 				}else {
 
-					installerReactionApresVider(nouvellePartieRecue);
+					installerReactionApresVider(/*nouvellePartieRecue*/);
 
 					installerViderGrillePourEnvoi();
 
@@ -95,14 +95,14 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		viderGrillePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(ViderGrille.class);
 	}
 
-	private void installerReactionApresVider(NouvellePartieRecue nouvellePartieRecue) {
+	private void installerReactionApresVider(/*NouvellePartieRecue nouvellePartieRecue*/) {
 		FabriqueCommande.installerReactionApresCommande(ViderGrille.class, new ReactionApresCommande() {
 			@Override
 			public void reagirApresCommande() {
 				J.appel(this);
 
 				nouvellePartieLocale();
-				nouvellePartieRecue.notifierCommandeTraitee();
+				//nouvellePartieRecue.notifierCommandeTraitee();
 			}
 		});
 	}
