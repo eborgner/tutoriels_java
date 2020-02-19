@@ -62,7 +62,6 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void verifierCommandesPossibles() {
 		J.appel(this);
-		
-		conteneurEntetes.verifierCommandesPossibles();
+
 	}
 }

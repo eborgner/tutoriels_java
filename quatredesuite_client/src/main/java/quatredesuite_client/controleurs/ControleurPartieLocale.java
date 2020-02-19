@@ -36,12 +36,8 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 				
 			}
 			
-			@Override
-			public boolean siCommandePossible(JouerIciRecue commande) {
-				J.appel(this);
-				
-				return modele.siPossibleJouerIci(commande.getIndiceColonne());
-			}
+			
+			
 		});
 	} 
 }

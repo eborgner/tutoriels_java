@@ -89,19 +89,6 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 		this.grille = grille;
 	}
 
-	public boolean siPossibleJouerIci(int indiceColonne) {
-		J.appel(this);
-		
-		boolean siPossibleJouerIci = false;
-		
-		if(indiceColonne < grille.getColonnes().size()) {
-
-			siPossibleJouerIci = grille.getColonnes().get(indiceColonne).getJetons().size() < hauteur;
-		}
-		
-		return siPossibleJouerIci;
-	}
-
-
+	
 
 }

@@ -39,10 +39,6 @@ public class ConteneurEntetes extends HBox {
     public void verifierCommandesPossibles() {
         J.appel(this);
 
-        for(Entete entete : entetes()) {
-            
-            entete.verifierCommandePossible();
-        }
     }
     
     public void installerCapteursJouerIci() {
