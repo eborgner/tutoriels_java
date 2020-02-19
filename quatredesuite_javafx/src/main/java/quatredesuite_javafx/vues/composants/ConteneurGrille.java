@@ -1,6 +1,8 @@
 package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.RecepteurCommande;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -12,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import quatredesuite.enumerations.Couleur;
+import quatredesuite_client.commandes.vider_grille.ViderGrille;
 import quatredesuite_client.commandes.vider_grille.ViderGrilleRecue;
 
 public class ConteneurGrille extends VBox {
@@ -35,8 +38,7 @@ public class ConteneurGrille extends VBox {
         
         creerAnimationViderGrille();
     }
-
-
+    
     public void creerGrille(int largeur, int hauteur) {
         J.appel(this);
         
