@@ -33,8 +33,5 @@ public class MainActivity extends AppCompatActivity {
 
         EntrepotFormes.afficherformes(dessinAndroid);
 
-        dessinAndroid.invalidate();
-
-
     }
 }
