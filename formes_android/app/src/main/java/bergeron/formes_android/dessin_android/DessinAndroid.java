@@ -3,7 +3,7 @@ package bergeron.formes_android.dessin_android;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.view.View;
 
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
 import commun.debogage.J;
 import formes.Dessin;
 
-public class DessinAndroid extends LinearLayout implements Dessin {
+public class DessinAndroid extends View implements Dessin {
 
     private String couleurCourante = "black";
 
