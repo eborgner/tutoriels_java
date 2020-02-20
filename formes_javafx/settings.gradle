@@ -1,1 +1,10 @@
 rootProject.name = 'formes_javafx'
+
+include ':commun'
+project(':commun').projectDir = file('../commun')
+
+include ':commun_javafx'
+project(':commun_javafx').projectDir = file('../commun_javafx')
+
+include ':formes'
+project(':formes').projectDir = file('../formes')

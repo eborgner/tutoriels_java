@@ -6,7 +6,7 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+	sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
@@ -21,20 +21,11 @@ eclipse {
     }
 }
 
+
 repositories {
     jcenter()
 }
 
 dependencies {
-
     compile project(':commun')
-    compile project(':commun_javafx')
-    compile project(':formes')
-
-}
-
-task(formes, dependsOn: 'classes', type: JavaExec) {
-
-   main = 'formes_javafx.Principal'
-   classpath = sourceSets.main.runtimeClasspath
 }
