@@ -6,6 +6,8 @@ public class J {
     
     private static int INDICE_APPEL_A_AFFICHER = 4;
 
+	private static boolean siActif = true;
+
     public enum Contexte{ANDROID,JAVAFX;}
 
     private static final String PREFIXE = "J#";
@@ -28,6 +30,7 @@ public class J {
     }
 
     public static void appel(Class classeAppelee){
+    	if(!siActif) {return;}
 
         String nomClasseAppelee = classeAppelee.getSimpleName();
 
@@ -36,6 +39,7 @@ public class J {
     }
 
     public static void appel(Object objetAppele){
+    	if(!siActif) {return;}
 
         String nomClasseAppelee = objetAppele.getClass().getSimpleName();
 
@@ -60,6 +64,7 @@ public class J {
     }
 
     public static void valeurs(Object... valeurs){
+    	if(!siActif) {return;}
 
     	int indiceAppel = INDICE_APPEL_A_AFFICHER - 1;
 
@@ -154,5 +159,9 @@ public class J {
 
         }
     }
+
+	public static void setActif(boolean siActif) {
+		J.siActif = siActif;
+	}
 
 }

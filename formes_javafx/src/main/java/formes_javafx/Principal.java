@@ -1,144 +1,74 @@
 package formes_javafx;
 
 import java.io.InputStream;
-import java.util.Scanner;
 
+import commun.debogage.J;
+import commun_javafx.Initialisateur;
+import formes.EntrepotFormes;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
 public class Principal extends Application {
+	
+	static{
+	
+		Initialisateur.initialiser();
+
+	}
     
     private static final String CHEMIN_FICHIER_ENTREE = "/entrees/01.txt";
 
     private static final int HAUTEUR = 400;
     private static final int LARGEUR = 600;
 
-    private GraphicsContext dessin;
+    private static DessinFX dessin;
 
     public static void main(String[] args) {
+    	J.appel(Principal.class);
 
         launch(args);
     }
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage fenetrePrincipale) throws Exception {
+    	J.appel(Principal.class);
         
         Scene scene = creerScene();
         
-        lireFichierEtAfficherFormes();
+        chargerFormes();
+        afficherFormes();
 
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    private void lireFichierEtAfficherFormes() {
-
-        InputStream streamEntree = Principal.class.getResourceAsStream(CHEMIN_FICHIER_ENTREE);
-
-        lireFichierEtAfficherFormes(streamEntree);
+        fenetrePrincipale.setScene(scene);
+        fenetrePrincipale.show();
     }
 
     private Scene creerScene() {
+    	J.appel(Principal.class);
 
-        Canvas canvas = new Canvas(LARGEUR, HAUTEUR);
-        dessin = canvas.getGraphicsContext2D();
+    	dessin = new DessinFX(LARGEUR, HAUTEUR);
         
         Pane pane = new Pane();
-        pane.getChildren().add(canvas);
+        pane.getChildren().add(dessin);
 
         Scene scene = new Scene(pane, LARGEUR, HAUTEUR);
 
         return scene;
     }
 
-    private void lireFichierEtAfficherFormes(InputStream streamEntree) {
+    private void chargerFormes() {
+    	J.appel(Principal.class);
 
-        Scanner scan = new Scanner(streamEntree);
+        InputStream streamFormes = Principal.class.getResourceAsStream(CHEMIN_FICHIER_ENTREE);
         
-        while(scan.hasNext()) {
-            lireEtAfficherUneForme(scan);
-        }
-
-        scan.close();
+        EntrepotFormes.chargerFormes(streamFormes);
+    }
+    
+    private void afficherFormes() {
+    	J.appel(Principal.class);
+    	
+    	EntrepotFormes.afficherformes(dessin);
     }
 
-    private void lireEtAfficherUneForme(Scanner scan) {
-
-        String typeForme = scan.next();
-
-        Color couleur = Color.valueOf(scan.next());
-        dessin.setFill(couleur);
-        
-        int centreX = scan.nextInt();
-        int centreY = scan.nextInt();
-
-        lireFichierEtAfficherUneForme(scan, typeForme, centreX, centreY);
-    }
-
-    private void lireFichierEtAfficherUneForme(Scanner scan, 
-                                               String typeForme, 
-                                               int centreX,
-                                               int centreY) {
-
-        switch(typeForme) {
-
-            case "Cercle":
-                lireEtAfficherUnCercle(scan, centreX, centreY);
-                break;
-
-            case "Carre":
-                lireEtAfficherUnCarre(scan, centreX, centreY);
-                break;
-
-            case "Rectangle":
-                lireEtAfficherUnRectangle(scan, centreX, centreY);
-                break;
-        }
-    }
-
-    private void lireEtAfficherUnRectangle(Scanner scan,
-                                           int centreX,
-                                           int centreY) {
-
-        int largeur = scan.nextInt();
-        int hauteur = scan.nextInt();
-
-        dessin.fillRect(centreX-largeur/2, 
-                        centreY-hauteur/2, 
-                        largeur, 
-                        hauteur);
-    }
-
-    private void lireEtAfficherUnCarre(Scanner scan,
-                                       int centreX,
-                                       int centreY) {
-
-        int taille = scan.nextInt();
-
-        dessin.fillRect(centreX-taille/2, 
-                        centreY-taille/2, 
-                        taille, 
-                        taille);
-    }
-
-    private void lireEtAfficherUnCercle(Scanner scan, 
-                                        int centreX, 
-                                        int centreY) {
-
-        int rayon = scan.nextInt();
-
-        dessin.fillArc(centreX-rayon, 
-                       centreY-rayon, 
-                       rayon, 
-                       rayon, 
-                       0, 
-                       360, 
-                       ArcType.ROUND);
-    }
 }
