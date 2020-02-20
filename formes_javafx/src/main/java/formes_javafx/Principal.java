@@ -13,61 +13,132 @@ import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
 public class Principal extends Application {
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
-	@Override
-	public void start(Stage st) throws Exception {
-		
-		Canvas cv = new Canvas(600, 400);
-		GraphicsContext gc = cv.getGraphicsContext2D();
-		
-		Pane p = new Pane();
-		p.getChildren().add(cv);
+    
+    private static final String CHEMIN_FICHIER_ENTREE = "/entrees/01.txt";
 
-		Scene sc = new Scene(p, 600, 400);
-		
-		InputStream in = Principal.class.getResourceAsStream("/entrees/02.txt");
-		
-		Scanner scan = new Scanner(in);
-		
-		while(scan.hasNext()) {
+    private static final int HAUTEUR = 400;
+    private static final int LARGEUR = 600;
 
-			String n = scan.next();
+    private GraphicsContext dessin;
 
-			Color c = Color.valueOf(scan.next());
-			gc.setFill(c);
-			
-			int x = scan.nextInt();
-			int y = scan.nextInt();
-			
+    public static void main(String[] args) {
 
-			switch(n) {
-			
-			case "Cercle":
-				int r = scan.nextInt();
-				gc.fillArc(x-r, y-r, r, r, 0, 360, ArcType.ROUND);
-				break;
+        launch(args);
+    }
+    
+    @Override
+    public void start(Stage stage) throws Exception {
+        
+        Scene scene = creerScene();
+        
+        lireFichierEtAfficherFormes();
 
-			case "Carre":
-				int t = scan.nextInt();
-				gc.fillRect(x-t/2, y-t/2, t, t);
-				break;
+        stage.setScene(scene);
+        stage.show();
+    }
 
-			case "Rectangle":
-				int l = scan.nextInt();
-				int ll = scan.nextInt();
-				gc.fillRect(x-l/2, y-ll/2, l, ll);
-				break;
-			}
-		}
+    private void lireFichierEtAfficherFormes() {
 
-		scan.close();
+        InputStream streamEntree = Principal.class.getResourceAsStream(CHEMIN_FICHIER_ENTREE);
 
-		st.setScene(sc);
-		st.show();
-	}
+        lireFichierEtAfficherFormes(streamEntree);
+    }
+
+    private Scene creerScene() {
+
+        Canvas canvas = new Canvas(LARGEUR, HAUTEUR);
+        dessin = canvas.getGraphicsContext2D();
+        
+        Pane pane = new Pane();
+        pane.getChildren().add(canvas);
+
+        Scene scene = new Scene(pane, LARGEUR, HAUTEUR);
+
+        return scene;
+    }
+
+    private void lireFichierEtAfficherFormes(InputStream streamEntree) {
+
+        Scanner scan = new Scanner(streamEntree);
+        
+        while(scan.hasNext()) {
+            lireEtAfficherUneForme(scan);
+        }
+
+        scan.close();
+    }
+
+    private void lireEtAfficherUneForme(Scanner scan) {
+
+        String typeForme = scan.next();
+
+        Color couleur = Color.valueOf(scan.next());
+        dessin.setFill(couleur);
+        
+        int centreX = scan.nextInt();
+        int centreY = scan.nextInt();
+
+        lireFichierEtAfficherUneForme(scan, typeForme, centreX, centreY);
+    }
+
+    private void lireFichierEtAfficherUneForme(Scanner scan, 
+                                               String typeForme, 
+                                               int centreX,
+                                               int centreY) {
+
+        switch(typeForme) {
+
+            case "Cercle":
+                lireEtAfficherUnCercle(scan, centreX, centreY);
+                break;
+
+            case "Carre":
+                lireEtAfficherUnCarre(scan, centreX, centreY);
+                break;
+
+            case "Rectangle":
+                lireEtAfficherUnRectangle(scan, centreX, centreY);
+                break;
+        }
+    }
+
+    private void lireEtAfficherUnRectangle(Scanner scan,
+                                           int centreX,
+                                           int centreY) {
+
+        int largeur = scan.nextInt();
+        int hauteur = scan.nextInt();
+
+        dessin.fillRect(centreX-largeur/2, 
+                        centreY-hauteur/2, 
+                        largeur, 
+                        hauteur);
+    }
+
+    private void lireEtAfficherUnCarre(Scanner scan,
+                                       int centreX,
+                                       int centreY) {
+
+        int taille = scan.nextInt();
+
+        dessin.fillRect(centreX-taille/2, 
+                        centreY-taille/2, 
+                        taille, 
+                        taille);
+    }
+
+    private void lireEtAfficherUnCercle(Scanner scan, 
+                                        int centreX, 
+                                        int centreY) {
+
+        int rayon = scan.nextInt();
+
+        dessin.fillArc(centreX-rayon, 
+                       centreY-rayon, 
+                       rayon, 
+                       rayon, 
+                       0, 
+                       360, 
+                       ArcType.ROUND);
+    }
 }
-
