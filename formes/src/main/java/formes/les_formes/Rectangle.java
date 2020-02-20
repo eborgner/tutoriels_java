@@ -1,8 +1,10 @@
-package formes;
+package formes.les_formes;
 
 import java.util.Scanner;
 
 import commun.debogage.J;
+import formes.Dessin;
+import formes.Forme;
 
 public class Rectangle extends Forme {
 	

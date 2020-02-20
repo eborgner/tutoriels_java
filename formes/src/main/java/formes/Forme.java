@@ -10,7 +10,7 @@ public abstract class Forme {
 	protected double centreX;
 	protected double centreY;
 	
-	public void chargerForme(Scanner scannerForme) {
+	public void charger(Scanner scannerForme) {
 		J.appel(this);
 		
 		couleur = scannerForme.next();

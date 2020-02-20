@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import commun.Fabrique;
-import commun.debogage.DoitEtre;
 import commun.debogage.Erreur;
 import commun.debogage.J;
 
@@ -42,30 +41,37 @@ public class EntrepotFormes {
 		
 		String nomClasseForme = scannerForme.next();
 		
-		Class classeForme = getClasseForme(nomClasseForme);
+		Forme forme = fabriquerForme(nomClasseForme);
 		
-		Forme forme = (Forme) Fabrique.nouvelleInstance(classeForme);
-		
-		forme.chargerForme(scannerForme);
+		forme.charger(scannerForme);
 		
 		formes.add(forme);
 	}
 
-	private static Class getClasseForme(String nomClasseForme) {
+	private static Forme fabriquerForme(String nomClasseForme) {
+		Class<Forme> classeForme = getClasseForme(nomClasseForme);
+		
+		Forme forme = Fabrique.nouvelleInstance(classeForme);
+		return forme;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static Class<Forme> getClasseForme(String nomClasseForme) {
 		J.appel(EntrepotFormes.class);
 
-		String nomCompletClasseForme = "formes." + nomClasseForme;
+		String nomCompletClasseForme = "formes.les_formes." + nomClasseForme;
 		
-		Class classeForme = null;
+		Class<Forme> classeForme = null;
 
 		try {
 
-			classeForme = Class.forName(nomCompletClasseForme);
+			classeForme = (Class<Forme>) Class.forName(nomCompletClasseForme);
 
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | ClassCastException e) {
 			
 			Erreur.fatale("Classe non-trouvée" + nomCompletClasseForme, e);
 		}
+
 		return classeForme;
 	}
 	
