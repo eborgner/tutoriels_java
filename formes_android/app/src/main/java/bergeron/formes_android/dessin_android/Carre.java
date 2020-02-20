@@ -21,8 +21,9 @@ class Carre extends Forme {
     public void dessiner(Canvas canvas) {
         J.appel(this);
 
-        canvas.drawRect(centreX-taille/2, centreY-taille/2, centreX+taille/2, centreY+taille/2, peinture);
-
-
+        canvas.drawRect(centreX-taille/2,
+                centreY-taille/2,
+                centreX+taille/2,
+                centreY+taille/2, peinture);
     }
 }

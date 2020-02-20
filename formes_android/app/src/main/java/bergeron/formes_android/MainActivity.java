@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private final String CHEMIN_FICHIER_ENTREE = "/entrees/02.txt";
+    private final String CHEMIN_FICHIER_ENTREE = "/entrees/01.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
