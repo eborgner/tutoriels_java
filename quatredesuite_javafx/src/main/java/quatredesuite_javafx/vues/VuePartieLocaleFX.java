@@ -50,4 +50,11 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 
 	}
 
+	@Override
+	public void afficherJeton(int indiceColonne, int indiceRangee, Couleur couleur) {
+		J.appel(this);
+		
+		conteneurGrille.afficherJeton(indiceColonne, indiceRangee, couleur);
+	}
+
 }
