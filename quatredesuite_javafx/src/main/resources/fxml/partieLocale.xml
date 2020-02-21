@@ -17,8 +17,10 @@
                           VBox.vgrow="SOMETIMES"/>
         <VBox styleClass="petitEspace"/>
         <ConteneurGrille styleClass="conteneurGrille"
-                         fx:id="conteneurGrille"
-                         VBox.vgrow="ALWAYS"/>
+        			 	 fx:id="conteneurGrille"
+        	             couleurRouge="#fd5435"
+        	             couleurJaune="#fccd0e"
+        	             VBox.vgrow="ALWAYS"/>
     </VBox>
     <VBox styleClass="petitEspaceVertical"/>
     <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
