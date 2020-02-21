@@ -5,128 +5,151 @@ import commun.debogage.J;
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import quatredesuite.enumerations.Couleur;
 
 public class CaseAjustable extends CanvasAjustable {
-    
-    private final double TAILLE_POURCENTAGE = 0.6;
-    
-    public CaseAjustable() {
-        super();
-        J.appel(this);
-        
+	
+	private final double TAILLE_POURCENTAGE = 0.6;
+	
+	private Color couleurRouge;
+	private Color couleurJaune;
 
-        initialiserPinceau();
-        dessinerCase();
-    }
+	public CaseAjustable(Color couleurRouge, Color couleurJaune) {
+		super();
+		
+		this.couleurRouge = couleurRouge;
+		this.couleurJaune = couleurJaune;
+		
 
-    @Override
-    protected void reagirLargeurInitiale(double largeurInitiale) {
-        J.appel(this);
-        
-        dessinerCase();
-    }
+		initialiserPinceau();
+		dessinerCase();
+	}
 
-    @Override
-    protected void reagirHauteurInitiale(double hauteurInitiale) {
-        J.appel(this);
+	public void afficherJeton(Couleur couleur) {
+		J.appel(this);
+		
+		switch(couleur) {
+		
+			case ROUGE:
+				pinceau.setFill(couleurRouge);
+				dessinerCase();
+			break;
 
-        dessinerCase();
-    }
+			case JAUNE:
+				pinceau.setFill(couleurJaune);
+				dessinerCase();
+			break;
+		}
+	}
 
-    @Override
-    protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
-        J.appel(this);
+	@Override
+	protected void reagirLargeurInitiale(double largeurInitiale) {
+		J.appel(this);
+		
+		dessinerCase();
+	}
 
-        viderDessin();
+	@Override
+	protected void reagirHauteurInitiale(double hauteurInitiale) {
+		J.appel(this);
 
-        dessinerCase();
-    }
+		dessinerCase();
+	}
 
-    @Override
-    protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
-        J.appel(this);
+	@Override
+	protected void reagirNouvelleLargeur(double ancienneLargeur, double nouvelleLargeur) {
+		J.appel(this);
 
-        viderDessin();
+		viderDessin();
 
-        dessinerCase();
-    }
+		dessinerCase();
+	}
 
-    private void initialiserPinceau() {
-        J.appel(this);
+	@Override
+	protected void reagirNouvelleHauteur(double ancienneHauteur, double nouvelleHauteur) {
+		J.appel(this);
 
-        pinceau.setFill(Color.WHITE);
-        pinceau.setStroke(Color.BLACK);
-        pinceau.setLineWidth(0.01*getWidth());
-    }
-    
-    private void viderDessin() {
-        J.appel(this);
+		viderDessin();
 
-        pinceau.clearRect(0, 0, getWidth(), getHeight());
-    }
-    
-    private void dessinerCase() {
-        J.appel(this);
-        
-        dessinerCase(TAILLE_POURCENTAGE);
-    }
+		dessinerCase();
+	}
 
-    private class Case {
-        public double caseHautGaucheX;
-        public double caseHautGaucheY;
-        public double tailleCase;
-    }
-    
-    private void dessinerCase(double taillePourcentage) {
-        J.appel(this);
-        
-        Case laCase = calculerCase(taillePourcentage);
-        
-        dessinerFond(laCase);
-        dessinerContour(laCase);
-    }
+	private void initialiserPinceau() {
+		J.appel(this);
 
-    private void dessinerFond(Case laCase) {
-        J.appel(this);
+		pinceau.setFill(Color.WHITE);
+		pinceau.setStroke(Color.BLACK);
+		pinceau.setLineWidth(0.01*getWidth());
+	}
+	
+	private void viderDessin() {
+		J.appel(this);
 
-        pinceau.fillArc(laCase.caseHautGaucheX, 
-                        laCase.caseHautGaucheY, 
-                        laCase.tailleCase, 
-                        laCase.tailleCase, 
-                        0, 
-                        360, 
-                        ArcType.ROUND);
-    }
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+	}
+	
+	private void dessinerCase() {
+		J.appel(this);
+		
+		dessinerCase(TAILLE_POURCENTAGE);
+	}
 
-    private void dessinerContour(Case laCase) {
-        J.appel(this);
+	private class Case {
+		public double caseHautGaucheX;
+		public double caseHautGaucheY;
+		public double tailleCase;
+	}
+	
+	private void dessinerCase(double taillePourcentage) {
+		J.appel(this);
+		
+		Case laCase = calculerCase(taillePourcentage);
+		
+		dessinerFond(laCase);
+		dessinerContour(laCase);
+	}
 
-        pinceau.strokeArc(laCase.caseHautGaucheX, 
-                          laCase.caseHautGaucheY, 
-                          laCase.tailleCase, 
-                          laCase.tailleCase, 
-                          0, 
-                          360, 
-                          ArcType.OPEN);
-    }
+	private void dessinerFond(Case laCase) {
+		J.appel(this);
 
-    private Case calculerCase(double taillePourcentage) {
-        J.appel(this);
-        
-        Case laCase = new Case();
+		pinceau.fillArc(laCase.caseHautGaucheX, 
+						laCase.caseHautGaucheY, 
+						laCase.tailleCase, 
+						laCase.tailleCase, 
+						0, 
+						360, 
+						ArcType.ROUND);
+	}
 
-        double largeurDessin = getWidth();
-        double hauteurDessin = getHeight();
-        
-        laCase.tailleCase = largeurDessin * taillePourcentage;
+	private void dessinerContour(Case laCase) {
+		J.appel(this);
 
-        if(hauteurDessin < largeurDessin) {
-            laCase.tailleCase = hauteurDessin * taillePourcentage;
-        }
-        
-        laCase.caseHautGaucheX = (largeurDessin - laCase.tailleCase) / 2;
-        laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
-        
-        return laCase;
-    }
+		pinceau.strokeArc(laCase.caseHautGaucheX, 
+						  laCase.caseHautGaucheY, 
+						  laCase.tailleCase, 
+						  laCase.tailleCase, 
+						  0, 
+						  360, 
+						  ArcType.OPEN);
+	}
+
+	private Case calculerCase(double taillePourcentage) {
+		J.appel(this);
+		
+		Case laCase = new Case();
+
+		double largeurDessin = getWidth();
+		double hauteurDessin = getHeight();
+		
+		laCase.tailleCase = largeurDessin * taillePourcentage;
+
+		if(hauteurDessin < largeurDessin) {
+			laCase.tailleCase = hauteurDessin * taillePourcentage;
+		}
+		
+		laCase.caseHautGaucheX = (largeurDessin - laCase.tailleCase) / 2;
+		laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
+		
+		return laCase;
+	}
 }
