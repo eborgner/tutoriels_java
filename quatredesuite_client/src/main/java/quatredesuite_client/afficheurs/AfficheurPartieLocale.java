@@ -77,6 +77,7 @@ public abstract class AfficheurPartieLocale<V extends VuePartieLocale>
 		
 		int indiceRangeeCoordonneesGraphiques = convertirEnCoordonneesGraphiques(hauteurGrille, indiceRangee);
 
+		vue.afficherJeton(indiceColonne, indiceRangeeCoordonneesGraphiques, couleur);
 	}
 	
 	private int convertirEnCoordonneesGraphiques(int hauteurGrille, int indiceRangee) {

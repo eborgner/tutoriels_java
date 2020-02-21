@@ -22,6 +22,12 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 		grille.initialiser(largeur);
 	}
 	
+    public void jouerIci(int indiceColonne){
+        J.appel(this);
+
+        effectuerCoup(indiceColonne);
+    }
+
     public void effectuerCoup(int indiceColonne) {
         J.appel(this);
 
