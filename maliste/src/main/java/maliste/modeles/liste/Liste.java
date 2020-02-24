@@ -19,6 +19,12 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		
 		items.put(item.getId(), item);
 	}
+	
+	public void retirerItem(int id) {
+		J.appel(this);
+		
+		items.remove(id);
+	}
 
 	@Override
 	public List<ItemLectureSeule> getItems() {

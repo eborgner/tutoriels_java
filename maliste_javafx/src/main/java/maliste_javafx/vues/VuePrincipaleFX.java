@@ -48,6 +48,7 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 		J.appel(this);
 		
 		nouvelItemPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvelItem.class);
+
 	}
 
 	@Override
@@ -65,7 +66,6 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 				texteNouvelItem.clear();
 
 				nouvelItemPourEnvoi.envoyerCommande();
-				
 			}
 		});
 		

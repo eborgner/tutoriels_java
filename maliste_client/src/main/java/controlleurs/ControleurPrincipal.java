@@ -3,6 +3,8 @@ package controlleurs;
 import afficheurs.AfficheurPrincipal;
 import commandes.nouvel_item.NouvelItem;
 import commandes.nouvel_item.NouvelItemRecue;
+import commandes.retirer_item.RetirerItem;
+import commandes.retirer_item.RetirerItemRecue;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
@@ -27,10 +29,18 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 				J.appel(this);
 				
 				modele.ajouterItem(commande.getTexte());
-
 			}
 		});
 		
+		installerRecepteurCommande(RetirerItem.class, new RecepteurCommandeMVC<RetirerItemRecue>() {
+
+			@Override
+			public void executerCommandeMVC(RetirerItemRecue commande) {
+				J.appel(this);
+				
+				modele.retirerItem(commande.getId());
+			}
+		});
 	}
 
 	@Override
