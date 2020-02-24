@@ -1,0 +1,4 @@
+rootProject.name = 'maliste'
+
+include ':commun'
+project(':commun').projectDir = file('../commun')

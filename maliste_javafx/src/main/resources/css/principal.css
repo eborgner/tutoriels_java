@@ -1,0 +1,25 @@
+.conteneurPrincipal {
+  -fx-min-width: 500px;
+  -fx-max-width: 800px;
+  -fx-min-height: 450px;
+  -fx-max-height: 600px;
+}
+.espaceHorizontal {
+  -fx-min-width: 3px;
+}
+.espaceVertical {
+  -fx-min-height: 3px;
+}
+#bouton {
+  -fx-min-width: 30px;
+  -fx-min-height: 100px;
+}
+#zoneTexte {
+  -fx-max-width: 30px;
+}
+.conteneurA {
+  -fx-padding: 4px;
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
+  -fx-border-color: black;
+}

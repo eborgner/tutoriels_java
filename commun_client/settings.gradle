@@ -1,0 +1,4 @@
+rootProject.name = 'commun_client'
+
+include ':commun'
+project(':commun').projectDir = file('../commun')

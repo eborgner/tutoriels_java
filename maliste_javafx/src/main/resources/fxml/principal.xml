@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import maliste_javafx.vues.composants.NouvelleListe?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
+
+    <HBox styleClass="espaceHorizontal"/>
+
+    <VBox styleClass="conteneurInterne">
+
+        <VBox styleClass="espaceVertical"/>
+
+        <NouvelleListe styleClass="nouvelleListe"/>
+
+        <VBox styleClass="espaceVertical"/>
+
+        <VBox styleClass="conteneurItems"/>
+
+        <VBox styleClass="espaceVertical"/>
+
+    </VBox>
+
+    <HBox styleClass="espaceHorizontal"/>
+
+</HBox>

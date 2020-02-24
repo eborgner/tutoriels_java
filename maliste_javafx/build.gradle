@@ -6,7 +6,7 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+	sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
@@ -21,6 +21,7 @@ eclipse {
     }
 }
 
+
 repositories {
     jcenter()
 }
@@ -28,4 +29,19 @@ repositories {
 dependencies {
     compile project(':commun')
     compile project(':commun_client')
+    compile project(':commun_javafx')
+    compile project(':maliste')
+    compile project(':maliste_client')
+}
+
+task(maliste, dependsOn: 'classes', type: JavaExec) {
+   main = 'maliste_javafx.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+   jvmArgs('-Duser.language=fr')
+}
+
+task(malisteEn, dependsOn: 'classes', type: JavaExec) {
+   main = 'maliste_javafx.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+   jvmArgs('-Duser.language=en')
 }
