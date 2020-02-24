@@ -2,26 +2,33 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import maliste_javafx.vues.composants.NouvelleListe?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 
 <HBox xmlns:fx="http://javafx.com/fxml" styleClass="conteneurPrincipal">
 
-    <HBox styleClass="espaceHorizontal"/>
+    <HBox styleClass="grosEspace"/>
 
     <VBox styleClass="conteneurInterne">
 
-        <VBox styleClass="espaceVertical"/>
+        <VBox styleClass="grosEspace"/>
 
-        <NouvelleListe styleClass="nouvelleListe"/>
+        <HBox styleClass="conteneurNouvelleListe">
+            <HBox styleClass="petitEspace"/>
+            <TextField/>
+            <HBox styleClass="petitEspace"/>
+            <Button text="%nouvelle"/>
+            <HBox styleClass="petitEspace"/>
+        </HBox>
 
-        <VBox styleClass="espaceVertical"/>
+        <VBox styleClass="grosEspace"/>
 
         <VBox styleClass="conteneurItems"/>
 
-        <VBox styleClass="espaceVertical"/>
+        <VBox styleClass="grosEspace"/>
 
     </VBox>
 
-    <HBox styleClass="espaceHorizontal"/>
+    <HBox styleClass="grosEspace"/>
 
 </HBox>
