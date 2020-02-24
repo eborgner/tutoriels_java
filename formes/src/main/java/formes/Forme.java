@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import commun.debogage.J;
 
-public abstract class Forme {
+public abstract class Forme<D extends Dessin>{
 	
 	protected String couleur;
 	protected double centreX;
@@ -22,13 +22,13 @@ public abstract class Forme {
 
 	public abstract void lireAttributs(Scanner scannerForme);
 	
-	public void afficher(Dessin dessin) {
+	public void afficher(D dessin) {
 		J.appel(this);
 		
 		dessin.changerCouleur(couleur);
 		dessinerForme(dessin);
 	}
 
-	public abstract void dessinerForme(Dessin dessin);
+	public abstract void dessinerForme(D dessin);
 
 }

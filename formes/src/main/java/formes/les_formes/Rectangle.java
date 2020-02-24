@@ -5,8 +5,9 @@ import java.util.Scanner;
 import commun.debogage.J;
 import formes.Dessin;
 import formes.Forme;
+import formes.MonDessin;
 
-public class Rectangle extends Forme {
+public class Rectangle extends Forme<MonDessin>{
 	
 	protected double largeur;
 	protected double hauteur;
@@ -20,7 +21,7 @@ public class Rectangle extends Forme {
 	}
 
 	@Override
-	public void dessinerForme(Dessin dessin) {
+	public void dessinerForme(MonDessin dessin) {
 		J.appel(this);
 		
 		dessin.dessinerRectangle(centreX, centreY, largeur, hauteur);

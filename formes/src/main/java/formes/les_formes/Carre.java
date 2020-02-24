@@ -5,8 +5,9 @@ import java.util.Scanner;
 import commun.debogage.J;
 import formes.Dessin;
 import formes.Forme;
+import formes.MonDessin;
 
-public class Carre extends Forme {
+public class Carre extends Forme<MonDessin> {
 	
 	protected double taille;
 
@@ -18,7 +19,7 @@ public class Carre extends Forme {
 	}
 
 	@Override
-	public void dessinerForme(Dessin dessin) {
+	public void dessinerForme(MonDessin dessin) {
 		J.appel(this);
 		
 		dessin.dessinerCarre(centreX, centreY, taille);
