@@ -49,6 +49,11 @@ public class Principal extends Application {
         AfficheurPrincipalFX afficheur = new AfficheurPrincipalFX();
         
         FabriqueControleur.creerControleur(ControleurPrincipalFX.class, liste, vue, afficheur);
+        
+        fenetrePrincipale.setMinWidth(800);
+        fenetrePrincipale.setMaxWidth(800);
+        fenetrePrincipale.setMinHeight(600);
+        fenetrePrincipale.setMaxHeight(600);
 
         fenetrePrincipale.setScene(scene);
         fenetrePrincipale.show();

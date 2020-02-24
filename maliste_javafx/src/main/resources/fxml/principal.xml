@@ -10,29 +10,34 @@
     id="conteneurPrincipal"
     fx:controller="maliste_javafx.vues.VuePrincipaleFX">
 
-    <HBox styleClass="grosEspace"/>
+    <HBox styleClass="grosEspace conteneurSeparateur" HBox.hgrow="ALWAYS">
 
-    <VBox id="conteneurInterne">
+        <HBox styleClass="separateur" HBox.hgrow="ALWAYS"/>
 
-        <VBox styleClass="grosEspace"/>
+    </HBox>
 
-        <HBox id="conteneurNouvelleListe">
-            <HBox styleClass="petitEspace"/>
+    <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
+
+        <VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+
+        <HBox id="conteneurNouvelleListe" VBox.vgrow="ALWAYS">
+            <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
             <TextField id="texteNouvelItem" fx:id="texteNouvelItem"/>
-            <HBox styleClass="petitEspace"/>
+            <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
             <Button id="boutonNouvelItem" fx:id="boutonNouvelItem" text="%nouvelItem"/>
-            <HBox styleClass="petitEspace"/>
+            <HBox styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
         </HBox>
 
-        <VBox styleClass="grosEspace"/>
+        <VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
-        <ConteneurItems id="conteneurItems"
-              fx:id="conteneurItems"/>
+        <ConteneurItems id="conteneurItems" 
+                        VBox.vgrow="ALWAYS"
+                        fx:id="conteneurItems"/>
 
-        <VBox styleClass="grosEspace"/>
+        <VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
     </VBox>
 
-    <HBox styleClass="grosEspace"/>
+    <HBox styleClass="grosEspace" HBox.hgrow="ALWAYS"/>
 
 </HBox>

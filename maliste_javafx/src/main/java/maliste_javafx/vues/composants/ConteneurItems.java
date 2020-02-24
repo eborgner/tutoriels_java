@@ -7,12 +7,28 @@ import maliste.modeles.liste.ItemLectureSeule;
 
 public class ConteneurItems extends VBox {
 	
+	
 	public void ajouterItem(ItemLectureSeule itemLectureSeule) {
 		J.appel(this);
 		
-		Item item = new Item(itemLectureSeule);
+	
+		Item item = new Item(itemLectureSeule, styleClassItem());
 
 		this.getChildren().add(item);
+	}
+	
+	private String styleClassItem() {
+		J.appel(this);
+
+		boolean siPair = this.getChildren().size()%2 == 0;
+		
+		String styleClassItem = "rangeeImpaire";
+		
+		if(siPair) {
+			styleClassItem = "rangeePaire";
+		}
+		
+		return styleClassItem;
 	}
 
 	public void vider() {
