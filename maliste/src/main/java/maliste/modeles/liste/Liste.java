@@ -1,0 +1,36 @@
+package maliste.modeles.liste;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import commun.debogage.J;
+import commun.modeles.Modele;
+
+public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeule {
+	
+	Map<Integer, Item> items = new LinkedHashMap<>();
+	
+	public void ajouterItem(String texte) {
+		J.appel(this);
+		
+		Item item = new Item(texte);
+		
+		items.put(item.getId(), item);
+	}
+
+	@Override
+	public List<ItemLectureSeule> getItems() {
+		J.appel(this);
+		
+		List<ItemLectureSeule> listeItems = new ArrayList<>();
+		
+		for(Item item : items.values()) {
+			
+			listeItems.add((ItemLectureSeule) item);
+		}
+		
+		return listeItems;
+	}
+}
