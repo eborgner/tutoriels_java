@@ -1,34 +1,62 @@
 @import "constantes";
 
-.conteneurPrincipal{
-    -fx-min-width:500px;
-    -fx-max-width:800px;
-    -fx-min-height:450px;
-    -fx-max-height:600px;
+#conteneurPrincipal{
+    -fx-alignment: top-left;
 }
 
-.espaceHorizontal{
-    -fx-min-width:3px;
+.grosEspace{
+    -fx-min-width:@grosEspaceMin;
+    -fx-min-height:@grosEspaceMin;
+
+    -fx-max-width:@grosEspaceMax;
+    -fx-max-height:@grosEspaceMax;
 }
 
-.espaceVertical{
-    -fx-min-height:3px;
+.petitEspace{
+    -fx-min-width:@petitEspaceMin;
+    -fx-min-height:@petitEspaceMin;
+
+    -fx-max-width:@petitEspaceMax;
+    -fx-max-height:@petitEspaceMax;
+}
+
+.espaceSansBorne{
+    -fx-min-width:@petitEspaceMin;
+    -fx-min-height:@petitEspaceMin;
 }
 
 
-#bouton{
-    -fx-min-width:30px;
-    -fx-min-height:100px;
+#conteneurInterne{
+    -fx-alignment: top-left;
 }
 
-#zoneTexte{
-    -fx-max-width:30px;
-
+.conteneurSeparateur{
+    -fx-alignment: center;
 }
 
-.conteneurA{
-    -fx-padding:4px;
-    -fx-border-style:dashed;
-    -fx-border-width:2px;
-    -fx-border-color:black;
+.separateur{
+    -fx-border-style: solid;
+    -fx-border-color: @fonce2;
+    -fx-border-width: 2px;
+    -fx-background-color: @fonce1;
+
+    -fx-min-height:@hauteurMinSeparateur;
+    -fx-max-height:@hauteurMaxSeparateur;
 }
+
+.conteneurItems{
+    -fx-alignment: top-left;
+}
+
+.item{
+    -fx-alignment: center-left;
+}
+
+.rangeePaire{
+    -fx-background-color:@pair;
+}
+
+.rangeeImpaire{
+    -fx-background-color:@impair;
+}
+

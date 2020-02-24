@@ -43,9 +43,10 @@ public final class FabriqueControleur {
 		controleur.setVue(vue);
 		controleur.setAfficheur(afficheur);
 		
-		controleur.initialiserAffichage();
 
 		initialiser(vue, controleur);
+
+		controleur.initialiserAffichage();
 
 		return controleur;
 	}

@@ -12,6 +12,16 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 	
 	Map<Integer, Item> items = new LinkedHashMap<>();
 	
+	public Liste() {
+		super();
+		J.appel(this);
+		
+		ajouterItem("un test");
+		ajouterItem("un autre test");
+		ajouterItem("le prochain répète le texte");
+		ajouterItem("un test");
+	}
+	
 	public void ajouterItem(String texte) {
 		J.appel(this);
 		

@@ -16,6 +16,7 @@ import maliste.modeles.liste.ItemLectureSeule;
 
 public class Item extends VBox {
 	
+	private Text texte;
 	private CheckBox boutonEffacer;
 	private RetirerItemPourEnvoi retirerItemPourEnvoi;
 	
@@ -23,39 +24,40 @@ public class Item extends VBox {
 		super();
 		J.appel(this);
 		
-		remplirVBox(itemLectureSeule.getTexte(), styleClassItem);
+		texte = new Text(itemLectureSeule.getTexte());
+		
+		remplirVBox(styleClassItem);
 		
 		obtenirCommandePourEnvoi();
 		
 		installerCapteurEvenement(itemLectureSeule.getId());
 	}
 
-	private void remplirVBox(String texte, String styleClassItem) {
+	private void remplirVBox(String styleClassItem) {
 		J.appel(this);
 
 		VBox.setVgrow(this, Priority.ALWAYS);
 		this.getStyleClass().add("item");
+		this.getStyleClass().add(styleClassItem);
 		
 		this.getChildren().add(petitEspaceVertical());
 		
 		HBox hboxItem = new HBox();
-		VBox.setVgrow(hboxItem, Priority.ALWAYS);
-		hboxItem.getStyleClass().add(styleClassItem);
 		this.getChildren().add(hboxItem);
 
-		remplirHBox(texte, hboxItem);
+		remplirHBox(hboxItem);
 
 		this.getChildren().add(petitEspaceVertical());
 	}
 
-	private void remplirHBox(String texte, HBox hboxItem) {
+	private void remplirHBox(HBox hboxItem) {
 		J.appel(this);
 
 		hboxItem.getChildren().add(petitEspaceHorizontal());
 
-		hboxItem.getChildren().add(new Text(texte));
+		hboxItem.getChildren().add(texte);
 
-		hboxItem.getChildren().add(petitEspaceHorizontal());
+		hboxItem.getChildren().add(espaceHorizontalSansBorne());
 
 		boutonEffacer = new CheckBox();
 		hboxItem.getChildren().add(boutonEffacer);
@@ -63,6 +65,15 @@ public class Item extends VBox {
 		hboxItem.getChildren().add(petitEspaceHorizontal());
 	}
 	
+	private Pane espaceHorizontalSansBorne() {
+		J.appel(this);
+		
+		Pane espaceHorizontalSansBorne = espaceSansBorne();
+		HBox.setHgrow(espaceHorizontalSansBorne, Priority.ALWAYS);
+		
+		return espaceHorizontalSansBorne;
+	}
+
 	private Pane petitEspaceVertical() {
 		J.appel(this);
 		
@@ -88,6 +99,15 @@ public class Item extends VBox {
 		petitEspace.getStyleClass().add("petitEspace");
 		
 		return petitEspace;
+	}
+
+	private Pane espaceSansBorne() {
+		J.appel(this);
+
+		Pane espaceSansBorne = new Pane();
+		espaceSansBorne.getStyleClass().add("espaceSansBorne");
+		
+		return espaceSansBorne;
 	}
 
 

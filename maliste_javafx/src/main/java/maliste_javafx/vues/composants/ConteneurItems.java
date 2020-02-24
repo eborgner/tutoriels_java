@@ -11,7 +11,6 @@ public class ConteneurItems extends VBox {
 	public void ajouterItem(ItemLectureSeule itemLectureSeule) {
 		J.appel(this);
 		
-	
 		Item item = new Item(itemLectureSeule, styleClassItem());
 
 		this.getChildren().add(item);
