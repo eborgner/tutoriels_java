@@ -4,6 +4,9 @@ import commandes.retirer_item.RetirerItem;
 import commandes.retirer_item.RetirerItemPourEnvoi;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,12 +14,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import maliste.modeles.liste.ItemLectureSeule;
 
 public class Item extends VBox {
@@ -24,6 +29,8 @@ public class Item extends VBox {
 	private Text texte;
 	private Button boutonEffacer;
 	private RetirerItemPourEnvoi retirerItemPourEnvoi;
+	
+	private Timeline animation = new Timeline();
 
 	public Item(ItemLectureSeule itemLectureSeule, String styleClassItem) {
 		super();
@@ -33,11 +40,29 @@ public class Item extends VBox {
 		
 		remplirVBox(styleClassItem);
 		
-		obtenirCommandePourEnvoi();
+		obtenirCommandePourEnvoi(itemLectureSeule.getId());
 		
-		installerCapteurEvenement(itemLectureSeule.getId());
+		installerCapteurEvenement();
 		
 		installerObservateurTaille();
+	}
+
+	private void creerAnimation() {
+		J.appel(this);
+		
+		animation.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+
+				retirerItemPourEnvoi.envoyerCommande();
+			}
+		});
+		
+		animation.getKeyFrames().add(new KeyFrame(new Duration(300), new KeyValue(this.translateXProperty(), 0)));
+		animation.getKeyFrames().add(new KeyFrame(new Duration(300), new KeyValue(this.opacityProperty(), 1)));
+		animation.getKeyFrames().add(new KeyFrame(new Duration(600), new KeyValue(this.translateXProperty(), -getWidth())));
+		animation.getKeyFrames().add(new KeyFrame(new Duration(600), new KeyValue(this.opacityProperty(), 0)));
 	}
 
 	private void installerObservateurTaille() {
@@ -72,6 +97,8 @@ public class Item extends VBox {
 		J.appel(this);
 
 		texte.setFont(new Font(0.5*getHeight()));
+		
+		creerAnimation();
 		
 		Platform.runLater(new Runnable() {
 			@Override
@@ -187,13 +214,14 @@ public class Item extends VBox {
 	}
 
 
-	private void obtenirCommandePourEnvoi() {
+	private void obtenirCommandePourEnvoi(int id) {
 		J.appel(this);
 
 		retirerItemPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(RetirerItem.class);
+		retirerItemPourEnvoi.setId(id);
 	}
 
-	private void installerCapteurEvenement(int id) {
+	private void installerCapteurEvenement() {
 		J.appel(this);
 		boutonEffacer.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -201,8 +229,9 @@ public class Item extends VBox {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				retirerItemPourEnvoi.setId(id);
-				retirerItemPourEnvoi.envoyerCommande();
+				boutonEffacer.setFont(new Font(0.5*boutonEffacer.getHeight()));
+				boutonEffacer.setText("✓");
+				animation.playFromStart();
 			}
 		});
 	}
