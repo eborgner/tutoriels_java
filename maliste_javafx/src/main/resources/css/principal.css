@@ -25,18 +25,18 @@
 }
 #texteNouvelItem {
   -fx-border-style: solid;
-  -fx-border-color: #4D628F;
-  -fx-border-width: 5px;
-  -fx-border-radius: 5px;
-  -fx-background-radius: 5px;
+  -fx-border-color: #2E4372;
+  -fx-border-width: 2px;
+  -fx-border-radius: 6px;
+  -fx-background-radius: 8px;
   -fx-background-color: #7486AC;
 }
 #boutonNouvelItem {
   -fx-border-style: solid;
-  -fx-border-color: #4D628F;
-  -fx-border-width: 5px;
-  -fx-border-radius: 5px;
-  -fx-background-radius: 5px;
+  -fx-border-color: #2E4372;
+  -fx-border-width: 2px;
+  -fx-border-radius: 6px;
+  -fx-background-radius: 8px;
   -fx-background-color: #7486AC;
 }
 .conteneurSeparateur {
@@ -47,9 +47,8 @@
   -fx-border-color: #4D628F;
   -fx-border-width: 2px;
   -fx-background-color: #4D628F;
-  -fx-opacity: 0.2;
-  -fx-min-height: 2px;
-  -fx-max-height: 20px;
+  -fx-min-height: 1px;
+  -fx-max-height: 5px;
 }
 .conteneurItems {
   -fx-alignment: top-left;
@@ -59,11 +58,11 @@
 }
 .boutonEffacer {
   -fx-border-style: solid;
-  -fx-border-color: #052338;
+  -fx-border-color: #2E4372;
   -fx-border-width: 2px;
-  -fx-border-radius: 5px;
-  -fx-background-radius: 5px;
-  -fx-background-color: #6B8BA2;
+  -fx-border-radius: 6px;
+  -fx-background-radius: 8px;
+  -fx-background-color: #7486AC;
 }
 .rangeePaire {
   -fx-background-color: #4D628F;
