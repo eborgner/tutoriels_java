@@ -1,6 +1,6 @@
 #conteneurPrincipal {
   -fx-alignment: top-left;
-  -fx-background-color: #2E4372;
+  -fx-background-color: #2A4D6E;
 }
 .grosEspace {
   -fx-min-width: 20px;
@@ -25,28 +25,30 @@
 }
 #texteNouvelItem {
   -fx-border-style: solid;
-  -fx-border-color: #2E4372;
+  -fx-border-color: #AA5D39;
   -fx-border-width: 2px;
   -fx-border-radius: 6px;
   -fx-background-radius: 8px;
-  -fx-background-color: #7486AC;
+  -fx-background-color: #FFEBAA;
+  -fx-text-fill: #551C00;
 }
 #boutonNouvelItem {
   -fx-border-style: solid;
-  -fx-border-color: #2E4372;
+  -fx-border-color: #AA5D39;
   -fx-border-width: 2px;
   -fx-border-radius: 6px;
   -fx-background-radius: 8px;
-  -fx-background-color: #7486AC;
+  -fx-background-color: #FFEBAA;
+  -fx-text-fill: #551C00;
 }
 .conteneurSeparateur {
   -fx-alignment: center;
 }
 .separateur {
   -fx-border-style: solid;
-  -fx-border-color: #4D628F;
+  -fx-border-color: #4A6B8A;
   -fx-border-width: 2px;
-  -fx-background-color: #4D628F;
+  -fx-background-color: #4A6B8A;
   -fx-min-height: 1px;
   -fx-max-height: 5px;
 }
@@ -58,15 +60,15 @@
 }
 .boutonEffacer {
   -fx-border-style: solid;
-  -fx-border-color: #2E4372;
+  -fx-border-color: #2A4D6E;
   -fx-border-width: 2px;
   -fx-border-radius: 6px;
   -fx-background-radius: 8px;
-  -fx-background-color: #7486AC;
+  -fx-background-color: #728CA6;
 }
 .rangeePaire {
-  -fx-background-color: #4D628F;
+  -fx-background-color: #D4BC6A;
 }
 .rangeeImpaire {
-  -fx-background-color: #5F5093;
+  -fx-background-color: #D48D6A;
 }
