@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import maliste.modeles.liste.ItemLectureSeule;
 
-public class Item extends VBox {
+public class ItemGraphique extends VBox {
 	
 	private Text texte;
 	private Button boutonEffacer;
@@ -32,7 +32,7 @@ public class Item extends VBox {
 	
 	private Timeline animation = new Timeline();
 
-	public Item(ItemLectureSeule itemLectureSeule, String styleClassItem) {
+	public ItemGraphique(ItemLectureSeule itemLectureSeule, String styleClassItem) {
 		super();
 		J.appel(this);
 		
