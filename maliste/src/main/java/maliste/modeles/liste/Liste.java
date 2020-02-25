@@ -18,7 +18,7 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		
 		ajouterItem("un test");
 		ajouterItem("un autre test");
-		ajouterItem("le prochain répète le texte");
+		ajouterItem("répéter:");
 		ajouterItem("un test");
 	}
 	

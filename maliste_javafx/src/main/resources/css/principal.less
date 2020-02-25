@@ -2,6 +2,7 @@
 
 #conteneurPrincipal{
     -fx-alignment: top-left;
+    -fx-background-color: @fonce2;
 }
 
 .grosEspace{
@@ -23,6 +24,9 @@
 .espaceSansBorne{
     -fx-min-width:@petitEspaceMin;
     -fx-min-height:@petitEspaceMin;
+
+    -fx-max-width:Infinity;
+    -fx-max-height:Infinity;
 }
 
 
@@ -51,6 +55,15 @@
 .item{
     -fx-alignment: center-left;
 }
+
+.boutonEffacer{
+    -fx-border-style: solid;
+    -fx-border-color: @fonce2;
+    -fx-border-width: 10px;
+    -fx-background-color: @pale1;
+}
+
+
 
 .rangeePaire{
     -fx-background-color:@pair;

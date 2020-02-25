@@ -1,5 +1,6 @@
 #conteneurPrincipal {
   -fx-alignment: top-left;
+  -fx-background-color: #305ae1;
 }
 .grosEspace {
   -fx-min-width: 20px;
@@ -16,6 +17,8 @@
 .espaceSansBorne {
   -fx-min-width: 10px;
   -fx-min-height: 10px;
+  -fx-max-width: Infinity;
+  -fx-max-height: Infinity;
 }
 #conteneurInterne {
   -fx-alignment: top-left;
@@ -37,8 +40,14 @@
 .item {
   -fx-alignment: center-left;
 }
+.boutonEffacer {
+  -fx-border-style: solid;
+  -fx-border-color: #305ae1;
+  -fx-border-width: 10px;
+  -fx-background-color: #95c5db;
+}
 .rangeePaire {
-  -fx-background-color: #fd5435;
+  -fx-background-color: lightgray;
 }
 .rangeeImpaire {
   -fx-background-color: #fccd0e;
