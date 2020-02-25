@@ -14,12 +14,6 @@
   -fx-max-width: 20px;
   -fx-max-height: 20px;
 }
-.espaceSansBorne {
-  -fx-min-width: 10px;
-  -fx-min-height: 10px;
-  -fx-max-width: Infinity;
-  -fx-max-height: Infinity;
-}
 #conteneurInterne {
   -fx-alignment: top-left;
 }

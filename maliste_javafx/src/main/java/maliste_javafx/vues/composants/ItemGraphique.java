@@ -135,8 +135,6 @@ public class ItemGraphique extends VBox {
 
 		hboxItem.getChildren().add(texte);
 
-		hboxItem.getChildren().add(espaceHorizontalSansBorne());
-
 		hboxItem.getChildren().add(conteneurBouton());
 
 		hboxItem.getChildren().add(petitEspaceHorizontal());

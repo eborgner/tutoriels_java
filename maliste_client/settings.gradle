@@ -3,12 +3,8 @@ rootProject.name = 'maliste_client'
 include ':commun'
 project(':commun').projectDir = file('../commun')
 
-/*
-
 include ':commun_client'
 project(':commun_client').projectDir = file('../commun_client')
-
-*/
 
 
 include ':maliste'
