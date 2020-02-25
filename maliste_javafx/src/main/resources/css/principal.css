@@ -1,6 +1,6 @@
 #conteneurPrincipal {
   -fx-alignment: top-left;
-  -fx-background-color: #305ae1;
+  -fx-background-color: #2E4372;
 }
 .grosEspace {
   -fx-min-width: 20px;
@@ -23,14 +23,31 @@
 #conteneurInterne {
   -fx-alignment: top-left;
 }
+#texteNouvelItem {
+  -fx-border-style: solid;
+  -fx-border-color: #4D628F;
+  -fx-border-width: 5px;
+  -fx-border-radius: 5px;
+  -fx-background-radius: 5px;
+  -fx-background-color: #7486AC;
+}
+#boutonNouvelItem {
+  -fx-border-style: solid;
+  -fx-border-color: #4D628F;
+  -fx-border-width: 5px;
+  -fx-border-radius: 5px;
+  -fx-background-radius: 5px;
+  -fx-background-color: #7486AC;
+}
 .conteneurSeparateur {
   -fx-alignment: center;
 }
 .separateur {
   -fx-border-style: solid;
-  -fx-border-color: #305ae1;
+  -fx-border-color: #4D628F;
   -fx-border-width: 2px;
-  -fx-background-color: #161620;
+  -fx-background-color: #4D628F;
+  -fx-opacity: 0.2;
   -fx-min-height: 2px;
   -fx-max-height: 20px;
 }
@@ -42,15 +59,15 @@
 }
 .boutonEffacer {
   -fx-border-style: solid;
-  -fx-border-color: #305ae1;
+  -fx-border-color: #052338;
   -fx-border-width: 2px;
   -fx-border-radius: 5px;
   -fx-background-radius: 5px;
-  -fx-background-color: #95c5db;
+  -fx-background-color: #6B8BA2;
 }
 .rangeePaire {
-  -fx-background-color: lightgray;
+  -fx-background-color: #4D628F;
 }
 .rangeeImpaire {
-  -fx-background-color: #fccd0e;
+  -fx-background-color: #5F5093;
 }

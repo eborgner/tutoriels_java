@@ -37,6 +37,7 @@ public class Item extends VBox {
 		J.appel(this);
 		
 		texte = new Text(itemLectureSeule.getTexte());
+		texte.getStyleClass().add(styleClassItem);
 		
 		remplirVBox(styleClassItem);
 		
