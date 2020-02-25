@@ -1,15 +1,15 @@
 package maliste_javafx;
 
+import maliste.modeles.liste.Liste;
+
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.Initialisateur;
-import controlleurs.ControleurPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import maliste.modeles.liste.Liste;
 import maliste_javafx.afficheurs.AfficheurPrincipalFX;
 import maliste_javafx.controlleurs.ControleurPrincipalFX;
 import maliste_javafx.vues.VuePrincipaleFX;

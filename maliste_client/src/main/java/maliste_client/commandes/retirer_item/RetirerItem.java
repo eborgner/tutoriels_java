@@ -1,4 +1,4 @@
-package commandes.retirer_item;
+package maliste_client.commandes.retirer_item;
 
 import commun.debogage.J;
 import commun_client.commandes.Commande;

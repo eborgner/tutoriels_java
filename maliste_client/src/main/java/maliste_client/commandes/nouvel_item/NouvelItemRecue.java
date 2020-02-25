@@ -1,4 +1,4 @@
-package commandes.nouvel_item;
+package maliste_client.commandes.nouvel_item;
 
 import commun_client.commandes.CommandeRecue;
 

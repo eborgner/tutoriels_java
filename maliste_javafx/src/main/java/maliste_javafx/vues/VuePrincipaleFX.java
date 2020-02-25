@@ -1,10 +1,14 @@
 package maliste_javafx.vues;
 
+import maliste.modeles.liste.ItemLectureSeule;
+
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import commandes.nouvel_item.NouvelItem;
-import commandes.nouvel_item.NouvelItemPourEnvoi;
+import maliste_client.commandes.nouvel_item.NouvelItem;
+import maliste_client.commandes.nouvel_item.NouvelItemPourEnvoi;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
@@ -16,8 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
-import maliste.modeles.liste.ItemLectureSeule;
 import maliste_client.vues.VuePrincipale;
 import maliste_javafx.vues.composants.ConteneurItems;
 

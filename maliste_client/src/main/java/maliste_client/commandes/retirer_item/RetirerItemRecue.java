@@ -1,4 +1,4 @@
-package commandes.retirer_item;
+package maliste_client.commandes.retirer_item;
 
 import commun_client.commandes.CommandeRecue;
 

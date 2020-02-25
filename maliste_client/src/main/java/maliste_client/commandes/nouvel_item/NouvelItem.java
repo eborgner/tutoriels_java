@@ -1,4 +1,4 @@
-package commandes.nouvel_item;
+package maliste_client.commandes.nouvel_item;
 
 import commun.debogage.J;
 import commun_client.commandes.Commande;

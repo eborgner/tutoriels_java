@@ -1,10 +1,10 @@
-package controlleurs;
+package maliste_client.controlleurs;
 
-import afficheurs.AfficheurPrincipal;
-import commandes.nouvel_item.NouvelItem;
-import commandes.nouvel_item.NouvelItemRecue;
-import commandes.retirer_item.RetirerItem;
-import commandes.retirer_item.RetirerItemRecue;
+import maliste_client.afficheurs.AfficheurPrincipal;
+import maliste_client.commandes.nouvel_item.NouvelItem;
+import maliste_client.commandes.nouvel_item.NouvelItemRecue;
+import maliste_client.commandes.retirer_item.RetirerItem;
+import maliste_client.commandes.retirer_item.RetirerItemRecue;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;

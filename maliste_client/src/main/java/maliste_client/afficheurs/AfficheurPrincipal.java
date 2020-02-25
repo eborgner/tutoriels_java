@@ -1,11 +1,11 @@
-package afficheurs;
+package maliste_client.afficheurs;
+
+import commun_client.mvc.Afficheur;
 
 import commun.debogage.J;
-import commun_client.mvc.Afficheur;
 import maliste_client.vues.VuePrincipale;
 import maliste.modeles.liste.ItemLectureSeule;
 import maliste.modeles.liste.ListeLectureSeule;
-
 
 public abstract class AfficheurPrincipal<V extends VuePrincipale> 
                 extends Afficheur<ListeLectureSeule, V> {

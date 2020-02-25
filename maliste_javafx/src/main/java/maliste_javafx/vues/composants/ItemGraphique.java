@@ -1,7 +1,7 @@
 package maliste_javafx.vues.composants;
 
-import commandes.retirer_item.RetirerItem;
-import commandes.retirer_item.RetirerItemPourEnvoi;
+import maliste_client.commandes.retirer_item.RetirerItem;
+import maliste_client.commandes.retirer_item.RetirerItemPourEnvoi;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
 import javafx.animation.KeyFrame;
