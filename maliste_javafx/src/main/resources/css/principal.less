@@ -41,7 +41,10 @@
     -fx-border-radius: 6px;
     -fx-background-radius: 8px;
     -fx-background-color: @secondaire01;
+    -fx-effect: dropshadow(three-pass-box, @secondaire01, 3px, 0, 0, 0);    
+
     -fx-text-fill: @tertiaire05;
+    -fx-font-size: 16px;
 }
 
 #boutonNouvelItem{
@@ -49,9 +52,14 @@
     -fx-border-color: @tertiaire03;
     -fx-border-width: 2px;
     -fx-border-radius: 6px;
-    -fx-background-radius: 8px;
+    -fx-background-insets: 1px;
+    -fx-background-radius: 6px;
     -fx-background-color: @secondaire01;
+
+    -fx-effect: dropshadow(three-pass-box, @secondaire01, 3px, 0, 0, 0);    
+
     -fx-text-fill: @tertiaire05;
+    -fx-font-size: 16px;
 }
 
 .conteneurSeparateur{
