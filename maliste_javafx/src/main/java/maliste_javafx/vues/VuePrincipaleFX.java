@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import maliste.modeles.liste.ItemLectureSeule;
 import maliste_client.vues.VuePrincipale;
@@ -56,21 +58,37 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 		J.appel(this);
 		
 		boutonNouvelItem.setOnAction(new EventHandler<ActionEvent>() {
-			
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				nouvelItemPourEnvoi.setTexte(texteNouvelItem.getText());
+				envoyerCommandeNouvelItem();
+			}
 
-				texteNouvelItem.clear();
-
-				nouvelItemPourEnvoi.envoyerCommande();
+		});
+		
+		texteNouvelItem.setOnKeyReleased(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				J.appel(this);
+				
+				if(event.getCode() == KeyCode.ENTER) {
+					envoyerCommandeNouvelItem();
+				}
 			}
 		});
 		
 	}
 
+	private void envoyerCommandeNouvelItem() {
+		J.appel(this);
+
+		nouvelItemPourEnvoi.setTexte(texteNouvelItem.getText());
+
+		texteNouvelItem.clear();
+
+		nouvelItemPourEnvoi.envoyerCommande();
+	}
 
 	@Override
 	public void viderListe() {
@@ -85,5 +103,4 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 		
 		conteneurItems.ajouterItem(item);
 	}
-
 }
