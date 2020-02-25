@@ -28,7 +28,7 @@
         <Pane styleClass="separateur" VBox.vgrow="ALWAYS"/>
         <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
 
-        <ConteneurItems id="conteneurItems" 
+        <ConteneurItems id="conteneurLesItems" 
                         VBox.vgrow="ALWAYS"
                         fx:id="conteneurItems"/>
 

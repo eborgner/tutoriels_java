@@ -51,11 +51,17 @@
   -fx-min-height: 1px;
   -fx-max-height: 5px;
 }
-.conteneurItems {
+.conteneurLesItems {
   -fx-alignment: top-left;
 }
-.item {
-  -fx-alignment: center-left;
+.conteneurUneRangee {
+  -fx-alignment: center;
+}
+.conteneurUnItem {
+  -fx-alignment: center;
+}
+.conteneurBoutonEffacer {
+  -fx-alignment: center-right;
 }
 .boutonEffacer {
   -fx-border-style: solid;

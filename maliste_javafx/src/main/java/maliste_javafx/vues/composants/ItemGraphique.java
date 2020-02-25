@@ -97,10 +97,10 @@ public class ItemGraphique extends VBox {
 	protected void reagirNouvelleTaille() {
 		J.appel(this);
 
-		texte.setFont(new Font(0.5*getHeight()));
-		
 		creerAnimation();
 		
+		texte.setFont(new Font(0.5*getHeight()));
+
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
@@ -109,18 +109,21 @@ public class ItemGraphique extends VBox {
 				boutonEffacer.requestLayout();
 			}
 		});
+		
 	}
 
 	private void remplirVBox(String styleClassItem) {
 		J.appel(this);
 
 		VBox.setVgrow(this, Priority.ALWAYS);
-		this.getStyleClass().add("item");
+		this.getStyleClass().add("conteneurUneRangee");
 		this.getStyleClass().add(styleClassItem);
 		
 		this.getChildren().add(petitEspaceVertical());
 		
 		HBox hboxItem = new HBox();
+		hboxItem.getStyleClass().add("conteneurUnItem");
+		VBox.setVgrow(hboxItem, Priority.ALWAYS);
 		this.getChildren().add(hboxItem);
 
 		remplirHBox(hboxItem);
@@ -147,7 +150,7 @@ public class ItemGraphique extends VBox {
 		
 		HBox.setHgrow(conteneurBouton, Priority.ALWAYS);
 		
-		conteneurBouton.setAlignment(Pos.CENTER_RIGHT);
+		conteneurBouton.getStyleClass().add("conteneurBoutonEffacer");
 		
 		conteneurBouton.getChildren().add(petitEspaceVertical());
 
@@ -167,15 +170,6 @@ public class ItemGraphique extends VBox {
 		return conteneurBouton;
 	}
 	
-	private Pane espaceHorizontalSansBorne() {
-		J.appel(this);
-		
-		Pane espaceHorizontalSansBorne = espaceSansBorne();
-		HBox.setHgrow(espaceHorizontalSansBorne, Priority.ALWAYS);
-		
-		return espaceHorizontalSansBorne;
-	}
-
 	private Pane petitEspaceVertical() {
 		J.appel(this);
 		
@@ -202,16 +196,6 @@ public class ItemGraphique extends VBox {
 		
 		return petitEspace;
 	}
-
-	private Pane espaceSansBorne() {
-		J.appel(this);
-
-		Pane espaceSansBorne = new Pane();
-		espaceSansBorne.getStyleClass().add("espaceSansBorne");
-		
-		return espaceSansBorne;
-	}
-
 
 	private void obtenirCommandePourEnvoi(int id) {
 		J.appel(this);
