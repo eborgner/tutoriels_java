@@ -1,5 +1,7 @@
 package tp01_menu.modeles.parametres;
 
+import java.util.Locale;
+
 import commun.debogage.J;
 import commun.modeles.Modele;
 import tp01_menu.enumerations.Choix;

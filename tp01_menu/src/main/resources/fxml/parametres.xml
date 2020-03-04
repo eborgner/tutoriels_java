@@ -3,6 +3,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
 <?import tp01_menu_javafx.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
@@ -21,4 +22,5 @@
 			<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS"/>
 		</HBox>
 	</HBox>
+	<Button fx:id="boutonChangerLangue" text="%changerLangue"/>
 </VBox>

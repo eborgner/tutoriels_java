@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class DialogueModal {
 	
 	private static Stage fenetrePrincipale;
+	private static Stage fenetreModale;
 	
 	public static void enregistreFenetrePrincipale(Stage fenetrePrincipale) {
 		J.appel(DialogueModal.class);
@@ -21,10 +22,16 @@ public class DialogueModal {
 		
 		DoitEtre.nonNul(fenetrePrincipale);
 
-        Stage fenetreModale = new Stage();
+        fenetreModale = new Stage();
         fenetreModale.setScene(scene);
         fenetreModale.initOwner(fenetrePrincipale);
         fenetreModale.initModality(Modality.APPLICATION_MODAL);
         fenetreModale.showAndWait();
+	}
+	
+	public static void fermerDialogueModal() {
+		J.appel(DialogueModal.class);
+		
+		fenetreModale.close();
 	}
 }

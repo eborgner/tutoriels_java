@@ -118,4 +118,10 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		nouvellePartieLocale();
 		creerMVCParametres();
 	}
+
+
+	public void reafficherVues() {
+		J.appel(this);
+
+	}
 }
