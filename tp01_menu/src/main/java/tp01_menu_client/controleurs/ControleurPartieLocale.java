@@ -31,6 +31,8 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 			@Override
 			public void executerCommandeMVC(JouerCoupRecue commande) {
 				J.appel(this);
+				
+				modele.jouerCoup(commande.getInfoCoup());
 			}
 		});
 	} 

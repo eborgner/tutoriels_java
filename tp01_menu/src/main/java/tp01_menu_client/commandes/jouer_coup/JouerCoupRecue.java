@@ -4,8 +4,6 @@ import commun_client.commandes.CommandeRecue;
 
 public interface JouerCoupRecue extends CommandeRecue {
 	
-	int getInfo01();
-	String getInfo02();
-	
+	int getInfoCoup();
 	
 }

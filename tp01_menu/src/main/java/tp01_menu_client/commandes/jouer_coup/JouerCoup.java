@@ -9,35 +9,19 @@ public class JouerCoup extends Commande<JouerCoupPourEnvoi,
                       implements JouerCoupPourEnvoi, 
                                  JouerCoupRecue {
 	
-	private int info01;
-	private String info02;
-	
-	
+	private int infoCoup;
+
 	@Override
-	public int getInfo01() {
+	public int getInfoCoup() {
 		J.appel(this);
 
-		return info01;
+		return infoCoup;
 	}
 
 	@Override
-	public void setInfo01(int info01) {
+	public void setInfoCoup(int infoCoup) {
 		J.appel(this);
 
-		this.info01 = info01;
-	}
-
-	@Override
-	public String getInfo02() {
-		J.appel(this);
-
-		return info02;
-	}
-
-	@Override
-	public void setInfo02(String info02) {
-		J.appel(this);
-
-		this.info02 = info02;
+		this.infoCoup = infoCoup;
 	}
 }

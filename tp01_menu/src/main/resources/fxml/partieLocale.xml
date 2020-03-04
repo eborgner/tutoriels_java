@@ -14,13 +14,10 @@
     <Text fx:id="texteTmpPartieLocale" text="%afaire"/>
     <Pane VBox.vgrow="ALWAYS"/>
     <Button fx:id="boutonJouerCoup" text="%boutonJouerCoup"/>
-    <HBox>
-    	<Text text="info01: "/>
-    	<Text fx:id="texteInfo01"/>
-	</HBox>
-	<HBox>
-    	<Text text="info02: "/>
-    	<Text fx:id="texteInfo02"/>
+    <Pane VBox.vgrow="ALWAYS"/>
+    <HBox alignment="center">
+    	<Text text="%nombreCoups"/>
+    	<Text fx:id="texteNombreCoups"/>
 	</HBox>
     <Pane VBox.vgrow="ALWAYS"/>
 
