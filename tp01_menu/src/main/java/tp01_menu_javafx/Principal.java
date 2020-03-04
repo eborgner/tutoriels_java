@@ -79,8 +79,8 @@ public class Principal extends Application {
 		
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setWidth(scene.getWidth());
-		fenetrePrincipale.setHeight(scene.getHeight() + 20);
+		fenetrePrincipale.setWidth(scene.getWidth() + 15);
+		fenetrePrincipale.setHeight(scene.getHeight() + 40);
 	}
 
 
