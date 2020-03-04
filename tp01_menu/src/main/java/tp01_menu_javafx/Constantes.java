@@ -13,7 +13,5 @@ public class Constantes {
 	public static final String CHEMIN_PARTIE_LOCALE_FXML = "/fxml/partieLocale.xml";
 	public static final String CHEMIN_PARTIE_LOCALE_CSS = "/css/partieLocale.css";
 
-	public static final int LARGEUR = 300;
-	public static final int HAUTEUR = 600;
 
 }
