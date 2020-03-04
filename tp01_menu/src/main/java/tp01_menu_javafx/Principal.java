@@ -14,6 +14,7 @@ import java.util.Locale;
 
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tp01_menu_client.commandes.changer_locale.ChangerLocale;
@@ -80,6 +81,16 @@ public class Principal extends Application {
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);
 		
 		fenetrePrincipale.setScene(scene);
+		
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				J.appel(this);
+
+				chargeur.getParent().requestLayout();
+			}
+		});
 	}
 
 
