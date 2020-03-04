@@ -7,8 +7,14 @@
 <?import tp01_menu_javafx.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
+	<VBox VBox.vgrow="ALWAYS"/>
+		
 	<Text fx:id="texteTmpParametres" text="%afaire"/>
+
+	<VBox VBox.vgrow="ALWAYS"/>
+
 	<HBox VBox.vgrow="ALWAYS">
+		<HBox HBox.hgrow="ALWAYS"/>
 		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%UN"/>
 			<CaseAjustable fx:id="caseUn" HBox.hgrow="ALWAYS" />
@@ -21,6 +27,12 @@
 			<Text text="%TROIS"/>
 			<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS"/>
 		</HBox>
+		<HBox HBox.hgrow="ALWAYS"/>
 	</HBox>
+
+	<VBox VBox.vgrow="ALWAYS"/>
+
 	<Button fx:id="boutonChangerLangue" text="%changerLangue"/>
+
+	<VBox VBox.vgrow="ALWAYS"/>
 </VBox>
