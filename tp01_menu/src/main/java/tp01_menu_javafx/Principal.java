@@ -75,6 +75,8 @@ public class Principal extends Application {
 
 
 	private void installerSceneAccueil(ChargeurDeVue<VueAccueilFX> chargeur) {
+		J.appel(this);
+
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);
 		
 		fenetrePrincipale.setScene(scene);
@@ -82,6 +84,8 @@ public class Principal extends Application {
 
 
 	private ChargeurDeVue<VueAccueilFX> creerChargeurAccueil() {
+		J.appel(this);
+
 		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_ACCUEIL_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_ACCUEIL_CSS);
@@ -106,9 +110,20 @@ public class Principal extends Application {
 		
 		Locale.setDefault(locale);
 		
-		DialogueModal.fermerDialogueModal();
+		recreerVueAccueil();
+	}
+	
+	private void recreerVueAccueil() {
+		J.appel(this);
+
+		ChargeurDeVue<VueAccueilFX> chargeur = creerChargeurAccueil();
+
+		installerSceneAccueil(chargeur);
 		
-		creerControleurAccueil();
+		VueAccueilFX vue = chargeur.getVue();
+		
+		FabriqueControleur.recreerVue(controleurAccueil, vue);
+		
 	}
 	
 	

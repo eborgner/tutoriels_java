@@ -15,17 +15,14 @@ public class DialogueModal {
 		J.appel(DialogueModal.class);
 		
 		DialogueModal.fenetrePrincipale = fenetrePrincipale;
-	}
-
-	public static void ouvrirDialogueModal(Scene scene) {
-		J.appel(DialogueModal.class);
-		
-		DoitEtre.nonNul(fenetrePrincipale);
-
         fenetreModale = new Stage();
-        fenetreModale.setScene(scene);
         fenetreModale.initOwner(fenetrePrincipale);
         fenetreModale.initModality(Modality.APPLICATION_MODAL);
+	}
+
+	public static void ouvrirDialogueModal() {
+		J.appel(DialogueModal.class);
+		
         fenetreModale.showAndWait();
 	}
 	
@@ -33,5 +30,13 @@ public class DialogueModal {
 		J.appel(DialogueModal.class);
 		
 		fenetreModale.close();
+	}
+
+	public static void enregistrerScene(Scene sceneParametres) {
+		J.appel(DialogueModal.class);
+
+		DoitEtre.nonNul(fenetrePrincipale);
+
+        fenetreModale.setScene(sceneParametres);
 	}
 }

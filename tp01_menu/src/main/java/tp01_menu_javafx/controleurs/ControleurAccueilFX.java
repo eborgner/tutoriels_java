@@ -41,6 +41,25 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	private AfficheurParametresFX afficheurParametresFX;
 	private Scene sceneParametres;
 	
+	private void creerMVCParametres(){
+		J.appel(this);
+
+		ChargeurDeVue<VueParametresFX> chargeur;
+		chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PARAMETRES_CSS);
+		
+		sceneParametres = chargeur.nouvelleScene(400, 300);
+		
+		vueParametresFX = chargeur.getVue();
+
+		afficheurParametresFX = new AfficheurParametresFX();
+
+		FabriqueControleur.creerControleur(ControleurParametresFX.class, parametres, vueParametresFX, afficheurParametresFX);
+
+		DialogueModal.enregistrerScene(sceneParametres);
+	}
+	
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
@@ -88,27 +107,11 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	}
 	
 	
-	private void creerMVCParametres(){
-		J.appel(this);
-
-		ChargeurDeVue<VueParametresFX> chargeur;
-		chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARAMETRES_CSS);
-		
-		sceneParametres = chargeur.nouvelleScene(400, 300);
-		
-		vueParametresFX = chargeur.getVue();
-
-		afficheurParametresFX = new AfficheurParametresFX();
-
-		FabriqueControleur.creerControleur(ControleurParametresFX.class, parametres, vueParametresFX, afficheurParametresFX);
-	}
 
 	private void ouvrirParametres() {
 		J.appel(this);
 
-		DialogueModal.ouvrirDialogueModal(sceneParametres);
+		DialogueModal.ouvrirDialogueModal();
 	}
 
 	@Override

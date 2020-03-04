@@ -9,6 +9,6 @@
       fx:controller="tp01_menu_javafx.vues.VuePartieLocaleFX"
       VBox.vgrow="ALWAYS">
     <HBox VBox.vgrow="ALWAYS">
-    	<Text fx:id="texteTmpPartieLocale" text="À FAIRE TP#1"/>
+    	<Text fx:id="texteTmpPartieLocale" text="%afaire"/>
     </HBox>
 </VBox>

@@ -7,7 +7,7 @@
 <?import tp01_menu_javafx.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
-	<Text fx:id="texteTmpParametres" text="À FAIRE POUR LE TP#1"/>
+	<Text fx:id="texteTmpParametres" text="%afaire"/>
 	<HBox VBox.vgrow="ALWAYS">
 		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%UN"/>
