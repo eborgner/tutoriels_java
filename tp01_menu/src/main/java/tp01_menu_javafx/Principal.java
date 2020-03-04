@@ -49,8 +49,6 @@ public class Principal extends Application {
 		
 		installerRecepteurCommandeChangerLocale();
 
-		fenetrePrincipale.setMinWidth(LARGEUR);
-		fenetrePrincipale.setMinHeight(HAUTEUR);
 
 		fenetrePrincipale.show();
 		
