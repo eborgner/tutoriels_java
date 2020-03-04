@@ -41,6 +41,8 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	private AfficheurParametresFX afficheurParametresFX;
 	private Scene sceneParametres;
 	
+	private PartieLocale partie = new PartieLocale();
+	
 	private void creerMVCParametres(){
 		J.appel(this);
 
@@ -96,14 +98,19 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	
 	private void nouvellePartieLocale() {
 		J.appel(this);
+
+		partie = new PartieLocale();
+		creerMVCPartieLocale();
+	}
+	
+	private void creerMVCPartieLocale() {
+		J.appel(this);
 		
-		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
-		
-		PartieLocale partie = new PartieLocale();
+		VuePartieLocaleFX vuePartie = vue.creerVuePartieLocale();
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
-		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
+		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
 	}
 	
 	
@@ -118,13 +125,7 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	protected void demarrer() {
 		J.appel(this);
 
-		nouvellePartieLocale();
+		creerMVCPartieLocale();
 		creerMVCParametres();
-	}
-
-
-	public void reafficherVues() {
-		J.appel(this);
-
 	}
 }
