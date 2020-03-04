@@ -131,4 +131,22 @@ public class CaseAjustable extends CanvasAjustable {
         
         return laCase;
     }
+
+
+	public void afficherChoix() {
+		J.appel(this);
+		
+		pinceau.setFill(Color.BLUE);
+		viderDessin();
+		dessinerCase();
+	}
+
+	public void viderCase() {
+		J.appel(this);
+		
+		pinceau.setFill(Color.WHITE);
+		viderDessin();
+		dessinerCase();
+	}
+    
 }

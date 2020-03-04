@@ -14,12 +14,14 @@ public abstract class AfficheurParametres<V extends VueParametres>
 	public void initialiserAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
 		J.appel(this);
 		
+		vue.afficherChoix(modeleLectureSeule.getChoixUsager());
 	}
 
 	@Override
 	public void rafraichirAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
 		J.appel(this);
-		
+
+		vue.afficherChoix(modeleLectureSeule.getChoixUsager());
 	}
 
 }

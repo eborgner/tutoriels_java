@@ -3,6 +3,7 @@ package tp01_menu_javafx.vues;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -17,6 +18,8 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
+		
+		DoitEtre.nonNul(texteTmpPartieLocale);
 		
 		// Nouvelle vue?
 		texteTmpPartieLocale.setText(texteTmpPartieLocale.getText() + " (" + System.identityHashCode(this) + ")");
