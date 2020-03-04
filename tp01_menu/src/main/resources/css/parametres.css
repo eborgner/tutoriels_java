@@ -14,14 +14,6 @@
   -fx-pref-height: 4em;
   -fx-max-height: 8em;
 }
-.texte {
-  -fx-padding: 2em;
-  -fx-margin-right: 2em;
-  -fx-font-family: Times;
-  -fx-font-color: #305ae1;
-}
-.champTexte {
-  -fx-font-family: Times;
-  -fx-font-color: #305ae1;
-  -fx-pref-width: 4em;
+.conteneurTexte {
+  -fx-alignment: center-right;
 }

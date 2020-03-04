@@ -8,21 +8,17 @@
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
 	<Text fx:id="texteTmpParametres" text="À FAIRE POUR LE TP#1"/>
 	<HBox VBox.vgrow="ALWAYS">
-		<CaseAjustable fx:id="caseUn" HBox.hgrow="ALWAYS"/>
-		<HBox HBox.hgrow="ALWAYS" alignment="center_left" >
+		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%UN"/>
+			<CaseAjustable fx:id="caseUn" HBox.hgrow="ALWAYS" />
 		</HBox>
-	</HBox>
-	<HBox VBox.vgrow="ALWAYS">
-		<CaseAjustable fx:id="caseDeux" HBox.hgrow="ALWAYS" />
-		<HBox HBox.hgrow="ALWAYS">
+		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%DEUX"/>
+			<CaseAjustable fx:id="caseDeux" HBox.hgrow="ALWAYS" />
 		</HBox>
-	</HBox>
-	<HBox VBox.vgrow="ALWAYS">
-		<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS" />
-		<HBox HBox.hgrow="ALWAYS">
+		<HBox HBox.hgrow="ALWAYS" styleClass="conteneurTexte" >
 			<Text text="%TROIS"/>
+			<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS"/>
 		</HBox>
 	</HBox>
 </VBox>
