@@ -1,6 +1,6 @@
 # Copyright (C) (2019) (Mathieu Bergeron) (mathieu.bergeron@cmontmorency.qc.ca)
 #
-# This file is part of quatredesuite
+# This file is part of tp01_menu
 #
 # aquiletour is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
