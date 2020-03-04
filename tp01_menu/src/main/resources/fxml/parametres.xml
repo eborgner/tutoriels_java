@@ -3,9 +3,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
+<?import tp01_menu_javafx.vues.composants.CaseAjustable?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center">
-	<HBox alignment="center">
-		<Text text="À FAIRE POUR LE TP#1"/>
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
+	<Text fx:id="texteTmpParametres" text="À FAIRE POUR LE TP#1"/>
+	<HBox VBox.vgrow="ALWAYS">
+		<CaseAjustable fx:id="caseUn" HBox.hgrow="ALWAYS"/>
+		<HBox HBox.hgrow="ALWAYS" alignment="center_left" >
+			<Text text="%UN"/>
+		</HBox>
+	</HBox>
+	<HBox VBox.vgrow="ALWAYS">
+		<CaseAjustable fx:id="caseDeux" HBox.hgrow="ALWAYS" />
+		<HBox HBox.hgrow="ALWAYS">
+			<Text text="%DEUX"/>
+		</HBox>
+	</HBox>
+	<HBox VBox.vgrow="ALWAYS">
+		<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS" />
+		<HBox HBox.hgrow="ALWAYS">
+			<Text text="%TROIS"/>
+		</HBox>
 	</HBox>
 </VBox>
