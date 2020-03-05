@@ -15,8 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import tp01_menu.enumerations.Choix;
-import tp01_menu_client.commandes.changer_locale.ChangerLocale;
-import tp01_menu_client.commandes.changer_locale.ChangerLocalePourEnvoi;
 import tp01_menu_client.commandes.choisir_choix.ChoisirChoix;
 import tp01_menu_client.commandes.choisir_choix.ChoisirChoixPourEnvoi;
 import tp01_menu_client.commandes.fermer_parametres.FermerParametres;
@@ -32,15 +30,11 @@ public class VueParametresFX implements VueParametres, Initializable {
 	
 	@FXML
 	private MonRadio radioUn, radioDeux, radioTrois;
-	
-	//@FXML
-	//private Button boutonChangerLangue;
 
 	@FXML
 	private Button boutonOk;
 	
 	private ChoisirChoixPourEnvoi choisirChoix;
-	//private ChangerLocalePourEnvoi changerLocale;
 	private FermerParametresPourEnvoi fermerParametres;
 	
 	
@@ -53,7 +47,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 		DoitEtre.nonNul(radioUn);
 		DoitEtre.nonNul(radioDeux);
 		DoitEtre.nonNul(radioTrois);
-		//DoitEtre.nonNul(boutonChangerLangue);
 		DoitEtre.nonNul(boutonOk);
 
 		// Nouvelle vue?
@@ -113,26 +106,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 				fermerParametres.envoyerCommande();
 			}
 		});
-		
-		/*
-		boutonChangerLangue.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				if(Locale.getDefault() == Locale.CANADA_FRENCH) {
-					
-					changerLocale.setLocale(Locale.CANADA);
-					
-				}else {
-
-					changerLocale.setLocale(Locale.CANADA_FRENCH);
-					
-				}
-				
-				changerLocale.envoyerCommande();
-			}
-		}); */
 	}
 
 	@Override

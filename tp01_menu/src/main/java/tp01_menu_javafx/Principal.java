@@ -16,8 +16,6 @@ import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tp01_menu_client.commandes.changer_locale.ChangerLocale;
-import tp01_menu_client.commandes.changer_locale.ChangerLocaleRecue;
 import tp01_menu_javafx.controleurs.ControleurAccueilFX;
 import tp01_menu_javafx.vues.VueAccueilFX;
 
@@ -81,8 +79,7 @@ public class Principal extends Application {
 		
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setWidth(Constantes.LARGEUR);
-		fenetrePrincipale.setHeight(Constantes.HAUTEUR);
+		fenetrePrincipale.setWidth(scene.getWidth());
+		fenetrePrincipale.setHeight(scene.getHeight());
 	}
 }
-
