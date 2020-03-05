@@ -1,7 +1,6 @@
 package tp01_une_page_javafx.vues;
 
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import commun.debogage.DoitEtre;
@@ -20,7 +19,6 @@ import tp01_une_page_client.commandes.choisir_choix.ChoisirChoixPourEnvoi;
 import tp01_une_page_client.commandes.fermer_parametres.FermerParametres;
 import tp01_une_page_client.commandes.fermer_parametres.FermerParametresPourEnvoi;
 import tp01_une_page_client.vues.VueParametres;
-import tp01_une_page_javafx.vues.composants.CaseAjustable;
 import tp01_une_page_javafx.vues.composants.MonRadio;
 
 public class VueParametresFX implements VueParametres, Initializable {
@@ -31,13 +29,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 	@FXML
 	private MonRadio radioUn, radioDeux, radioTrois;
 
-	@FXML
-	private Button boutonOk;
-	
 	private ChoisirChoixPourEnvoi choisirChoix;
-	private FermerParametresPourEnvoi fermerParametres;
-	
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -47,7 +39,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 		DoitEtre.nonNul(radioUn);
 		DoitEtre.nonNul(radioDeux);
 		DoitEtre.nonNul(radioTrois);
-		DoitEtre.nonNul(boutonOk);
 
 		// Nouvelle vue?
 		texteTmpParametres.setText(texteTmpParametres.getText() + " (" + System.identityHashCode(this) + ")");
@@ -58,8 +49,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 		J.appel(this);
 		
 		choisirChoix = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirChoix.class);
-		
-		fermerParametres = FabriqueCommande.obtenirCommandePourEnvoi(FermerParametres.class);
 	}
 
 	@Override
@@ -93,15 +82,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 
 				choisirChoix.setChoix(Choix.TROIS);
 				choisirChoix.envoyerCommande();
-			}
-		});
-		
-		boutonOk.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				fermerParametres.envoyerCommande();
 			}
 		});
 	}

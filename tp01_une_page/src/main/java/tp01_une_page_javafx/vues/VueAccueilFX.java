@@ -11,7 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import tp01_une_page_client.commandes.nouvelle_partie.NouvellePartie;
 import tp01_une_page_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
@@ -25,21 +25,17 @@ import static tp01_une_page_javafx.Constantes.*;
 public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
-	MenuItem menuNouvellePartie, menuParametres, menuQuitter;
+	Button boutonNouvellePartie;
 	
 	@FXML
-	VBox conteneurPartie;
+	VBox conteneurPartie, conteneurParametres;
 	
-	QuitterPourEnvoi quitterPourEnvoi;
-	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	NouvellePartiePourEnvoi nouvellePartiePourEnvoi;
 
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
-		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
-		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		nouvellePartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartie.class);
 	}
 
@@ -47,25 +43,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
-		menuQuitter.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				quitterPourEnvoi.envoyerCommande();
-			}
-		});
-		
-		menuParametres.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				ouvrirParametresPourEnvoi.envoyerCommande();
-			}
-		});
-		
-		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
+		boutonNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
@@ -79,6 +57,24 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
 		
+	}
+
+	public VueParametresFX creerVueParametres() {
+		J.appel(this);
+
+		ChargeurDeVue<VueParametresFX> chargeur;
+		chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PARAMETRES_CSS);
+		
+		VueParametresFX vueParametresFX = chargeur.getVue();
+		
+		Parent parent = chargeur.getParent();
+		
+		conteneurParametres.getChildren().clear();
+		conteneurParametres.getChildren().add(parent);
+		
+		return vueParametresFX;
 	}
 
 	public VuePartieLocaleFX creerVuePartieLocale() {
@@ -102,5 +98,4 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	public void verifierCommandesPossibles() {
 		J.appel(this);
 	}
-
 }

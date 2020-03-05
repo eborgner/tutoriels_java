@@ -1,7 +1,9 @@
 .conteneurPrincipal {
   -fx-alignment: center;
+  -fx-border-style: solid;
+  -fx-border-width: 2px;
+  -fx-border-color: #bcced6;
   -fx-background-color: #95c5db;
-  -fx-padding: 4em;
 }
 .petitEspace {
   -fx-min-width: 1em;
@@ -13,13 +15,6 @@
   -fx-min-height: 2em;
   -fx-pref-height: 4em;
   -fx-max-height: 8em;
-}
-.conteneurPrincipal {
-  -fx-alignment: center;
-  -fx-border-style: solid;
-  -fx-border-width: 2px;
-  -fx-border-color: #bcced6;
-  -fx-background-color: #95c5db;
 }
 .conteneurTexte {
   -fx-alignment: center-right;

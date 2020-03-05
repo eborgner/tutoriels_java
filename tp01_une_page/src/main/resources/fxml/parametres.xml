@@ -9,12 +9,10 @@
 <VBox xmlns:fx="http://javafx.com/fxml" 
     alignment="center"
     styleClass="conteneurPrincipal"
-    fx:controller="tp01_une_page_javafx.vues.VueParametresFX">
-	<VBox VBox.vgrow="ALWAYS"/>
+    fx:controller="tp01_une_page_javafx.vues.VueParametresFX"
+    VBox.vgrow="ALWAYS">
 		
 	<Text fx:id="texteTmpParametres" text="%afaire"/>
-
-	<VBox VBox.vgrow="ALWAYS"/>
 
 	<HBox VBox.vgrow="ALWAYS">
 		<HBox HBox.hgrow="ALWAYS"/>
@@ -32,10 +30,4 @@
 		</HBox>
 		<HBox HBox.hgrow="ALWAYS"/>
 	</HBox>
-
-	<VBox VBox.vgrow="ALWAYS"/>
-
-    <Button fx:id="boutonOk" text="%boutonOk"/>
-
-	<VBox VBox.vgrow="ALWAYS"/>
 </VBox>

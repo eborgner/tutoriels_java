@@ -1,7 +1,9 @@
 .conteneurPrincipal {
   -fx-alignment: center;
+  -fx-border-style: solid;
+  -fx-border-width: 2px;
+  -fx-border-color: #bcced6;
   -fx-background-color: #95c5db;
-  -fx-padding: 4em;
 }
 .petitEspace {
   -fx-min-width: 1em;
@@ -15,10 +17,8 @@
   -fx-max-height: 8em;
 }
 .fenetrePrincipale {
-  -fx-border-style: solid;
-  -fx-border-width: 2px;
-  -fx-border-color: #305ae1;
-  -fx-background-color: #bcced6;
+  -fx-background-color: #95c5db;
+  -fx-padding: 10px;
 }
 MenuBar,
 ToolBar {

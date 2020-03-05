@@ -40,21 +40,12 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		return (ParametresLectureSeule) parametres;
 	}
 	
-	private Scene sceneParametres;
-	private Stage dialogueParametres;
 	private PartieLocale partie = new PartieLocale();
 	
 	private void instancierMVCParametres(){
 		J.appel(this);
-
-		ChargeurDeVue<VueParametresFX> chargeur;
-		chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARAMETRES_CSS);
 		
-		sceneParametres = chargeur.nouvelleScene(400, 300);
-		
-		VueParametresFX vueParametresFX = chargeur.getVue();
+		VueParametresFX vueParametresFX = vue.creerVueParametres();
 
 		AfficheurParametresFX afficheurParametresFX = new AfficheurParametresFX();
 
@@ -64,33 +55,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
-		
-		installerRecepteurCommande(Quitter.class, new RecepteurCommandeMVC<QuitterRecue>() {
-			@Override
-			public void executerCommandeMVC(QuitterRecue commande) {
-				J.appel(this);
-				
-				Systeme.quitter();
-			}
-		});
-
-		installerRecepteurCommande(OuvrirParametres.class, new RecepteurCommandeMVC<OuvrirParametresRecue>() {
-			@Override
-			public void executerCommandeMVC(OuvrirParametresRecue commande) {
-				J.appel(this);
-				
-				ouvrirParametres();
-			}
-		});
-
-		installerRecepteurCommande(FermerParametres.class, new RecepteurCommandeMVC<FermerParametresRecue>() {
-			@Override
-			public void executerCommandeMVC(FermerParametresRecue commande) {
-				J.appel(this);
-				
-				fermerParametres();
-			}
-		});
 		
 		installerRecepteurCommande(NouvellePartie.class, new RecepteurCommandeMVC<NouvellePartieRecue>() {
 			@Override
@@ -102,7 +66,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		});
 	}
 
-	
 	private void nouvellePartieLocale() {
 		J.appel(this);
 
@@ -120,20 +83,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
 	}
 	
-	private void ouvrirParametres() {
-		J.appel(this);
-
-		dialogueParametres = DialogueModal.ouvrirDialogueModal(sceneParametres);
-	}
-
-	private void fermerParametres() {
-		J.appel(this);
-		
-		if(dialogueParametres != null) {
-			
-			dialogueParametres.close();
-		}
-	}
 
 	@Override
 	protected void demarrer() {
