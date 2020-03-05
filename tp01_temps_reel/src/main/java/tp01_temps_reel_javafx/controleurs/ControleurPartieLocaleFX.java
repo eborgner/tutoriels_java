@@ -33,7 +33,7 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale<VuePartieLo
 
 			@Override
 			public void handle(long maintenantNanosecondes) {
-				J.setActif(false);
+				//J.setActif(false);
 				J.appel(this);
 				
 				double secondesEcoulees = (maintenantNanosecondes - dernierAffichageNanosecondes) / 1E9;
@@ -46,6 +46,7 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale<VuePartieLo
 
 				J.setActif(true);
 			}
-		};
+
+		}.start();
 	}
 }

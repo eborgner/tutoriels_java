@@ -19,7 +19,6 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 		
 		lesCoups.add(angleDepartDegres);
 		
-		
 		monde2D.nouvelleBalle2D(angleDepartDegres);
 	}
 

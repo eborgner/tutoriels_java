@@ -15,6 +15,7 @@ public class Monde2D implements Monde2DLectureSeule {
 	public void nouvelleBalle2D(int angleDepartDegres) {
 		J.appel(this);
 		
+		lesObjets.add(new Balle2D(15,5,10,angleDepartDegres));
 	}
 
 	public void reagirAuTempsQuiPasse(double secondesEcoulees) {
