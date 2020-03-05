@@ -2,7 +2,6 @@ package commun_javafx.vues.composants;
 
 
 import commun.debogage.J;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;

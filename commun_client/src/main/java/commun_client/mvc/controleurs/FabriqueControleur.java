@@ -73,22 +73,4 @@ public final class FabriqueControleur {
 		vue.installerCapteursEvenementsUsager();
 		vue.verifierCommandesPossibles();
 	}
-
-	public static <C extends ControleurVue> void recreerVue(C controleur, Vue vue) {
-		J.appel(FabriqueControleur.class);
-
-		controleur.setVue(vue);
-
-		initialiser(vue, controleur);
-	}
-
-	public static <C extends ControleurModeleVue> void recreerVue(C controleur, Vue vue) {
-		J.appel(FabriqueControleur.class);
-
-		controleur.setVue(vue);
-
-		controleur.initialiserAffichage();
-
-		initialiser(vue, controleur);
-	}
 }

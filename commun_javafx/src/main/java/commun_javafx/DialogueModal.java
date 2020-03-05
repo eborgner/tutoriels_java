@@ -1,5 +1,6 @@
 package commun_javafx;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -18,13 +19,16 @@ public class DialogueModal {
 
 	public static Stage ouvrirDialogueModal(Scene scene) {
 		J.appel(DialogueModal.class);
+		
+		DoitEtre.nonNul(fenetrePrincipale);
 
         Stage fenetreModale = new Stage();
+        fenetreModale.setScene(scene);
         fenetreModale.initOwner(fenetrePrincipale);
         fenetreModale.initModality(Modality.APPLICATION_MODAL);
-        fenetreModale.setScene(scene);
         
         Platform.runLater(new Runnable() {
+			
 			@Override
 			public void run() {
 				J.appel(this);
