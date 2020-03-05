@@ -18,10 +18,6 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 											    V, 
 											    A> {
 	
-	@Override
-	protected void demarrer() {
-		J.appel(this);
-	}
 
 	@Override
 	protected void installerReceptionCommandes() {
@@ -36,4 +32,13 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 			}
 		});
 	} 
+	
+	
+	protected void reagirAuTempsQuiPasse(double secondesEcoulees) {
+		J.appel(this);
+		
+		modele.reagirAuTempsQuiPasse(secondesEcoulees);
+		
+		modele.getMonde2D().afficher(vue.getDessin2D());
+	}
 }

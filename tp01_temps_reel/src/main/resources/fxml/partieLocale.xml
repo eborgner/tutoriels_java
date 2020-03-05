@@ -21,7 +21,7 @@
     	<Text fx:id="texteNombreCoups"/>
 	</HBox>
     <Pane VBox.vgrow="ALWAYS"/>
-    <MonDessin2D styleClass="tableJeu" VBox.vgrow="ALWAYS"/>
+    <MonDessin2D fx:id="dessin2D" styleClass="tableJeu" VBox.vgrow="ALWAYS"/>
     <Pane VBox.vgrow="ALWAYS"/>
 
 </VBox>

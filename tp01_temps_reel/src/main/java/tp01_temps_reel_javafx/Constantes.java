@@ -15,5 +15,6 @@ public class Constantes {
 	
 	public static final int LARGEUR = 800;
 	public static final int HAUTEUR = 400;
-
+	
+	public static final double FPS_MAX = 120;
 }
