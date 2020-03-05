@@ -53,6 +53,13 @@ public class MonDessin2D extends CanvasAjustable implements Dessin2D {
 			         	360, 
 			         	ArcType.ROUND);
 	}
+	
+	@Override
+	public void viderDessin(){
+		J.appel(this);
+		
+		pinceau.clearRect(0, 0, getWidth(), getHeight());
+	}
 
 		
 }

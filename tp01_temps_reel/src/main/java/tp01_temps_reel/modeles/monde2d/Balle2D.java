@@ -16,7 +16,7 @@ public class Balle2D extends Objet2D {
 		
 		double accelerationGraviteTerrestreMetresSecondesCarres =  9.81;
 		
-		this.accelerationYMetresSecondesCarres = accelerationGraviteTerrestreMetresSecondesCarres;
+		this.accelerationYMetresSecondesCarres = - accelerationGraviteTerrestreMetresSecondesCarres;
 	}
 
 	@Override

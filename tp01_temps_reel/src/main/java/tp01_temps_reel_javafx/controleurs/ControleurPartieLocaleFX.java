@@ -9,23 +9,28 @@ import tp01_temps_reel_javafx.vues.VuePartieLocaleFX;
 
 public class ControleurPartieLocaleFX extends ControleurPartieLocale<VuePartieLocaleFX, AfficheurPartieLocaleFX> { 
 	
+	AnimationTimer chronometre;
+	
 	@Override
 	protected void demarrer() {
 		J.appel(this);
 		
 		installerChronometre();
+		
+		chronometre.start();
 	}
 	
 	private void installerChronometre(){
 		J.appel(this);
 		
-		new AnimationTimer() {
+		chronometre =new AnimationTimer() {
 			
 			private double dernierAffichageNanosecondes;
-			private double secondesEcouleesMax = 1 / Constantes.FPS_MAX;
+			private double secondesEcouleesMax = 1.0 / Constantes.FPS_MAX;
 			
 			@Override
 			public void start() {
+				super.start();
 				J.appel(this);
 				
 				dernierAffichageNanosecondes = System.nanoTime();
@@ -33,9 +38,9 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale<VuePartieLo
 
 			@Override
 			public void handle(long maintenantNanosecondes) {
-				//J.setActif(false);
+				J.setActif(false);
 				J.appel(this);
-				
+
 				double secondesEcoulees = (maintenantNanosecondes - dernierAffichageNanosecondes) / 1E9;
 				
 				if(secondesEcoulees >= secondesEcouleesMax) {
@@ -46,7 +51,6 @@ public class ControleurPartieLocaleFX extends ControleurPartieLocale<VuePartieLo
 
 				J.setActif(true);
 			}
-
-		}.start();
+		};
 	}
 }

@@ -5,5 +5,7 @@ public interface Dessin2D {
 	double getLargeurPixels();
 	double getHauteurPixels();
 	
+	void viderDessin();
+	
 	void dessinerCercle(double centreXPixels, double centreYPixels, double rayonPixels);
 }
