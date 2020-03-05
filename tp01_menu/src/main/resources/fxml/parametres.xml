@@ -35,7 +35,6 @@
 
 	<VBox VBox.vgrow="ALWAYS"/>
 
-    <!-- <Button fx:id="boutonChangerLangue" text="%changerLangue"/> -->
     <Button fx:id="boutonOk" text="%boutonOk"/>
 
 	<VBox VBox.vgrow="ALWAYS"/>
