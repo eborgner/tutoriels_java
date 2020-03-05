@@ -9,9 +9,12 @@ import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import tp01_menu.modeles.parametres.Parametres;
 import tp01_menu.modeles.parametres.ParametresLectureSeule;
 import tp01_menu.modeles.partie_locale.PartieLocale;
+import tp01_menu_client.commandes.fermer_parametres.FermerParametres;
+import tp01_menu_client.commandes.fermer_parametres.FermerParametresRecue;
 import tp01_menu_client.commandes.nouvelle_partie.NouvellePartie;
 import tp01_menu_client.commandes.nouvelle_partie.NouvellePartieRecue;
 import tp01_menu_client.commandes.ouvrir_parametres.OuvrirParametres;
@@ -37,13 +40,11 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		return (ParametresLectureSeule) parametres;
 	}
 	
-	private VueParametresFX vueParametresFX;
-	private AfficheurParametresFX afficheurParametresFX;
 	private Scene sceneParametres;
-	
+	private Stage dialogueParametres;
 	private PartieLocale partie = new PartieLocale();
 	
-	private void creerMVCParametres(){
+	private void instancierMVCParametres(){
 		J.appel(this);
 
 		ChargeurDeVue<VueParametresFX> chargeur;
@@ -53,13 +54,11 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		sceneParametres = chargeur.nouvelleScene(400, 300);
 		
-		vueParametresFX = chargeur.getVue();
+		VueParametresFX vueParametresFX = chargeur.getVue();
 
-		afficheurParametresFX = new AfficheurParametresFX();
+		AfficheurParametresFX afficheurParametresFX = new AfficheurParametresFX();
 
 		FabriqueControleur.creerControleur(ControleurParametresFX.class, parametres, vueParametresFX, afficheurParametresFX);
-
-		DialogueModal.enregistrerScene(sceneParametres);
 	}
 	
 	@Override
@@ -83,15 +82,23 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 				ouvrirParametres();
 			}
 		});
-		
-		FabriqueCommande.installerRecepteur(NouvellePartie.class, new RecepteurCommande<NouvellePartieRecue>() {
+
+		installerRecepteurCommande(FermerParametres.class, new RecepteurCommandeMVC<FermerParametresRecue>() {
 			@Override
-			public void executerCommande(NouvellePartieRecue nouvellePartieRecue) {
+			public void executerCommandeMVC(FermerParametresRecue commande) {
+				J.appel(this);
+				
+				fermerParametres();
+			}
+		});
+		
+		installerRecepteurCommande(NouvellePartie.class, new RecepteurCommandeMVC<NouvellePartieRecue>() {
+			@Override
+			public void executerCommandeMVC(NouvellePartieRecue commande) {
 				J.appel(this);
 				
 				nouvellePartieLocale();
 			}
-
 		});
 	}
 
@@ -100,10 +107,10 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		J.appel(this);
 
 		partie = new PartieLocale();
-		creerMVCPartieLocale();
+		instancierMVCPartieLocale();
 	}
 	
-	private void creerMVCPartieLocale() {
+	private void instancierMVCPartieLocale() {
 		J.appel(this);
 		
 		VuePartieLocaleFX vuePartie = vue.creerVuePartieLocale();
@@ -113,19 +120,26 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
 	}
 	
-	
-
 	private void ouvrirParametres() {
 		J.appel(this);
 
-		DialogueModal.ouvrirDialogueModal();
+		dialogueParametres = DialogueModal.ouvrirDialogueModal(sceneParametres);
+	}
+
+	private void fermerParametres() {
+		J.appel(this);
+		
+		if(dialogueParametres != null) {
+			
+			dialogueParametres.close();
+		}
 	}
 
 	@Override
 	protected void demarrer() {
 		J.appel(this);
 
-		creerMVCPartieLocale();
-		creerMVCParametres();
+		instancierMVCPartieLocale();
+		instancierMVCParametres();
 	}
 }

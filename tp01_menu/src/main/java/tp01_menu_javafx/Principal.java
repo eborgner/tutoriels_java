@@ -36,43 +36,45 @@ public class Principal extends Application {
 	}
 
 	
-	private Stage fenetrePrincipale;
-	private ControleurAccueilFX controleurAccueil;
-
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		this.fenetrePrincipale = fenetrePrincipale;
-		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
-		
-		installerRecepteurCommandeChangerLocale();
-
-
-		fenetrePrincipale.show();
-		
-		creerControleurAccueil();
-	}
-
-
-	private void creerControleurAccueil() {
-		J.appel(this);
 
 		ChargeurDeVue<VueAccueilFX> chargeur = creerChargeurAccueil();
 
-		installerSceneAccueil(chargeur);
+		installerSceneAccueil(fenetrePrincipale, chargeur);
+
+		instancierMVCAccueil(chargeur);
 		
+		fenetrePrincipale.show();
+	}
+
+
+	private void instancierMVCAccueil(ChargeurDeVue<VueAccueilFX> chargeur) {
+		J.appel(this);
+
 		VueAccueilFX vue = chargeur.getVue();
 		
 		DoitEtre.nonNul(vue);
 
-		controleurAccueil = FabriqueControleur.creerControleur(ControleurAccueilFX.class, 
-																 vue);
+		FabriqueControleur.creerControleur(ControleurAccueilFX.class, 
+	   									   vue);
 	}
 
+	private ChargeurDeVue<VueAccueilFX> creerChargeurAccueil() {
+		J.appel(this);
 
-	private void installerSceneAccueil(ChargeurDeVue<VueAccueilFX> chargeur) {
+		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_ACCUEIL_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_ACCUEIL_CSS);
+
+		return chargeur;
+	}
+
+	private void installerSceneAccueil(Stage fenetrePrincipale, 
+			                           ChargeurDeVue<VueAccueilFX> chargeur) {
 		J.appel(this);
 
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);
@@ -82,51 +84,5 @@ public class Principal extends Application {
 		fenetrePrincipale.setWidth(Constantes.LARGEUR);
 		fenetrePrincipale.setHeight(Constantes.HAUTEUR);
 	}
-
-
-	private ChargeurDeVue<VueAccueilFX> creerChargeurAccueil() {
-		J.appel(this);
-
-		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_ACCUEIL_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_ACCUEIL_CSS);
-		return chargeur;
-	}
-	
-	private void installerRecepteurCommandeChangerLocale() {
-		J.appel(this);
-		
-		FabriqueCommande.installerRecepteur(ChangerLocale.class, new RecepteurCommande<ChangerLocaleRecue>() {
-			@Override
-			public void executerCommande(ChangerLocaleRecue commande) {
-				J.appel(this);
-				
-				changerLocaleEtRafraichir(commande.getLocale());
-			}
-		});
-	}
-
-	private void changerLocaleEtRafraichir(Locale locale) {
-		J.appel(Principal.class);
-		
-		Locale.setDefault(locale);
-		
-		recreerVueAccueil();
-	}
-	
-	private void recreerVueAccueil() {
-		J.appel(this);
-
-		ChargeurDeVue<VueAccueilFX> chargeur = creerChargeurAccueil();
-
-		installerSceneAccueil(chargeur);
-		
-		VueAccueilFX vue = chargeur.getVue();
-		
-		FabriqueControleur.recreerVue(controleurAccueil, vue);
-		
-	}
-	
-	
 }
 

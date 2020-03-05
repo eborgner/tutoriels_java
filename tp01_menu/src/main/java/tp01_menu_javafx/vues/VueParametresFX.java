@@ -19,8 +19,11 @@ import tp01_menu_client.commandes.changer_locale.ChangerLocale;
 import tp01_menu_client.commandes.changer_locale.ChangerLocalePourEnvoi;
 import tp01_menu_client.commandes.choisir_choix.ChoisirChoix;
 import tp01_menu_client.commandes.choisir_choix.ChoisirChoixPourEnvoi;
+import tp01_menu_client.commandes.fermer_parametres.FermerParametres;
+import tp01_menu_client.commandes.fermer_parametres.FermerParametresPourEnvoi;
 import tp01_menu_client.vues.VueParametres;
 import tp01_menu_javafx.vues.composants.CaseAjustable;
+import tp01_menu_javafx.vues.composants.MonRadio;
 
 public class VueParametresFX implements VueParametres, Initializable {
 	
@@ -28,24 +31,30 @@ public class VueParametresFX implements VueParametres, Initializable {
 	private Text texteTmpParametres;
 	
 	@FXML
-	private CaseAjustable caseUn, caseDeux, caseTrois;
+	private MonRadio radioUn, radioDeux, radioTrois;
 	
+	//@FXML
+	//private Button boutonChangerLangue;
+
 	@FXML
-	private Button boutonChangerLangue;
+	private Button boutonOk;
 	
 	private ChoisirChoixPourEnvoi choisirChoix;
+	//private ChangerLocalePourEnvoi changerLocale;
+	private FermerParametresPourEnvoi fermerParametres;
 	
-	private ChangerLocalePourEnvoi changerLocale;
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
 		
 		DoitEtre.nonNul(texteTmpParametres);
-		DoitEtre.nonNul(caseUn);
-		DoitEtre.nonNul(caseDeux);
-		DoitEtre.nonNul(caseTrois);
-		DoitEtre.nonNul(boutonChangerLangue);
+		DoitEtre.nonNul(radioUn);
+		DoitEtre.nonNul(radioDeux);
+		DoitEtre.nonNul(radioTrois);
+		//DoitEtre.nonNul(boutonChangerLangue);
+		DoitEtre.nonNul(boutonOk);
 
 		// Nouvelle vue?
 		texteTmpParametres.setText(texteTmpParametres.getText() + " (" + System.identityHashCode(this) + ")");
@@ -57,14 +66,16 @@ public class VueParametresFX implements VueParametres, Initializable {
 		
 		choisirChoix = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirChoix.class);
 		
-		changerLocale = FabriqueCommande.obtenirCommandePourEnvoi(ChangerLocale.class);
+		//changerLocale = FabriqueCommande.obtenirCommandePourEnvoi(ChangerLocale.class);
+		
+		fermerParametres = FabriqueCommande.obtenirCommandePourEnvoi(FermerParametres.class);
 	}
 
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
-		caseUn.setOnMouseClicked(new EventHandler<Event>() {
+		radioUn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
@@ -74,7 +85,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 			}
 		});
 		
-		caseDeux.setOnMouseClicked(new EventHandler<Event>() {
+		radioDeux.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
@@ -84,7 +95,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 			}
 		});
 		
-		caseTrois.setOnMouseClicked(new EventHandler<Event>() {
+		radioTrois.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				J.appel(this);
@@ -94,6 +105,16 @@ public class VueParametresFX implements VueParametres, Initializable {
 			}
 		});
 		
+		boutonOk.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				fermerParametres.envoyerCommande();
+			}
+		});
+		
+		/*
 		boutonChangerLangue.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -111,7 +132,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 				
 				changerLocale.envoyerCommande();
 			}
-		});
+		}); */
 	}
 
 	@Override
@@ -126,21 +147,21 @@ public class VueParametresFX implements VueParametres, Initializable {
 		switch(choix) {
 		
 		case UN:
-			caseUn.afficherChoix();
-			caseDeux.viderCase();
-			caseTrois.viderCase();
+			radioUn.selectionner(true);
+			radioDeux.selectionner(false);
+			radioTrois.selectionner(false);
 			break;
 
 		case DEUX:
-			caseUn.viderCase();
-			caseDeux.afficherChoix();
-			caseTrois.viderCase();
+			radioUn.selectionner(false);
+			radioDeux.selectionner(true);
+			radioTrois.selectionner(false);
 			break;
 
 		case TROIS:
-			caseUn.viderCase();
-			caseDeux.viderCase();
-			caseTrois.afficherChoix();
+			radioUn.selectionner(false);
+			radioDeux.selectionner(false);
+			radioTrois.selectionner(true);
 			break;
 		}
 		

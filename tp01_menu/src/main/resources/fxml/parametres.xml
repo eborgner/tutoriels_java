@@ -4,9 +4,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
-<?import tp01_menu_javafx.vues.composants.CaseAjustable?>
+<?import tp01_menu_javafx.vues.composants.MonRadio?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" fx:controller="tp01_menu_javafx.vues.VueParametresFX">
+<VBox xmlns:fx="http://javafx.com/fxml" 
+    alignment="center"
+    styleClass="conteneurPrincipal"
+    fx:controller="tp01_menu_javafx.vues.VueParametresFX">
 	<VBox VBox.vgrow="ALWAYS"/>
 		
 	<Text fx:id="texteTmpParametres" text="%afaire"/>
@@ -17,22 +20,23 @@
 		<HBox HBox.hgrow="ALWAYS"/>
 		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%UN"/>
-			<CaseAjustable fx:id="caseUn" HBox.hgrow="ALWAYS" />
+			<MonRadio fx:id="radioUn" HBox.hgrow="ALWAYS" />
 		</HBox>
 		<HBox HBox.hgrow="ALWAYS"  styleClass="conteneurTexte" >
 			<Text text="%DEUX"/>
-			<CaseAjustable fx:id="caseDeux" HBox.hgrow="ALWAYS" />
+			<MonRadio fx:id="radioDeux" HBox.hgrow="ALWAYS" />
 		</HBox>
 		<HBox HBox.hgrow="ALWAYS" styleClass="conteneurTexte" >
 			<Text text="%TROIS"/>
-			<CaseAjustable fx:id="caseTrois" HBox.hgrow="ALWAYS"/>
+			<MonRadio fx:id="radioTrois" HBox.hgrow="ALWAYS"/>
 		</HBox>
 		<HBox HBox.hgrow="ALWAYS"/>
 	</HBox>
 
 	<VBox VBox.vgrow="ALWAYS"/>
 
-	<Button fx:id="boutonChangerLangue" text="%changerLangue"/>
+    <!-- <Button fx:id="boutonChangerLangue" text="%changerLangue"/> -->
+    <Button fx:id="boutonOk" text="%boutonOk"/>
 
 	<VBox VBox.vgrow="ALWAYS"/>
 </VBox>

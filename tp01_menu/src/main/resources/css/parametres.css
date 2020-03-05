@@ -14,6 +14,13 @@
   -fx-pref-height: 4em;
   -fx-max-height: 8em;
 }
+.conteneurPrincipal {
+  -fx-alignment: center;
+  -fx-border-style: solid;
+  -fx-border-width: 2px;
+  -fx-border-color: #bcced6;
+  -fx-background-color: #95c5db;
+}
 .conteneurTexte {
   -fx-alignment: center-right;
 }

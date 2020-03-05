@@ -7,7 +7,7 @@ import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-public class CaseAjustable extends CanvasAjustable {
+public abstract class CaseAjustable extends CanvasAjustable {
     
     private final double TAILLE_POURCENTAGE = 0.6;
     
@@ -61,13 +61,13 @@ public class CaseAjustable extends CanvasAjustable {
         pinceau.setLineWidth(0.01*getWidth());
     }
     
-    private void viderDessin() {
+    protected void viderDessin() {
         J.appel(this);
 
         pinceau.clearRect(0, 0, getWidth(), getHeight());
     }
     
-    private void dessinerCase() {
+    protected void dessinerCase() {
         J.appel(this);
         
         dessinerCase(TAILLE_POURCENTAGE);
@@ -133,20 +133,5 @@ public class CaseAjustable extends CanvasAjustable {
     }
 
 
-	public void afficherChoix() {
-		J.appel(this);
-		
-		pinceau.setFill(Color.BLUE);
-		viderDessin();
-		dessinerCase();
-	}
-
-	public void viderCase() {
-		J.appel(this);
-		
-		pinceau.setFill(Color.WHITE);
-		viderDessin();
-		dessinerCase();
-	}
     
 }
