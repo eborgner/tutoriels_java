@@ -10,6 +10,6 @@
     styleClass="fenetrePrincipale"
     alignment="center">
     <VBox fx:id="conteneurPartie" styleClass="conteneurPartie"  VBox.vgrow="ALWAYS"/>
-    <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" VBox.vgrow="SOMETIMES"/>
     <Button fx:id="boutonNouvellePartie" styleClass="bouton" text="%nouvellePartie"/>
 </VBox>

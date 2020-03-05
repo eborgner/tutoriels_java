@@ -13,15 +13,15 @@
       VBox.vgrow="ALWAYS">
 
     <Text fx:id="texteTmpPartieLocale" text="%afaire"/>
-    <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" VBox.vgrow="SOMETIMES"/>
     <Button fx:id="boutonJouerCoup" text="%boutonJouerCoup"/>
-    <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" VBox.vgrow="SOMETIMES"/>
     <HBox alignment="center">
     	<Text text="%nombreCoups"/>
     	<Text fx:id="texteNombreCoups"/>
 	</HBox>
-    <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" VBox.vgrow="SOMETIMES"/>
     <MonDessin2D fx:id="dessin2D" styleClass="tableJeu" VBox.vgrow="ALWAYS"/>
-    <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" VBox.vgrow="SOMETIMES"/>
 
 </VBox>

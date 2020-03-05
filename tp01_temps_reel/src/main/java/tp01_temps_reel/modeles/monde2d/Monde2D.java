@@ -16,7 +16,7 @@ public class Monde2D implements Monde2DLectureSeule {
 	public void nouvelleBalle2D(int angleDepartDegres) {
 		J.appel(this);
 		
-		double vitesseDepartMetresSecondes = 5 + (new Random()).nextInt(10);
+		double vitesseDepartMetresSecondes = 10 + (new Random()).nextInt(10);
 		
 		lesObjets.add(new Balle2D(0,0,vitesseDepartMetresSecondes,angleDepartDegres));
 	}
