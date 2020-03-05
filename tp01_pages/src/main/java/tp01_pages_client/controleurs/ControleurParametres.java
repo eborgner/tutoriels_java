@@ -1,14 +1,14 @@
-package tp01_une_page_client.controleurs;
+package tp01_pages_client.controleurs;
 
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
-import tp01_une_page.modeles.parametres.Parametres;
-import tp01_une_page.modeles.parametres.ParametresLectureSeule;
-import tp01_une_page_client.afficheurs.AfficheurParametres;
-import tp01_une_page_client.commandes.choisir_choix.ChoisirChoix;
-import tp01_une_page_client.commandes.choisir_choix.ChoisirChoixRecue;
-import tp01_une_page_client.vues.VueParametres;
+import tp01_pages.modeles.parametres.Parametres;
+import tp01_pages.modeles.parametres.ParametresLectureSeule;
+import tp01_pages_client.afficheurs.AfficheurParametres;
+import tp01_pages_client.commandes.choisir_choix.ChoisirChoix;
+import tp01_pages_client.commandes.choisir_choix.ChoisirChoixRecue;
+import tp01_pages_client.vues.VueParametres;
 
 public abstract class ControleurParametres<V extends VueParametres,
 					       				     A extends AfficheurParametres<V>> 

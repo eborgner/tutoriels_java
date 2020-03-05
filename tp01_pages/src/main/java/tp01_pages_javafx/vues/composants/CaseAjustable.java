@@ -1,4 +1,4 @@
-package tp01_une_page_javafx.vues.composants;
+package tp01_pages_javafx.vues.composants;
 
 
 import commun.debogage.J;

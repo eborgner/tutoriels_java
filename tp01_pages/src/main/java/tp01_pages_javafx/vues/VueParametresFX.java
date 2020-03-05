@@ -1,4 +1,4 @@
-package tp01_une_page_javafx.vues;
+package tp01_pages_javafx.vues;
 
 import java.net.URL;
 import java.util.Locale;
@@ -14,16 +14,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import tp01_une_page.enumerations.Choix;
-import tp01_une_page_client.commandes.changer_locale.ChangerLocale;
-import tp01_une_page_client.commandes.changer_locale.ChangerLocalePourEnvoi;
-import tp01_une_page_client.commandes.choisir_choix.ChoisirChoix;
-import tp01_une_page_client.commandes.choisir_choix.ChoisirChoixPourEnvoi;
-import tp01_une_page_client.commandes.fermer_parametres.FermerParametres;
-import tp01_une_page_client.commandes.fermer_parametres.FermerParametresPourEnvoi;
-import tp01_une_page_client.vues.VueParametres;
-import tp01_une_page_javafx.vues.composants.CaseAjustable;
-import tp01_une_page_javafx.vues.composants.MonRadio;
+import tp01_pages.enumerations.Choix;
+import tp01_pages_client.commandes.changer_locale.ChangerLocale;
+import tp01_pages_client.commandes.changer_locale.ChangerLocalePourEnvoi;
+import tp01_pages_client.commandes.choisir_choix.ChoisirChoix;
+import tp01_pages_client.commandes.choisir_choix.ChoisirChoixPourEnvoi;
+import tp01_pages_client.commandes.retour_accueil.RetourAccueil;
+import tp01_pages_client.commandes.retour_accueil.RetourAccueilPourEnvoi;
+import tp01_pages_client.vues.VueParametres;
+import tp01_pages_javafx.vues.composants.CaseAjustable;
+import tp01_pages_javafx.vues.composants.MonRadio;
 
 public class VueParametresFX implements VueParametres, Initializable {
 	
@@ -33,15 +33,12 @@ public class VueParametresFX implements VueParametres, Initializable {
 	@FXML
 	private MonRadio radioUn, radioDeux, radioTrois;
 	
-	//@FXML
-	//private Button boutonChangerLangue;
-
 	@FXML
-	private Button boutonOk;
-	
+	private Button boutonChangerLangue, boutonRetour;
+
 	private ChoisirChoixPourEnvoi choisirChoix;
-	//private ChangerLocalePourEnvoi changerLocale;
-	private FermerParametresPourEnvoi fermerParametres;
+	private ChangerLocalePourEnvoi changerLocale;
+	private RetourAccueilPourEnvoi retourAccueil;
 	
 	
 
@@ -53,8 +50,8 @@ public class VueParametresFX implements VueParametres, Initializable {
 		DoitEtre.nonNul(radioUn);
 		DoitEtre.nonNul(radioDeux);
 		DoitEtre.nonNul(radioTrois);
-		//DoitEtre.nonNul(boutonChangerLangue);
-		DoitEtre.nonNul(boutonOk);
+		DoitEtre.nonNul(boutonChangerLangue);
+		DoitEtre.nonNul(boutonRetour);
 
 		// Nouvelle vue?
 		texteTmpParametres.setText(texteTmpParametres.getText() + " (" + System.identityHashCode(this) + ")");
@@ -66,9 +63,9 @@ public class VueParametresFX implements VueParametres, Initializable {
 		
 		choisirChoix = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirChoix.class);
 		
-		//changerLocale = FabriqueCommande.obtenirCommandePourEnvoi(ChangerLocale.class);
+		changerLocale = FabriqueCommande.obtenirCommandePourEnvoi(ChangerLocale.class);
 		
-		fermerParametres = FabriqueCommande.obtenirCommandePourEnvoi(FermerParametres.class);
+		retourAccueil = FabriqueCommande.obtenirCommandePourEnvoi(RetourAccueil.class);
 	}
 
 	@Override
@@ -105,34 +102,37 @@ public class VueParametresFX implements VueParametres, Initializable {
 			}
 		});
 		
-		boutonOk.setOnAction(new EventHandler<ActionEvent>() {
+		boutonRetour.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				fermerParametres.envoyerCommande();
+				retourAccueil.envoyerCommande();
 			}
 		});
 		
-		/*
 		boutonChangerLangue.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				if(Locale.getDefault() == Locale.CANADA_FRENCH) {
-					
-					changerLocale.setLocale(Locale.CANADA);
-					
-				}else {
-
-					changerLocale.setLocale(Locale.CANADA_FRENCH);
-					
-				}
-				
+				changerLocale.setLocale(choisirProchaineLangue());
 				changerLocale.envoyerCommande();
 			}
-		}); */
+		});
+	}
+	
+	private Locale choisirProchaineLangue() {
+		J.appel(this);
+		
+		Locale prochaineLangue = Locale.CANADA_FRENCH;
+
+		if(Locale.getDefault() == Locale.CANADA_FRENCH) {
+			
+			prochaineLangue = Locale.CANADA;
+		}
+		
+		return prochaineLangue;
 	}
 
 	@Override

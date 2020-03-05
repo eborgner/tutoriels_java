@@ -1,4 +1,4 @@
-package tp01_une_page.modeles.partie_locale;
+package tp01_pages.modeles.partie_locale;
 
 import commun.modeles.ModeleLectureSeule;
 

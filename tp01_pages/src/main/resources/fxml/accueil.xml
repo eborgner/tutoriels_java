@@ -6,26 +6,13 @@
 <?import javafx.scene.text.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="tp01_une_page_javafx.vues.VueAccueilFX" styleClass="fenetrePrincipale">
-    <BorderPane VBox.vgrow="ALWAYS">
-        <top>
-            <MenuBar>
-                <menus>
-                <Menu styleClass="menu" text="%partieLocale">
-                    <items>
-                    <MenuItem fx:id="menuNouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
-                    <MenuItem fx:id="menuParametres" styleClass="menu_item" text="%parametres"/>
-                    <SeparatorMenuItem/>
-                    <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="%quitter"/>
-                    </items>
-                </Menu>
-            </menus>
-            </MenuBar>
-        </top>
-        <center>
-        <HBox alignment="center">
-			<VBox fx:id="conteneurPartie" alignment="center" HBox.hgrow="ALWAYS"/>
-		</HBox>
-        </center>
-    </BorderPane>
+    fx:controller="tp01_pages_javafx.vues.VueAccueilFX" 
+    styleClass="fenetrePrincipale"
+    VBox.vgrow="ALWAYS"
+    alignment="center">
+    <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+    <Button fx:id="boutonNouvellePartie" text="%nouvellePartie"/>
+    <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+    <Button fx:id="boutonOuvrirParametres" text="%parametres"/>
+    <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 </VBox>

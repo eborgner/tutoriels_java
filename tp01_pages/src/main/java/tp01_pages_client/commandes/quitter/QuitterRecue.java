@@ -1,4 +1,4 @@
-package tp01_une_page_client.commandes.quitter;
+package tp01_pages_client.commandes.quitter;
 
 import commun_client.commandes.CommandeRecue;
 

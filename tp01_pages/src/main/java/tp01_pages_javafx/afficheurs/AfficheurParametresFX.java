@@ -1,6 +1,6 @@
-package tp01_une_page_javafx.afficheurs;
+package tp01_pages_javafx.afficheurs;
 
-import tp01_une_page_client.afficheurs.AfficheurParametres;
-import tp01_une_page_javafx.vues.VueParametresFX;
+import tp01_pages_client.afficheurs.AfficheurParametres;
+import tp01_pages_javafx.vues.VueParametresFX;
 
 public class AfficheurParametresFX extends AfficheurParametres<VueParametresFX> { }

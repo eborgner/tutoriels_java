@@ -1,4 +1,4 @@
-package tp01_une_page_client.commandes.jouer_coup;
+package tp01_pages_client.commandes.jouer_coup;
 
 import commun_client.commandes.CommandeRecue;
 

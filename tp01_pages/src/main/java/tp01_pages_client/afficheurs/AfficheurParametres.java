@@ -1,9 +1,9 @@
-package tp01_une_page_client.afficheurs;
+package tp01_pages_client.afficheurs;
 
 import commun.debogage.J;
 import commun_client.mvc.Afficheur;
-import tp01_une_page.modeles.parametres.ParametresLectureSeule;
-import tp01_une_page_client.vues.VueParametres;
+import tp01_pages.modeles.parametres.ParametresLectureSeule;
+import tp01_pages_client.vues.VueParametres;
 
 public abstract class AfficheurParametres<V extends VueParametres> 
 

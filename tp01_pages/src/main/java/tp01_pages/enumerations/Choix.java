@@ -1,4 +1,4 @@
-package tp01_une_page.enumerations;
+package tp01_pages.enumerations;
 
 
 public enum Choix {

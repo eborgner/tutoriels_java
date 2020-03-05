@@ -1,11 +1,11 @@
-package tp01_une_page_client.afficheurs;
+package tp01_pages_client.afficheurs;
 
 
 import commun.debogage.J;
 import commun.modeles.Modele;
 import commun_client.mvc.Afficheur;
-import tp01_une_page.modeles.partie_locale.PartieLocaleLectureSeule;
-import tp01_une_page_client.vues.VuePartieLocale;
+import tp01_pages.modeles.partie_locale.PartieLocaleLectureSeule;
+import tp01_pages_client.vues.VuePartieLocale;
 
 public abstract class AfficheurPartieLocale<V extends VuePartieLocale> 
 

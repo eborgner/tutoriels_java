@@ -1,4 +1,4 @@
-package tp01_une_page_client.commandes.nouvelle_partie;
+package tp01_pages_client.commandes.nouvelle_partie;
 
 import commun_client.commandes.Commande;
 

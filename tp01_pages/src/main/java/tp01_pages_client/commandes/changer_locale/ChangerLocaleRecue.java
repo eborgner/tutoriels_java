@@ -1,4 +1,4 @@
-package tp01_une_page_client.commandes.changer_locale;
+package tp01_pages_client.commandes.changer_locale;
 
 import java.util.Locale;
 

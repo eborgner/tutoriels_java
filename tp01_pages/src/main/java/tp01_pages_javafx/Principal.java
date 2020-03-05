@@ -1,25 +1,22 @@
-package tp01_une_page_javafx;
+package tp01_pages_javafx;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
-import commun_client.commandes.FabriqueCommande;
-import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 
-import static tp01_une_page_javafx.Constantes.*;
+import static tp01_pages_javafx.Constantes.*;
 
-import java.util.Locale;
 
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tp01_une_page_client.commandes.changer_locale.ChangerLocale;
-import tp01_une_page_client.commandes.changer_locale.ChangerLocaleRecue;
-import tp01_une_page_javafx.controleurs.ControleurAccueilFX;
-import tp01_une_page_javafx.vues.VueAccueilFX;
+import tp01_pages_javafx.controleurs.ControleurAccueilFX;
+import tp01_pages_javafx.controleurs.ControleurPagesFX;
+import tp01_pages_javafx.vues.VueAccueilFX;
+import tp01_pages_javafx.vues.VuePagesFX;
 
 public class Principal extends Application {
 
@@ -42,39 +39,39 @@ public class Principal extends Application {
 		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 
-		ChargeurDeVue<VueAccueilFX> chargeur = creerChargeurAccueil();
+		ChargeurDeVue<VuePagesFX> chargeur = creerChargeurPages();
 
 		installerSceneAccueil(fenetrePrincipale, chargeur);
 
-		instancierMVCAccueil(chargeur);
+		instancierMVCPages(chargeur);
 		
 		fenetrePrincipale.show();
 	}
 
 
-	private void instancierMVCAccueil(ChargeurDeVue<VueAccueilFX> chargeur) {
+	private void instancierMVCPages(ChargeurDeVue<VuePagesFX> chargeur) {
 		J.appel(this);
 
-		VueAccueilFX vue = chargeur.getVue();
+		VuePagesFX vue = chargeur.getVue();
 		
 		DoitEtre.nonNul(vue);
 
-		FabriqueControleur.creerControleur(ControleurAccueilFX.class, 
+		FabriqueControleur.creerControleur(ControleurPagesFX.class, 
 	   									   vue);
 	}
 
-	private ChargeurDeVue<VueAccueilFX> creerChargeurAccueil() {
+	private ChargeurDeVue<VuePagesFX> creerChargeurPages() {
 		J.appel(this);
 
-		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_ACCUEIL_FXML,
+		ChargeurDeVue<VuePagesFX> chargeur = new ChargeurDeVue<VuePagesFX>(CHEMIN_PAGES_FXML,
 						CHEMIN_CHAINES,
-						CHEMIN_ACCUEIL_CSS);
+						CHEMIN_PAGES_CSS);
 
 		return chargeur;
 	}
 
 	private void installerSceneAccueil(Stage fenetrePrincipale, 
-			                           ChargeurDeVue<VueAccueilFX> chargeur) {
+			                           ChargeurDeVue<VuePagesFX> chargeur) {
 		J.appel(this);
 
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);

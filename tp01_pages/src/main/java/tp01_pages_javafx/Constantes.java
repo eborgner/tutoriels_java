@@ -1,8 +1,11 @@
-package tp01_une_page_javafx;
+package tp01_pages_javafx;
 
 public class Constantes {
 	
 	public static final String CHEMIN_CHAINES = "traductions.chaines";
+
+	public static final String CHEMIN_PAGES_FXML = "/fxml/pages.xml";
+	public static final String CHEMIN_PAGES_CSS = "/css/pages.css";
 
 	public static final String CHEMIN_ACCUEIL_FXML = "/fxml/accueil.xml";
 	public static final String CHEMIN_ACCUEIL_CSS = "/css/accueil.css";

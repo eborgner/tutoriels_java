@@ -1,7 +1,7 @@
-package tp01_une_page_client.commandes.choisir_choix;
+package tp01_pages_client.commandes.choisir_choix;
 
 import commun_client.commandes.CommandePourEnvoi;
-import tp01_une_page.enumerations.Choix;
+import tp01_pages.enumerations.Choix;
 
 public interface ChoisirChoixPourEnvoi extends CommandePourEnvoi {
 	

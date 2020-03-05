@@ -1,8 +1,8 @@
-package tp01_une_page.modeles.parametres;
+package tp01_pages.modeles.parametres;
 
 
 import commun.modeles.ModeleLectureSeule;
-import tp01_une_page.enumerations.Choix;
+import tp01_pages.enumerations.Choix;
 
 public interface ParametresLectureSeule extends ModeleLectureSeule {
 	

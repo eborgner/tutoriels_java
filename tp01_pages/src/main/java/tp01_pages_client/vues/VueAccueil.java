@@ -1,4 +1,4 @@
-package tp01_une_page_client.vues;
+package tp01_pages_client.vues;
 
 import commun_client.mvc.Vue;
 

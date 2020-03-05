@@ -1,8 +1,9 @@
-package tp01_une_page_javafx.vues;
+package tp01_pages_javafx.vues;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.ChargeurDeVue;
@@ -11,34 +12,38 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import tp01_une_page_client.commandes.nouvelle_partie.NouvellePartie;
-import tp01_une_page_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
-import tp01_une_page_client.commandes.ouvrir_parametres.OuvrirParametres;
-import tp01_une_page_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
-import tp01_une_page_client.commandes.quitter.Quitter;
-import tp01_une_page_client.commandes.quitter.QuitterPourEnvoi;
-import tp01_une_page_client.vues.VueAccueil;
-import static tp01_une_page_javafx.Constantes.*;
+import tp01_pages_client.commandes.nouvelle_partie.NouvellePartie;
+import tp01_pages_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
+import tp01_pages_client.commandes.ouvrir_parametres.OuvrirParametres;
+import tp01_pages_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
+import tp01_pages_client.commandes.quitter.Quitter;
+import tp01_pages_client.commandes.quitter.QuitterPourEnvoi;
+import tp01_pages_client.vues.VueAccueil;
+import static tp01_pages_javafx.Constantes.*;
 
 public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
-	MenuItem menuNouvellePartie, menuParametres, menuQuitter;
+	Button boutonNouvellePartie, boutonOuvrirParametres;
 	
-	@FXML
-	VBox conteneurPartie;
-	
-	QuitterPourEnvoi quitterPourEnvoi;
 	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	NouvellePartiePourEnvoi nouvellePartiePourEnvoi;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		J.appel(this);
+		
+		DoitEtre.nonNul(boutonNouvellePartie);
+		DoitEtre.nonNul(boutonOuvrirParametres);
+	}
 
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
-		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		nouvellePartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartie.class);
 	}
@@ -47,16 +52,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 		
-		menuQuitter.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				quitterPourEnvoi.envoyerCommande();
-			}
-		});
-		
-		menuParametres.setOnAction(new EventHandler<ActionEvent>() {
+		boutonOuvrirParametres.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
@@ -65,7 +61,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 			}
 		});
 		
-		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
+		boutonNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
@@ -75,28 +71,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		});
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		J.appel(this);
-		
-	}
 
-	public VuePartieLocaleFX creerVuePartieLocale() {
-		J.appel(this);
-
-		ChargeurDeVue<VuePartieLocaleFX> chargeur = new ChargeurDeVue<VuePartieLocaleFX>(CHEMIN_PARTIE_LOCALE_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARTIE_LOCALE_CSS);
-		
-		VuePartieLocaleFX vuePartieLocale = chargeur.getVue();
-		
-		Parent parent = chargeur.getParent();
-		
-		conteneurPartie.getChildren().clear();
-		conteneurPartie.getChildren().add(parent);
-		
-		return vuePartieLocale;
-	}
 
 	@Override
 	public void verifierCommandesPossibles() {
