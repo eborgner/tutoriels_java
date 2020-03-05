@@ -1,9 +1,5 @@
 .conteneurPrincipal {
   -fx-alignment: center;
-  -fx-border-style: solid;
-  -fx-border-width: 2px;
-  -fx-border-color: #bcced6;
-  -fx-background-color: #95c5db;
 }
 .petitEspace {
   -fx-min-width: 1em;

@@ -10,8 +10,8 @@
     styleClass="fenetrePrincipale"
     alignment="center">
     <HBox VBox.vgrow="ALWAYS">
-        <VBox fx:id="conteneurPartie" alignment="center" HBox.hgrow="ALWAYS"/>
-        <VBox fx:id="conteneurParametres" alignment="center" HBox.hgrow="ALWAYS"/>
+        <VBox fx:id="conteneurPartie" styleClass="conteneurPartie"  HBox.hgrow="ALWAYS"/>
+        <VBox fx:id="conteneurParametres" styleClass="conteneurParametres"  HBox.hgrow="ALWAYS"/>
     </HBox>
     <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
     <Button fx:id="boutonNouvellePartie" styleClass="bouton" text="%nouvellePartie"/>
