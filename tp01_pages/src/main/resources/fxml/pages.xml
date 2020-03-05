@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+    fx:controller="tp01_pages_javafx.vues.VuePagesFX" 
+    styleClass="fenetrePrincipale">
+    <VBox fx:id="conteneurAccueil" visible="true"/>
+    <VBox fx:id="conteneurPartie" visible="false"/>
+    <VBox fx:id="conteneurParametres" visible="false"/>
+</StackPane>
