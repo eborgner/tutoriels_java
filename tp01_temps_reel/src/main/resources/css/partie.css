@@ -12,3 +12,6 @@
   -fx-pref-height: 4em;
   -fx-max-height: 8em;
 }
+.tableJeu {
+  -fx-background-color: white;
+}

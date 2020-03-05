@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.text.Text?>
+<?import tp01_temps_reel_javafx.vues.composants.MonDessin2D?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       styleClass="conteneurPrincipal" 
@@ -19,6 +20,8 @@
     	<Text text="%nombreCoups"/>
     	<Text fx:id="texteNombreCoups"/>
 	</HBox>
+    <Pane VBox.vgrow="ALWAYS"/>
+    <MonDessin2D styleClass="tableJeu" VBox.vgrow="ALWAYS"/>
     <Pane VBox.vgrow="ALWAYS"/>
 
 </VBox>
