@@ -1,4 +1,4 @@
-rootProject.name = 'tp01_une_page_javafx'
+rootProject.name = 'tp01_une_page'
 
 include ':commun'
 project(':commun').projectDir = file('../commun')
