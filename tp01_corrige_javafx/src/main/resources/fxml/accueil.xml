@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="tp01_corrige_javafx.vues.VueAccueilFX" styleClass="fenetrePrincipale">
+    <BorderPane VBox.vgrow="ALWAYS">
+        <top>
+            <MenuBar>
+                <menus>
+                <Menu styleClass="menu" text="%partieLocale">
+                    <items>
+                    <MenuItem fx:id="menuNouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
+                    <MenuItem fx:id="menuParametres" styleClass="menu_item" text="%parametres"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="%quitter"/>
+                    </items>
+                </Menu>
+            </menus>
+            </MenuBar>
+        </top>
+        <center>
+        <HBox alignment="center">
+			<VBox fx:id="conteneurPartie" alignment="center" HBox.hgrow="ALWAYS"/>
+		</HBox>
+        </center>
+    </BorderPane>
+</VBox>
