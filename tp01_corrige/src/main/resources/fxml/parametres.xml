@@ -9,12 +9,12 @@
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" fx:controller="tp01_corrige_javafx.vues.VueParametresFX">
 
 	<VBox styleClass="conteneurVertical" VBox.vgrow="always">
-		<Text text="%taillePartie"/>
+		<Text text="%tailleGrille"/>
 		<HBox styleClass="conteneurHorizontal" VBox.vgrow="always">
 			<VBox styleClass="conteneurVertical, groupeDeControles" HBox.hgrow="always">
 
 				<HBox styleClass="conteneurHorizontal">
-					<Text text="%petite"/>
+					<Text text="%PETITE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
 					<CheckBox/>
 				</HBox>
@@ -22,7 +22,7 @@
 				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
 
 				<HBox styleClass="conteneurHorizontal">
-					<Text text="%moyenne"/>
+					<Text text="%MOYENNE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
 					<CheckBox/>
 				</HBox>
@@ -30,7 +30,7 @@
 				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
 
 				<HBox styleClass="conteneurHorizontal">
-					<Text text="%grande"/>
+					<Text text="%GRANDE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
 					<CheckBox/>
 				</HBox>
