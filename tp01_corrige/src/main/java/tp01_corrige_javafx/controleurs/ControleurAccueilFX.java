@@ -1,34 +1,32 @@
-package tp01_corrige_javafx_javafx.controleurs;
+package tp01_corrige_javafx.controleurs;
 
 import commun.debogage.J;
 import commun.systeme.Systeme;
-import commun_client.commandes.FabriqueCommande;
-import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tp01_corrige_javafx.modeles.parametres.Parametres;
-import tp01_corrige_javafx.modeles.parametres.ParametresLectureSeule;
-import tp01_corrige_javafx.modeles.partie_locale.PartieLocale;
-import tp01_corrige_javafx_client.commandes.fermer_parametres.FermerParametres;
-import tp01_corrige_javafx_client.commandes.fermer_parametres.FermerParametresRecue;
-import tp01_corrige_javafx_client.commandes.nouvelle_partie.NouvellePartie;
-import tp01_corrige_javafx_client.commandes.nouvelle_partie.NouvellePartieRecue;
-import tp01_corrige_javafx_client.commandes.ouvrir_parametres.OuvrirParametres;
-import tp01_corrige_javafx_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
-import tp01_corrige_javafx_client.commandes.quitter.Quitter;
-import tp01_corrige_javafx_client.commandes.quitter.QuitterRecue;
-import tp01_corrige_javafx_client.controleurs.ControleurAccueil;
-import tp01_corrige_javafx_javafx.afficheurs.AfficheurParametresFX;
-import tp01_corrige_javafx_javafx.afficheurs.AfficheurPartieLocaleFX;
-import tp01_corrige_javafx_javafx.vues.VuePartieLocaleFX;
-import tp01_corrige_javafx_javafx.vues.VueAccueilFX;
-import tp01_corrige_javafx_javafx.vues.VueParametresFX;
+import tp01_corrige.modeles.parametres.Parametres;
+import tp01_corrige.modeles.parametres.ParametresLectureSeule;
+import tp01_corrige.modeles.partie.PartieLocale;
+import tp01_corrige_client.commandes.fermer_parametres.FermerParametres;
+import tp01_corrige_client.commandes.fermer_parametres.FermerParametresRecue;
+import tp01_corrige_client.commandes.nouvelle_partie.NouvellePartie;
+import tp01_corrige_client.commandes.nouvelle_partie.NouvellePartieRecue;
+import tp01_corrige_client.commandes.ouvrir_parametres.OuvrirParametres;
+import tp01_corrige_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
+import tp01_corrige_client.commandes.quitter.Quitter;
+import tp01_corrige_client.commandes.quitter.QuitterRecue;
+import tp01_corrige_client.controleurs.ControleurAccueil;
+import tp01_corrige_javafx.afficheurs.AfficheurParametresFX;
+import tp01_corrige_javafx.afficheurs.AfficheurPartieLocaleFX;
+import tp01_corrige_javafx.vues.VuePartieLocaleFX;
+import tp01_corrige_javafx.vues.VueAccueilFX;
+import tp01_corrige_javafx.vues.VueParametresFX;
 
-import static tp01_corrige_javafx_javafx.Constantes.*;
+import static tp01_corrige_javafx.Constantes.*;
 
 public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	
@@ -117,7 +115,7 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
-		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
+		//FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
 	}
 	
 	private void ouvrirParametres() {

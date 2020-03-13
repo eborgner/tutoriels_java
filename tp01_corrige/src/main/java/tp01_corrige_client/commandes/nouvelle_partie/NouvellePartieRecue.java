@@ -1,4 +1,4 @@
-package tp01_corrige_javafx_client.commandes.nouvelle_partie;
+package tp01_corrige_client.commandes.nouvelle_partie;
 
 import commun_client.commandes.CommandeRecue;
 

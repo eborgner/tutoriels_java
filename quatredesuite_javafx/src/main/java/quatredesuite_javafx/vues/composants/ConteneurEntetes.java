@@ -7,6 +7,8 @@ import commun_client.commandes.FabriqueCommande;
 import javafx.beans.NamedArg;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
+import quatredesuite_client.commandes.jouer_ici.JouerIci;
+import quatredesuite_client.commandes.jouer_ici.JouerIciPourEnvoi;
 
 public class ConteneurEntetes extends HBox {
     
@@ -33,15 +35,6 @@ public class ConteneurEntetes extends HBox {
         for(Entete entete : entetes()) {
             
             entete.obtenirJouerIciPourEnvoi();
-        }
-    }
-
-    public void verifierCommandesPossibles() {
-        J.appel(this);
-
-        for(Entete entete : entetes()) {
-            
-            entete.verifierCommandePossible();
         }
     }
     

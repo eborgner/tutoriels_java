@@ -3,51 +3,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" fx:controller="quatredesuite_javafx.vues.VueParametresFX">
-
-	<VBox styleClass="conteneurVertical" VBox.vgrow="always">
-		<Text text="%taillePartie"/>
-		<HBox styleClass="conteneurHorizontal" VBox.vgrow="always">
-			<VBox styleClass="conteneurVertical, groupeDeControles" HBox.hgrow="always">
-
-				<HBox styleClass="conteneurHorizontal">
-					<Text text="%petite"/>
-					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
-				</HBox>
-
-				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
-
-				<HBox styleClass="conteneurHorizontal">
-					<Text text="%moyenne"/>
-					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
-				</HBox>
-
-				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
-
-				<HBox styleClass="conteneurHorizontal">
-					<Text text="%grande"/>
-					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
-				</HBox>
-			</VBox>
-		</HBox>
-	</VBox>
-
-	<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
-
-	<HBox styleClass="conteneurHorizontal" alignment="center_right">
-
-		<Button styleClass="bouton" text="%annuler"/>
-
-		<HBox styleClass="espaceHorizontal,petiteLargeur" HBox.hgrow="always"/>
-
-		<Button styleClass="bouton" text="%ok"/>
-
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center">
+	<HBox alignment="center">
+		<Text text="À FAIRE POUR LE TP#1"/>
 	</HBox>
-
 </VBox>

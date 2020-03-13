@@ -1,25 +1,47 @@
-package quatredesuite_javafx_javafx.vues.composants;
+package quatredesuite_javafx.vues.composants;
 
 
 import commun.debogage.J;
-
 import commun_javafx.vues.composants.CanvasAjustable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import quatredesuite.enumerations.Couleur;
 
-public abstract class CaseAjustable extends CanvasAjustable {
+public class CaseAjustable extends CanvasAjustable {
     
     private final double TAILLE_POURCENTAGE = 0.6;
     
+    private Color couleurRouge;
+    private Color couleurJaune;
 
-    public CaseAjustable() {
+    public CaseAjustable(Color couleurRouge, Color couleurJaune) {
         super();
         J.appel(this);
+        
+        this.couleurRouge = couleurRouge;
+        this.couleurJaune = couleurJaune;
+        
 
         initialiserPinceau();
         dessinerCase();
     }
 
+    public void afficherJeton(Couleur couleur) {
+        J.appel(this);
+        
+        switch(couleur) {
+        
+            case ROUGE:
+                pinceau.setFill(couleurRouge);
+                dessinerCase();
+            break;
+
+            case JAUNE:
+                pinceau.setFill(couleurJaune);
+                dessinerCase();
+            break;
+        }
+    }
 
     @Override
     protected void reagirLargeurInitiale(double largeurInitiale) {
@@ -61,13 +83,13 @@ public abstract class CaseAjustable extends CanvasAjustable {
         pinceau.setLineWidth(0.01*getWidth());
     }
     
-    protected void viderDessin() {
+    private void viderDessin() {
         J.appel(this);
 
         pinceau.clearRect(0, 0, getWidth(), getHeight());
     }
     
-    protected void dessinerCase() {
+    private void dessinerCase() {
         J.appel(this);
         
         dessinerCase(TAILLE_POURCENTAGE);
@@ -131,7 +153,4 @@ public abstract class CaseAjustable extends CanvasAjustable {
         
         return laCase;
     }
-
-
-    
 }

@@ -1,4 +1,4 @@
-package tp01_corrige_javafx_javafx;
+package tp01_corrige_javafx;
 
 public class Constantes {
 	

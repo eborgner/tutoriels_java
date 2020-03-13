@@ -1,8 +1,8 @@
-package tp01_corrige_javafx.modeles.parametres;
+package tp01_corrige.modeles.parametres;
 
 
 import commun.modeles.ModeleLectureSeule;
-import tp01_corrige_javafx.enumerations.Choix;
+import tp01_corrige.enumerations.Choix;
 
 public interface ParametresLectureSeule extends ModeleLectureSeule {
 	

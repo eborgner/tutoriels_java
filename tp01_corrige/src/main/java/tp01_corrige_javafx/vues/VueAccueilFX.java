@@ -1,4 +1,4 @@
-package tp01_corrige_javafx_javafx.vues;
+package tp01_corrige_javafx.vues;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,14 +13,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import tp01_corrige_javafx_client.commandes.nouvelle_partie.NouvellePartie;
-import tp01_corrige_javafx_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
-import tp01_corrige_javafx_client.commandes.ouvrir_parametres.OuvrirParametres;
-import tp01_corrige_javafx_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
-import tp01_corrige_javafx_client.commandes.quitter.Quitter;
-import tp01_corrige_javafx_client.commandes.quitter.QuitterPourEnvoi;
-import tp01_corrige_javafx_client.vues.VueAccueil;
-import static tp01_corrige_javafx_javafx.Constantes.*;
+import tp01_corrige_client.commandes.nouvelle_partie.NouvellePartie;
+import tp01_corrige_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
+import tp01_corrige_client.commandes.ouvrir_parametres.OuvrirParametres;
+import tp01_corrige_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
+import tp01_corrige_client.commandes.quitter.Quitter;
+import tp01_corrige_client.commandes.quitter.QuitterPourEnvoi;
+import tp01_corrige_client.vues.VueAccueil;
+import static tp01_corrige_javafx.Constantes.*;
 
 public class VueAccueilFX implements VueAccueil, Initializable {
 	

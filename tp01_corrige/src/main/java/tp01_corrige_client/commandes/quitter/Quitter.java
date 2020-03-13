@@ -1,4 +1,4 @@
-package tp01_corrige_javafx_client.commandes.quitter;
+package tp01_corrige_client.commandes.quitter;
 
 import commun_client.commandes.Commande;
 

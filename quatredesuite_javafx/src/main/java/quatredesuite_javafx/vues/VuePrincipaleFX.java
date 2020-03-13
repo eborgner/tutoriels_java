@@ -30,47 +30,44 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 	@FXML
 	VBox conteneurPartie;
 	
-	QuitterPourEnvoi quitterPourEnvoi;
-	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	NouvellePartiePourEnvoi nouvellePartiePourEnvoi;
+	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
+	QuitterPourEnvoi quitterPourEnvoi;
 
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
-		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
-		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		nouvellePartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartie.class);
+		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
+		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 	}
 
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
+
+		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+			}
+		});
+
+		menuParametres.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+			}
+		});
 		
 		menuQuitter.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				quitterPourEnvoi.envoyerCommande();
-			}
-		});
-		
-		menuParametres.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				ouvrirParametresPourEnvoi.envoyerCommande();
-			}
-		});
-		
-		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				nouvellePartiePourEnvoi.envoyerCommande();
 			}
 		});
 	}
@@ -88,19 +85,11 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 						CHEMIN_CHAINES,
 						CHEMIN_PARTIE_LOCALE_CSS);
 		
-		VuePartieLocaleFX vuePartieLocale = chargeur.getVue();
+		VuePartieLocaleFX vuePartieLocale = null;
 		
-		Parent parent = chargeur.getParent();
 		
-		conteneurPartie.getChildren().clear();
-		conteneurPartie.getChildren().add(parent);
 		
 		return vuePartieLocale;
-	}
-
-	@Override
-	public void verifierCommandesPossibles() {
-		J.appel(this);
 	}
 
 }

@@ -14,8 +14,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import tp01_corrige.enumerations.Couleur;
-import tp01_corrige_client.commandes.vider_grille.ViderGrille;
-import tp01_corrige_client.commandes.vider_grille.ViderGrilleRecue;
 
 public class ConteneurGrille extends VBox {
     
@@ -74,32 +72,6 @@ public class ConteneurGrille extends VBox {
         return (ConteneurLigne) this.getChildren().get(indiceRangee);
     }
 
-    public void viderGrille(ViderGrilleRecue commande) {
-        J.appel(this);
-        
-        animationViderGrille.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                J.appel(this);
-                
-                commande.notifierCommandeTraitee();
-            }
-        }); 
-        
-        animerSortieJetons();
-        animationViderGrille.playFromStart();
-    }
-
-    private void animerSortieJetons() {
-        J.appel(this);
-        
-        for(int indiceRangee = 0; indiceRangee < this.getChildren().size(); indiceRangee++) {
-            
-            ConteneurLigne ligne = getConteneurLigne(indiceRangee);
-            
-            ligne.animerSortieJetons();
-        }
-    }
 
 
     private void creerAnimationViderGrille() {
@@ -127,17 +99,6 @@ public class ConteneurGrille extends VBox {
         animationViderGrille.getKeyFrames().add(
                 new KeyFrame(new Duration(i*50l),
                         new KeyValue(this.rotateProperty(), 0)));
-    }
-
-
-    public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
-        J.appel(this);
-
-        if(siIndiceRangeeValide(indiceRangee)) {
-            
-            ConteneurLigne ligne = getConteneurLigne(indiceRangee);
-            ligne.animerEntreeJeton(indiceColonne);
-        }
     }
 
 }

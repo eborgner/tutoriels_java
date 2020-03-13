@@ -1,4 +1,4 @@
-package tp01_corrige_javafx_javafx;
+package tp01_corrige_javafx;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
@@ -8,7 +8,7 @@ import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 
-import static tp01_corrige_javafx_javafx.Constantes.*;
+import static tp01_corrige_javafx.Constantes.*;
 
 import java.util.Locale;
 
@@ -16,8 +16,8 @@ import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tp01_corrige_javafx_javafx.controleurs.ControleurAccueilFX;
-import tp01_corrige_javafx_javafx.vues.VueAccueilFX;
+import tp01_corrige_javafx.controleurs.ControleurAccueilFX;
+import tp01_corrige_javafx.vues.VueAccueilFX;
 
 public class Principal extends Application {
 

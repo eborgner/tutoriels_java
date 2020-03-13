@@ -1,10 +1,10 @@
-package tp01_corrige_javafx.modeles.parametres;
+package tp01_corrige.modeles.parametres;
 
 import java.util.Locale;
 
 import commun.debogage.J;
 import commun.modeles.Modele;
-import tp01_corrige_javafx.enumerations.Choix;
+import tp01_corrige.enumerations.Choix;
 
 public class Parametres extends Modele<ParametresLectureSeule> implements ParametresLectureSeule {
 	

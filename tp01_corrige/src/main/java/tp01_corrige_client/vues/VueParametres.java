@@ -1,7 +1,7 @@
-package tp01_corrige_javafx_client.vues;
+package tp01_corrige_client.vues;
 
 import commun_client.mvc.Vue;
-import tp01_corrige_javafx.enumerations.Choix;
+import tp01_corrige.enumerations.Choix;
 
 public interface VueParametres extends Vue {
 	

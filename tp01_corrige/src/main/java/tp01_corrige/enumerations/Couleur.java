@@ -1,9 +1,7 @@
 package tp01_corrige.enumerations;
 
-
-public enum Choix {
+public enum Couleur {
 	
-	UN, DEUX, TROIS;
+	ROUGE, JAUNE;
 
 }
-

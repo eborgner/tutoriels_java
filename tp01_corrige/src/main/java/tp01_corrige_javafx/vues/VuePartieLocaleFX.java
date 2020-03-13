@@ -9,8 +9,6 @@ import commun_client.commandes.RecepteurCommande;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import tp01_corrige.enumerations.Couleur;
-import tp01_corrige_client.commandes.vider_grille.ViderGrille;
-import tp01_corrige_client.commandes.vider_grille.ViderGrilleRecue;
 import tp01_corrige_client.vues.VuePartieLocale;
 import tp01_corrige_javafx.vues.composants.ConteneurEntetes;
 import tp01_corrige_javafx.vues.composants.ConteneurGrille;
@@ -31,14 +29,6 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
 		
-		FabriqueCommande.installerRecepteur(ViderGrille.class, new RecepteurCommande<ViderGrilleRecue>() {
-			@Override
-			public void executerCommande(ViderGrilleRecue commande) {
-				J.appel(this);
-				
-				conteneurGrille.viderGrille(commande);
-			}
-		});
 	} 
 
     @Override
@@ -82,7 +72,5 @@ public class VuePartieLocaleFX implements VuePartieLocale, Initializable {
 	@Override
 	public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
 		J.appel(this);
-		
-		conteneurGrille.animerEntreeJeton(indiceColonne, indiceRangee);
 	}
 }

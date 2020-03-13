@@ -1,9 +1,9 @@
-package tp01_corrige_javafx_client.afficheurs;
+package tp01_corrige_client.afficheurs;
 
 import commun.debogage.J;
 import commun_client.mvc.Afficheur;
-import tp01_corrige_javafx.modeles.parametres.ParametresLectureSeule;
-import tp01_corrige_javafx_client.vues.VueParametres;
+import tp01_corrige.modeles.parametres.ParametresLectureSeule;
+import tp01_corrige_client.vues.VueParametres;
 
 public abstract class AfficheurParametres<V extends VueParametres> 
 
