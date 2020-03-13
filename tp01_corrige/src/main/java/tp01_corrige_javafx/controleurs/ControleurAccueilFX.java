@@ -115,7 +115,7 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
-		//FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
+		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartie, afficheur);
 	}
 	
 	private void ouvrirParametres() {
