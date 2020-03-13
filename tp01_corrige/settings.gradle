@@ -1,0 +1,11 @@
+rootProject.name = 'tp01_corrige'
+
+include ':commun'
+project(':commun').projectDir = file('../commun')
+
+include ':commun_client'
+project(':commun_client').projectDir = file('../commun_client')
+
+include ':commun_javafx'
+project(':commun_javafx').projectDir = file('../commun_javafx')
+

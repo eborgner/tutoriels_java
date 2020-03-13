@@ -1,56 +1,25 @@
-package quatredesuite_javafx.vues.composants;
+package quatredesuite_javafx_javafx.vues.composants;
 
 
 import commun.debogage.J;
+
 import commun_javafx.vues.composants.CanvasAjustable;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
-import javafx.util.Duration;
-import quatredesuite.enumerations.Couleur;
 
-public class CaseAjustable extends CanvasAjustable {
+public abstract class CaseAjustable extends CanvasAjustable {
     
     private final double TAILLE_POURCENTAGE = 0.6;
     
-    private Color couleurRouge;
-    private Color couleurJaune;
-    
-    private Timeline animationSortieJeton;
-    private Timeline animationEntreeJeton;
 
-    public CaseAjustable(Color couleurRouge, Color couleurJaune) {
+    public CaseAjustable() {
         super();
         J.appel(this);
-        
-        this.couleurRouge = couleurRouge;
-        this.couleurJaune = couleurJaune;
-        
-        creerAnimationSortieJeton();
-        creerAnimationEntreeJeton();
 
         initialiserPinceau();
         dessinerCase();
     }
 
-
-    public void afficherJeton(Couleur couleur) {
-        J.appel(this);
-        
-        switch(couleur) {
-            case ROUGE:
-                pinceau.setFill(couleurRouge);
-                dessinerCase();
-            break;
-
-            case JAUNE:
-                pinceau.setFill(couleurJaune);
-                dessinerCase();
-            break;
-        }
-    }
 
     @Override
     protected void reagirLargeurInitiale(double largeurInitiale) {
@@ -92,13 +61,13 @@ public class CaseAjustable extends CanvasAjustable {
         pinceau.setLineWidth(0.01*getWidth());
     }
     
-    private void viderDessin() {
+    protected void viderDessin() {
         J.appel(this);
 
         pinceau.clearRect(0, 0, getWidth(), getHeight());
     }
     
-    private void dessinerCase() {
+    protected void dessinerCase() {
         J.appel(this);
         
         dessinerCase(TAILLE_POURCENTAGE);
@@ -163,47 +132,6 @@ public class CaseAjustable extends CanvasAjustable {
         return laCase;
     }
 
-    public void animerEntreeJeton() {
-        J.appel(this);
-        
-        animationEntreeJeton.playFromStart();
-    }
 
-    public void animerSortieJeton() {
-        J.appel(this);
-        
-        animationSortieJeton.playFromStart();
-    }
-
-    private void creerAnimationEntreeJeton() {
-        J.appel(this);
-        
-        animationEntreeJeton = new Timeline();
-
-        animationEntreeJeton.getKeyFrames().add(
-                new KeyFrame(Duration.ZERO,
-                             new KeyValue(this.translateYProperty(), -100),
-                             new KeyValue(this.opacityProperty(), 0)));
-
-        animationEntreeJeton.getKeyFrames().add(
-                new KeyFrame(new Duration(100),
-                             new KeyValue(this.translateYProperty(), 0),
-                             new KeyValue(this.opacityProperty(), 1))); 
-    }
-
-    private void creerAnimationSortieJeton() {
-        J.appel(this);
-        
-        animationSortieJeton = new Timeline();
-        
-        animationSortieJeton.getKeyFrames().add(
-                new KeyFrame(Duration.ZERO,
-                             new KeyValue(this.translateYProperty(), 0),
-                             new KeyValue(this.opacityProperty(), 1)));
-
-        animationSortieJeton.getKeyFrames().add(
-                new KeyFrame(new Duration(100),
-                             new KeyValue(this.translateYProperty(), 200),
-                             new KeyValue(this.opacityProperty(), 0))); 
-    }
+    
 }

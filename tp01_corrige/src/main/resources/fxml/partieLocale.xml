@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import quatredesuite_javafx.vues.composants.ConteneurEntetes?>
+<?import quatredesuite_javafx.vues.composants.ConteneurGrille?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      styleClass="conteneurPrincipal" 
+      fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX"
+      VBox.vgrow="ALWAYS">
+    <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
+        <ConteneurEntetes fx:id="conteneurEntetes" 
+                          styleClass="conteneurBoutons" 
+                          texteBouton="↡"
+                          VBox.vgrow="SOMETIMES"/>
+        <VBox styleClass="petitEspace"/>
+        <ConteneurGrille fx:id="conteneurGrille" 
+        			 	 styleClass="conteneurGrille" 
+        	             couleurRouge="#fd5435"
+        	             couleurJaune="#fccd0e"
+        	             VBox.vgrow="ALWAYS"/>
+    </VBox>
+    <VBox styleClass="petitEspaceVertical"/>
+    <HBox styleClass="conteneurNomsJoueurs" VBox.vgrow="SOMETIMES">
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
+                <Text fx:id="nomJoueurUn" styleClass="nomJoueur" text="%joueurUn"/>
+            </HBox>
+            <HBox styleClass="conteneurNomJoueur" HBox.hgrow="ALWAYS">
+                <Text fx:id="nomJoueurDeux" styleClass="nomJoueur" text="%joueurDeux"/>
+            </HBox>
+    </HBox>
+</VBox>
