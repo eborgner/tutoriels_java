@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="quatredesuite_javafx.vues.VuePrincipaleFX" styleClass="fenetrePrincipale">
+    fx:controller="tp01_corrige_javafx.vues.VuePrincipaleFX" styleClass="fenetrePrincipale">
     <BorderPane VBox.vgrow="ALWAYS">
         <top>
             <MenuBar>

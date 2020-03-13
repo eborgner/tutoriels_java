@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" fx:controller="quatredesuite_javafx.vues.VueParametresFX">
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" fx:controller="tp01_corrige_javafx.vues.VueParametresFX">
 
 	<VBox styleClass="conteneurVertical" VBox.vgrow="always">
 		<Text text="%taillePartie"/>

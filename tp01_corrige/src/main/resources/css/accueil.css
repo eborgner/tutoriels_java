@@ -1,0 +1,34 @@
+.conteneurPrincipal {
+  -fx-alignment: center;
+  -fx-background-color: #95c5db;
+  -fx-padding: 4em;
+}
+.petitEspace {
+  -fx-min-width: 1em;
+  -fx-max-width: 4em;
+  -fx-min-height: 1em;
+  -fx-max-height: 4em;
+}
+.grosEspace {
+  -fx-min-height: 2em;
+  -fx-pref-height: 4em;
+  -fx-max-height: 8em;
+}
+.fenetrePrincipale {
+  -fx-background-color: #95c5db;
+  -fx-padding: 10px;
+}
+.conteneurPartie {
+  -fx-alignment: center;
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
+  -fx-border-color: #161620;
+  -fx-background-color: #95c5db;
+}
+.conteneurParametres {
+  -fx-alignment: center;
+  -fx-border-style: dashed;
+  -fx-border-width: 2px;
+  -fx-border-color: #305ae1;
+  -fx-background-color: #95c5db;
+}

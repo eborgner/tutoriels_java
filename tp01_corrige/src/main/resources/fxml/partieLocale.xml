@@ -3,12 +3,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import quatredesuite_javafx.vues.composants.ConteneurEntetes?>
-<?import quatredesuite_javafx.vues.composants.ConteneurGrille?>
+<?import tp01_corrige_javafx.vues.composants.ConteneurEntetes?>
+<?import tp01_corrige_javafx.vues.composants.ConteneurGrille?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       styleClass="conteneurPrincipal" 
-      fx:controller="quatredesuite_javafx.vues.VuePartieLocaleFX"
+      fx:controller="tp01_corrige_javafx.vues.VuePartieLocaleFX"
       VBox.vgrow="ALWAYS">
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <ConteneurEntetes fx:id="conteneurEntetes" 
