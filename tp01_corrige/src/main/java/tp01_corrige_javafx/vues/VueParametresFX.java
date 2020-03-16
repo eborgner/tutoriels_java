@@ -77,7 +77,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 
-				choisirTaille.setTaille(TailleGrille.MOYENNE);
+				choisirTaille.setTaille(TailleGrille.GRANDE);
 				choisirTaille.envoyerCommande();
 			}
 		});
@@ -90,7 +90,6 @@ public class VueParametresFX implements VueParametres, Initializable {
 				fermerParametres.envoyerCommande();
 			}
 		});
-		
 		
 	}
 
@@ -106,12 +105,21 @@ public class VueParametresFX implements VueParametres, Initializable {
 		switch(taille) {
 		
 		case PETITE:
+			checkPetite.setSelected(true);
+			checkMoyenne.setSelected(false);
+			checkGrande.setSelected(false);
 			break;
 
 		case MOYENNE:
+			checkPetite.setSelected(false);
+			checkMoyenne.setSelected(true);
+			checkGrande.setSelected(false);
 			break;
 			
 		case GRANDE:
+			checkPetite.setSelected(false);
+			checkMoyenne.setSelected(false);
+			checkGrande.setSelected(true);
 			break;
 		
 		}
