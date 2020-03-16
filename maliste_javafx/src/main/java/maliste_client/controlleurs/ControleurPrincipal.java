@@ -46,6 +46,12 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 	@Override
 	protected void demarrer() {
 		J.appel(this);
-
+		
+		modele.ajouterItem("un test");
+		modele.ajouterItem("un autre test");
+		modele.ajouterItem("répéter:");
+		modele.ajouterItem("un test");
+		
+		afficheur.initialiserAffichage(modele, vue);
 	}
 }

@@ -105,4 +105,10 @@ public class VuePrincipaleFX implements VuePrincipale, Initializable {
 		
 		conteneurItems.ajouterItem(item);
 	}
+
+	@Override
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+
+	}
 }

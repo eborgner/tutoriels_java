@@ -16,10 +16,6 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		super();
 		J.appel(this);
 		
-		ajouterItem("un test");
-		ajouterItem("un autre test");
-		ajouterItem("répéter:");
-		ajouterItem("un test");
 	}
 	
 	public void ajouterItem(String texte) {
