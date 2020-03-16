@@ -16,7 +16,7 @@
 				<HBox styleClass="conteneurHorizontal">
 					<Text text="%PETITE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
+					<CheckBox fx:id="checkPetite"/>
 				</HBox>
 
 				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
@@ -24,7 +24,7 @@
 				<HBox styleClass="conteneurHorizontal">
 					<Text text="%MOYENNE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
+					<CheckBox fx:id="checkMoyenne"/>
 				</HBox>
 
 				<HBox styleClass="espaceVertical,petiteHauteur" VBox.vgrow="always"/>
@@ -32,7 +32,7 @@
 				<HBox styleClass="conteneurHorizontal">
 					<Text text="%GRANDE"/>
 					<HBox styleClass="espaceHorizontal,largeurInfinie" HBox.hgrow="sometimes"/>
-					<CheckBox/>
+					<CheckBox fx:id="checkGrande"/>
 				</HBox>
 			</VBox>
 		</HBox>
@@ -50,7 +50,7 @@
 
         -->
 
-		<Button styleClass="bouton" text="%ok"/>
+		<Button styleClass="bouton" text="%ok" fx:id="boutonOk"/>
 
 	</HBox>
 

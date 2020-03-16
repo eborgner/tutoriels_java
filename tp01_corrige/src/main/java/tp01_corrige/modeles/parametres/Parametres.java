@@ -4,22 +4,22 @@ import java.util.Locale;
 
 import commun.debogage.J;
 import commun.modeles.Modele;
-import tp01_corrige.enumerations.Choix;
+import tp01_corrige.enumerations.TailleGrille;
 
 public class Parametres extends Modele<ParametresLectureSeule> implements ParametresLectureSeule {
 	
-	private Choix choixUsager = Choix.UN;
+	private TailleGrille taille = TailleGrille.PETITE;
 
 	@Override
-	public Choix getChoixUsager() {
+	public TailleGrille getTailleGrille() {
 		J.appel(this);
 
-		return choixUsager;
+		return taille;
 	}
 
-	public void choisirChoix(Choix choix) {
+	public void choisirTaille(TailleGrille taille) {
 		J.appel(this);
 		
-		this.choixUsager = choix;
+		this.taille = taille;
 	}
 }
