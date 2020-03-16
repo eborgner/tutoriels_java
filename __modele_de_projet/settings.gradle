@@ -1,4 +1,0 @@
-rootProject.name = 'NOM_PROJET'
-
-include ':commun'
-project(':commun').projectDir = file('../commun')

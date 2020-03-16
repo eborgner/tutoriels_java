@@ -1,4 +1,0 @@
-rootProject.name = 'formes'
-
-include ':commun'
-project(':commun').projectDir = file('../commun')

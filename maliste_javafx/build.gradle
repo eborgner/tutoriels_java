@@ -30,8 +30,7 @@ dependencies {
     compile project(':commun')
     compile project(':commun_client')
     compile project(':commun_javafx')
-    compile project(':maliste')
-    compile project(':maliste_client')
+    compile project(':commun_serveur')
 }
 
 task(maliste, dependsOn: 'classes', type: JavaExec) {

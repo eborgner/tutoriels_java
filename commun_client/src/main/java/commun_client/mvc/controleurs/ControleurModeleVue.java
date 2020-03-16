@@ -53,6 +53,8 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 				J.appel(this);
 				
 				afficheur.rafraichirAffichage((MLS) modele, vue);
+				
+				vue.verifierCommandesPossibles();
 			}
 		});
 	}

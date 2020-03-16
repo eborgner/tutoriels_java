@@ -9,8 +9,5 @@ project(':commun_client').projectDir = file('../commun_client')
 include ':commun_javafx'
 project(':commun_javafx').projectDir = file('../commun_javafx')
 
-include ':maliste'
-project(':maliste').projectDir = file('../maliste')
-
-include ':maliste_client'
-project(':maliste_client').projectDir = file('../maliste_client')
+include ':commun_serveur'
+project(':commun_serveur').projectDir = file('../commun_serveur')

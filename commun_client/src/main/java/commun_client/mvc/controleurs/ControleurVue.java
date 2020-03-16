@@ -5,6 +5,7 @@ import commun_client.commandes.Commande;
 import commun_client.commandes.CommandePourEnvoi;
 import commun_client.commandes.CommandeRecue;
 import commun_client.commandes.FabriqueCommande;
+import commun_client.commandes.ReactionApresCommande;
 import commun_client.commandes.ReactionVideParDefaut;
 import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.Vue;
@@ -40,9 +41,16 @@ public abstract class ControleurVue<V extends Vue> {
 	void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
 		J.appel(this);
 		
-		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionVideParDefaut());
+		FabriqueCommande.installerReactionApresCommande(classeCommande, new ReactionApresCommande() {
+			@Override
+			public void reagirApresCommande() {
+				J.appel(this);
+
+				vue.verifierCommandesPossibles();
+			}
+		});
 	}
-	
+
 	protected abstract void installerReceptionCommandes();
 	protected abstract void demarrer();
 }

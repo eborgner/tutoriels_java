@@ -1,4 +1,4 @@
-rootProject.name = 'maliste'
+rootProject.name = 'commun_serveur'
 
 include ':commun'
 project(':commun').projectDir = file('../commun')
