@@ -42,9 +42,13 @@
 
 	<HBox styleClass="conteneurHorizontal" alignment="center_right">
 
+        <!--
+
 		<Button styleClass="bouton" text="%annuler"/>
 
 		<HBox styleClass="espaceHorizontal,petiteLargeur" HBox.hgrow="always"/>
+
+        -->
 
 		<Button styleClass="bouton" text="%ok"/>
 
