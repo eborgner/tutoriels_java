@@ -17,6 +17,16 @@
 .fenetrePrincipale {
   -fx-background-color: #95c5db;
 }
+MenuBar,
+ToolBar {
+  -fx-background-color: #bcced6;
+}
+Menu {
+  -fx-background-color: #bcced6;
+}
+MenuItem {
+  -fx-background-color: #bcced6;
+}
 .conteneurPartie {
   -fx-alignment: center;
   -fx-border-style: dashed;
