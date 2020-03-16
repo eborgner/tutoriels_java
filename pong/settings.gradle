@@ -1,4 +1,0 @@
-rootProject.name = 'pong'
-
-include ':commun'
-project(':commun').projectDir = file('../commun')

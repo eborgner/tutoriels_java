@@ -16,7 +16,6 @@
 }
 .fenetrePrincipale {
   -fx-background-color: #95c5db;
-  -fx-padding: 10px;
 }
 .conteneurPartie {
   -fx-alignment: center;

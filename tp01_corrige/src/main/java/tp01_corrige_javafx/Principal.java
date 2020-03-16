@@ -2,15 +2,11 @@ package tp01_corrige_javafx;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
-import commun_client.commandes.FabriqueCommande;
-import commun_client.commandes.RecepteurCommande;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 
 import static tp01_corrige_javafx.Constantes.*;
-
-import java.util.Locale;
 
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
@@ -75,7 +71,7 @@ public class Principal extends Application {
 			                           ChargeurDeVue<VueAccueilFX> chargeur) {
 		J.appel(this);
 
-		Scene scene = chargeur.nouvelleScene(50, 50, 2);
+		Scene scene = chargeur.nouvelleScene(600,800);
 		
 		fenetrePrincipale.setScene(scene);
 		

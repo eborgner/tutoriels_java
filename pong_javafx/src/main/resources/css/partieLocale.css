@@ -1,8 +1,0 @@
-#tablePong {
-  -fx-border-style: solid;
-  -fx-border-width: 5px;
-}
-.conteneurScoreJoueur {
-  -fx-alignment: center;
-  -fx-min-height: 100px;
-}
