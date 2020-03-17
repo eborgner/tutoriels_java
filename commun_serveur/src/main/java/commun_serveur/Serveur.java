@@ -1,4 +1,4 @@
-package pong_serveur;
+package commun_serveur;
 
 import java.net.InetSocketAddress;
 import java.util.HashSet;
@@ -10,7 +10,10 @@ import org.java_websocket.server.WebSocketServer;
 
 import commun.debogage.J;
 
-public class Serveur extends WebSocketServer {
+
+// XXX: abstract car le serveur doit redéfinir le comportement
+//      p.ex. pour implanter l'authentification
+public abstract class Serveur extends WebSocketServer {
 	
 	private Set<WebSocket> connexions = new HashSet<>();
 

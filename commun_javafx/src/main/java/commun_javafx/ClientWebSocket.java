@@ -7,8 +7,6 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import commun.debogage.Erreur;
 import commun.debogage.J;
-import commun.messages.RecepteurMessage;
-import commun_client.messages.EnvoyeurMessageClient;
 import javafx.application.Platform;
 
 public class ClientWebSocket extends WebSocketClient {
@@ -17,7 +15,7 @@ public class ClientWebSocket extends WebSocketClient {
 		super(serverUri);
 		J.appel(this);
 		
-		EnvoyeurMessageClient.initialiser(this);
+		//EnvoyeurMessageClient.initialiser(this);
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class ClientWebSocket extends WebSocketClient {
 			public void run() {
 				J.appel(this);
 
-				RecepteurMessage.recevoirMessageSur(ClientWebSocket.this, chaineMessage);
+				//RecepteurMessage.recevoirMessageSur(ClientWebSocket.this, chaineMessage);
 			}
 		});
 	}
