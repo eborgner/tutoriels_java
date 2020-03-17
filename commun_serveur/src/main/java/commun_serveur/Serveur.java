@@ -15,7 +15,7 @@ import commun.debogage.J;
 //      p.ex. pour implanter l'authentification
 public abstract class Serveur extends WebSocketServer {
 	
-	private Set<WebSocket> connexions = new HashSet<>();
+	protected Set<WebSocket> connexions = new HashSet<>();
 
     public Serveur(int port) {
         super( new InetSocketAddress( port ) );
