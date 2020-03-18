@@ -7,12 +7,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.java_websocket.WebSocket;
-
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun.utiles.Json;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class FabriqueMessage {
 
     private static final Pattern TYPE_PATTERN = Pattern.compile("_Type[\"']\\s*:\\s*[\"'](\\w+)[\"']");
@@ -71,11 +70,11 @@ public class FabriqueMessage {
 		
 		Message message = aPartirChaineMessage(chaineMessage, classeMessage);
 		
-		Set<Canal> connexionsPourRelais = new HashSet<>();
-		connexionsPourRelais.addAll(canaux);
-		connexionsPourRelais.remove(recuSur);
+		Set<Canal> canauxPourRelais = new HashSet<>();
+		canauxPourRelais.addAll(canaux);
+		canauxPourRelais.remove(recuSur);
 		
-		message.setConnexionsPourRelai(connexionsPourRelais);
+		message.setCanauxPourRelai(canauxPourRelais);
 		
 		recepteur.recevoirMessage(message);
 	}

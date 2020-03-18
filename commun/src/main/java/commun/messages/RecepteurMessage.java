@@ -1,7 +1,7 @@
 package commun.messages;
 
-public abstract class RecepteurMessage {
+public abstract class RecepteurMessage<MR extends MessageRecu> {
 
-	public abstract void recevoirMessage(Message message);
+	public abstract void recevoirMessage(MR messageRecu);
 
 }

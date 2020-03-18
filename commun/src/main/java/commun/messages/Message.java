@@ -40,7 +40,7 @@ public abstract class Message<ME extends MessagePourEnvoi,
     	this.canalPourEnvoi = canalPourEnvoi;
     }
     
-    void setConnexionsPourRelai(Set<Canal> canauxPourRelais) {
+    void setCanauxPourRelai(Set<Canal> canauxPourRelais) {
     	J.appel(this);
     	
     	this.canauxPourRelais = canauxPourRelais;
