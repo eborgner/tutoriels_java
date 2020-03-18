@@ -12,65 +12,55 @@ public class FabriqueMessage {
 
     private static final Pattern TYPE_PATTERN = Pattern.compile("_Type[\"']\\s*:\\s*[\"'](\\w+)[\"']");
     
-    private static Map<String, Class<? extends Message>> classesMessage = new HashMap<>();
+    private static Map<String, Class<? extends Message>> classeParNom = new HashMap<>();
+    private static Map<Class<? extends Message>, RecepteurMessage> recepteurs = new HashMap<>();
     
-    public static void memoriserClasseMessage( Class<? extends Message> classeMessage) {
+    public static String nomClasseMessage(String chaineMessage) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	String nomClasseMessage = null;
 
-        J.appel(Message.class);
-
-        classesMessage.put(classeMessage.getSimpleName(), classeMessage);
-    }
-
-    public static Message aPartirJson(String json) {
-        J.appel(Message.class);
-        
-        Message message = null;
-
-        Matcher matcher = TYPE_PATTERN.matcher(json);
+        Matcher matcher = TYPE_PATTERN.matcher(chaineMessage);
         
         if(matcher.find()) {
             
-            String nomClasse = matcher.group(1);
+            nomClasseMessage = matcher.group(1);
 
-            message = aPartirJson(json, nomClasse);
-            
         }else {
 
-            throw new RuntimeException("[FATAL] impossible d'analyser le message: " + json);
+            throw new RuntimeException("[FATAL] impossible d'analyser le message: " + chaineMessage);
 
         }
-
-        return message;
+    	
+    	return nomClasseMessage;
     }
 
-    private static Message aPartirJson(String json, String nomClasse) {
+
+    private static Message aPartirChaineMessage(String chaineMessage, Class<? extends Message> classeMessage) {
         J.appel(Message.class);
-        
-        Message message = null;
 
-		Class<? extends Message> classeMessage = classesMessage.get(nomClasse);
-		
-		if(classeMessage != null) {
-
-			message = Json.aPartirJson(json, classeMessage);
-
-		}else {
-			
-            throw new RuntimeException("[FATAL] impossible de trouver la classe: " + nomClasse);
-			
-		}
-
-        return message;
+        return Json.aPartirJson(chaineMessage, classeMessage);
+    }
+    
+    public static void installerRecepteur(Class<? extends Message> classeMessage, RecepteurMessage recepteur) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	recepteurs.put(classeMessage, recepteur);
+    	classeParNom.put(classeMessage.getSimpleName(), classeMessage);
     }
 
 	public static void recevoirMessage(String chaineMessage) {
 		J.appel(FabriqueMessage.class);
 		
-		/* TODO
-		 *  1. aPartirJson
-		 *  2. chercher Receveur
-		 *  3. Appeler Receveur
-		 */
+		String nomClasseMessage = nomClasseMessage(chaineMessage);
+		
+		Class<? extends Message> classeMessage = classeParNom.get(nomClasseMessage);
+		
+		RecepteurMessage recepteur = recepteurs.get(classeMessage);
+		
+		Message message = aPartirChaineMessage(chaineMessage, classeMessage);
+		
+		recepteur.recevoirMessage(message);
 		
 	}
 }
