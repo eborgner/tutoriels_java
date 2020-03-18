@@ -2,6 +2,9 @@ package maliste_javafx;
 
 import maliste.modeles.liste.Liste;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
@@ -32,6 +35,8 @@ public class Principal extends Application {
     public void start(Stage fenetrePrincipale) throws Exception {
         J.appel(this);
         
+        connecterWebSocket();
+        
         ChargeurDeVue<VuePrincipaleFX> chargeur;
         chargeur = new ChargeurDeVue<VuePrincipaleFX>("/fxml/principal.xml",
                                      "traductions.chaines",
@@ -54,6 +59,14 @@ public class Principal extends Application {
         fenetrePrincipale.setScene(scene);
         fenetrePrincipale.show();
     }
+
+	private void connecterWebSocket() throws URISyntaxException {
+		J.appel(this);
+
+		URI uriServeur = new URI("ws://localhost:8765");
+        ClientWebSocketMaListe clientWebSocketMaListe = new ClientWebSocketMaListe(uriServeur);
+        clientWebSocketMaListe.connect();
+	}
 
     @Override
     public void stop() {

@@ -1,4 +1,4 @@
-package commun_javafx;
+package commun_client;
 
 import java.net.URI;
 
@@ -7,15 +7,12 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import commun.debogage.Erreur;
 import commun.debogage.J;
-import javafx.application.Platform;
 
-public class ClientWebSocket extends WebSocketClient {
+public abstract class ClientWebSocket extends WebSocketClient {
 	
 	public ClientWebSocket(URI serverUri) {
 		super(serverUri);
 		J.appel(this);
-		
-		//EnvoyeurMessageClient.initialiser(this);
 	}
 
 	@Override
@@ -26,16 +23,6 @@ public class ClientWebSocket extends WebSocketClient {
 	@Override
 	public void onMessage(String chaineMessage) {
 		J.appel(this);
-
-		// XXX: pour que ça soit une événement JavaFX
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				J.appel(this);
-
-				//RecepteurMessage.recevoirMessageSur(ClientWebSocket.this, chaineMessage);
-			}
-		});
 	}
 
 	@Override
@@ -46,6 +33,7 @@ public class ClientWebSocket extends WebSocketClient {
 	@Override
 	public void onError(Exception ex) {
 		J.appel(this);
-		Erreur.nonFatale("connexion échouée");
+
+		Erreur.nonFatale("Connexion perdue sur erreur", ex);
 	}
 }

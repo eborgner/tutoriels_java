@@ -33,6 +33,11 @@ dependencies {
     compile project(':commun_serveur')
 }
 
+task(serveur, dependsOn: 'classes', type: JavaExec) {
+   main = 'maliste_serveur.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
 task(maliste, dependsOn: 'classes', type: JavaExec) {
    main = 'maliste_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath

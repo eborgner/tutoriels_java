@@ -62,4 +62,15 @@ public class FabriqueMessage {
 
         return message;
     }
+
+	public static void recevoirMessage(String chaineMessage) {
+		J.appel(FabriqueMessage.class);
+		
+		/* TODO
+		 *  1. aPartirJson
+		 *  2. chercher Receveur
+		 *  3. Appeler Receveur
+		 */
+		
+	}
 }

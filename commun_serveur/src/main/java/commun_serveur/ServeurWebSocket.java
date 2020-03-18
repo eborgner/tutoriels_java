@@ -1,6 +1,7 @@
 package commun_serveur;
 
 import java.net.InetSocketAddress;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,24 +9,21 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
+import commun.debogage.Erreur;
 import commun.debogage.J;
 
-
-// XXX: abstract car le serveur doit redéfinir le comportement
-//      p.ex. pour implanter l'authentification
-public abstract class Serveur extends WebSocketServer {
+public abstract class ServeurWebSocket extends WebSocketServer {
 	
 	protected Set<WebSocket> connexions = new HashSet<>();
 
-    public Serveur(int port) {
+    public ServeurWebSocket(int port) {
         super( new InetSocketAddress( port ) );
     }
 
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
     	J.appel(this);
-    	
-    	// TMP: simplement prendre en note
+
     	connexions.add(conn);
     }
 
@@ -33,7 +31,6 @@ public abstract class Serveur extends WebSocketServer {
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
     	J.appel(this);
 
-    	// TMP: simplement prendre en note
     	connexions.remove(conn);
     }
 
@@ -41,11 +38,8 @@ public abstract class Serveur extends WebSocketServer {
     public void onMessage(WebSocket socket, String chaineMessage) {
     	J.appel(this);
 
-    	// TMP: simplement relayer le message
     	for(WebSocket connexion : connexions) {
-    		
     		if(!connexion.equals(socket)) {
-    			
     			connexion.send(chaineMessage);
     		}
     	}
@@ -54,12 +48,13 @@ public abstract class Serveur extends WebSocketServer {
     @Override
     public void onError(WebSocket conn, Exception ex) {
     	J.appel(this);
-    	ex.printStackTrace();
+    	
+    	connexions.remove(conn);
+    	Erreur.nonFatale("Déconnexion sur erreur", ex);
     }
 
     @Override
     public void onStart() {
         J.appel(this);
     }
-
 }
