@@ -71,6 +71,8 @@ public class Principal extends Application {
     @Override
     public void stop() {
         J.appel(this);
+        
+        System.exit(0);
     }
 }
 
