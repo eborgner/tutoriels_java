@@ -1,5 +1,6 @@
 package maliste_javafx;
 
+import maliste.Constantes;
 import maliste.modeles.liste.Liste;
 
 import java.net.URI;
@@ -62,7 +63,7 @@ public class Principal extends Application {
 	private void connecterWebSocket() throws URISyntaxException {
 		J.appel(this);
 
-		URI uriServeur = new URI("ws://localhost:8765");
+		URI uriServeur = new URI(Constantes.ADRESSE_WEBSOCKET);
         ClientWebSocketMaListe clientWebSocketMaListe = new ClientWebSocketMaListe(uriServeur);
         clientWebSocketMaListe.connect();
 	}

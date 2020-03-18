@@ -3,7 +3,6 @@ package maliste_javafx;
 import java.net.URI;
 
 import commun.debogage.J;
-import commun.messages.Message;
 import commun_javafx.ClientWebSocketFX;
 
 public class ClientWebSocketMaListe extends ClientWebSocketFX {

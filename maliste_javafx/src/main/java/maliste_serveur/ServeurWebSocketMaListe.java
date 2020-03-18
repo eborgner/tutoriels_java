@@ -1,7 +1,6 @@
 package maliste_serveur;
 
 import commun.debogage.J;
-import commun.messages.Message;
 import commun_serveur.ServeurWebSocket;
 
 public class ServeurWebSocketMaListe extends ServeurWebSocket {
