@@ -7,8 +7,12 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import commun.debogage.Erreur;
 import commun.debogage.J;
+import commun.messages.Canal;
+import commun.messages.Message;
+import commun.utiles.Json;
 
-public abstract class ClientWebSocket extends WebSocketClient {
+@SuppressWarnings("rawtypes")
+public abstract class ClientWebSocket extends WebSocketClient implements Canal {
 	
 	public ClientWebSocket(URI serverUri) {
 		super(serverUri);
@@ -35,5 +39,19 @@ public abstract class ClientWebSocket extends WebSocketClient {
 		J.appel(this);
 
 		Erreur.nonFatale("Connexion perdue sur erreur", ex);
+	}
+
+	@Override
+	public boolean siOuvert() {
+		J.appel(this);
+		
+		return isOpen();
+	}
+
+	@Override
+	public void envoyer(Message message) {
+		J.appel(this);
+		
+		this.send(Json.versJson(message));
 	}
 }

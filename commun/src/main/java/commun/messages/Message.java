@@ -17,14 +17,54 @@
 
 package commun.messages;
 
+import java.util.Set;
 import commun.debogage.J;
 
-public abstract class Message {
-
+public abstract class Message<ME extends MessagePourEnvoi, 
+							  MR extends MessageRecu> 
+				implements MessagePourEnvoi, 
+				           MessageRecu {
+	
+	protected transient Canal canalPourEnvoi;
+	protected transient Set<Canal> canauxPourRelais;
     protected String _Type;
-    
-    protected Message() {
+
+    Message() {
         J.appel(this);
         this._Type = this.getClass().getSimpleName();
+    }
+    
+    void setConnexionPourEnvoi(Canal canalPourEnvoi){
+    	J.appel(this);
+    	
+    	this.canalPourEnvoi = canalPourEnvoi;
+    }
+    
+    void setConnexionsPourRelai(Set<Canal> canauxPourRelais) {
+    	J.appel(this);
+    	
+    	this.canauxPourRelais = canauxPourRelais;
+    }
+    
+    @Override
+    public void envoyerMessage() {
+    	J.appel(this);
+    	
+    	if(canalPourEnvoi != null && canalPourEnvoi.siOuvert()) {
+
+			canalPourEnvoi.envoyer(this);
+    	}
+    }
+    
+    @Override
+    public void relayerMessage() {
+    	J.appel(this);
+
+    	for(Canal canal : canauxPourRelais) {
+    		if(canal.siOuvert()) {
+    			
+    			canal.envoyer(this);
+    		}
+    	}
     }
 }

@@ -3,6 +3,7 @@ package commun_javafx;
 import java.net.URI;
 
 import commun.debogage.J;
+import commun.messages.Canal;
 import commun.messages.FabriqueMessage;
 import commun_client.ClientWebSocket;
 import javafx.application.Platform;
@@ -24,7 +25,7 @@ public abstract class ClientWebSocketFX extends ClientWebSocket {
 			public void run() {
 				J.appel(this);
 				
-				FabriqueMessage.recevoirMessage(chaineMessage);
+				FabriqueMessage.recevoirMessage(ClientWebSocketFX.this, chaineMessage);
 			}
 		});
 	}
