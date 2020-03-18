@@ -14,4 +14,8 @@ dependencies {
 
     compile project(':commun')
 
+    // Websocket
+    // https://github.com/TooTallNate/Java-WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:1.4.0'
+
 }
