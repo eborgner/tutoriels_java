@@ -2,19 +2,16 @@ package commun_serveur;
 
 import java.net.InetSocketAddress;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
 import commun.debogage.Erreur;
 import commun.debogage.J;
+import commun.messages.Canal;
+import commun.messages.FabriqueMessage;
 
 public abstract class ServeurWebSocket extends WebSocketServer {
-	
-	protected Set<WebSocket> connexions = new HashSet<>();
 
     public ServeurWebSocket(int port) {
         super( new InetSocketAddress( port ) );
@@ -23,33 +20,30 @@ public abstract class ServeurWebSocket extends WebSocketServer {
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
     	J.appel(this);
-
-    	connexions.add(conn);
+    	
+    	FabriqueMessage.ajouterCanalPourRelais(new CanalWebSocket(conn));
     }
 
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
     	J.appel(this);
-
-    	connexions.remove(conn);
+    	
+    	FabriqueMessage.retirerCanalPourRelais(new CanalWebSocket(conn));
     }
 
     @Override
     public void onMessage(WebSocket socket, String chaineMessage) {
     	J.appel(this);
+    	
+    	FabriqueMessage.recevoirMessage((Canal) socket, chaineMessage);
 
-    	for(WebSocket connexion : connexions) {
-    		if(!connexion.equals(socket)) {
-    			connexion.send(chaineMessage);
-    		}
-    	}
     }
 
     @Override
     public void onError(WebSocket conn, Exception ex) {
     	J.appel(this);
-    	
-    	connexions.remove(conn);
+
+    	FabriqueMessage.retirerCanalPourRelais(new CanalWebSocket(conn));
     	Erreur.nonFatale("Déconnexion sur erreur", ex);
     }
 

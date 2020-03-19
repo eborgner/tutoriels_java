@@ -5,48 +5,58 @@ import commun.messages.Canal;
 import commun.messages.Message;
 import commun.utiles.Json;
 
-
-import org.java_websocket.WebSocketImpl;
-import org.java_websocket.WebSocketListener;
-import org.java_websocket.drafts.Draft;
+import org.java_websocket.WebSocket;
 
 @SuppressWarnings("rawtypes")
-public class CanalWebSocket extends WebSocketImpl implements Canal {
+public class CanalWebSocket implements Canal {
+	
+	private WebSocket socket;
 	
 	private static long idCourant = 0;
 	private long id = idCourant++;
 
-	public CanalWebSocket(WebSocketListener listener, Draft draft) {
-		super(listener, draft);
+	public CanalWebSocket(WebSocket socket) {
 		J.appel(this);
+		
+		this.socket = socket;
 	}
 
 	@Override
 	public boolean siOuvert() {
 		J.appel(this);
 		
-		return isOpen();
+		return socket.isOpen();
 	}
 
 	@Override
 	public void envoyer(Message message) {
 		J.appel(this);
 		
-		send(Json.versJson(message));
+		socket.send(Json.versJson(message));
 	}
 
 	@Override
 	public void envoyer(String chaineMessage) {
 		J.appel(this);
 
-		send(chaineMessage);
+		socket.send(chaineMessage);
 	}
 
 	@Override
 	public long getId() {
 		J.appel(this);
-
+		
 		return id;
+	}
+	
+	@Override 
+	public int hashCode() {
+		return socket.hashCode();
+	}
+
+	@Override 
+	public boolean equals(Object other) {
+		return socket.equals(other);
 	}
 
 }
