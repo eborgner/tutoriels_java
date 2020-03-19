@@ -1,6 +1,10 @@
 package commun_client.mvc.controleurs;
 
 import commun.debogage.J;
+import commun.messages.FabriqueMessage;
+import commun.messages.Message;
+import commun.messages.MessagePourEnvoi;
+import commun.messages.MessageRecu;
 import commun_client.commandes.Commande;
 import commun_client.commandes.CommandePourEnvoi;
 import commun_client.commandes.CommandeRecue;
@@ -38,6 +42,19 @@ public abstract class ControleurVue<V extends Vue> {
 		installerReactionApresCommande(classeCommande);
 	}
 	
+	protected <ME extends MessagePourEnvoi, 
+	           MR extends MessageRecu,
+	           M extends Message<ME, MR>>
+	
+			void installerRecepteurMessage(Class<M> classeMessage, RecepteurMessageMVC<MR> recepteur) {
+		
+		J.appel(this);
+		
+		recepteur.setControleur(this);
+
+		FabriqueMessage.installerRecepteur(classeMessage, recepteur);
+	}
+	
 	void installerReactionApresCommande(Class<? extends Commande> classeCommande) {
 		J.appel(this);
 		
@@ -49,6 +66,12 @@ public abstract class ControleurVue<V extends Vue> {
 				vue.verifierCommandesPossibles();
 			}
 		});
+	}
+	
+	void notifierMessageTraite() {
+		J.appel(this);
+		
+		return;
 	}
 
 	protected abstract void obtenirMessagesPourEnvoi();

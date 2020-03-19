@@ -58,4 +58,11 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 			}
 		});
 	}
+	
+	@Override
+	void notifierMessageTraite() {
+		J.appel(this);
+		
+		afficheur.rafraichirAffichage(modele, vue);
+	}
 }

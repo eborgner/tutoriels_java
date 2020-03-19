@@ -10,6 +10,7 @@ import commun.messages.FabriqueMessage;
 import commun.messages.RecepteurMessage;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
+import commun_client.mvc.controleurs.RecepteurMessageMVC;
 import maliste.messages.ajouter_item.AjouterItem;
 import maliste.messages.ajouter_item.AjouterItemPourEnvoi;
 import maliste.messages.ajouter_item.AjouterItemRecu;
@@ -73,31 +74,22 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 	protected void installerReceptionMessages() {
 		J.appel(this);
 		
-		// FIXME: devrait être MVC aussi
-		FabriqueMessage.installerRecepteur(AjouterItem.class, new RecepteurMessage<AjouterItemRecu>() {
-
+		installerRecepteurMessage(AjouterItem.class, new RecepteurMessageMVC<AjouterItemRecu>() {
 			@Override
-			public void recevoirMessage(AjouterItemRecu messageRecu) {
+			public void recevoirMessageMVC(AjouterItemRecu messageRecu) {
 				J.appel(this);
-				
+
 				modele.ajouterItem(messageRecu.getItem());
-				
-				// FIXME: devrait se faire auto avec une RecepteurMVC
-				afficheur.rafraichirAffichage(modele, vue);
 			}
 		});
-
-		// FIXME: devrait être MVC aussi
-		FabriqueMessage.installerRecepteur(DetruireItem.class, new RecepteurMessage<DetruireItemRecu>() {
+		
+		installerRecepteurMessage(DetruireItem.class, new RecepteurMessageMVC<DetruireItemRecu>() {
 
 			@Override
-			public void recevoirMessage(DetruireItemRecu messageRecu) {
+			public void recevoirMessageMVC(DetruireItemRecu messageRecu) {
 				J.appel(this);
-				
+
 				modele.retirerItem(messageRecu.getId());
-				
-				// FIXME: devrait se faire auto avec une RecepteurMVC
-				afficheur.rafraichirAffichage(modele, vue);
 			}
 		});
 	}
