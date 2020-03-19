@@ -1,14 +1,14 @@
-package maliste.messages.msg_nouvel_item;
+package maliste.messages.ajouter_item;
 
 import commun.debogage.J;
 import commun.messages.Message;
 import maliste.modeles.liste.Item;
 
-public class MsgNouvelItem extends Message<MsgNouvelItemPourEnvoi, 
-                                           MsgNouvelItemRecu>
+public class AjouterItem extends Message<AjouterItemPourEnvoi, 
+                                           AjouterItemRecu>
 
-								   implements MsgNouvelItemPourEnvoi, 
-								   			  MsgNouvelItemRecu {
+								   implements AjouterItemPourEnvoi, 
+								   			  AjouterItemRecu {
 	
 	private Item item;
 	

@@ -10,9 +10,12 @@ import commun.messages.FabriqueMessage;
 import commun.messages.RecepteurMessage;
 import commun_client.mvc.controleurs.ControleurModeleVue;
 import commun_client.mvc.controleurs.RecepteurCommandeMVC;
-import maliste.messages.msg_nouvel_item.MsgNouvelItem;
-import maliste.messages.msg_nouvel_item.MsgNouvelItemPourEnvoi;
-import maliste.messages.msg_nouvel_item.MsgNouvelItemRecu;
+import maliste.messages.ajouter_item.AjouterItem;
+import maliste.messages.ajouter_item.AjouterItemPourEnvoi;
+import maliste.messages.ajouter_item.AjouterItemRecu;
+import maliste.messages.detruire_item.DetruireItem;
+import maliste.messages.detruire_item.DetruireItemPourEnvoi;
+import maliste.messages.detruire_item.DetruireItemRecu;
 import maliste.modeles.liste.Item;
 import maliste.modeles.liste.Liste;
 import maliste.modeles.liste.ListeLectureSeule;
@@ -24,13 +27,15 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
                                             V,
                                             A> {
 	
-	private MsgNouvelItemPourEnvoi nouvelItemPourEnvoi;
+	private AjouterItemPourEnvoi ajouterItemPourEnvoi;
+	private DetruireItemPourEnvoi detruireItemPourEnvoi;
 
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
 		J.appel(this);
 		
-		nouvelItemPourEnvoi = FabriqueMessage.obtenirMessagePourEnvoi(MsgNouvelItem.class);
+		ajouterItemPourEnvoi = FabriqueMessage.obtenirMessagePourEnvoi(AjouterItem.class);
+		detruireItemPourEnvoi = FabriqueMessage.obtenirMessagePourEnvoi(DetruireItem.class);
 	}
 
 	@Override
@@ -45,8 +50,8 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 				
 				Item item = modele.ajouterItem(commande.getTexte());
 				
-				nouvelItemPourEnvoi.setItem(item);
-				nouvelItemPourEnvoi.envoyerMessage();
+				ajouterItemPourEnvoi.setItem(item);
+				ajouterItemPourEnvoi.envoyerMessage();
 			}
 		});
 		
@@ -57,6 +62,9 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 				J.appel(this);
 				
 				modele.retirerItem(commande.getId());
+				
+				detruireItemPourEnvoi.setId(commande.getId());
+				detruireItemPourEnvoi.envoyerMessage();
 			}
 		});
 	}
@@ -66,13 +74,27 @@ public abstract class ControleurPrincipal<V extends VuePrincipale, A extends Aff
 		J.appel(this);
 		
 		// FIXME: devrait être MVC aussi
-		FabriqueMessage.installerRecepteur(MsgNouvelItem.class, new RecepteurMessage<MsgNouvelItemRecu>() {
+		FabriqueMessage.installerRecepteur(AjouterItem.class, new RecepteurMessage<AjouterItemRecu>() {
 
 			@Override
-			public void recevoirMessage(MsgNouvelItemRecu messageRecu) {
+			public void recevoirMessage(AjouterItemRecu messageRecu) {
 				J.appel(this);
 				
 				modele.ajouterItem(messageRecu.getItem());
+				
+				// FIXME: devrait se faire auto avec une RecepteurMVC
+				afficheur.rafraichirAffichage(modele, vue);
+			}
+		});
+
+		// FIXME: devrait être MVC aussi
+		FabriqueMessage.installerRecepteur(DetruireItem.class, new RecepteurMessage<DetruireItemRecu>() {
+
+			@Override
+			public void recevoirMessage(DetruireItemRecu messageRecu) {
+				J.appel(this);
+				
+				modele.retirerItem(messageRecu.getId());
 				
 				// FIXME: devrait se faire auto avec une RecepteurMVC
 				afficheur.rafraichirAffichage(modele, vue);
