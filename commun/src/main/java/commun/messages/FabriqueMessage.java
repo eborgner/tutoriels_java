@@ -102,13 +102,7 @@ public class FabriqueMessage {
 		Class<? extends Message> classeMessage = classeParNom.get(nomClasseMessage);
 
 		Set<Canal> canauxPourRelais = new HashSet<>();
-		
-		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
-		
 		canauxPourRelais.addAll(FabriqueMessage.canauxPourRelais);
-
-		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
-
 		canauxPourRelais.remove(recuSur);
 
 		J.valeurs("canaux pour relais: " + canauxPourRelais.size());

@@ -2,7 +2,7 @@ package maliste.modeles.liste;
 
 public interface ItemLectureSeule {
 	
-	int getId();
+	String getId();
 	String getTexte();
 
 }

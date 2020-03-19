@@ -10,7 +10,7 @@ import commun.modeles.Modele;
 
 public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeule {
 	
-	Map<Integer, Item> items = new LinkedHashMap<>();
+	Map<String, Item> items = new LinkedHashMap<>();
 	
 	public Liste() {
 		super();
@@ -34,7 +34,7 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		items.put(item.getId(), item);
 	}
 	
-	public void retirerItem(int id) {
+	public void retirerItem(String id) {
 		J.appel(this);
 		
 		items.remove(id);

@@ -1,23 +1,22 @@
 package maliste.modeles.liste;
 
 import commun.debogage.J;
+import commun.utiles.Hash;
 
 public class Item implements ItemLectureSeule {
 	
-	private static int prochainId = 0;
-
-	private int id;
+	private String id;
 	private String texte;
 	
 	public Item(String texte) {
 		J.appel(this);
 		
-		this.id = prochainId++;
 		this.texte = texte;
+		this.id = Hash.hash(texte);
 	}
 	
 	@Override
-	public int getId() {
+	public String getId() {
 		J.appel(this);
 		
 		return id;

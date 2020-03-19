@@ -4,6 +4,6 @@ import commun_client.commandes.CommandePourEnvoi;
 
 public interface RetirerItemPourEnvoi extends CommandePourEnvoi {
 	
-	void setId(int id);
+	void setId(String id);
 
 }

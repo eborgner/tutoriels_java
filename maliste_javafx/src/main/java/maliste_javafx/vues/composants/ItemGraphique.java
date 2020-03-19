@@ -195,7 +195,7 @@ public class ItemGraphique extends VBox {
 		return petitEspace;
 	}
 
-	private void obtenirCommandePourEnvoi(int id) {
+	private void obtenirCommandePourEnvoi(String id) {
 		J.appel(this);
 
 		retirerItemPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(RetirerItem.class);

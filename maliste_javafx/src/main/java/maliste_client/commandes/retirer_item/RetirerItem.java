@@ -6,17 +6,17 @@ import commun_client.commandes.Commande;
 public class RetirerItem extends Commande<RetirerItemPourEnvoi, RetirerItemRecue>
 	   implements RetirerItemPourEnvoi, RetirerItemRecue {
 	
-	private int id;
+	private String id;
 
 	@Override
-	public int getId() {
+	public String getId() {
 		J.appel(this);
 
 		return id;
 	}
 
 	@Override
-	public void setId(int id) {
+	public void setId(String id) {
 		J.appel(this);
 		
 		this.id = id;
