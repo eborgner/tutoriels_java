@@ -35,8 +35,7 @@ public abstract class ServeurWebSocket extends WebSocketServer {
     public void onMessage(WebSocket socket, String chaineMessage) {
     	J.appel(this);
     	
-    	FabriqueMessage.recevoirMessage((Canal) socket, chaineMessage);
-
+    	FabriqueMessage.recevoirMessage(new CanalWebSocket(socket), chaineMessage);
     }
 
     @Override

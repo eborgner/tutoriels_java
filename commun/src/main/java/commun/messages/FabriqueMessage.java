@@ -8,7 +8,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import commun.Fabrique;
-import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun.utiles.Json;
 
@@ -38,7 +37,7 @@ public class FabriqueMessage {
     public static void retirerCanalPourRelais(Canal canalPourRelais) {
     	J.appel(FabriqueMessage.class);
     	
-    	canauxPourRelais.add(canalPourRelais);
+    	canauxPourRelais.remove(canalPourRelais);
     }
     
     public static String nomClasseMessage(String chaineMessage) {
@@ -103,8 +102,16 @@ public class FabriqueMessage {
 		Class<? extends Message> classeMessage = classeParNom.get(nomClasseMessage);
 
 		Set<Canal> canauxPourRelais = new HashSet<>();
-		canauxPourRelais.addAll(canauxPourRelais);
+		
+		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
+		
+		canauxPourRelais.addAll(FabriqueMessage.canauxPourRelais);
+
+		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
+
 		canauxPourRelais.remove(recuSur);
+
+		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
 		
 		if(classeMessage == null) {
 
