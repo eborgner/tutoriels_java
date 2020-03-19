@@ -51,6 +51,8 @@ public abstract class ControleurVue<V extends Vue> {
 		});
 	}
 
+	protected abstract void obtenirMessagesPourEnvoi();
 	protected abstract void installerReceptionCommandes();
+	protected abstract void installerReceptionMessages();
 	protected abstract void demarrer();
 }

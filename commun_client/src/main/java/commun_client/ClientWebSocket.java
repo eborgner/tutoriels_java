@@ -8,6 +8,7 @@ import org.java_websocket.handshake.ServerHandshake;
 import commun.debogage.Erreur;
 import commun.debogage.J;
 import commun.messages.Canal;
+import commun.messages.FabriqueMessage;
 import commun.messages.Message;
 import commun.utiles.Json;
 
@@ -22,6 +23,8 @@ public abstract class ClientWebSocket extends WebSocketClient implements Canal {
 	@Override
 	public void onOpen(ServerHandshake handshakedata) {
 		J.appel(this);
+		
+		FabriqueMessage.memoriserCanalPourEnvoi(this);
 	}
 
 	@Override

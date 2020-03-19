@@ -18,10 +18,18 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		
 	}
 	
-	public void ajouterItem(String texte) {
+	public Item ajouterItem(String texte) {
 		J.appel(this);
 		
 		Item item = new Item(texte);
+		
+		items.put(item.getId(), item);
+		
+		return item;
+	}
+
+	public void ajouterItem(Item item) {
+		J.appel(this);
 		
 		items.put(item.getId(), item);
 	}
@@ -45,4 +53,5 @@ public class Liste extends Modele<ListeLectureSeule> implements ListeLectureSeul
 		
 		return listeItems;
 	}
+
 }

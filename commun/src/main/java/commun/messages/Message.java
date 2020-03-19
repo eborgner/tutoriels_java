@@ -30,7 +30,7 @@ public abstract class Message<ME extends MessagePourEnvoi,
 	protected transient Set<Canal> canauxPourRelais;
     protected String _Type;
 
-    Message() {
+    protected Message() {
         J.appel(this);
         this._Type = this.getClass().getSimpleName();
     }

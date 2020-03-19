@@ -53,17 +53,15 @@ public final class FabriqueControleur {
 	private static <C extends ControleurVue> void initialiser(Vue vue, C controleur) {
 		J.appel(FabriqueControleur.class);
 
-		installerReceptionCommandes(controleur);
+		controleur.obtenirMessagesPourEnvoi();
+		controleur.installerReceptionCommandes();
+		controleur.installerReceptionMessages();
+
 		installerEnvoiDesCommandes(vue);
 		
 		controleur.demarrer();
 	}
 
-	private static <C extends ControleurVue> void installerReceptionCommandes(C controleur) {
-		J.appel(FabriqueControleur.class);
-
-		controleur.installerReceptionCommandes();
-	}
 
 
 	private static <C extends ControleurModeleVue> void installerEnvoiDesCommandes(Vue vue) {

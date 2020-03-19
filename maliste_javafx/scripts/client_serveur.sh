@@ -32,7 +32,8 @@ pid=$!
 
 sleep 2
 
-sh gradlew maliste
+sh gradlew maliste & 
+sh gradlew maliste 
 
 kill $pid
 
