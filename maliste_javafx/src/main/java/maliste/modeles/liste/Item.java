@@ -12,7 +12,7 @@ public class Item implements ItemLectureSeule {
 		J.appel(this);
 		
 		this.texte = texte;
-		this.id = Hash.hash(texte);
+		this.id = Hash.hash(texte + System.currentTimeMillis());
 	}
 	
 	@Override
