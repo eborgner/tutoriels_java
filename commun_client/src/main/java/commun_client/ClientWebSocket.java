@@ -52,6 +52,21 @@ public abstract class ClientWebSocket extends WebSocketClient implements Canal {
 	public void envoyer(Message message) {
 		J.appel(this);
 		
-		this.send(Json.versJson(message));
+		send(Json.versJson(message));
+	}
+
+	@Override
+	public void envoyer(String chaineMessage) {
+		J.appel(this);
+		
+		send(chaineMessage);
+	}
+
+	@Override
+	public long getId() {
+		J.appel(this);
+		
+		// XXX: sur le client, l'id n'est pas utile
+		return 0;
 	}
 }

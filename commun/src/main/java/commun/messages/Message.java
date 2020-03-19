@@ -20,6 +20,7 @@ package commun.messages;
 import java.util.Set;
 import commun.debogage.J;
 
+@SuppressWarnings("rawtypes")
 public abstract class Message<ME extends MessagePourEnvoi, 
 							  MR extends MessageRecu> 
 				implements MessagePourEnvoi, 
@@ -34,7 +35,7 @@ public abstract class Message<ME extends MessagePourEnvoi,
         this._Type = this.getClass().getSimpleName();
     }
     
-    void setConnexionPourEnvoi(Canal canalPourEnvoi){
+    void setCanalPourEnvoi(Canal canalPourEnvoi){
     	J.appel(this);
     	
     	this.canalPourEnvoi = canalPourEnvoi;
@@ -66,5 +67,12 @@ public abstract class Message<ME extends MessagePourEnvoi,
     			canal.envoyer(this);
     		}
     	}
+    }
+
+	@Override
+    public <M extends Message> M obtenirReponsePourEnvoi(Class<M> classeMessage) {
+    	J.appel(this);
+
+    	return FabriqueMessage.obtenirMessagePourEnvoi(classeMessage, canalPourEnvoi);
     }
 }

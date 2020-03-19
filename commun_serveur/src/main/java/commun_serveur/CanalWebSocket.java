@@ -10,7 +10,11 @@ import org.java_websocket.WebSocketImpl;
 import org.java_websocket.WebSocketListener;
 import org.java_websocket.drafts.Draft;
 
+@SuppressWarnings("rawtypes")
 public class CanalWebSocket extends WebSocketImpl implements Canal {
+	
+	private static long idCourant = 0;
+	private long id = idCourant++;
 
 	public CanalWebSocket(WebSocketListener listener, Draft draft) {
 		super(listener, draft);
@@ -30,4 +34,19 @@ public class CanalWebSocket extends WebSocketImpl implements Canal {
 		
 		send(Json.versJson(message));
 	}
+
+	@Override
+	public void envoyer(String chaineMessage) {
+		J.appel(this);
+
+		send(chaineMessage);
+	}
+
+	@Override
+	public long getId() {
+		J.appel(this);
+
+		return id;
+	}
+
 }

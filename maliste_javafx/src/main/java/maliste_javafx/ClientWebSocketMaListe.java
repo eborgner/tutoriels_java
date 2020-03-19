@@ -12,4 +12,5 @@ public class ClientWebSocketMaListe extends ClientWebSocketFX {
 		J.appel(this);
 	}
 
+
 }

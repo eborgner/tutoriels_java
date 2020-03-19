@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import commun.Fabrique;
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun.utiles.Json;
@@ -19,7 +20,26 @@ public class FabriqueMessage {
     private static Map<String, Class<? extends Message>> classeParNom = new HashMap<>();
     private static Map<Class<? extends Message>, RecepteurMessage> recepteurs = new HashMap<>();
     
-    private static Set<Canal> canaux = new HashSet<>();
+    private static Set<Canal> canauxPourRelais = new HashSet<>();
+    private static Canal canalPourEnvoi;
+
+    public static void memoriserCanalPourEnvoi(Canal canalPourEnvoi) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	FabriqueMessage.canalPourEnvoi = canalPourEnvoi;
+    }
+    
+    public static void ajouterCanalPourRelais(Canal canalPourRelais) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	canauxPourRelais.add(canalPourRelais);
+    }
+
+    public static void retirerCanalPourRelais(Canal canalPourRelais) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	canauxPourRelais.add(canalPourRelais);
+    }
     
     public static String nomClasseMessage(String chaineMessage) {
     	J.appel(FabriqueMessage.class);
@@ -47,7 +67,7 @@ public class FabriqueMessage {
 
         return Json.aPartirJson(chaineMessage, classeMessage);
     }
-    
+
     public static void installerRecepteur(Class<? extends Message> classeMessage, RecepteurMessage recepteur) {
     	J.appel(FabriqueMessage.class);
     	
@@ -55,27 +75,84 @@ public class FabriqueMessage {
     	classeParNom.put(classeMessage.getSimpleName(), classeMessage);
     }
 
+	public static <M extends Message> M obtenirMessagePourEnvoi(Class<M> classeMessage) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	M message = Fabrique.nouvelleInstance(classeMessage);
+    	
+    	message.setCanalPourEnvoi(canalPourEnvoi);
+    	
+    	return message;
+	}
+
+	static <M extends Message> M obtenirMessagePourEnvoi(Class<M> classeMessage, Canal canalPourEnvoi) {
+    	J.appel(FabriqueMessage.class);
+    	
+    	M message = Fabrique.nouvelleInstance(classeMessage);
+    	
+    	message.setCanalPourEnvoi(canalPourEnvoi);
+    	
+    	return message;
+	}
+
 	public static void recevoirMessage(Canal recuSur, String chaineMessage) {
 		J.appel(FabriqueMessage.class);
 		
 		String nomClasseMessage = nomClasseMessage(chaineMessage);
 		
 		Class<? extends Message> classeMessage = classeParNom.get(nomClasseMessage);
-		
-		DoitEtre.nonNul(classeMessage, "Récepteur non-installé pour: " + nomClasseMessage);
-		
-		RecepteurMessage recepteur = recepteurs.get(classeMessage);
-		
-		DoitEtre.nonNul(recepteur, "Récepteur non-installé pour: " + nomClasseMessage);
-		
-		Message message = aPartirChaineMessage(chaineMessage, classeMessage);
-		
+
 		Set<Canal> canauxPourRelais = new HashSet<>();
-		canauxPourRelais.addAll(canaux);
+		canauxPourRelais.addAll(canauxPourRelais);
 		canauxPourRelais.remove(recuSur);
 		
-		message.setCanauxPourRelai(canauxPourRelais);
+		if(classeMessage == null) {
+
+			relayerMessage(canauxPourRelais, chaineMessage);
+
+		}else {
+
+			recevoirMessage(canauxPourRelais, classeMessage, chaineMessage);
+		}
+	}
+
+	public static void relayerMessage(Set<Canal> canauxPourRelais, String chaineMessage) {
+		J.appel(FabriqueMessage.class);
 		
+		for(Canal canalPourRelais : canauxPourRelais) {
+			
+			if(canalPourRelais.siOuvert()) {
+				
+				canalPourRelais.envoyer(chaineMessage);
+			}
+		}
+	}
+
+	public static void recevoirMessage(Set<Canal> canauxPourRelais, 
+			                           Class<? extends Message> classeMessage, 
+			                           String chaineMessage) {
+
+		J.appel(FabriqueMessage.class);
+
+		RecepteurMessage recepteur = recepteurs.get(classeMessage);
+		
+		if(recepteur == null) {
+			
+			relayerMessage(canauxPourRelais, chaineMessage);
+
+		}else {
+
+			recevoirMessage(canauxPourRelais, recepteur, classeMessage, chaineMessage);
+		}
+	}
+
+	public static void recevoirMessage(Set<Canal> canauxPourRelais, 
+									   RecepteurMessage recepteur,
+			                           Class<? extends Message> classeMessage, 
+			                           String chaineMessage) {
+
+		Message message = aPartirChaineMessage(chaineMessage, classeMessage);
+		message.setCanauxPourRelai(canauxPourRelais);
 		recepteur.recevoirMessage(message);
 	}
 }
