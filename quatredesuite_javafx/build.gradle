@@ -38,6 +38,11 @@ dependencies {
 
 }
 
+task(serveur, dependsOn: 'classes', type: JavaExec) {
+   main = 'serveur_quatredesuite.Principal'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
 task(joueur01, dependsOn: 'classes', type: JavaExec) {
    main = 'quatredesuite_javafx.Principal'
    classpath = sourceSets.main.runtimeClasspath
