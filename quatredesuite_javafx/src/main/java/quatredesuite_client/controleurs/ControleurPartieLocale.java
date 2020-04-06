@@ -24,6 +24,18 @@ public abstract class ControleurPartieLocale<V extends VuePartieLocale,
 	}
 
 	@Override
+	protected void obtenirMessagesPourEnvoi() {
+		J.appel(this);
+		
+	}
+
+	@Override
+	protected void installerReceptionMessages() {
+		J.appel(this);
+		
+	}
+
+	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
 		

@@ -24,6 +24,15 @@ import static quatredesuite_javafx.Constantes.*;
 public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
 
 	@Override
+	protected void demarrer() {
+		J.appel(this);
+		
+		nouvellePartieLocale();
+		
+	}
+
+
+	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
 
@@ -80,10 +89,5 @@ public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> 
 		DialogueModal.ouvrirDialogueModal(scene);
 	}
 
-	@Override
-	protected void demarrer() {
-		J.appel(this);
-		
-	}
 
 }
