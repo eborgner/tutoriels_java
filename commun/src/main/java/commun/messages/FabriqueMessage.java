@@ -99,21 +99,19 @@ public class FabriqueMessage {
 		
 		String nomClasseMessage = nomClasseMessage(chaineMessage);
 		
-		Class<? extends Message> classeMessage = classeParNom.get(nomClasseMessage);
-
-		Set<Canal> canauxPourRelais = new HashSet<>();
-		canauxPourRelais.addAll(FabriqueMessage.canauxPourRelais);
-		canauxPourRelais.remove(recuSur);
-
-		J.valeurs("canaux pour relais: " + canauxPourRelais.size());
+		Class<? extends Message> classeMessageRecu = classeParNom.get(nomClasseMessage);
 		
-		if(classeMessage == null) {
+		if(classeMessageRecu == null) {
+
+			Set<Canal> canauxPourRelais = new HashSet<>();
+			canauxPourRelais.addAll(FabriqueMessage.canauxPourRelais);
+			canauxPourRelais.remove(recuSur);
 
 			relayerMessage(canauxPourRelais, chaineMessage);
 
 		}else {
 
-			recevoirMessage(canauxPourRelais, classeMessage, chaineMessage);
+			recevoirMessage(canauxPourRelais, classeMessageRecu, chaineMessage);
 		}
 	}
 

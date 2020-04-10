@@ -11,9 +11,6 @@ import org.java_websocket.WebSocket;
 public class CanalWebSocket implements Canal {
 	
 	private WebSocket socket;
-	
-	private static long idCourant = 0;
-	private long id = idCourant++;
 
 	public CanalWebSocket(WebSocket socket) {
 		J.appel(this);
@@ -42,21 +39,25 @@ public class CanalWebSocket implements Canal {
 		socket.send(chaineMessage);
 	}
 
-	@Override
-	public long getId() {
+	protected WebSocket getSocket() {
 		J.appel(this);
 		
-		return id;
+		return socket;
 	}
-	
+
 	@Override 
 	public int hashCode() {
 		return socket.hashCode();
 	}
 
 	@Override 
-	public boolean equals(Object other) {
-		return socket.equals(other);
+	public boolean equals(Object autreObjet) {
+		if(autreObjet instanceof CanalWebSocket) {
+
+			return ((CanalWebSocket) autreObjet).getSocket().equals(socket);
+		}
+
+		return false;
 	}
 
 }
