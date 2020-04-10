@@ -8,15 +8,21 @@ import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
 import quatredesuite.modeles.partie_locale.PartieLocale;
-import quatredesuite_client.commandes.nouvelle_partie.NouvellePartie;
-import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieRecue;
+import quatredesuite.modeles.partie_reseau.PartieReseau;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocale;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
+import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseau;
+import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseauRecue;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.controleurs.ControleurAccueil;
+import quatredesuite_javafx.Principal;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
+import quatredesuite_javafx.afficheurs.AfficheurPartieReseauFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
+import quatredesuite_javafx.vues.VuePartieReseauFX;
 import quatredesuite_javafx.vues.VueAccueilFX;
 import static quatredesuite_javafx.Constantes.*;
 
@@ -27,8 +33,14 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	protected void demarrer() {
 		J.appel(this);
 		
-		nouvellePartieLocale();
-		
+		if(Principal.siConnecteAuServeur()) {
+			
+			nouvellePartieReseau();
+
+		}else {
+
+			nouvellePartieLocale();
+		}
 	}
 
 
@@ -36,12 +48,21 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	protected void installerReceptionCommandes() {
 		J.appel(this);
 
-		installerRecepteurCommande(NouvellePartie.class, new RecepteurCommandeMVC<NouvellePartieRecue>() {
+		installerRecepteurCommande(NouvellePartieLocale.class, new RecepteurCommandeMVC<NouvellePartieLocaleRecue>() {
 			@Override
-			public void executerCommandeMVC(NouvellePartieRecue commande) {
+			public void executerCommandeMVC(NouvellePartieLocaleRecue commande) {
 				J.appel(this);
 				
 				nouvellePartieLocale();
+			}
+		});
+
+		installerRecepteurCommande(NouvellePartieReseau.class, new RecepteurCommandeMVC<NouvellePartieReseauRecue>() {
+			@Override
+			public void executerCommandeMVC(NouvellePartieReseauRecue commande) {
+				J.appel(this);
+				
+				nouvellePartieReseau();
 			}
 		});
 
@@ -74,6 +95,19 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieLocale, afficheur);
+		
+	}
+
+	private void nouvellePartieReseau() {
+		J.appel(this);
+		
+		VuePartieReseauFX vuePartieReseau = vue.creerVuePartieReseau();
+		
+		PartieReseau partie = new PartieReseau();
+		
+		AfficheurPartieReseauFX afficheur = new AfficheurPartieReseauFX();
+		
+		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieReseau, afficheur);
 		
 	}
 	

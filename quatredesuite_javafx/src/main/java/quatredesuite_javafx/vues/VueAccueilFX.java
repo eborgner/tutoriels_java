@@ -3,6 +3,7 @@ package quatredesuite_javafx.vues;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.ChargeurDeVue;
@@ -13,8 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import quatredesuite_client.commandes.nouvelle_partie.NouvellePartie;
-import quatredesuite_client.commandes.nouvelle_partie.NouvellePartiePourEnvoi;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocale;
+import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocalePourEnvoi;
+import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseau;
+import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseauPourEnvoi;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
 import quatredesuite_client.commandes.quitter.Quitter;
@@ -25,20 +28,33 @@ import static quatredesuite_javafx.Constantes.*;
 public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
-	MenuItem menuNouvellePartie, menuParametres, menuQuitter;
+	MenuItem menuNouvellePartieLocale, menuNouvellePartieReseau, menuParametres, menuQuitter;
 	
 	@FXML
 	VBox conteneurPartie;
 	
-	NouvellePartiePourEnvoi nouvellePartiePourEnvoi;
+	NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
+	NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
 	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	QuitterPourEnvoi quitterPourEnvoi;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		J.appel(this);
+		
+		DoitEtre.nonNul(menuNouvellePartieLocale);
+		DoitEtre.nonNul(menuNouvellePartieReseau);
+		DoitEtre.nonNul(menuParametres);
+		DoitEtre.nonNul(menuQuitter);
+		
+	}
 
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
 		
-		nouvellePartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartie.class);
+		nouvellePartieLocalePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
+		nouvellePartieReseauPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieReseau.class);
 		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 	}
@@ -47,12 +63,21 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
 
-		menuNouvellePartie.setOnAction(new EventHandler<ActionEvent>() {
+		menuNouvellePartieLocale.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				nouvellePartiePourEnvoi.envoyerCommande();
+				nouvellePartieLocalePourEnvoi.envoyerCommande();
+			}
+		});
+
+		menuNouvellePartieReseau.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				nouvellePartieReseauPourEnvoi.envoyerCommande();
 			}
 		});
 
@@ -75,11 +100,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		});
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		J.appel(this);
-		
-	}
 
 	public VuePartieLocaleFX creerVuePartieLocale() {
 		J.appel(this);
@@ -98,10 +118,28 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		return vuePartieLocale;
 	}
 
+	public VuePartieReseauFX creerVuePartieReseau() {
+		J.appel(this);
+
+		ChargeurDeVue<VuePartieReseauFX> chargeur = new ChargeurDeVue<VuePartieReseauFX>(CHEMIN_PARTIE_RESEAU_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PARTIE_RESEAU_CSS);
+		
+		VuePartieReseauFX vuePartieReseau = chargeur.getVue();
+		
+		Parent parent = chargeur.getParent();
+		
+		conteneurPartie.getChildren().clear();
+		conteneurPartie.getChildren().add(parent);
+		
+		return vuePartieReseau;
+	}
+
 	@Override
 	public void verifierCommandesPossibles() {
 		J.appel(this);
 
 	}
+
 
 }

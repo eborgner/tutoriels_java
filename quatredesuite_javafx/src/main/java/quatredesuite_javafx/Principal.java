@@ -28,6 +28,8 @@ public class Principal extends Application {
 		J.appel(Principal.class);
 	}
 	
+	private static ClientQuatreDeSuite client;
+	
 	public static void main(String[] args) {
 		J.appel(Principal.class);
 		launch(args);
@@ -78,7 +80,24 @@ public class Principal extends Application {
 		}
 		
 		ClientQuatreDeSuite client = new ClientQuatreDeSuite(uriServeur);
-		client.connect();
+		
+		Erreur.avertissement("Tentative de connexion au serveur... ");
+		
+		try {
+
+			client.connectBlocking();
+
+		} catch (InterruptedException e) {
+			
+			Erreur.nonFatale("Tentative de connexion annulée", e);
+		}
+		
+		Principal.client = client;
+	}
+	
+	public static boolean siConnecteAuServeur() {
+		J.appel(Principal.class);
+		
+		return client != null && client.isOpen();
 	}
 }
-

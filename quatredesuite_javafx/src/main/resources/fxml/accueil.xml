@@ -13,7 +13,7 @@
                 <menus>
                 <Menu styleClass="menu" text="%partieLocale">
                     <items>
-                    <MenuItem fx:id="menuNouvellePartie" styleClass="menu_item" text="%nouvellePartie"/>
+                    <MenuItem fx:id="menuNouvellePartieLocale" styleClass="menu_item" text="%nouvellePartie"/>
                     <MenuItem fx:id="menuParametres" styleClass="menu_item" text="%parametres"/>
                     <SeparatorMenuItem/>
                     <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="%quitter"/>

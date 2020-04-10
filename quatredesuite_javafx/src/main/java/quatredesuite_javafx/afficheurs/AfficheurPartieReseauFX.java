@@ -1,0 +1,8 @@
+package quatredesuite_javafx.afficheurs;
+
+import quatredesuite_client.afficheurs.AfficheurPartieLocale;
+import quatredesuite_client.afficheurs.AfficheurPartieReseau;
+import quatredesuite_javafx.vues.VuePartieLocaleFX;
+import quatredesuite_javafx.vues.VuePartieReseauFX;
+
+public class AfficheurPartieReseauFX extends AfficheurPartieReseau<VuePartieReseauFX> {}
