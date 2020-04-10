@@ -24,14 +24,18 @@ public abstract class ControleurPartieReseau <V extends VuePartieReseau, A exten
 
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
+		super.obtenirMessagesPourEnvoi();
 		J.appel(this);
+		
 		
 		transmettreCoup = FabriqueMessage.obtenirMessagePourEnvoi(TransmettreCoup.class);
 	}
 
 	@Override
 	protected void installerReceptionMessages() {
+		super.installerReceptionMessages();
 		J.appel(this);
+		
 		
 		installerRecepteurMessage(TransmettreCoup.class, new RecepteurMessageMVC<TransmettreCoupRecu>() {
 
@@ -46,9 +50,8 @@ public abstract class ControleurPartieReseau <V extends VuePartieReseau, A exten
 	
 	@Override
 	protected void reagirCommandeJouerIci(JouerIciRecue jouerIciRecue) {
-		J.appel(this);
-		
 		super.reagirCommandeJouerIci(jouerIciRecue);
+		J.appel(this);
 		
 		transmettreCoup.setIndiceColonne(jouerIciRecue.getIndiceColonne());
 		transmettreCoup.envoyerMessage();
