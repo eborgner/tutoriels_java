@@ -94,7 +94,7 @@ public class FabriqueMessage {
     	return message;
 	}
 
-	public static void recevoirMessage(Canal recuSur, String chaineMessage) {
+	public static void recevoirOuRelayerMessage(Canal recuSur, String chaineMessage) {
 		J.appel(FabriqueMessage.class);
 		
 		String nomClasseMessage = nomClasseMessage(chaineMessage);

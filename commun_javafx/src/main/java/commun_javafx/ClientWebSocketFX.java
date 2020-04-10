@@ -25,7 +25,7 @@ public abstract class ClientWebSocketFX extends ClientWebSocket {
 			public void run() {
 				J.appel(this);
 				
-				FabriqueMessage.recevoirMessage(ClientWebSocketFX.this, chaineMessage);
+				FabriqueMessage.recevoirOuRelayerMessage(ClientWebSocketFX.this, chaineMessage);
 			}
 		});
 	}
