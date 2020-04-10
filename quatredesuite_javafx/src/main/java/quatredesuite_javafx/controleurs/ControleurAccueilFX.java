@@ -7,7 +7,7 @@ import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
-import quatredesuite.modeles.partie.PartieLocale;
+import quatredesuite.modeles.partie_locale.PartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartie;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieRecue;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;

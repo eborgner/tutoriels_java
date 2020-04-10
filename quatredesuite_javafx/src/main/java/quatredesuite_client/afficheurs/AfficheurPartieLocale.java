@@ -8,7 +8,7 @@ import quatredesuite.enumerations.Couleur;
 import quatredesuite.modeles.partie.ColonneLectureSeule;
 import quatredesuite.modeles.partie.GrilleLectureSeule;
 import quatredesuite.modeles.partie.JetonLectureSeule;
-import quatredesuite.modeles.partie.PartieLocaleLectureSeule;
+import quatredesuite.modeles.partie_locale.PartieLocaleLectureSeule;
 import quatredesuite_client.vues.VuePartieLocale;
 
 public abstract class AfficheurPartieLocale<V extends VuePartieLocale> 

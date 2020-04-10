@@ -1,12 +1,17 @@
 package quatredesuite_javafx;
 
 import commun.debogage.DoitEtre;
+import commun.debogage.Erreur;
 import commun.debogage.J;
 import commun_client.mvc.controleurs.FabriqueControleur;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 
 import static quatredesuite_javafx.Constantes.*;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -32,6 +37,8 @@ public class Principal extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
+		connecterAuServeur();
+		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 		
 		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_PRINCIPAL_FXML,
@@ -53,6 +60,25 @@ public class Principal extends Application {
 		fenetrePrincipale.setMinHeight(HAUTEUR);
 
 		fenetrePrincipale.show();
+	}
+	
+	private void connecterAuServeur() {
+		J.appel(this);
+
+		URI uriServeur = null;
+		String adresseServeur = quatredesuite.Constantes.ADRESSE_SERVEUR;
+		
+		try {
+
+			uriServeur = new URI(adresseServeur);
+
+		} catch (URISyntaxException e) {
+			
+			Erreur.fatale("L'adresse du serveur est mal formée: " + adresseServeur, e);
+		}
+		
+		ClientQuatreDeSuite client = new ClientQuatreDeSuite(uriServeur);
+		client.connect();
 	}
 }
 

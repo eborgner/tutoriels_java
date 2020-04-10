@@ -6,7 +6,7 @@ import commun.debogage.J;
 import commun.modeles.Modele;
 import quatredesuite.enumerations.Couleur;
 
-public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements PartieLocaleLectureSeule {
+public class Partie <PLS extends PartieLectureSeule> extends Modele<PLS> implements PartieLectureSeule {
 
 	private int largeur =  3 + (new Random().nextInt(5));
 	private int hauteur = 4 + (new Random().nextInt(8));
@@ -15,7 +15,7 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 
 	private Grille grille;
 	
-	public PartieLocale() {
+	public Partie() {
 		J.appel(this);
 		
 		grille = new Grille();
@@ -88,7 +88,4 @@ public class PartieLocale extends Modele<PartieLocaleLectureSeule> implements Pa
 		J.appel(this);
 		this.grille = grille;
 	}
-
-
-
 }
