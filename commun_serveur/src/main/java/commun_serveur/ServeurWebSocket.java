@@ -41,8 +41,11 @@ public abstract class ServeurWebSocket extends WebSocketServer {
     @Override
     public void onError(WebSocket conn, Exception ex) {
     	J.appel(this);
+    	
+    	if(conn != null) {
+			FabriqueMessage.retirerCanalPourRelais(new CanalWebSocket(conn));
+    	}
 
-    	FabriqueMessage.retirerCanalPourRelais(new CanalWebSocket(conn));
     	Erreur.nonFatale("Déconnexion sur erreur", ex);
     }
 

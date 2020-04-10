@@ -43,9 +43,14 @@ public class ControleurPartie <PLS extends PartieLectureSeule,
 			public void executerCommandeMVC(JouerIciRecue commande) {
 				J.appel(this);
 				
-				modele.jouerIci(commande.getIndiceColonne());
-				
+				reagirCommandeJouerIci(commande);
 			}
 		});
 	} 
+	
+	protected void reagirCommandeJouerIci(JouerIciRecue jouerIciRecue) {
+		J.appel(this);
+
+			modele.jouerIci(jouerIciRecue.getIndiceColonne());
+	}
 }

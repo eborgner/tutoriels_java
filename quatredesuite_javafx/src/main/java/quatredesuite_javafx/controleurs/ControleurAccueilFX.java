@@ -107,7 +107,7 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		AfficheurPartieReseauFX afficheur = new AfficheurPartieReseauFX();
 		
-		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partie, vuePartieReseau, afficheur);
+		FabriqueControleur.creerControleur(ControleurPartieReseauFX.class, partie, vuePartieReseau, afficheur);
 		
 	}
 	
