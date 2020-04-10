@@ -32,8 +32,8 @@ pid=$!
 
 sleep 2
 
-sh gradlew maliste & 
-sh gradlew maliste 
+sh gradlew joueur01 & 
+sh gradlew joueur01En 
 
 kill $pid
 

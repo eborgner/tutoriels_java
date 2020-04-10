@@ -36,10 +36,13 @@ dependencies {
     compile project(':commun_javafx')
     compile project(':commun_serveur')
 
+    // Websocket
+    // https://github.com/TooTallNate/Java-WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:1.4.0'
 }
 
 task(serveur, dependsOn: 'classes', type: JavaExec) {
-   main = 'serveur_quatredesuite.Principal'
+   main = 'quatredesuite_serveur.Principal'
    classpath = sourceSets.main.runtimeClasspath
 }
 
