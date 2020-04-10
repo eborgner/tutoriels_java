@@ -2,9 +2,9 @@ package quatredesuite_client.controleurs;
 
 import commun.debogage.J;
 import commun_client.mvc.controleurs.ControleurVue;
-import quatredesuite_client.vues.VuePrincipale;
+import quatredesuite_client.vues.VueAccueil;
 
-public abstract class ControleurPrincipal<V extends VuePrincipale> extends ControleurVue<V> {
+public abstract class ControleurAccueil<V extends VueAccueil> extends ControleurVue<V> {
 	
 	
 	@Override

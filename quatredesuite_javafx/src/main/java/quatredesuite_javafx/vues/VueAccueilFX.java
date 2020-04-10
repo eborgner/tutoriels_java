@@ -19,10 +19,10 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterPourEnvoi;
-import quatredesuite_client.vues.VuePrincipale;
+import quatredesuite_client.vues.VueAccueil;
 import static quatredesuite_javafx.Constantes.*;
 
-public class VuePrincipaleFX implements VuePrincipale, Initializable {
+public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
 	MenuItem menuNouvellePartie, menuParametres, menuQuitter;

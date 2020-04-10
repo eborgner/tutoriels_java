@@ -14,14 +14,14 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
-import quatredesuite_client.controleurs.ControleurPrincipal;
+import quatredesuite_client.controleurs.ControleurAccueil;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
-import quatredesuite_javafx.vues.VuePrincipaleFX;
+import quatredesuite_javafx.vues.VueAccueilFX;
 import static quatredesuite_javafx.Constantes.*;
 
 @SuppressWarnings("rawtypes")
-public class ControleurPrincipalFX extends ControleurPrincipal<VuePrincipaleFX> {
+public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 
 	@Override
 	protected void demarrer() {

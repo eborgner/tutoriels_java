@@ -11,8 +11,8 @@ import commun_javafx.Initialisateur;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import quatredesuite_javafx.controleurs.ControleurPrincipalFX;
-import quatredesuite_javafx.vues.VuePrincipaleFX;
+import quatredesuite_javafx.controleurs.ControleurAccueilFX;
+import quatredesuite_javafx.vues.VueAccueilFX;
 
 public class Principal extends Application {
 
@@ -34,15 +34,15 @@ public class Principal extends Application {
 		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 		
-		ChargeurDeVue<VuePrincipaleFX> chargeur = new ChargeurDeVue<VuePrincipaleFX>(CHEMIN_PRINCIPAL_FXML,
+		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_PRINCIPAL_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PRINCIPAL_CSS);
 
-		VuePrincipaleFX vue = chargeur.getVue();
+		VueAccueilFX vue = chargeur.getVue();
 		
 		DoitEtre.nonNul(vue);
 
-		FabriqueControleur.creerControleur(ControleurPrincipalFX.class, 
+		FabriqueControleur.creerControleur(ControleurAccueilFX.class, 
 										   vue);
 
 		Scene scene = chargeur.nouvelleScene(50, 50, 2);

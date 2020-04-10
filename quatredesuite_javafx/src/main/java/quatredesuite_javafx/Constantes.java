@@ -4,8 +4,8 @@ public class Constantes {
 	
 	public static final String CHEMIN_CHAINES = "traductions.chaines";
 
-	public static final String CHEMIN_PRINCIPAL_FXML = "/fxml/principal.xml";
-	public static final String CHEMIN_PRINCIPAL_CSS = "/css/principal.css";
+	public static final String CHEMIN_PRINCIPAL_FXML = "/fxml/accueil.xml";
+	public static final String CHEMIN_PRINCIPAL_CSS = "/css/accueil.css";
 
 	public static final String CHEMIN_PARAMETRES_FXML = "/fxml/parametres.xml";
 	public static final String CHEMIN_PARAMETRES_CSS = "/css/parametres.css";
