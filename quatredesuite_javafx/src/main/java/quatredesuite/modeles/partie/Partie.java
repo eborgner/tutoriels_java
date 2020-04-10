@@ -1,6 +1,5 @@
 package quatredesuite.modeles.partie;
 
-import java.util.Random;
 
 import commun.debogage.J;
 import commun.modeles.Modele;
@@ -8,12 +7,12 @@ import quatredesuite.enumerations.Couleur;
 
 public class Partie <PLS extends PartieLectureSeule> extends Modele<PLS> implements PartieLectureSeule {
 
-	private int largeur =  3 + (new Random().nextInt(5));
-	private int hauteur = 4 + (new Random().nextInt(8));
+	protected int largeur =  5;
+	protected int hauteur = 6;
 	
-	private Couleur couleurCourante = Couleur.ROUGE;
+	protected Couleur couleurCourante = Couleur.ROUGE;
 
-	private Grille grille;
+	protected Grille grille;
 	
 	public Partie() {
 		J.appel(this);
