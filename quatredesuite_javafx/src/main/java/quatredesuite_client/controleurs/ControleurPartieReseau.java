@@ -27,7 +27,6 @@ public abstract class ControleurPartieReseau <V extends VuePartieReseau, A exten
 		super.obtenirMessagesPourEnvoi();
 		J.appel(this);
 		
-		
 		transmettreCoup = FabriqueMessage.obtenirMessagePourEnvoi(TransmettreCoup.class);
 	}
 
@@ -35,7 +34,6 @@ public abstract class ControleurPartieReseau <V extends VuePartieReseau, A exten
 	protected void installerReceptionMessages() {
 		super.installerReceptionMessages();
 		J.appel(this);
-		
 		
 		installerRecepteurMessage(TransmettreCoup.class, new RecepteurMessageMVC<TransmettreCoupRecu>() {
 
