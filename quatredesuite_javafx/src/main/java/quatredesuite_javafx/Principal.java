@@ -54,12 +54,12 @@ public class Principal extends Application {
 		FabriqueControleur.creerControleur(ControleurAccueilFX.class, 
 										   vue);
 
-		Scene scene = chargeur.nouvelleScene(50, 50, 2);
+		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS);
 
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setMinWidth(LARGEUR);
-		fenetrePrincipale.setMinHeight(HAUTEUR);
+		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS);
+		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS);
 
 		fenetrePrincipale.show();
 	}
