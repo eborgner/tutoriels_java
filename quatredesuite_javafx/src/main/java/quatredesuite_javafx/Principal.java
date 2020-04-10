@@ -78,8 +78,14 @@ public class Principal extends Application {
 			
 			Erreur.fatale("L'adresse du serveur est mal formée: " + adresseServeur, e);
 		}
-		
-		ClientQuatreDeSuite client = new ClientQuatreDeSuite(uriServeur);
+
+		connecterAuServeur(uriServeur);
+	}
+
+	private void connecterAuServeur(URI uriServeur) {
+		J.appel(this);
+
+		client = new ClientQuatreDeSuite(uriServeur);
 		
 		Erreur.avertissement("Tentative de connexion au serveur... ");
 		
@@ -91,8 +97,6 @@ public class Principal extends Application {
 			
 			Erreur.nonFatale("Tentative de connexion annulée", e);
 		}
-		
-		Principal.client = client;
 	}
 	
 	public static boolean siConnecteAuServeur() {
