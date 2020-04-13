@@ -12,7 +12,8 @@ import quatredesuite_client.afficheurs.AfficheurPartieReseau;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartieReseau;
 
-public abstract class ControleurPartieReseau <V extends VuePartieReseau, A extends AfficheurPartieReseau<V>>
+public abstract class ControleurPartieReseau<V extends VuePartieReseau, 
+                                             A extends AfficheurPartieReseau<V>>
 
                 extends ControleurPartie<PartieReseauLectureSeule, 
                         PartieReseau, 

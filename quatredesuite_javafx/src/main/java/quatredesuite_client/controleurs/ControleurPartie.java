@@ -10,12 +10,12 @@ import quatredesuite_client.commandes.jouer_ici.JouerIci;
 import quatredesuite_client.commandes.jouer_ici.JouerIciRecue;
 import quatredesuite_client.vues.VuePartie;
 
-public class ControleurPartie <PLS extends PartieLectureSeule, 
-							   P extends Partie<PLS>,
-                               V extends VuePartie, 
-                               A extends AfficheurPartie<PLS, V>>
+public abstract class  ControleurPartie<PLS extends PartieLectureSeule, 
+							    P extends Partie<PLS>,
+                                V extends VuePartie, 
+                                A extends AfficheurPartie<PLS, V>>
 
-		extends ControleurModeleVue<PLS, P, V, A> {
+	            extends ControleurModeleVue<PLS, P, V, A> {
 
 	@Override
 	protected void demarrer() {
