@@ -6,7 +6,9 @@ import commun.modeles.Modele;
 import quatredesuite.Constantes;
 import quatredesuite.enumerations.Couleur;
 
-public class Partie <PLS extends PartieLectureSeule> extends Modele<PLS> implements PartieLectureSeule {
+public class      Partie<PLS extends PartieLectureSeule> 
+       extends    Modele<PLS>
+       implements PartieLectureSeule {
 
 	protected int largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
 	protected int hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
