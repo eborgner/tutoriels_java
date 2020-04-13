@@ -18,7 +18,6 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.controleurs.ControleurAccueil;
-import quatredesuite_javafx.Principal;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
 import quatredesuite_javafx.afficheurs.AfficheurPartieReseauFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
@@ -33,14 +32,13 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	protected void demarrer() {
 		J.appel(this);
 		
-		if(Principal.siConnecteAuServeur()) {
-			
-			nouvellePartieReseau();
+		afficherSauvegardes();
+	}
 
-		}else {
 
-			nouvellePartieLocale();
-		}
+	private void afficherSauvegardes() {
+		J.appel(this);
+		
 	}
 
 
