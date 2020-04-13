@@ -12,7 +12,7 @@ import quatredesuite_client.vues.VuePartie;
 import quatredesuite_javafx.vues.composants.ConteneurEntetes;
 import quatredesuite_javafx.vues.composants.ConteneurGrille;
 
-public class VuePartieFX implements VuePartie, Initializable {
+public abstract class VuePartieFX implements VuePartie, Initializable {
 
     @FXML
     private Text nomJoueurUn, nomJoueurDeux;
