@@ -28,7 +28,11 @@ import static quatredesuite_javafx.Constantes.*;
 public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
-	MenuItem menuNouvellePartieLocale, menuNouvellePartieReseau, menuParametres, menuQuitter;
+	MenuItem menuNouvellePartieLocale, 
+	         menuNouvellePartieReseau, 
+	         menuSauvegarderPartieLocale, 
+	         menuParametres, 
+	         menuQuitter;
 	
 	@FXML
 	VBox conteneurPartie;
@@ -44,6 +48,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		
 		DoitEtre.nonNul(menuNouvellePartieLocale);
 		DoitEtre.nonNul(menuNouvellePartieReseau);
+		DoitEtre.nonNul(menuSauvegarderPartieLocale);
 		DoitEtre.nonNul(menuParametres);
 		DoitEtre.nonNul(menuQuitter);
 		
