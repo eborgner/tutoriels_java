@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import maliste_javafx.vues.composants.ConteneurItems?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+    id="conteneurPrincipal"
+    fx:controller="quatredesuite_javafx.vues.VueSauvegardesFX">
+
+    <Pane styleClass="grosEspace" HBox.hgrow="ALWAYS" />
+
+    <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
+
+        <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+
+
+        <ConteneurSauvegardes id="conteneurSauvegardes" 
+                              VBox.vgrow="ALWAYS"
+                              fx:id="conteneurSauvegardes"/>
+
+        <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+
+    </VBox>
+
+    <Pane styleClass="grosEspace" HBox.hgrow="ALWAYS"/>
+
+</HBox>

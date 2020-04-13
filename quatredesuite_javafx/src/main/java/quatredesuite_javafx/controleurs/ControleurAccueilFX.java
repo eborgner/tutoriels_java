@@ -9,6 +9,7 @@ import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
 import quatredesuite.modeles.partie_locale.PartieLocale;
 import quatredesuite.modeles.partie_reseau.PartieReseau;
+import quatredesuite.modeles.sauvegardes.Sauvegardes;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
 import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseau;
@@ -20,8 +21,10 @@ import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.controleurs.ControleurAccueil;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
 import quatredesuite_javafx.afficheurs.AfficheurPartieReseauFX;
+import quatredesuite_javafx.afficheurs.AfficheurSauvegardesFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
 import quatredesuite_javafx.vues.VuePartieReseauFX;
+import quatredesuite_javafx.vues.VueSauvegardesFX;
 import quatredesuite_javafx.vues.VueAccueilFX;
 import static quatredesuite_javafx.Constantes.*;
 
@@ -36,10 +39,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	}
 
 
-	private void afficherSauvegardes() {
-		J.appel(this);
-		
-	}
 
 
 	@Override
@@ -107,6 +106,18 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		FabriqueControleur.creerControleur(ControleurPartieReseauFX.class, partie, vuePartieReseau, afficheur);
 		
+	}
+
+	private void afficherSauvegardes() {
+		J.appel(this);
+		
+		VueSauvegardesFX vueSauvegardes = vue.creerVueSauvegardes();
+		
+		Sauvegardes sauvegardes = new Sauvegardes();
+		
+		AfficheurSauvegardesFX afficheur = new AfficheurSauvegardesFX();
+		
+		FabriqueControleur.creerControleur(ControleurSauvegardesFX.class, sauvegardes, vueSauvegardes, afficheur);
 	}
 	
 	private void ouvrirParametres() {

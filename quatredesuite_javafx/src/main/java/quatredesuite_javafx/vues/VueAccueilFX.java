@@ -51,7 +51,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		DoitEtre.nonNul(menuSauvegarderPartieLocale);
 		DoitEtre.nonNul(menuParametres);
 		DoitEtre.nonNul(menuQuitter);
-		
 	}
 
 	@Override
@@ -105,6 +104,23 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		});
 	}
 
+	public VueSauvegardesFX creerVueSauvegardes() {
+		J.appel(this);
+
+		ChargeurDeVue<VueSauvegardesFX> chargeur = new ChargeurDeVue<VueSauvegardesFX>(CHEMIN_VUE_SAUVEGARDES_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_VUE_SAUVEGARDES_CSS);
+		
+		VueSauvegardesFX vueSauvegardes = chargeur.getVue();
+		
+		Parent parent = chargeur.getParent();
+		
+		conteneurPartie.getChildren().clear();
+		conteneurPartie.getChildren().add(parent);
+		
+		return vueSauvegardes;
+
+	}
 
 	public VuePartieLocaleFX creerVuePartieLocale() {
 		J.appel(this);
@@ -145,6 +161,4 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		J.appel(this);
 
 	}
-
-
 }
