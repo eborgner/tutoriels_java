@@ -8,10 +8,10 @@ import quatredesuite.modeles.sauvegardes.UneSauvegardeLectureSeule;
 public class ConteneurSauvegardes extends VBox {
 	
 	
-	public void ajouterSauvegarde(UneSauvegardeLectureSeule uneSauvegarde) {
+	public void ajouterSauvegarde(UneSauvegardeLectureSeule uneSauvegarde, String texteBoutonOuvrir) {
 		J.appel(this);
 		
-		AfficheurUneSauvegarde afficheur = new AfficheurUneSauvegarde(uneSauvegarde, styleClassLigne());
+		AfficheurUneSauvegarde afficheur = new AfficheurUneSauvegarde(uneSauvegarde, styleClassLigne(), texteBoutonOuvrir);
 
 		this.getChildren().add(afficheur);
 	}

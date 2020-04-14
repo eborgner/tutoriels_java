@@ -18,14 +18,19 @@ import quatredesuite.modeles.sauvegardes.UneSauvegardeLectureSeule;
 public class AfficheurUneSauvegarde extends VBox {
 	
 	private Text texte;
-	private Button boutonEffacer;
+	private Button boutonOuvrir;
 	
-	public AfficheurUneSauvegarde(UneSauvegardeLectureSeule uneSauvegardeLectureSeule, String styleClassLigne) {
+
+	public AfficheurUneSauvegarde(UneSauvegardeLectureSeule uneSauvegardeLectureSeule, 
+							      String styleClassLigne,
+							      String texteBoutonOuvrir) {
 		super();
 		J.appel(this);
 		
 		texte = new Text(uneSauvegardeLectureSeule.getCheminDansHome());
 		texte.getStyleClass().add(styleClassLigne);
+		
+		boutonOuvrir = new Button(texteBoutonOuvrir);
 		
 		remplirVBox(styleClassLigne);
 
@@ -73,7 +78,7 @@ public class AfficheurUneSauvegarde extends VBox {
 			public void run() {
 				J.appel(this);
 
-				boutonEffacer.requestLayout();
+				boutonOuvrir.requestLayout();
 			}
 		});
 		
@@ -121,16 +126,13 @@ public class AfficheurUneSauvegarde extends VBox {
 		
 		conteneurBouton.getChildren().add(petitEspaceVertical());
 
-		boutonEffacer = new Button();
-
-		boutonEffacer.getStyleClass().add("boutonEffacer");
+		boutonOuvrir.getStyleClass().add("boutonEffacer");
 		
-		VBox.setVgrow(boutonEffacer, Priority.ALWAYS);
+		VBox.setVgrow(boutonOuvrir, Priority.ALWAYS);
 		
-		boutonEffacer.setMaxHeight(Double.POSITIVE_INFINITY);
-		boutonEffacer.maxWidthProperty().bind(boutonEffacer.heightProperty());
+		boutonOuvrir.setMaxHeight(Double.POSITIVE_INFINITY);
 		
-		conteneurBouton.getChildren().add(boutonEffacer);
+		conteneurBouton.getChildren().add(boutonOuvrir);
 		
 		conteneurBouton.getChildren().add(petitEspaceVertical());
 		
@@ -173,14 +175,13 @@ public class AfficheurUneSauvegarde extends VBox {
 
 	private void installerCapteurEvenement() {
 		J.appel(this);
-		boutonEffacer.setOnAction(new EventHandler<ActionEvent>() {
+		boutonOuvrir.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				boutonEffacer.setFont(new Font(0.5*boutonEffacer.getHeight()));
-				boutonEffacer.setText("✓");
+				// TODO
 			}
 		});
 	}

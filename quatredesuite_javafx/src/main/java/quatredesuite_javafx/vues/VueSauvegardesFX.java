@@ -15,12 +15,16 @@ public class VueSauvegardesFX implements VueSauvegardes, Initializable {
 	
 	@FXML
 	ConteneurSauvegardes conteneurSauvegardes;
+	
+	private String texteBoutonOuvrir;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
 		
 		DoitEtre.nonNul(conteneurSauvegardes);
+		
+		texteBoutonOuvrir = resources.getString("ouvrirSauvegarde");
 	}
 
 	@Override
@@ -52,6 +56,6 @@ public class VueSauvegardesFX implements VueSauvegardes, Initializable {
 	public void ajouterSauvegarde(UneSauvegardeLectureSeule uneSauvegarde) {
 		J.appel(this);
 
-		conteneurSauvegardes.ajouterSauvegarde(uneSauvegarde);
+		conteneurSauvegardes.ajouterSauvegarde(uneSauvegarde, texteBoutonOuvrir);
 	}
 }
