@@ -3,9 +3,11 @@ package quatredesuite.messages.transmettre_coup;
 import commun.debogage.J;
 import commun.messages.Message;
 
-public class TransmettreCoup extends Message<TransmettreCoupPourEnvoi, TransmettreCoupRecu>
+public class TransmettreCoup extends Message<TransmettreCoupPourEnvoi, 
+                                             TransmettreCoupRecu>
 
-					         implements TransmettreCoupPourEnvoi, TransmettreCoupRecu {
+					         implements TransmettreCoupPourEnvoi, 
+					                    TransmettreCoupRecu {
 	
 	private int indiceColonne;
 

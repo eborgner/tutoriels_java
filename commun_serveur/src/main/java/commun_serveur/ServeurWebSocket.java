@@ -8,7 +8,6 @@ import org.java_websocket.server.WebSocketServer;
 
 import commun.debogage.Erreur;
 import commun.debogage.J;
-import commun.messages.Canal;
 import commun.messages.FabriqueMessage;
 
 public abstract class ServeurWebSocket extends WebSocketServer {

@@ -8,6 +8,7 @@ import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 
 import static quatredesuite_javafx.Constantes.*;
+import static quatredesuite.Constantes.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -71,15 +72,14 @@ public class Principal extends Application {
 		J.appel(this);
 
 		URI uriServeur = null;
-		String adresseServeur = quatredesuite.Constantes.ADRESSE_SERVEUR;
 		
 		try {
 
-			uriServeur = new URI(adresseServeur);
+			uriServeur = new URI(ADRESSE_SERVEUR);
 
 		} catch (URISyntaxException e) {
 			
-			Erreur.fatale("L'adresse du serveur est mal formée: " + adresseServeur, e);
+			Erreur.fatale("L'adresse du serveur est mal formée: " + ADRESSE_SERVEUR, e);
 		}
 
 		connecterAuServeur(uriServeur);
