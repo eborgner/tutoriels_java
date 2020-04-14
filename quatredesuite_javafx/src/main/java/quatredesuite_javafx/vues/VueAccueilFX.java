@@ -1,5 +1,6 @@
 package quatredesuite_javafx.vues;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,6 +8,7 @@ import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.ChargeurDeVue;
+import commun_javafx.DialogueModal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -91,6 +93,24 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 				J.appel(this);
 				
 				ouvrirParametresPourEnvoi.envoyerCommande();
+			}
+		});
+		
+		menuSauvegarderPartieLocale.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				// FIXME: faire ça dans le contrôleur SVP
+				File fichierChoisi = DialogueModal.ouvrirDialogueFichiers();
+				
+				if(fichierChoisi != null) {
+					
+					J.valeurs("TODO: sauvegarder dans: " + fichierChoisi.getAbsolutePath());
+					
+					
+				}
 			}
 		});
 		

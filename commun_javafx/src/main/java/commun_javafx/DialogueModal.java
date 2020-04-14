@@ -1,9 +1,12 @@
 package commun_javafx;
 
+import java.io.File;
+
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -38,5 +41,14 @@ public class DialogueModal {
 		});
         
         return fenetreModale;
+	}
+
+	public static File ouvrirDialogueFichiers() {
+		J.appel(DialogueModal.class);
+		
+	     FileChooser fileChooser = new FileChooser();
+         File fichierChoisi = fileChooser.showSaveDialog(fenetrePrincipale);
+         
+         return fichierChoisi;
 	}
 }

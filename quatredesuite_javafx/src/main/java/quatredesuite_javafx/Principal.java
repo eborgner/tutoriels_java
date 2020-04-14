@@ -42,7 +42,7 @@ public class Principal extends Application {
 		connecterAuServeur();
 		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
-		
+
 		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_PRINCIPAL_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PRINCIPAL_CSS);
