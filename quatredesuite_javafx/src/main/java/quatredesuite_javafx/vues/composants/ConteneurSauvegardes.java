@@ -8,10 +8,10 @@ import quatredesuite.modeles.sauvegardes.UneSauvegardeLectureSeule;
 public class ConteneurSauvegardes extends VBox {
 	
 	
-	public void ajouterItem(UneSauvegardeLectureSeule uneSauvegardeLectureSeule) {
+	public void ajouterSauvegarde(UneSauvegardeLectureSeule uneSauvegarde) {
 		J.appel(this);
 		
-		AfficheurUneSauvegarde afficheur = new AfficheurUneSauvegarde(uneSauvegardeLectureSeule, styleClassLigne());
+		AfficheurUneSauvegarde afficheur = new AfficheurUneSauvegarde(uneSauvegarde, styleClassLigne());
 
 		this.getChildren().add(afficheur);
 	}
@@ -30,9 +30,9 @@ public class ConteneurSauvegardes extends VBox {
 		return styleClassItem;
 	}
 
-	public void vider() {
+	public void viderLesSauvegardes() {
 		J.appel(this);
-		
+
 		this.getChildren().clear();
 	}
 }

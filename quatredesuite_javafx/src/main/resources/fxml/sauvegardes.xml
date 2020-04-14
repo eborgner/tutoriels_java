@@ -9,9 +9,10 @@
 
 <HBox xmlns:fx="http://javafx.com/fxml"
     id="conteneurPrincipal"
-    fx:controller="quatredesuite_javafx.vues.VueSauvegardesFX">
+    fx:controller="quatredesuite_javafx.vues.VueSauvegardesFX"
+    VBox.vgrow="ALWAYS">
 
-    <Pane styleClass="grosEspace" HBox.hgrow="ALWAYS" />
+    <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS" />
 
     <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
 
@@ -26,6 +27,6 @@
 
     </VBox>
 
-    <Pane styleClass="grosEspace" HBox.hgrow="ALWAYS"/>
+    <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
 
 </HBox>

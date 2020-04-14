@@ -24,8 +24,7 @@ public class AfficheurUneSauvegarde extends VBox {
 		super();
 		J.appel(this);
 		
-		//texte = new Text(uneSauvegardeLectureSeule.getTexte());
-		texte = new Text("fichier.json");
+		texte = new Text(uneSauvegardeLectureSeule.getCheminDansHome());
 		texte.getStyleClass().add(styleClassLigne);
 		
 		remplirVBox(styleClassLigne);
@@ -66,7 +65,7 @@ public class AfficheurUneSauvegarde extends VBox {
 
 	protected void reagirNouvelleTaille() {
 		J.appel(this);
-
+		
 		texte.setFont(new Font(0.5*getHeight()));
 
 		Platform.runLater(new Runnable() {

@@ -1,6 +1,6 @@
 #conteneurPrincipal {
   -fx-alignment: top-left;
-  -fx-background-color: #161620;
+  -fx-background-color: #305ae1;
 }
 .grosEspace {
   -fx-min-width: 2em;
@@ -24,7 +24,7 @@
   -fx-alignment: center;
 }
 .conteneurUnItem {
-  -fx-alignment: center;
+  -fx-alignment: center-left;
 }
 .conteneurBoutonEffacer {
   -fx-alignment: center-right;
@@ -38,8 +38,8 @@
   -fx-background-color: #95c5db;
 }
 .rangeePaire {
-  -fx-background-color: #bcced6;
+  -fx-background-color: #fd5435;
 }
 .rangeeImpaire {
-  -fx-background-color: #95c5db;
+  -fx-background-color: #fccd0e;
 }

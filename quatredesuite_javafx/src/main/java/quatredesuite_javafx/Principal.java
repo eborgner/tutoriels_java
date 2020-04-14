@@ -58,11 +58,13 @@ public class Principal extends Application {
 
 		fenetrePrincipale.setScene(scene);
 		
+		/*
 		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS);
 		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS);
 
 		fenetrePrincipale.setMaxWidth(LARGEUR_PIXELS);
 		fenetrePrincipale.setMaxHeight(HAUTEUR_PIXELS);
+		*/
 
 		fenetrePrincipale.show();
 	}
