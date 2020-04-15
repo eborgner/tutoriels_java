@@ -106,6 +106,7 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
 		
 		partieLocale = new PartieLocale();
+		partieLocale.initialiser();
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		

@@ -68,7 +68,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 
 		}catch(IOException e) { }
 
-		if(sauvegardePartie != null && sauvegardePartie.siBienFormee()) {
+		if(sauvegardePartie != null && sauvegardePartie.siInitialisee()) {
 			ajouterSauvegarde(fichier);
 		}
 	}
