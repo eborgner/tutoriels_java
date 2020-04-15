@@ -17,20 +17,18 @@
 
     <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
 
-
         <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
 		<Text HBox.hgrow="ALWAYS" fx:id="texteRechercheEnCours" text="%rechercheEnCours" />
 
         <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
 
+
         <ConteneurSauvegardes id="conteneurSauvegardes" 
                               VBox.vgrow="ALWAYS"
                               fx:id="conteneurSauvegardes"/>
 
         <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
-
-		<Text HBox.hgrow="ALWAYS" fx:id="texteRepertoire" />
 
     </VBox>
 

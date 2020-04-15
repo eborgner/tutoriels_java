@@ -19,9 +19,9 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		super.demarrer();
 		J.appel(this);
 		
-		chercherSauvegardes();
-		
 		/*
+		chercherSauvegardes();
+		*/
 		
 		new Thread() {
 			
@@ -30,23 +30,28 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				chercherSauvegardes();
 			}
 		}.start();
-		*/
 	}
 
 	private void chercherSauvegardes() {
 		J.appel(this);
 		
+		vue.afficherRechercheEnCours();
+		
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);
-
+		
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				vue.cacherRechercheEnCours();
+			}
+		});
 	}
 	
 	
 	private void chercherSauvegardes(File repertoire) {
 		J.appel(this);
-		
-		vue.afficherRepertoire(repertoire.getPath());
 		
 		for(File fichier : repertoire.listFiles()) {
 
@@ -55,7 +60,10 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				ajouterSauvegardeSiPossible(fichier);
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
+				
+				chercherSauvegardes(fichier);
 
+				/*
 				Platform.runLater(new Runnable() {
 					
 					@Override
@@ -64,7 +72,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 
 						chercherSauvegardes(fichier);
 					}
-				});
+				});*/
 			}
 		}
 	}
@@ -81,6 +89,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		}catch(IOException e) { }
 
 		if(sauvegardePartie != null && sauvegardePartie.siInitialisee()) {
+
 			ajouterSauvegarde(fichier);
 		}
 	}
@@ -88,10 +97,11 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 	private void ajouterSauvegarde(File fichier) {
 		J.appel(this);
 
+		/*
 		modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
 		afficheur.rafraichirAffichage(modele, vue);
+		*/
 
-		/*
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
@@ -100,7 +110,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
 				afficheur.rafraichirAffichage(modele, vue);
 			}});
-			*/
 	}
 	
 
