@@ -3,7 +3,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
 <?import quatredesuite_javafx.vues.composants.ConteneurSauvegardes?>
 
@@ -16,8 +17,12 @@
 
     <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
 
+
         <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
+		<Text HBox.hgrow="ALWAYS" fx:id="texteRechercheEnCours" text="%rechercheEnCours" />
+
+        <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
 
         <ConteneurSauvegardes id="conteneurSauvegardes" 
                               VBox.vgrow="ALWAYS"
@@ -25,8 +30,11 @@
 
         <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
+		<Text HBox.hgrow="ALWAYS" fx:id="texteRepertoire" />
+
     </VBox>
 
     <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
+
 
 </HBox>

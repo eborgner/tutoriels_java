@@ -7,5 +7,9 @@ public interface VueSauvegardes extends Vue {
 	
 	void viderLesSauvegardes();
 	void ajouterSauvegarde(UneSauvegardeLectureSeule laSauvegarde);
+	
+	void afficherRepertoire(String repertoire);
+	void cacherRepertoire();
 
+	void cacherRechercheEnCours();
 }

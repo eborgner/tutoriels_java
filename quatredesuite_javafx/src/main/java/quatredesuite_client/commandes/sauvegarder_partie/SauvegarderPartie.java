@@ -2,8 +2,6 @@ package quatredesuite_client.commandes.sauvegarder_partie;
 
 import commun.debogage.J;
 import commun_client.commandes.Commande;
-import quatredesuite_client.commandes.ajouter_sauvegarde.AjouterSauvegardePourEnvoi;
-import quatredesuite_client.commandes.ajouter_sauvegarde.AjouterSauvegardeRecue;
 
 public class SauvegarderPartie 
        extends    Commande<SauvegarderPartiePourEnvoi,

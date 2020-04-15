@@ -2,8 +2,6 @@ package quatredesuite_client.commandes.ouvrir_sauvegarde;
 
 import commun.debogage.J;
 import commun_client.commandes.Commande;
-import quatredesuite_client.commandes.ajouter_sauvegarde.AjouterSauvegardePourEnvoi;
-import quatredesuite_client.commandes.ajouter_sauvegarde.AjouterSauvegardeRecue;
 
 public class OuvrirSauvegarde 
        extends    Commande<OuvrirSauvegardePourEnvoi,

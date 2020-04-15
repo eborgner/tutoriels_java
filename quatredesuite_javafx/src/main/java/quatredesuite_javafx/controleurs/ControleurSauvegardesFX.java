@@ -39,13 +39,14 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);
-		
-		J.valeurs("RECHERCHE TERMINÉE");
+
 	}
 	
 	
 	private void chercherSauvegardes(File repertoire) {
 		J.appel(this);
+		
+		vue.afficherRepertoire(repertoire.getPath());
 		
 		for(File fichier : repertoire.listFiles()) {
 
@@ -54,14 +55,13 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				ajouterSauvegardeSiPossible(fichier);
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
-				
-				J.valeurs(fichier.getPath());
-				
+
 				Platform.runLater(new Runnable() {
 					
 					@Override
 					public void run() {
 						J.appel(this);
+
 						chercherSauvegardes(fichier);
 					}
 				});
@@ -76,7 +76,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 
 		try {
 
-			J.valeurs(fichier.getPath());
 			sauvegardePartie = Json.aPartirFichier(fichier, PartieLocale.class);
 
 		}catch(IOException e) { }
