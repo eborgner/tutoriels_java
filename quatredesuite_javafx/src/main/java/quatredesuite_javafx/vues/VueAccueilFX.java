@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import commun.debogage.DoitEtre;
 import commun.debogage.J;
+import commun.systeme.Systeme;
 import commun_client.commandes.FabriqueCommande;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
@@ -24,6 +25,8 @@ import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterPourEnvoi;
+import quatredesuite_client.commandes.sauvegarder_partie.SauvegarderPartie;
+import quatredesuite_client.commandes.sauvegarder_partie.SauvegarderPartiePourEnvoi;
 import quatredesuite_client.vues.VueAccueil;
 import static quatredesuite_javafx.Constantes.*;
 
@@ -41,6 +44,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
 	NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
+	SauvegarderPartiePourEnvoi sauvegarderPartiePourEnvoi;
 	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	QuitterPourEnvoi quitterPourEnvoi;
 
@@ -61,6 +65,7 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		
 		nouvellePartieLocalePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
 		nouvellePartieReseauPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieReseau.class);
+		sauvegarderPartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(SauvegarderPartie.class);
 		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
 	}
@@ -102,14 +107,14 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				// FIXME: faire ça dans le contrôleur SVP
 				File fichierChoisi = DialogueModal.ouvrirDialogueFichiers();
-				
+
 				if(fichierChoisi != null) {
-					
-					J.valeurs("TODO: sauvegarder dans: " + fichierChoisi.getAbsolutePath());
-					
-					
+
+					String cheminDansHome = Systeme.cheminDansHome(fichierChoisi);
+
+					sauvegarderPartiePourEnvoi.setCheminDansHome(cheminDansHome);
+					sauvegarderPartiePourEnvoi.envoyerCommande();
 				}
 			}
 		});

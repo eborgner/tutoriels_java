@@ -1,0 +1,57 @@
+{
+  "largeur": 3,
+  "hauteur": 10,
+  "couleurCourante": "JAUNE",
+  "grille": {
+    "colonnes": [
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
+          }
+        ]
+      },
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
+          },
+          {
+            "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
+          },
+          {
+            "couleur": "ROUGE"
+          }
+        ]
+      },
+      {
+        "jetons": [
+          {
+            "couleur": "JAUNE"
+          },
+          {
+            "couleur": "ROUGE"
+          }
+        ]
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": []
+      }
+    ]
+  }
+}

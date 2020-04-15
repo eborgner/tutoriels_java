@@ -13,20 +13,6 @@ public class Sauvegardes
 	
 	private List<UneSauvegarde> lesSauvegardes = new ArrayList<>();
 	
-	public Sauvegardes() {
-		super();
-		J.appel(this);
-		
-		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
-		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
-	}
-
 	@Override
 	public List<UneSauvegardeLectureSeule> getLesSauvegardes() {
 		J.appel(this);
@@ -40,6 +26,14 @@ public class Sauvegardes
 		
 		
 		return lesSauvegardesLectureSeule;
+	}
+	
+	public void ajouterSauvegarde(String cheminDansHome) {
+		J.appel(this);
+		
+		UneSauvegarde uneSauvegarde = new UneSauvegarde(cheminDansHome);
+
+		lesSauvegardes.add(uneSauvegarde);
 	}
 	
 	
