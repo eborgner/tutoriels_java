@@ -20,6 +20,9 @@ public class AfficheurUneSauvegarde extends VBox {
 	private Text texte;
 	private Button boutonOuvrir;
 	
+	private final double FACTEUR_INITIAL = 1.5;
+	private double facteurLargeurTaillePolice;
+	
 
 	public AfficheurUneSauvegarde(UneSauvegardeLectureSeule uneSauvegardeLectureSeule, 
 							      String styleClassLigne,
@@ -27,7 +30,11 @@ public class AfficheurUneSauvegarde extends VBox {
 		super();
 		J.appel(this);
 		
-		texte = new Text(uneSauvegardeLectureSeule.getCheminDansHome());
+		String texteChemin = uneSauvegardeLectureSeule.getCheminDansHome();
+
+		calculerFacteurLargeurTaillePolice(texteChemin.length() + texteBoutonOuvrir.length());
+		
+		texte = new Text(texteChemin);
 		texte.getStyleClass().add(styleClassLigne);
 		
 		boutonOuvrir = new Button(texteBoutonOuvrir);
@@ -37,6 +44,13 @@ public class AfficheurUneSauvegarde extends VBox {
 		installerCapteurEvenement();
 		
 		installerObservateurTaille();
+		
+	}
+	
+	private void calculerFacteurLargeurTaillePolice(int nombreCaracteres) {
+		J.appel(this);
+		
+		facteurLargeurTaillePolice = FACTEUR_INITIAL / nombreCaracteres;
 	}
 
 
@@ -71,7 +85,14 @@ public class AfficheurUneSauvegarde extends VBox {
 	protected void reagirNouvelleTaille() {
 		J.appel(this);
 		
-		texte.setFont(new Font(0.5*getHeight()));
+		double taillePolice = facteurLargeurTaillePolice * getWidth();
+		
+		if(taillePolice > 0.8 * getHeight()) {
+			taillePolice = 0.8 * getHeight();
+		}
+		
+		texte.setFont(new Font(taillePolice));
+		boutonOuvrir.setFont(new Font(0.5*taillePolice));
 
 		Platform.runLater(new Runnable() {
 			@Override
@@ -81,7 +102,6 @@ public class AfficheurUneSauvegarde extends VBox {
 				boutonOuvrir.requestLayout();
 			}
 		});
-		
 	}
 
 	private void remplirVBox(String styleClassItem) {

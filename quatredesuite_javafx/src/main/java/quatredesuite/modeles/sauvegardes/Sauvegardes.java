@@ -19,6 +19,12 @@ public class Sauvegardes
 		
 		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
 		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/test/test/test.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
+		lesSauvegardes.add(new UneSauvegarde("~/pouet/pouet/pouet.json"));
 	}
 
 	@Override
