@@ -41,7 +41,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	
 	private PartieLocale partieLocale;
 
-
 	@Override
 	protected void demarrer() {
 		J.appel(this);
@@ -132,11 +131,11 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		VueSauvegardesFX vueSauvegardes = vue.creerVueSauvegardes();
 		
-		Sauvegardes sauvegardes = new Sauvegardes();
+		Sauvegardes lesSauvegardes = new Sauvegardes();
 		
 		AfficheurSauvegardesFX afficheur = new AfficheurSauvegardesFX();
 		
-		FabriqueControleur.creerControleur(ControleurSauvegardesFX.class, sauvegardes, vueSauvegardes, afficheur);
+		FabriqueControleur.creerControleur(ControleurSauvegardesFX.class, lesSauvegardes, vueSauvegardes, afficheur);
 	}
 
 	private void sauvegarderPartieLocale(String cheminDansHome) {
@@ -169,6 +168,8 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		
 		DialogueModal.ouvrirDialogueModal(scene);
 	}
+	
+	
 
 
 }

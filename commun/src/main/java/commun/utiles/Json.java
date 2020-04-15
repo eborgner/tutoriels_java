@@ -1,7 +1,10 @@
 package commun.utiles;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -34,6 +37,25 @@ public class Json {
 		
 		sortieStream.write(gsonPourFichier.toJson(objet).getBytes());
 		sortieStream.close();
+	}
+
+	public static <T> T aPartirFichier(File fichier, Class<T> classeT) throws IOException {
+		J.appel(Json.class);
+		
+		FileReader reader = new FileReader(fichier);
+		
+		T resultat = null; 
+		
+		try {
+			
+			gsonPourFichier.fromJson(reader, classeT);
+
+		} catch(Exception e) {
+			
+			throw new IOException(e);
+		}
+
+		return resultat;
 	}
 
 }
