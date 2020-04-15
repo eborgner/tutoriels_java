@@ -1,6 +1,7 @@
 package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
+import commun_client.commandes.FabriqueCommande;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -14,8 +15,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import quatredesuite.modeles.sauvegardes.UneSauvegardeLectureSeule;
+import quatredesuite_client.commandes.ouvrir_sauvegarde.OuvrirSauvegarde;
+import quatredesuite_client.commandes.ouvrir_sauvegarde.OuvrirSauvegardePourEnvoi;
 
-public class AfficheurUneSauvegarde extends VBox {
+public class ConteneurUneSauvegarde extends VBox {
 	
 	private Text texte;
 	private Button boutonOuvrir;
@@ -23,23 +26,26 @@ public class AfficheurUneSauvegarde extends VBox {
 	private final double FACTEUR_INITIAL = 1.5;
 	private double facteurLargeurTaillePolice;
 	
+	private OuvrirSauvegardePourEnvoi ouvrirSauvegarde;
 
-	public AfficheurUneSauvegarde(UneSauvegardeLectureSeule uneSauvegardeLectureSeule, 
+	public ConteneurUneSauvegarde(UneSauvegardeLectureSeule uneSauvegardeLectureSeule, 
 							      String styleClassLigne,
 							      String texteBoutonOuvrir) {
 		super();
 		J.appel(this);
 		
-		String texteChemin = uneSauvegardeLectureSeule.getCheminDansHome();
+		String cheminDansHome = uneSauvegardeLectureSeule.getCheminDansHome();
 
-		calculerFacteurLargeurTaillePolice(texteChemin.length() + texteBoutonOuvrir.length());
+		calculerFacteurLargeurTaillePolice(cheminDansHome.length() + texteBoutonOuvrir.length());
 		
-		texte = new Text(texteChemin);
+		texte = new Text(cheminDansHome);
 		texte.getStyleClass().add(styleClassLigne);
 		
 		boutonOuvrir = new Button(texteBoutonOuvrir);
 		
 		remplirVBox(styleClassLigne);
+		
+		obtenirCommandePourEnvoi(cheminDansHome);
 
 		installerCapteurEvenement();
 		
@@ -186,11 +192,11 @@ public class AfficheurUneSauvegarde extends VBox {
 		return petitEspace;
 	}
 
-	private void obtenirCommandePourEnvoi(int id) {
+	private void obtenirCommandePourEnvoi(String cheminDansHome) {
 		J.appel(this);
 
-		//retirerItemPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(RetirerItem.class);
-		//retirerItemPourEnvoi.setId(id);
+		ouvrirSauvegarde = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirSauvegarde.class);
+		ouvrirSauvegarde.setCheminDansHome(cheminDansHome);
 	}
 
 	private void installerCapteurEvenement() {
@@ -201,7 +207,7 @@ public class AfficheurUneSauvegarde extends VBox {
 			public void handle(ActionEvent event) {
 				J.appel(this);
 				
-				// TODO
+				ouvrirSauvegarde.envoyerCommande();
 			}
 		});
 	}

@@ -18,6 +18,8 @@ import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieResea
 import quatredesuite_client.commandes.nouvelle_partie_reseau.NouvellePartieReseauRecue;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametres;
 import quatredesuite_client.commandes.ouvrir_parametres.OuvrirParametresRecue;
+import quatredesuite_client.commandes.ouvrir_sauvegarde.OuvrirSauvegarde;
+import quatredesuite_client.commandes.ouvrir_sauvegarde.OuvrirSauvegardeRecue;
 import quatredesuite_client.commandes.quitter.Quitter;
 import quatredesuite_client.commandes.quitter.QuitterRecue;
 import quatredesuite_client.commandes.sauvegarder_partie.SauvegarderPartie;
@@ -98,20 +100,55 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 				Systeme.quitter();
 			}
 		});
+		
+		installerRecepteurCommande(OuvrirSauvegarde.class, new RecepteurCommandeMVC<OuvrirSauvegardeRecue>() {
+			@Override
+			public void executerCommandeMVC(OuvrirSauvegardeRecue commande) {
+				J.appel(this);
+				
+				ouvrirSauvegarde(commande.getCheminDansHome());
+				
+			}
+		});
 	}
 	
 	private void nouvellePartieLocale() {
 		J.appel(this);
-		
-		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
-		
+
 		partieLocale = new PartieLocale();
 		partieLocale.initialiser();
+		
+		instancierMVCPartieLocale();
+		
+	}
+
+
+	private void instancierMVCPartieLocale() {
+		J.appel(this);
+
+		VuePartieLocaleFX vuePartieLocale = vue.creerVuePartieLocale();
 		
 		AfficheurPartieLocaleFX afficheur = new AfficheurPartieLocaleFX();
 		
 		FabriqueControleur.creerControleur(ControleurPartieLocaleFX.class, partieLocale, vuePartieLocale, afficheur);
+	}
+	
+	private void ouvrirSauvegarde(String cheminDansHome) {
+		J.appel(this);
 		
+		File sauvegarde = Systeme.aPartirCheminDansHome(cheminDansHome);
+		
+		try {
+
+			partieLocale = Json.aPartirFichier(sauvegarde, PartieLocale.class);
+
+		} catch (IOException e) {
+			
+			Erreur.fatale(String.format("La sauvegarde '%s' doit être valide", cheminDansHome), e);
+
+		}
+		
+		instancierMVCPartieLocale();
 	}
 
 	private void nouvellePartieReseau() {

@@ -11,7 +11,7 @@ public class ConteneurSauvegardes extends VBox {
 	public void ajouterSauvegarde(UneSauvegardeLectureSeule uneSauvegarde, String texteBoutonOuvrir) {
 		J.appel(this);
 		
-		AfficheurUneSauvegarde afficheur = new AfficheurUneSauvegarde(uneSauvegarde, styleClassLigne(), texteBoutonOuvrir);
+		ConteneurUneSauvegarde afficheur = new ConteneurUneSauvegarde(uneSauvegarde, styleClassLigne(), texteBoutonOuvrir);
 
 		this.getChildren().add(afficheur);
 	}

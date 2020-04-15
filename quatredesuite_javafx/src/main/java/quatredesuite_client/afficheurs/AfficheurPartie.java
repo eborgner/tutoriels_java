@@ -24,6 +24,8 @@ public abstract class   AfficheurPartie<PLS extends PartieLectureSeule,
 		int hauteur = partieLectureSeule.getHauteur();
 		
 		vue.creerGrille(largeur, hauteur);
+		
+		rafraichirAffichage(partieLectureSeule, vue);
 	}
 
 	@Override
