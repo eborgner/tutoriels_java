@@ -2,9 +2,6 @@ package quatredesuite_javafx.vues.composants;
 
 import commun.debogage.J;
 import commun_client.commandes.FabriqueCommande;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -23,8 +20,6 @@ public class ConteneurUneSauvegarde extends VBox {
 	private Text texte;
 	private Button boutonOuvrir;
 	
-	private final double FACTEUR_INITIAL = 1.5;
-	private double facteurLargeurTaillePolice;
 	
 	private OuvrirSauvegardePourEnvoi ouvrirSauvegarde;
 
@@ -36,8 +31,6 @@ public class ConteneurUneSauvegarde extends VBox {
 		
 		String cheminDansHome = uneSauvegardeLectureSeule.getCheminDansHome();
 
-		calculerFacteurLargeurTaillePolice(cheminDansHome.length() + texteBoutonOuvrir.length());
-		
 		texte = new Text(cheminDansHome);
 		texte.getStyleClass().add(styleClassLigne);
 		
@@ -48,67 +41,10 @@ public class ConteneurUneSauvegarde extends VBox {
 		obtenirCommandePourEnvoi(cheminDansHome);
 
 		installerCapteurEvenement();
-		
-		installerObservateurTaille();
-		
 	}
 	
-	private void calculerFacteurLargeurTaillePolice(int nombreCaracteres) {
-		J.appel(this);
-		
-		facteurLargeurTaillePolice = FACTEUR_INITIAL / nombreCaracteres;
-	}
 
 
-	private void installerObservateurTaille() {
-		J.appel(this);
-		
-		this.widthProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				
-				if(getHeight() != 0) {
-					
-					reagirNouvelleTaille();
-				}
-			}
-		});
-		
-		this.heightProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				J.appel(this);
-				
-				if(getWidth() != 0) {
-					
-					reagirNouvelleTaille();
-				}
-			}
-		});
-	}
-
-	protected void reagirNouvelleTaille() {
-		J.appel(this);
-		
-		double taillePolice = facteurLargeurTaillePolice * getWidth();
-		
-		if(taillePolice > 0.8 * getHeight()) {
-			taillePolice = 0.8 * getHeight();
-		}
-		
-		texte.setFont(new Font(taillePolice));
-		boutonOuvrir.setFont(new Font(0.5*taillePolice));
-
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				J.appel(this);
-
-				boutonOuvrir.requestLayout();
-			}
-		});
-	}
 
 	private void remplirVBox(String styleClassItem) {
 		J.appel(this);
@@ -210,5 +146,12 @@ public class ConteneurUneSauvegarde extends VBox {
 				ouvrirSauvegarde.envoyerCommande();
 			}
 		});
+	}
+
+	public void ajusterTaillePolice(double taillePolice) {
+		J.appel(this);
+
+		texte.setFont(new Font(taillePolice));
+		boutonOuvrir.setFont(new Font(0.75*taillePolice));
 	}
 }

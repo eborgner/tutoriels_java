@@ -19,7 +19,7 @@ public class Constantes {
 	public static final String CHEMIN_VUE_SAUVEGARDES_FXML = "/fxml/sauvegardes.xml";
 	public static final String CHEMIN_VUE_SAUVEGARDES_CSS = "/css/sauvegardes.css";
 
-	public static final int LARGEUR_PIXELS = 340;
-	public static final int HAUTEUR_PIXELS = 500;
+	public static final int LARGEUR_PIXELS = 780;
+	public static final int HAUTEUR_PIXELS = 420;
 
 }
