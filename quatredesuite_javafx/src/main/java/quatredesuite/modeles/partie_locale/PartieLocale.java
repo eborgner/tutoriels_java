@@ -16,4 +16,5 @@ public class      PartieLocale
 		 largeur =  3 + (new Random().nextInt(5));
 		 hauteur = 4 + (new Random().nextInt(8));
 	}
+
 }

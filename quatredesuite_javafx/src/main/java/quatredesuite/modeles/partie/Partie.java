@@ -23,6 +23,12 @@ public class      Partie<PLS extends PartieLectureSeule>
 		grille = new Grille();
 		grille.initialiser(largeur);
 	}
+
+	public boolean siBienFormee() {
+		J.appel(this);
+		
+		return largeur > 0 && hauteur > 0 && couleurCourante != null && grille != null;
+	}
 	
     public void jouerIci(int indiceColonne){
         J.appel(this);

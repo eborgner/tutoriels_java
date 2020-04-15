@@ -48,7 +48,7 @@ public class Json {
 		
 		try {
 			
-			gsonPourFichier.fromJson(reader, classeT);
+			resultat = gsonPourFichier.fromJson(reader, classeT);
 
 		} catch(Exception e) {
 			

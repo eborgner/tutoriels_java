@@ -1,13 +1,12 @@
 package quatredesuite_javafx.controleurs;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
 
 import commun.debogage.J;
 import commun.systeme.Systeme;
 import commun.utiles.Json;
+import javafx.application.Platform;
 import quatredesuite.modeles.partie_locale.PartieLocale;
 import quatredesuite_client.controleurs.ControleurSauvegardes;
 import quatredesuite_javafx.afficheurs.AfficheurSauvegardesFX;
@@ -20,7 +19,13 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		super.demarrer();
 		J.appel(this);
 		
-		chercherSauvegardes();
+		new Thread() {
+			
+			@Override
+			public void run() {
+				chercherSauvegardes();
+			}
+		}.start();
 	}
 
 	private void chercherSauvegardes() {
@@ -29,6 +34,8 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);
+		
+		J.valeurs("RECHERCHE TERMINÉE");
 	}
 	
 	
@@ -41,8 +48,9 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				
 				ajouterSauvegardeSiPossible(fichier);
 				
-			} else if(fichier.isDirectory()) {
+			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
 				
+				J.valeurs(fichier.getPath());
 				chercherSauvegardes(fichier);
 			}
 		}
@@ -51,28 +59,31 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 	private void ajouterSauvegardeSiPossible(File fichier) {
 		J.appel(this);
 
-		PartieLocale partieLocale = null;
+		PartieLocale sauvegardePartie = null;
 
 		try {
 
-			partieLocale = Json.aPartirFichier(fichier, PartieLocale.class);
-
-		}catch(IOException e) {
-			
 			J.valeurs(fichier.getPath());
+			sauvegardePartie = Json.aPartirFichier(fichier, PartieLocale.class);
+
+		}catch(IOException e) { }
+
+		if(sauvegardePartie != null && sauvegardePartie.siBienFormee()) {
+			ajouterSauvegarde(fichier);
 		}
-		
-		ajouterSauvegardeSiPossible(fichier, partieLocale);
 	}
 
-	private void ajouterSauvegardeSiPossible(File fichier, PartieLocale partieLocale) {
+	private void ajouterSauvegarde(File fichier) {
 		J.appel(this);
 
-		if(partieLocale != null) {
-			
-			modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
-			afficheur.rafraichirAffichage(modele, vue);
-		}
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				J.appel(this);
+
+				modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
+				afficheur.rafraichirAffichage(modele, vue);
+			}});
 	}
 	
 
