@@ -19,10 +19,9 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		super.demarrer();
 		J.appel(this);
 		
-		/*
 		chercherSauvegardes();
-		*/
 		
+		/*
 		new Thread() {
 			
 			@Override
@@ -30,6 +29,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				chercherSauvegardes();
 			}
 		}.start();
+		*/
 	}
 
 	private void chercherSauvegardes() {
@@ -41,12 +41,16 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		
 		chercherSauvegardes(home);
 		
+		/*
+		
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
 				vue.cacherRechercheEnCours();
 			}
 		});
+		
+		*/
 	}
 	
 	
@@ -61,9 +65,10 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
 				
-				chercherSauvegardes(fichier);
-
 				/*
+				chercherSauvegardes(fichier);
+				*/
+
 				Platform.runLater(new Runnable() {
 					
 					@Override
@@ -72,7 +77,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 
 						chercherSauvegardes(fichier);
 					}
-				});*/
+				});
 			}
 		}
 	}
