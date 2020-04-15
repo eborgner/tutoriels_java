@@ -40,6 +40,7 @@ public class VueSauvegardesFX implements VueSauvegardes, Initializable {
 		texteSauvegardes = resources.getString("lesSauvegardes");
 		
 		creerAnimationRechercheEnCours();
+		animationRechercheEnCours.play();
 	}
 	
 	private void creerAnimationRechercheEnCours() {
@@ -102,14 +103,6 @@ public class VueSauvegardesFX implements VueSauvegardes, Initializable {
 		J.appel(this);
 
 		conteneurSauvegardes.ajouterSauvegarde(uneSauvegarde, texteBoutonOuvrir);
-	}
-
-	@Override
-	public void afficherRechercheEnCours() {
-		J.appel(this);
-		
-		texteRechercheEnCours.setVisible(true);
-		animationRechercheEnCours.play();
 	}
 
 	@Override

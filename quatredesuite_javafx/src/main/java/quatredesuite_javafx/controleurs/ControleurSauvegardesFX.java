@@ -35,8 +35,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 	private void chercherSauvegardes() {
 		J.appel(this);
 		
-		vue.afficherRechercheEnCours();
-		
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);

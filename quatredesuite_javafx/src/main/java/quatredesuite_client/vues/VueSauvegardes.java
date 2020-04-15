@@ -8,6 +8,5 @@ public interface VueSauvegardes extends Vue {
 	void viderLesSauvegardes();
 	void ajouterSauvegarde(UneSauvegardeLectureSeule laSauvegarde);
 	
-	void afficherRechercheEnCours();
 	void cacherRechercheEnCours();
 }
