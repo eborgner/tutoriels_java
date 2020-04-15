@@ -19,15 +19,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		super.demarrer();
 		J.appel(this);
 		
-		Platform.runLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				J.appel(this);
-				
-				chercherSauvegardes();
-			}
-		});
+		chercherSauvegardes();
 		
 		/*
 		
@@ -64,7 +56,15 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
 				
 				J.valeurs(fichier.getPath());
-				chercherSauvegardes(fichier);
+				
+				Platform.runLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						J.appel(this);
+						chercherSauvegardes(fichier);
+					}
+				});
 			}
 		}
 	}
