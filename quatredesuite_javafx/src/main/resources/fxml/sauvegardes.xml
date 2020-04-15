@@ -19,7 +19,7 @@
 
         <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
 
-		<Text HBox.hgrow="ALWAYS" fx:id="texteRechercheEnCours" text="%rechercheEnCours" />
+		<Text HBox.hgrow="ALWAYS" id="texteRechercheEnCours" fx:id="texteRechercheEnCours" text="%rechercheEnCours" />
 
         <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
 
