@@ -40,6 +40,9 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 	private void chercherSauvegardes(File repertoire) {
 		J.appel(this);
 		
+		// XXX: en Windows, listFiles() peut retourner null
+		if(repertoire.listFiles() == null) return;
+		
 		for(File fichier : repertoire.listFiles()) {
 
 			if(fichier.isFile() && fichier.getName().endsWith("json")) {
