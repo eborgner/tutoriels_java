@@ -39,8 +39,6 @@ public class Principal extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		connecterAuServeur();
-		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 
 		ChargeurDeVue<VueAccueilFX> chargeur = new ChargeurDeVue<VueAccueilFX>(CHEMIN_PRINCIPAL_FXML,
@@ -68,45 +66,5 @@ public class Principal extends Application {
 
 		fenetrePrincipale.show();
 	}
-	
-	private void connecterAuServeur() {
-		J.appel(this);
 
-		URI uriServeur = null;
-		String adresseServeur = quatredesuite.Constantes.ADRESSE_SERVEUR;
-		
-		try {
-
-			uriServeur = new URI(adresseServeur);
-
-		} catch (URISyntaxException e) {
-			
-			Erreur.fatale("L'adresse du serveur est mal formée: " + adresseServeur, e);
-		}
-
-		connecterAuServeur(uriServeur);
-	}
-
-	private void connecterAuServeur(URI uriServeur) {
-		J.appel(this);
-
-		client = new ClientQuatreDeSuite(uriServeur);
-		
-		Erreur.avertissement("Tentative de connexion au serveur... ");
-		
-		try {
-
-			client.connectBlocking();
-
-		} catch (InterruptedException e) {
-			
-			Erreur.nonFatale("Tentative de connexion annulée", e);
-		}
-	}
-	
-	public static boolean siConnecteAuServeur() {
-		J.appel(Principal.class);
-		
-		return client != null && client.isOpen();
-	}
 }
