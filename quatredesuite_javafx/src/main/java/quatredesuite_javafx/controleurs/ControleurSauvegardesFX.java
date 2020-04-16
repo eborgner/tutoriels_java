@@ -6,8 +6,7 @@ import java.io.IOException;
 import commun.debogage.J;
 import commun.systeme.Systeme;
 import commun.utiles.Json;
-import javafx.application.Platform;
-import quatredesuite.modeles.partie_locale.PartieLocale;
+import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite_client.controleurs.ControleurSauvegardes;
 import quatredesuite_javafx.afficheurs.AfficheurSauvegardesFX;
 import quatredesuite_javafx.vues.VueSauvegardesFX;
@@ -19,25 +18,7 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		super.demarrer();
 		J.appel(this);
 		
-		Platform.runLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				J.appel(this);
-				chercherSauvegardes();
-			}
-		});
-		
-		
-		/*
-		new Thread() {
-			
-			@Override
-			public void run() {
-				chercherSauvegardes();
-			}
-		}.start();
-		*/
+		chercherSauvegardes();
 	}
 
 	private void chercherSauvegardes() {
@@ -46,19 +27,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);
-
-		vue.cacherRechercheEnCours();
-		
-		/*
-		
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				vue.cacherRechercheEnCours();
-			}
-		});
-		
-		*/
 	}
 	
 	
@@ -72,22 +40,8 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				ajouterSauvegardeSiPossible(fichier);
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
-				
+
 				chercherSauvegardes(fichier);
-				
-				/*
-
-				Platform.runLater(new Runnable() {
-					
-					@Override
-					public void run() {
-						J.appel(this);
-
-						chercherSauvegardes(fichier);
-					}
-				});
-				
-				*/
 			}
 		}
 	}
@@ -114,17 +68,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 
 		modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
 		afficheur.rafraichirAffichage(modele, vue);
-
-		/*
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				J.appel(this);
-
-				modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
-				afficheur.rafraichirAffichage(modele, vue);
-			}});
-			*/
 	}
 	
 

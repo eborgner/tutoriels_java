@@ -9,8 +9,7 @@ import commun_client.mvc.controleurs.RecepteurCommandeMVC;
 import commun_javafx.ChargeurDeVue;
 import commun_javafx.DialogueModal;
 import javafx.scene.Scene;
-import quatredesuite.modeles.partie_locale.PartieLocale;
-import quatredesuite.modeles.partie_reseau.PartieReseau;
+import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite.modeles.sauvegardes.Sauvegardes;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocale;
 import quatredesuite_client.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
@@ -26,10 +25,8 @@ import quatredesuite_client.commandes.sauvegarder_partie.SauvegarderPartie;
 import quatredesuite_client.commandes.sauvegarder_partie.SauvegarderPartieRecue;
 import quatredesuite_client.controleurs.ControleurAccueil;
 import quatredesuite_javafx.afficheurs.AfficheurPartieLocaleFX;
-import quatredesuite_javafx.afficheurs.AfficheurPartieReseauFX;
 import quatredesuite_javafx.afficheurs.AfficheurSauvegardesFX;
 import quatredesuite_javafx.vues.VuePartieLocaleFX;
-import quatredesuite_javafx.vues.VuePartieReseauFX;
 import quatredesuite_javafx.vues.VueSauvegardesFX;
 import quatredesuite_javafx.vues.VueAccueilFX;
 import static quatredesuite_javafx.Constantes.*;
@@ -61,15 +58,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 				J.appel(this);
 				
 				nouvellePartieLocale();
-			}
-		});
-
-		installerRecepteurCommande(NouvellePartieReseau.class, new RecepteurCommandeMVC<NouvellePartieReseauRecue>() {
-			@Override
-			public void executerCommandeMVC(NouvellePartieReseauRecue commande) {
-				J.appel(this);
-				
-				nouvellePartieReseau();
 			}
 		});
 		
@@ -149,19 +137,6 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 		}
 		
 		instancierMVCPartieLocale();
-	}
-
-	private void nouvellePartieReseau() {
-		J.appel(this);
-		
-		VuePartieReseauFX vuePartieReseau = vue.creerVuePartieReseau();
-		
-		PartieReseau partie = new PartieReseau();
-		
-		AfficheurPartieReseauFX afficheur = new AfficheurPartieReseauFX();
-		
-		FabriqueControleur.creerControleur(ControleurPartieReseauFX.class, partie, vuePartieReseau, afficheur);
-		
 	}
 
 	private void afficherSauvegardes() {

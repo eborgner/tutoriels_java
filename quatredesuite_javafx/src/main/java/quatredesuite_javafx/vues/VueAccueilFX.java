@@ -34,7 +34,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	
 	@FXML
 	MenuItem menuNouvellePartieLocale, 
-	         menuNouvellePartieReseau, 
 	         menuSauvegarderPartieLocale, 
 	         menuParametres, 
 	         menuQuitter;
@@ -43,7 +42,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 	VBox conteneurPartie;
 	
 	NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
-	NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
 	SauvegarderPartiePourEnvoi sauvegarderPartiePourEnvoi;
 	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	QuitterPourEnvoi quitterPourEnvoi;
@@ -53,7 +51,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		J.appel(this);
 		
 		DoitEtre.nonNul(menuNouvellePartieLocale);
-		DoitEtre.nonNul(menuNouvellePartieReseau);
 		DoitEtre.nonNul(menuSauvegarderPartieLocale);
 		DoitEtre.nonNul(menuParametres);
 		DoitEtre.nonNul(menuQuitter);
@@ -64,7 +61,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		J.appel(this);
 		
 		nouvellePartieLocalePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieLocale.class);
-		nouvellePartieReseauPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(NouvellePartieReseau.class);
 		sauvegarderPartiePourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(SauvegarderPartie.class);
 		ouvrirParametresPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(OuvrirParametres.class);
 		quitterPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(Quitter.class);
@@ -80,15 +76,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 				J.appel(this);
 				
 				nouvellePartieLocalePourEnvoi.envoyerCommande();
-			}
-		});
-
-		menuNouvellePartieReseau.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				nouvellePartieReseauPourEnvoi.envoyerCommande();
 			}
 		});
 
@@ -162,23 +149,6 @@ public class VueAccueilFX implements VueAccueil, Initializable {
 		conteneurPartie.getChildren().add(parent);
 		
 		return vuePartieLocale;
-	}
-
-	public VuePartieReseauFX creerVuePartieReseau() {
-		J.appel(this);
-
-		ChargeurDeVue<VuePartieReseauFX> chargeur = new ChargeurDeVue<VuePartieReseauFX>(CHEMIN_PARTIE_RESEAU_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARTIE_RESEAU_CSS);
-		
-		VuePartieReseauFX vuePartieReseau = chargeur.getVue();
-		
-		Parent parent = chargeur.getParent();
-		
-		conteneurPartie.getChildren().clear();
-		conteneurPartie.getChildren().add(parent);
-		
-		return vuePartieReseau;
 	}
 
 	@Override
