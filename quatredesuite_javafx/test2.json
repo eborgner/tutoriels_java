@@ -1,7 +1,7 @@
 {
   "largeur": 3,
   "hauteur": 10,
-  "couleurCourante": "JAUNE",
+  "couleurCourante": "ROUGE",
   "grille": {
     "colonnes": [
       {
@@ -11,6 +11,12 @@
           },
           {
             "couleur": "JAUNE"
+          },
+          {
+            "couleur": "JAUNE"
+          },
+          {
+            "couleur": "ROUGE"
           }
         ]
       },
@@ -30,6 +36,9 @@
           },
           {
             "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
           }
         ]
       },
