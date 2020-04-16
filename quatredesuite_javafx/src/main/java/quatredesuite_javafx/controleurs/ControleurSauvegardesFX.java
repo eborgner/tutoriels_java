@@ -6,7 +6,6 @@ import java.io.IOException;
 import commun.debogage.J;
 import commun.systeme.Systeme;
 import commun.utiles.Json;
-import javafx.application.Platform;
 import quatredesuite.modeles.partie.PartieLocale;
 import quatredesuite_client.controleurs.ControleurSauvegardes;
 import quatredesuite_javafx.afficheurs.AfficheurSauvegardesFX;
