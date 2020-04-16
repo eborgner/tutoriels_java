@@ -20,16 +20,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		J.appel(this);
 		
 		chercherSauvegardes();
-		
-		/*
-		new Thread() {
-			
-			@Override
-			public void run() {
-				chercherSauvegardes();
-			}
-		}.start();
-		*/
 	}
 
 	private void chercherSauvegardes() {
@@ -38,17 +28,6 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 		File home = Systeme.getHome().toFile();
 		
 		chercherSauvegardes(home);
-		
-		/*
-		
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				vue.cacherRechercheEnCours();
-			}
-		});
-		
-		*/
 	}
 	
 	
@@ -62,20 +41,8 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				ajouterSauvegardeSiPossible(fichier);
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
-				
-				/*
+
 				chercherSauvegardes(fichier);
-				*/
-
-				Platform.runLater(new Runnable() {
-					
-					@Override
-					public void run() {
-						J.appel(this);
-
-						chercherSauvegardes(fichier);
-					}
-				});
 			}
 		}
 	}
@@ -100,19 +67,8 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 	private void ajouterSauvegarde(File fichier) {
 		J.appel(this);
 
-		/*
 		modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
 		afficheur.rafraichirAffichage(modele, vue);
-		*/
-
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				J.appel(this);
-
-				modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
-				afficheur.rafraichirAffichage(modele, vue);
-			}});
 	}
 	
 
