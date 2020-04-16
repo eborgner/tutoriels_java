@@ -47,8 +47,14 @@ public class ControleurSauvegardesFX extends ControleurSauvegardes<VueSauvegarde
 				ajouterSauvegardeSiPossible(fichier);
 				
 			} else if(fichier.isDirectory() && !fichier.getName().startsWith(".")) {
-
-				chercherSauvegardes(fichier);
+				
+				Platform.runLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						chercherSauvegardes(fichier);
+					}
+				});
 			}
 		}
 	}
