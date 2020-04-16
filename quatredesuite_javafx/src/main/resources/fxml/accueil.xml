@@ -20,11 +20,6 @@
                     <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="%quitter"/>
                     </items>
                 </Menu>
-                <Menu styleClass="menu" text="%partieReseau">
-                    <items>
-                    <MenuItem fx:id="menuNouvellePartieReseau" styleClass="menu_item" text="%nouvellePartie"/>
-                    </items>
-                </Menu>
             </menus>
             </MenuBar>
         </top>
